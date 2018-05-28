@@ -53,7 +53,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
 	
 ```
->admin.addPeer("enode://4ddd992647a992299a5646f0d619cbdcd42f3325f158d699c0c7834263b2d16cd281131cd0a6acceaad9ebdac80e8b5ed42436f124d1491e798b12adb8a897a9@128.230.208.73:30303")
+>admin.addPeer("enode://08b0ccb8c343bb0347552252a993a5e63bfc57a5fba42d10ad9410e654edd9b00317d1d7f14140411e486d8dfde2558216aea1669782f2bf60ee6a5a00f6509a@128.230.208.73:30303")
 ```	
 
 Check the connectivity by running:
