@@ -16,6 +16,10 @@ Lab Environment Setup
 
 There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementation, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
 
+***VirtualBox Ubuntu Users***
+
+Download the prebuilt image from [[here]()]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
+
 ***Ubuntu Users***
 Here is the instructions to install the `Geth` for Ubuntu.
 
