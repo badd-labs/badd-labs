@@ -18,7 +18,7 @@ There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-cli
 
 ***VirtualBox Ubuntu Users***
 
-Download the prebuilt image from [[here]()]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
+Download the prebuilt image from [[here](https://drive.google.com/open?id=1beyVKTwsBhr6vtgGUrMdxdH3Lva8sWZY)]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
 
 ***Ubuntu Users***
 Here is the instructions to install the `Geth` for Ubuntu.
