@@ -45,7 +45,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 ```
 $ mkdir <data-dir>
 $ geth --datadir <data-dir> init genesis.json  # create a database that uses this genesis block
-$ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://77ac7ee5b9dfd65d74f7edf3d57d0b9bb1fc3b638f0ead83b0e10aa971992991d30eab295951a8f673c1f78d9b375a55b56acc336d1df0844d4d4bab0eee29ac@128.230.208.73:30301 console 2>console.log
+$ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://f609865a54cfe0fc681178761b08ce16419567e63377ed5e8fbcd10d80ebbecd7bf2f586ca4dc6193dfff3015f7fc25345fd65cfbd121ffaba2557e23a714ffa@128.230.208.73:30301 console 2>console.log 
 ```
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
@@ -53,7 +53,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
 	
 ```
->admin.addPeer("enode://9615bd2070a89015d6a3a6f4ef576211f903ad2d7e4461857f0b8080af24176269eba26fae8e6cf1f3b0e8099c6ed1a2654b0ffbc177c3f269da2d29b42cdd1d@127.0.0.1:30310")
+>admin.addPeer("enode://4ddd992647a992299a5646f0d619cbdcd42f3325f158d699c0c7834263b2d16cd281131cd0a6acceaad9ebdac80e8b5ed42436f124d1491e798b12adb8a897a9@128.230.208.73:30303")
 ```	
 
 Check the connectivity by running:
