@@ -20,6 +20,13 @@ There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-cli
 
 Download the prebuilt image from [[here](https://drive.google.com/open?id=1beyVKTwsBhr6vtgGUrMdxdH3Lva8sWZY)]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
 
+You may want to open a terminal and update the `genesis.json` file:
+
+```bash
+cd SUBlockchainLabs
+git pull
+```
+
 ***Ubuntu Users***
 Here is the instructions to install the `Geth` for Ubuntu.
 
@@ -49,6 +56,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 ```
 $ mkdir <data-dir>
 $ geth --datadir <data-dir> init genesis.json  # create a database that uses this genesis block
+$ # you can find genesis.json file from ~/SUBlockchainLabs/lab3.1
 $ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://dc9999f8ff5f19d304ef338d4d89428cf95df7dd0ad853581c7ad084dc7b86bd5d1711b041af8487b455e079513dd9419cde7f03dca30064fe0aca622f3910dd@128.230.208.73:30301 console 2>console.log 
 ```
 
