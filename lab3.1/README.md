@@ -44,8 +44,8 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 
 ```
 $ mkdir <data-dir>
-$ geth --datadir <data-dir> init genesis.json  # create a database that uses this genesis bloc
-$ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://367f34d8a0cc7035ae931cc7aa308abe8359c1012f9b0c4185b9e43e132147edf05ac7c5960e9c09ba430a90f1d6ec8cd8dfb872831a9bfed19b214f2d25176f@128.230.208.73:30301 console 2>console.log
+$ geth --datadir <data-dir> init genesis.json  # create a database that uses this genesis block
+$ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://77ac7ee5b9dfd65d74f7edf3d57d0b9bb1fc3b638f0ead83b0e10aa971992991d30eab295951a8f673c1f78d9b375a55b56acc336d1df0844d4d4bab0eee29ac@128.230.208.73:30301 console 2>console.log
 ```
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
@@ -53,7 +53,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
 	
 ```
->admin.addPeer("enode://387526886224631a272f1549f5ebf76de7e771c8007e7ee7890170cd24fa0552f06df3a50dd9c7cb7ad7f62d0466acf16e8b12f123d4d4e84b6952ed8fc81e6c@128.230.208.73:30303")
+>admin.addPeer("enode://9615bd2070a89015d6a3a6f4ef576211f903ad2d7e4461857f0b8080af24176269eba26fae8e6cf1f3b0e8099c6ed1a2654b0ffbc177c3f269da2d29b42cdd1d@127.0.0.1:30310")
 ```	
 
 Check the connectivity by running:
@@ -75,14 +75,14 @@ Before mining, the coinbase has to be specified to one personal account, where y
 You can now start/stop the miner. 
 	
 ```
-> miner.start(1)	# one thread
+> miner.start(1)	# one thread in this case, you can increase the thread number to increase the mining power so that you can compete with remote server.
 > miner.stop()
 ```
 
 To know currently you are mining or not, you can run 
 	
 ```
-> miner.getHashrate()  # if you are mining, the hash rate should be a non-zero positive constant, and will change at different time 
+> miner.getHashrate()  # The output should be a number, and this number indicates the current mining power. 
 ```
 	
 	
