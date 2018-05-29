@@ -16,7 +16,7 @@ Lab Environment Setup
 
 Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads
 
-Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/1CGCbMczq66DSqChOYXG5QkOEvRaefykp/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
+Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/19_U2UmsnZmMGRwe4AxMlfYoEot-xZ7Br/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
 
 **_Script 1a_**: 
 
