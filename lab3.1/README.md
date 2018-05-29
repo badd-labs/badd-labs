@@ -23,6 +23,7 @@ You may want to open a terminal and update the `genesis.json` file:
 ```bash
 cd ~/SUBlockchainLabs
 git pull
+# it succeeds if it prompts "Already up-to-date"
 ```
 
 ### 1'. (Alternative option) Download Ethereum clients
@@ -58,9 +59,10 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 **2.1 Connect to the Blockchain Gateway (Bootnode)**: Every blockchain starts with the genesis block. When you run geth with default settings for the first time, the main net genesis block is committed to the database. For a private network, you usually want a different genesis block. We have a pre-defined custom [[genesis.json](genesis.json)] file. The `config` section ensures that certain protocol upgrades are immediately available. The `alloc` section pre-funds accounts, which is currently empty. Following the instructions below to run geth.
 
 ```
-$ mkdir <data-dir>
-$ geth --datadir <data-dir> init genesis.json  # create a database that uses this genesis block
-$ # you can find genesis.json file from ~/SUBlockchainLabs/lab3.1
+$ cd labs; mkdir <data-dir>
+$ geth --datadir lab3 init ~/SUBlockchainLabs/lab3.1/genesis.json
+# create a database that uses this genesis block
+$ # genesis.json file is in ~/labs/SUBlockchainLabs/lab3.1 in the VM image
 $ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://dc9999f8ff5f19d304ef338d4d89428cf95df7dd0ad853581c7ad084dc7b86bd5d1711b041af8487b455e079513dd9419cde7f03dca30064fe0aca622f3910dd@128.230.208.73:30301 console 2>console.log 
 ```
 
