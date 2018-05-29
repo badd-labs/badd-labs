@@ -18,7 +18,7 @@ There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-cli
 
 ***VirtualBox Ubuntu Users***
 
-Download the prebuilt image from [[here](https://drive.google.com/open?id=1beyVKTwsBhr6vtgGUrMdxdH3Lva8sWZY)]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
+Download the prebuilt image from [[here](https://drive.google.com/file/d/1CGCbMczq66DSqChOYXG5QkOEvRaefykp/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
 
 You may want to open a terminal and update the `genesis.json` file:
 
