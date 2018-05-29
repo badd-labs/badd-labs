@@ -20,6 +20,8 @@ Download our prebuilt VirtualBox image from [[here](https://drive.google.com/fil
 
 You may want to open a terminal and update the `genesis.json` file:
 
+**_Script 1_**: 
+
 ```bash
 cd ~/SUBlockchainLabs
 git pull
@@ -36,6 +38,8 @@ There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-cli
 
 Here is the instructions to install the `Geth` for Ubuntu.
 
+**_Script 1'_**: 
+
 ```
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository -y ppa:ethereum/ethereum
@@ -44,6 +48,8 @@ $ sudo apt-get install ethereum
 ```
 
 ***Mac Users***
+
+**_Script 1''_**: 
 
 ```
 brew tap ethereum/ethereum
@@ -58,6 +64,8 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 
 **2.1 Connect to the Blockchain Gateway (Bootnode)**: Every blockchain starts with the genesis block. When you run geth with default settings for the first time, the main net genesis block is committed to the database. For a private network, you usually want a different genesis block. We have a pre-defined custom [[genesis.json](genesis.json)] file. The `config` section ensures that certain protocol upgrades are immediately available. The `alloc` section pre-funds accounts, which is currently empty. Following the instructions below to run geth.
 
+**_Script 2_**: 
+
 ```
 $ cd labs; mkdir <data-dir>
 $ geth --datadir lab3 init ~/SUBlockchainLabs/lab3.1/genesis.json
@@ -69,13 +77,17 @@ $ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://dc9999f8ff5
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
-	
-```
+
+**_Script 3_**: 
+
+```bash
 >admin.addPeer("enode://aaffef5c90bc23750a45a14e882818853d91759a2df4454623503b298a95c8ef440bdf2360955432eaece9f7b67d4369da1ab46d6ff68add90041b5e3ce5eba5@128.230.208.73:30303")
 ```	
 
 Check the connectivity by running:
 	
+**_Script 4_**: 
+
 ```
 > admin.peers
 ```
@@ -83,6 +95,8 @@ Check the connectivity by running:
 ### 3. Start Mining
 	
 Before mining, the coinbase has to be specified to one personal account, where your earnings will be settled. Run following commands to create a new account, and set it as coinbase.
+
+**_Script 5_**: 
 
 ```
 > personal.newAccount() # create an Account
@@ -92,6 +106,8 @@ Before mining, the coinbase has to be specified to one personal account, where y
 	
 You can now start/stop the miner. 
 	
+**_Script 6_**: 
+
 ```
 > miner.start(1)	# one thread in this case, you can increase the thread number to increase the mining power so that you can compete with remote server.
 > miner.stop()
@@ -99,6 +115,8 @@ You can now start/stop the miner.
 
 To know currently you are mining or not, you can run 
 	
+**_Script 6_**: 
+
 ```
 > miner.getHashrate()  # The output should be a number, and this number indicates the current mining power. 
 ```
