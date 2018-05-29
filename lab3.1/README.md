@@ -12,22 +12,27 @@ Prerequisite
 Lab Environment Setup
 ---
 
-### 1. Download Ethereum clients
+### 1. Download VM with Ethereum clients
 
-There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementation, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads
 
-***VirtualBox Ubuntu Users***
-
-Download the prebuilt image from [[here](https://drive.google.com/file/d/1CGCbMczq66DSqChOYXG5QkOEvRaefykp/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. The password of `user1` in this image is `blockchainsu`. 
+Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/1CGCbMczq66DSqChOYXG5QkOEvRaefykp/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
 
 You may want to open a terminal and update the `genesis.json` file:
 
 ```bash
-cd SUBlockchainLabs
+cd ~/SUBlockchainLabs
 git pull
 ```
 
+### 1' (Alternative option). Download Ethereum clients
+
+You can skip this step (1') if you have done step 1. This is for students who want to use their native OS to do the mining. 
+
+There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementation, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+
 ***Ubuntu Users***
+
 Here is the instructions to install the `Geth` for Ubuntu.
 
 ```
@@ -47,7 +52,6 @@ brew install ethereum
 ***Windows Users***
 
 https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windows
-
 
 ### 2. Join the Blockchain network
 
