@@ -6,6 +6,7 @@ In this lab, you are given the initial state that a custom Blockchain network of
 Prerequisite
 ---
 
+
 1. Linux shell commands
 2. Understand [Ethereum](http://www.ethdocs.org/en/latest/introduction/index.html)
 
