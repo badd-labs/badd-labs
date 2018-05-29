@@ -25,7 +25,7 @@ cd ~/SUBlockchainLabs
 git pull
 ```
 
-### 1' (Alternative option). Download Ethereum clients
+### 1'. (Alternative option) Download Ethereum clients
 
 You can skip this step (1') if you have done step 1. This is for students who want to use their native OS to do the mining. 
 
