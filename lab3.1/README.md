@@ -12,33 +12,32 @@ Prerequisite
 Lab Environment Setup
 ---
 
-### 1. Download VM with Ethereum clients
+### 1A. Download our VM with Ethereum 
 
 Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads
 
 Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/1CGCbMczq66DSqChOYXG5QkOEvRaefykp/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
 
-You may want to open a terminal and update the `genesis.json` file:
+**_Script 1a_**: 
 
-**_Script 1_**: 
-
-```bash
-cd ~/SUBlockchainLabs
-git pull
-# it succeeds if it prompts "Already up-to-date"
+```
+$ mkdir -p ~/lab3/bkc_data
+$ gedit genesis.json
 ```
 
-### 1'. (Alternative option) Download Ethereum clients
+Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullstacksecurity/SUBlockchainLabs/master/lab3.1/genesis.json)] to the gedit and save it (by hitting `control+S` in Ubuntu).
 
-You can skip this step (1') if you have done step 1. This is for students who want to use their native OS to do the mining. 
+### 1B. (Alternative option) Install Ethereum on your OS
 
-There are several `Ethereum` [clients](http://ethdocs.org/en/latest/ethereum-clients/choosing-a-client.html) implementations, we will use the `Go` implementation, that is, `Geth`, for this lab. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+If you are good with option 1A, you can skip 1B. This step is for who want to install Ethereum on their OS.
+
+We will use `Geth`, the Ethereum client implemented in Language `Go`. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
 
 ***Ubuntu Users***
 
 Here is the instructions to install the `Geth` for Ubuntu.
 
-**_Script 1'_**: 
+**_Script 1b_**: 
 
 ```
 $ sudo apt-get install software-properties-common
@@ -49,7 +48,7 @@ $ sudo apt-get install ethereum
 
 ***Mac Users***
 
-**_Script 1''_**: 
+**_Script 1bb_**: 
 
 ```
 brew tap ethereum/ethereum
@@ -64,66 +63,84 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 
 **2.1 Connect to the Blockchain Gateway (Bootnode)**: Every blockchain starts with the genesis block. When you run geth with default settings for the first time, the main net genesis block is committed to the database. For a private network, you usually want a different genesis block. We have a pre-defined custom [[genesis.json](genesis.json)] file. The `config` section ensures that certain protocol upgrades are immediately available. The `alloc` section pre-funds accounts, which is currently empty. Following the instructions below to run geth.
 
-**_Script 2_**: 
+**_Script 2.1_**: 
 
 ```
-$ cd labs; mkdir <data-dir>
-$ geth --datadir lab3 init ~/SUBlockchainLabs/lab3.1/genesis.json
-# create a database that uses this genesis block
-$ # genesis.json file is in ~/labs/SUBlockchainLabs/lab3.1 in the VM image
-$ geth --datadir <data-dir> --networkid 89992018 --bootnodes enode://dc9999f8ff5f19d304ef338d4d89428cf95df7dd0ad853581c7ad084dc7b86bd5d1711b041af8487b455e079513dd9419cde7f03dca30064fe0aca622f3910dd@128.230.208.73:30301 console 2>console.log 
+$ mkdir -p ~/lab3/bkc_data
+$ cd ~lab3
+$ geth --datadir bkc_data init ~/lab3/genesis.json # create a database that uses this genesis block
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://dc9999f8ff5f19d304ef338d4d89428cf95df7dd0ad853581c7ad084dc7b86bd5d1711b041af8487b455e079513dd9419cde7f03dca30064fe0aca622f3910dd@128.230.208.73:30301 console 2>console.log 
 ```
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
 **2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
 
-**_Script 3_**: 
+**_Script 2.2_**: 
 
 ```bash
 >admin.addPeer("enode://aaffef5c90bc23750a45a14e882818853d91759a2df4454623503b298a95c8ef440bdf2360955432eaece9f7b67d4369da1ab46d6ff68add90041b5e3ce5eba5@128.230.208.73:30303")
-```	
+```
 
 Check the connectivity by running:
-	
-**_Script 4_**: 
+
+**_Script 2.3_**: 
 
 ```
 > admin.peers
 ```
 
-### 3. Start Mining
-	
-Before mining, the coinbase has to be specified to one personal account, where your earnings will be settled. Run following commands to create a new account, and set it as coinbase.
+### 3A. Get Coins by Transactions
 
-**_Script 5_**: 
+**_Script 3a.1_**: 
+
 
 ```
 > personal.newAccount() # create an Account
 > eth.accounts # check accounts
-> miner.setEtherbase(eth.accounts[0]) # that address that will receive your earnings	
 ```
-	
-You can now start/stop the miner. 
-	
-**_Script 6_**: 
+
+Publish your account identity to the public bulletin (e.g., the piazza post). The TA will send some coins to your account.
+After that, you can check the balance.
+
+**_Script 3a.2_**: 
 
 ```
-> miner.start(1)	# one thread in this case, you can increase the thread number to increase the mining power so that you can compete with remote server.
+> web3.fromWei(eth.getBalance(eth.accounts[0]),"ether")
+```
+
+### 3B. Get Coins by Mining
+
+Before mining, the coinbase has to be specified to one personal account, where your earnings will be settled. Run following commands to create a new account, and set it as coinbase.
+
+**_Script 3b.1_**: 
+
+```
+> personal.newAccount() # create an Account
+> eth.accounts # check accounts
+> miner.setEtherbase(eth.accounts[0]) # that address that will receive your earnings
+```
+
+You can now start/stop the miner. 
+
+**_Script 3b.2_**: 
+
+```
+> miner.start(1)# one thread in this case, you can increase the thread number to increase the mining power so that you can compete with remote server.
 > miner.stop()
 ```
 
 To know currently you are mining or not, you can run 
-	
-**_Script 6_**: 
+
+**_Script 3b.3_**: 
 
 ```
 > miner.getHashrate()  # The output should be a number, and this number indicates the current mining power. 
 ```
-	
-	
+
+
 The list of `Geth` commands can be found on [[this page](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)].
-	
+
 
 Lab Tasks
 ---
@@ -136,9 +153,9 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 > web3.fromWei(<value>,"ether") # convert Wei to Ether
 > web3.toWei(<value>,"ether") #convert Ether to Wei
 > eth.blockNumber # check the latest block number on the chain
-> eth.getBlock(eth.blockNumber-3)  # display a certain block 
-> eth.getBlock('latest', true)	# display the latest block
-> eth.getBlock('pending', true)	# display the pending block
+> eth.getBlock(eth.blockNumber-3) # display a certain block 
+> eth.getBlock('latest', true) # display the latest block
+> eth.getBlock('pending', true) # display the pending block
 > eth.sendTransaction({from:"0x0c54f3f7d820bf52344772fa8ed097d1189cd93f", to:"0xda1b60c80502fea9977bab42dcebad05c289dcd2", value:web3.toWei(1,"ether")})
 #eth.sendTransaction({from:senderAccount, to:receiverAccount, value: amount})
 > eth.getTransaction("0x57dfe8f7f4760f09cd76a8b09000fd43275d798503ed88ed6d8b39c1d5ce3157")
