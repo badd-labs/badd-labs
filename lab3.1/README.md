@@ -130,14 +130,29 @@ You can now start/stop the miner.
 > miner.stop()
 ```
 
-To know currently you are mining or not, you can run 
+Mining takes a while to get start, you can monitor the event log by
 
 **_Script 3b.3_**: 
+
+```
+tail -f ~/lab3/console.log
+```
+
+To know currently you are mining or not, you can run 
+
+**_Script 3b.4_**: 
 
 ```
 > miner.getHashrate()  # The output should be a number, and this number indicates the current mining power. 
 ```
 
+If you find your account has non-zero balance, you get some coins through mining:
+
+**_Script 3b.5_**: 
+
+```
+> web3.fromWei(eth.getBalance(eth.accounts[0]),"ether")
+```
 
 The list of `Geth` commands can be found on [[this page](https://github.com/ethereum/go-ethereum/wiki/Management-APIs)].
 
@@ -175,9 +190,17 @@ Note 1: The above command will return a hash tag which served as the ID of the t
 
 Note 2: [Ether](http://www.ethdocs.org/en/latest/ether.html) is the name of the currency used within Ethereum. Wei is the smallest unit in Ethereum. 1 Ether = 10^18 Wei. The account balance and transfer amount are shown in Wei. You can use the converter utility web3.fromWei and web3.toWei to convert between Ether and Wei. 
 
-Note 3: Before sending transactions, you may need to unlock your personal wallet/account and input passphrase. Example:
+
+FAQ/Trouble shooting
+---
+
+- Q1: When sending transaction, I got this error: "account is locked"
+   - Answer: Before sending transactions, you may need to unlock your personal wallet/account and input passphrase. Example:
 
 ```
 personal.unlockAccount(eth.accounts[0])
 ```
-
+- Q2: In Mining, I keep getting zero balance?
+    - Answer: One of possible reasons is your VM/OS does not have enough memory. We recommend at least 4 GB for mining. If you don't run mining, you don't have to allocate large memory for this lab.
+- Q3: When my terminal crashes in VM (e.g., during mining),  I cannot restart the `geth` properly.
+    - Answer: You can restart the VM to get around this issue. (Terminal crash may mess up network stack in your VM which `geth` depends on).
