@@ -70,7 +70,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 $ mkdir -p ~/lab3/bkc_data
 $ cd ~lab3
 $ geth --datadir bkc_data init ~/lab3/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://dc9999f8ff5f19d304ef338d4d89428cf95df7dd0ad853581c7ad084dc7b86bd5d1711b041af8487b455e079513dd9419cde7f03dca30064fe0aca622f3910dd@128.230.208.73:30301 console 2>console.log 
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://9b46f0691dd12ae427adde13988a56e4691ddcba52f7d6f32d4a4129c709196d1ade96985a9522aa73cac957b666b1f41d69ebceae350643ae83217196e6240d@128.230.208.73:30301 console 2>console.log 
 ```
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
@@ -80,7 +80,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **_Script 2.2_**: 
 
 ```bash
->admin.addPeer("enode://aaffef5c90bc23750a45a14e882818853d91759a2df4454623503b298a95c8ef440bdf2360955432eaece9f7b67d4369da1ab46d6ff68add90041b5e3ce5eba5@128.230.208.73:30303")
+>admin.addPeer("enode://ec8fb3e789cc1a39404ac4cacc7f62ee13d51eb89924370dc249aa6cbbc222bfc6eab03235c4170611ca20f902b3f337702142d0509b94a2884af03a2f296486@128.230.208.73:30303")
 ```
 
 Check the connectivity by running:
