@@ -21,7 +21,7 @@ The hedging contract would look as below:
 3. Get the USD value of 1000 ethers by querying the data feed (internal mappings in our case) and store the value(let it be $x). 
 4. After 30 days, A or B can 'reactivate' the contract and send $x equivalent of ether (query the data feed at that time to get new price) to A and rest to B.
 
-Here the term 'reactivate' financially can be considered as the set action that needs to be executed on the day of contract execution (actions will be pre-decided by both the parties involved in the contract). A Date will also be decided by the parties involved, here for lab purpose this can be considered as 30th day from the date of contract creation. Actions for lab purpose is to send $x equivalent ethers to one party and rest to the one who initiated reactivation of contract.   
+Here the term 'reactivate' financially can be considered as the set of actions that needs to be executed on the day of contract execution (actions will be pre-decided by both the parties involved in the contract). A Date will also be decided by the parties involved, here for lab purpose this can be considered as 30th day from the date of contract creation. Actions for lab purpose is to send $x equivalent ethers to one party and rest to the one who initiated reactivation of contract.   
 
 Below is the more descriptive representation of the above 4 steps.
 
