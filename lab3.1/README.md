@@ -80,7 +80,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **_Script 2.2_**: 
 
 ```bash
->admin.addPeer("enode://62bceb7302bf4368858a15c408ab8d57a263cb590fb4a6ccb588a1ecad42266772370c5d6b3cdaa1a1284c80f6f3fe959ba1453761482fbcc9920a4c2c7099ab@128.230.208.73:30303")
+>admin.addPeer("enode://0938f84e515c70a6cca13e6b18d546b9b00e1a69468da5eb9e2bcc1eeab555334fc1cc51d0bb87175fa73dc492544eb254747ef32e4e9a5e8cd84b0a1b652abb@128.230.208.73:30303")
 ```
 
 Check the connectivity by running:
