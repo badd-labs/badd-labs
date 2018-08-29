@@ -1,81 +1,64 @@
-# Module 4.1: Deploying Financial Derivatives Contract on Blockchain
+# Lab 2.2: Smart Contract Programming
+===
+
+The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. The lab will be developed on Ethereum/Solidity platform using existing programming platform such as Remix. There will be programming exercises for students to implement two-party computation (e.g., `max(x,y)`) and three-party rock-paper-scissors game.
+
+**Lab Description**: This module consists of two lab exercises and a bonus exercise. This helps in getting the grip on the solidity language used to write smart contracts which can be deployed on the blockchain. This lab concentrates on using the Remix IDE which is available to write, test, compile and deploy the smart contract, without need to set up any blockchain. Bonus task requires you to deploy and run the smart contract on on-campus blockchain (Link to refer is given). The module is outlined below:
+
+Remix
 ---
 
-In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
+Remix is an online development platform that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser or locally. Remix supports the full programming cycle of smart contracts, including testing, debugging and deployment. You can find more information about Remix IDE in [[link](https://remix.readthedocs.io/en/latest/)]
 
-Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
-
-In this lab, you will create a contract for Financial Derivative given the System Design for the contract and call the functions. Refer Lab 4.1 to know more about how to deploy simple contract and call its functions.
-
-
-## Financial Derivatives and Contract understanding
+Solidity
 ---
-In finance, a derivative is a contract that derives its value from the performance of an underlying entity. This underlying entity can be an asset, index, or interest rate, and is often simply called the "underlying".
 
-Main challenge in implementing derivative is keeping track of the changes in the values between ethers (or other cryptocurrency) and other currencies (Ex USD). 
+Solidity is a object-oriented programming language for writing smart contracts mainly on Ethereuem. The language tutorial of solidity, including the languarnge syntax, can be found in the documentation [[link](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)]
 
-Financial Derivatives mainly follows below simple 4 steps
-The hedging contract would look as below:
-1. Let party A deposit 1000 ethers to bank account
-2. Let party B deposit 1000 ethers to bank account
-3. Get the USD value of 1000 ethers by querying the data feed (internal mappings in our case) and store the value(let it be $x). 
-4. After 30 days, A or B can 'reactivate' the contract and send $x equivalent of ether (query the data feed at that time to get new price) to A and rest to B.
+To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers in the contract. 
 
-Here the term 'reactivate' financially can be considered as the set of actions that needs to be executed on the day of contract execution (actions will be pre-decided by both the parties involved in the contract). A Date will also be decided by the parties involved, here for lab purpose this can be considered as 30th day from the date of contract creation. Actions for lab purpose is to send $x equivalent ethers to one party and rest to the one who initiated reactivation of contract.   
-
-Below is the more descriptive representation of the above 4 steps.
-
-Let us consider the conversion rate as below for 1st and 30th day of the contract. 1st is contract creation date and 30th is contract execution date.
-
-| Currency/Date | Ethers - e | USD - $|
-|---------------|--------|-----|
-| 1st Jan       | 1000   | 20  |
-| 30th Jan      | 1500   | 20  |
-
-
-1. Initially, A deposits 1000 Ethers in to Bank Account on 1st Jan (You can Consider less Ethers for convenience purpose)
-	    B deposits 1000 ethers in to Bank Account on 1st Jan
-        Bank Account will now have 2000 Ethers
-2. Let 1000 Ethers be Equivalent to $20 on 1st Jan.
-3. Once both the parties have deposited the required amount of the hedging contract, payment of equivalent $x USD (20 in this case) is registered in database for this transaction.
-4. A or B reactivates the contract after 30 days, in order to send $x ($20 in our case) worth of ethers to another account involved in the hedging contract
-5. Let us consider for example, B reactivates the contract in order to send $20 worth of Ethers to account A and rest to his own account on 30th Jan. Hence,
-Send 1500 to A (On 30th, $20 = 1500e)
-And 500 to B (2000e-1500e = 500e)
-Bank account should be deducted by total Ethers invested by both A and B (2000 Ethers in this case). Bank account now will have 0 Ethers
-
-## Contract Design
+LAB EXERCISE 1: EXECUTING A HELLOWORLD PROGRAM IN SOLIDITY
 ---
-Create at least 3 accounts (one for Bank to collect the deposited amount and two for A and B who deposits the amount) and mine few ethers, before you deploy the contract.
 
-Variable list and functions mentioned below are just for reference. You can design the solution for this lab as you please.
+Below is the solidity code for a simple ‘HelloWorld’ program. Function ‘greeter’ takes string as the input and stores in the variable ‘greeting’ and Function ‘greet’ just returns the value of variable ‘greeting’.
 
-### 1 - Variable List
-1. Create a variable of type address called owner which holds the Bank account address (Bank address can be hard-coded for this contract).
-2. counter - To keep track of each payment/hedge contract, a has a unique identifier
-3. prevcounter - a variable to keep track of recent payment/transaction recorded, based on the requirement (variable counter can be used directly instead). 
-4. Below are the mappings required for this contract
-    - mapping 'balances' keep track of the account balance
-    - mapping 'isDeposited' keep track of deposit status of two accounts A and B, returns true or false
-    - mapping 'paymentrec' keep track of payment records with their equivalent USD rate with the incremented counter value(This is the variable used to keep track of the hedge contract value once both the parties have deposited - contract number/counter along with its USD equivalent). For example, once both the parties deposit, if the next counter value is 5 and USD equivalent is $10, make an entry of 5 -> 10
-    - mapping 'currencyEthertoUSD' conversion rate from Ether to USD
-    - mapping 'currencyUSDtoEther' conversion rate from USD to Ether
-
-
-### 2 - Constructor of the contract
-Please make sure that Constructor of the contract is payable else, you will not be able to make deposits/transfers in the contract.
-Initiate the variable 'balances' with the account addresses and load the accounts with few Ethers (This will avoid the negative balances which could lead to abnormal account balances)
-Initiate variables 'currencyEthertoUSD' and 'currencyUSDtoEther' with dummy values.
-Ex, currencyEthertoUSD[10] = 5;
-		currencyUSDtoEther[5] = 15;
-
-### 3 - Functions
-1. 'deposit' which takes sender address, receiver address and amount to transfer as parameters. Please make sure that this function is payable. This function should make sure that the required amount is sent by the party (A or B). Send the deposit amount to Bank account and update balances and isDeposited variable. Main account (eth.getBalance(eth.accounts[n])) balance should also be updated.
-2. 'checkBothAccountDeposit' can be used to send the status (true or false) of deposit of both the parties (A and B)
-3. 'getCounter' returns the latest counter/unique identifier on which the transaction was recorded i.e, prevCounter
-4. 'recordpay' should make an entry in variable 'paymentrec' by incrementing the 'counter' and equivalent USD rate of this transaction should be stored. Update prevCounter. Entry should only happen if both the parties have deposited their share in the bank account.
-5. 'reactivateContract' should be called after 30 days. Account which triggers reactivation of contract, other account in the hedge contract, Number of days and Total Ethers invested can be passed as the parameters. All the steps in the function should only be executed if days variable is 30. Get the 'paymentrec' of this transaction using 'prevCounter'. Get the Ether value of this transaction using 'currencyUSDtoEther'. Send obtained amount of ethers to other account and rest to triggered account. Update the 'balances' variable for A, B and Bank account.
+```
+pragma solidity ^ 0.4.13;
+   contract hello { /* define variable greeting of the type string */  
+    string greeting;
+       function greeter(string _greeting) public {
+              greeting = _greeting;
+       } 
+       /* main function */
+       function greet() public constant returns(string) {
+              return greeting;
+       }
+} 
+```
 
 
+1.1 Compile the code using `Start to Compile` button provided in the Remix IDE. Check for the errors (if any) and resolve them.
 
+1.2 Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for ‘greeter’ function and click on ‘transact’ button. You can see transaction being successful in ‘Remix Transactions’ section. 
 
+1.3 Click on ‘greet’ button/function, you can see the string value set for ‘greeting’ using ‘greeter’ function will be displayed. Submit the final screenshot of running this Solidity program.
+
+LAB EXERCISE 2: FIND THE MAXIMUM OF X AND Y
+---
+In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value.The Smart contact should have the following functionalities:	1. A function that takes x and y as input	2. Returns the maximum of x and y as outputDeploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
+
+Once you deploy successfully, provide the values for x and y and see the output value in the `remix transactions` section of the page, in `decoded output` row.  
+
+LAB EXERCISE 3: IMPLEMENT ROCK-PAPER-SCISSORS GAME
+---
+
+Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. You can use variables to keep track of the deposit and player values.The contract should have the following functionalities:
+
+1. There should be two players. Consider one specific address as the owner address (where both players will deposit their money).
+2. Each player deposits an initial amount of 5 Ethers into the owner account.
+3. Once both the players deposit the money, allow them to play. While depositing the money, make sure you keep track of who is depositing and make him/her the player1 or player2 accordingly.
+4. Write a function `play` which takes the string parameter (Choice of the player - Rock, paper, scissors) and consider their choice only if they have deposited successfully.
+5. Once both the players have input their choices, find the winner and transfer the money as below:
+    - a. If player1 wins, send bid amount ie, 10 Ethers to player1.
+    - b. If player2 wins, send bid amount ie, 10 Ethers to player2.
+    - c. If both the players win, divide the bid amount and send to players equally. Once the game is finished, `Account` values (on the right-top corner of the IDE) of the designated player addresses should be updated. Make sure the player is depositing exactly 5 Ethers else the transaction should be rejected. While depositing the amount (5 Ethers in our case), `Value` on the right-top corner must be equivalent to 5 Ethers, in-order for the Remix to send the transaction successfully.
