@@ -3,7 +3,8 @@ Module 3: Blockchain Storage and Mining on Campus
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
 
-Link of this lab: https://goo.gl/gAU8nq
+- Link of this lab (raw): https://goo.gl/gAU8nq
+- Link to genesis.json: https://goo.gl/onnjb4 
 
 Prerequisite
 ---
