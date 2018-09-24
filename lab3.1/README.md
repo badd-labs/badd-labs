@@ -41,6 +41,9 @@ We will use `Geth`, the Ethereum client implemented in Language `Go`. You can ch
 
 Here is the instructions to install the `Geth` for Ubuntu.
 
+Even when you are not using Ubuntu as native OS, you can set up VirtualBox and download a Ubuntu-1604-LTS image from [[here](http://releases.ubuntu.com/16.04.5/)].
+
+
 **_Script 1b_**: 
 
 ```
