@@ -198,6 +198,14 @@ Note 1: The above command will return a hash tag which served as the ID of the t
 Note 2: [Ether](http://www.ethdocs.org/en/latest/ether.html) is the name of the currency used within Ethereum. Wei is the smallest unit in Ethereum. 1 Ether = 10^18 Wei. The account balance and transfer amount are shown in Wei. You can use the converter utility web3.fromWei and web3.toWei to convert between Ether and Wei. 
 
 
+Deliverable
+---
+
+- For each task, the deliverable includes the following:
+    1. The script program of the Geth commands
+    2. The screenshot that shows your script has run successfully on your computer
+        - Make sure include your name in the screenshot. You can, for example, open a text editor with your name in it. 
+
 FAQ/Trouble shooting
 ---
 
