@@ -104,7 +104,7 @@ Check the connectivity by running:
 > eth.accounts # check accounts
 ```
 
-Publish your account identity to the public bulletin (e.g., the piazza post). The TA will send some coins to your account.
+Publish your account identity to the public bulletin (https://goo.gl/6WHAq9). The TA will send some coins to your account.
 After that, you can check the balance.
 
 **_Script 3a.2_**: 
