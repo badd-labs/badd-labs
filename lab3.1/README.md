@@ -9,7 +9,6 @@ In this lab, you are given the initial state that a custom Blockchain network of
 Prerequisite
 ---
 
-
 1. Linux shell commands
 2. Understand [Ethereum](http://www.ethdocs.org/en/latest/introduction/index.html)
 
@@ -41,7 +40,7 @@ We will use `Geth`, the Ethereum client implemented in Language `Go`. You can ch
 
 Here is the instructions to install the `Geth` for Ubuntu.
 
-Even when you are not using Ubuntu as native OS, you can set up VirtualBox and download a Ubuntu-1604-LTS image from [[here](http://releases.ubuntu.com/16.04.5/)].
+Even when you are not using Ubuntu as native OS, you can set up VirtualBox and download a Ubuntu-1604-LTS image from [[here](http://releases.ubuntu.com/16.04.5/)]. This image is typically 1 GB, much smaller than the 7 GB image above. To set up an empty Ubuntu OS on VirtualBox, here is a useful [[link](https://medium.com/@tushar0618/install-ubuntu-16-04-lts-on-virtual-box-desktop-version-30dc6f1958d0)].
 
 
 **_Script 1b_**: 
