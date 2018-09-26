@@ -218,3 +218,8 @@ personal.unlockAccount(eth.accounts[0])
     - Answer: One of possible reasons is your VM/OS does not have enough memory. We recommend at least 4 GB for mining. If you don't run mining, you don't have to allocate large memory for this lab.
 - Q3: When my terminal crashes in VM (e.g., during mining),  I cannot restart the `geth` properly.
     - Answer: You can restart the VM to get around this issue. (Terminal crash may mess up network stack in your VM which `geth` depends on).
+- Q4: How to check if my node is mining?
+    - Answer: You can check by running "eth.mining", it returns "true" or "false" to indicate if the mining is on-going or not. Note: "miner.getHashrate()" may return "0" even if the mining process is active. 
+    
+- Q5: I choose options 1.A to setup the environment, and it is running out of disk memory, what would I do?
+    - Answer: You can choose to install a Ubuntu inside of VirtualBox and start from option 1.B or you can add a new virtual hard disk to your current virtual machine. [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. 
