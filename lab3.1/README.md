@@ -222,4 +222,15 @@ personal.unlockAccount(eth.accounts[0])
     - Answer: You can check by running "eth.mining", it returns "true" or "false" to indicate if the mining is on-going or not. Note: "miner.getHashrate()" may return "0" even if the mining process is active. 
     
 - Q5: I choose options 1.A to setup the environment, and it is running out of disk memory, what would I do?
-    - Answer: You can choose to install a Ubuntu inside of VirtualBox and start from option 1.B or you can add a new virtual hard disk to your current virtual machine. [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. 
+    - Answer: You have two options.
+        1, You can choose to install a Ubuntu inside of VirtualBox and start from option 1.B (recommended)
+        2, you can add a new virtual hard disk to your current virtual machine.
+           - Follow the instructions in the below link (but skipping the last step - "mounting the partition") [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. 
+           -  Run the below command to cleanup some space
+               ```
+               sudo rm -rf /var/*
+               ```
+            - Run the below command to mount the new disk to the home directory
+              ```
+              sudo mount /dev/sdb1 ~
+              ```
