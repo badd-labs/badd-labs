@@ -225,12 +225,6 @@ personal.unlockAccount(eth.accounts[0])
     - Answer: You have two options.
         1, You can choose to install a Ubuntu inside of VirtualBox and start from option 1.B (recommended)
         2, you can add a new virtual hard disk to your current virtual machine.
-            - Follow the instructions in the below link (but skipping the last step - "mounting the partition") [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. 
-            -  Run the below command to cleanup some space
-               ```
-               sudo rm -rf /var/*
-               ```
-               - Run the below command to mount the new disk to the home directory
-              ```
-              sudo mount /dev/sdb1 ~
-              ```
+            Step 1:  Follow the instructions in the below link (but skipping the last step - "mounting the partition") [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. Step 2: Run the below command to cleanup some space
+               `sudo rm -rf /var/*`
+               Step 3. Run the below command to mount the new disk to the home directory. `sudo mount /dev/sdb1 ~`
