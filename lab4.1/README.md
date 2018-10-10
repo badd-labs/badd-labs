@@ -48,7 +48,7 @@ contract hello {
 3. Compile the code using solc/soljs depending on the installtion
 
 ```
-solc	-o	.	--bin	--abi	hello.sol
+solc	-o . --bin --abi hello.sol
 ```
 You	will see	two	files	generated	as	`hello.abi`	and	`hello.bin`	.	The `.abi` file	holds	the contract interface	&	.bin holds the	compiled	code.
 
