@@ -4,19 +4,19 @@ Lab L2-4.1: Smart Contract Programming
 The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. The lab will be developed on Ethereum/Solidity platform using existing programming platform such as Remix. There will be programming exercises for students to implement two-party computation (e.g., `max(x,y)`) and three-party rock-paper-scissors game.
 
 **Lab Description**: This module consists of four lab exercises where the first two exercises (1a and/or 1b) are to set up programming environments. Exercise 1b is a bonus one (with 20% extra points). The last two exercises require you to design a contract program based on the given requirement.
-There are two programming environments you can choose from: the web-based Remix IDE and the commandline-based Solc. Use of Solc will give you 20\% bonus.
+There are two programming environments you can choose from: the web-based Remix IDE and the command-line-based Solc. Use of Solc will give you 20\% bonus.
 
 Solidity
 ---
 
-Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereuem. The language tutorial of solidity, including the languarnge syntax, can be found in the documentation [[link](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)]
+Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereum. The language tutorial of solidity, including the language syntax, can be found in the documentation [[link](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)]
 
 To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers in the contract. 
 
-Exerise 1a: Helloworld Contract with Remix
+Exercise 1a: Hello-world Contract with Remix
 ---
 
-In Exercises 1, we will learn to compile and execute a given Solidity program. It is a helloworld program given as below. Function `greeter` takes a string argument and stores it in Variable `greeting`. Function `greet` take no argument and returns the value of Variable `greeting`.
+In Exercises 1, we will learn to compile and execute a given Solidity program. It is a hello-world program given as below. Function `greeter` takes a string argument and stores it in Variable `greeting`. Function `greet` take no argument and returns the value of Variable `greeting`.
 
 ```
 pragma solidity ^ 0.4.13;
@@ -40,12 +40,12 @@ In this exercise, we will use Remix which is a web-based IDE for contract develo
 
 1.3 Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-Exerise 1b (with Bonus): Helloworld Contract with Solc and On-Campus Ethereum
+Exercise 1b (with 20% bonus): Hello-world Contract with Solc and On-Campus Ethereum
 ---
 
-In this exercise, we will use a commandline programming framework `solc` to compile and deploy the helloworld contract to Ethereum. We will use our on-campus Ethereum network (as in the previous labs). 
+In this exercise, we will use a command-line programming framework `solc` to compile and deploy the hello-world contract to Ethereum. We will use our on-campus Ethereum network (as in the previous labs). 
 
-Follow the instructions [[here](README_solc.md)] to compile and execute the helloworld contract. Submit the screenshot of contract-execution results.
+Follow the instructions [[here](README_solc.md)] to compile and execute the hello-world contract. Submit the screenshot of contract-execution results.
 
 Exercise 2: Find the Maximum 
 ---

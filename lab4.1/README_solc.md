@@ -1,4 +1,4 @@
-Exercise 1: Helloworld on Solc and Ethereuem
+Exercise 1: Hello-world on Solc and Ethereum
 ===
 
 Start your Ethereum VM in VirtualBox and open a terminal there.
@@ -10,14 +10,14 @@ sudo apt-get update
 sudo apt-get install solc
 ```
 
-2. Set up the Etherem client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
+2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
 cd ~
 cp -r lab3 lab4.1
 cd lab4.1
 ```
 
-3. Create a smart-contract file. Copy the text of the above helloworld program and save it in a file `~/lab4.1/hello.sol`. 
+3. Create a smart-contract file. Copy the text of the above hello-world program and save it in a file `~/lab4.1/hello.sol`. 
     - You can use a text editor of your preference to do this, such as `vim`, `emacs`, `gedit`.
 4. Compile the contract file using `solc` in the command below. You may also try `soljs` as the compiler.
 ```
@@ -55,7 +55,7 @@ $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad
 > loadScript("hello_sol_hello.abi")
 > loadScript("hello_sol_hello.bin")
 ```
-You will see the message below in console log file. For future use, take a note of both contract address and transcation hash value.
+You will see the message below in console log file. For future use, take a note of both contract address and transaction hash value.
 
 ```
 INFO [06-26|14:39:04] Submitted contract creation              fullhash=0x3a866d157afb43afaef5e33ef7ec61ab0dfe2edf36783f8a332ee8d622dadea9 contract=0x5dDd255aBa54b65595BB80dDd492Ea260bBA23a1
@@ -70,5 +70,5 @@ INFO [06-26|14:39:04] Submitted contract creation              fullhash=0x3a866d
 "Hello"
 ```
 
-**Deliverable**: Finish the above commands to execute the helloworld contract. Submit the screenshot of contract-execution results.
+**Deliverable**: Finish the above commands to execute the hello-world contract. Submit the screenshot of contract-execution results.
 
