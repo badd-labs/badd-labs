@@ -59,7 +59,7 @@ $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad
 INFO [06-26|14:39:04] Submitted contract creation              fullhash=0x3a866d157afb43afaef5e33ef7ec61ab0dfe2edf36783f8a332ee8d622dadea9 contract=0x5dDd255aBa54b65595BB80dDd492Ea260bBA23a1
 ```
 
-9. Execute the smart-contract program by running the following commands. They sequentially call two functions in the deployed contracts, `greeter` and `greet`:
+9. Execute the smart-contract program by running the following commands. They sequentially call two functions in the deployed contracts, `greeter` and `greet`. Note that in the below command, a `gas` amount of 700,000 is specified.
 
 ```
 > helloVar.greeter.sendTransaction("Hello",{from:eth.accounts[0],gas:700000}) 
