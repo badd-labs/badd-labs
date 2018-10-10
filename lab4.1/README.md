@@ -67,12 +67,21 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 Step 3: Deploy the smart contract
 ----
 
-1. Connect to the Ethereum network
+1. Connect to the Ethereum network (these steps are the same as per the last lab)
+
+```
+$ geth --datadir bkc_data init ~/lab3/genesis.json # create a database that uses this genesis block
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
+```
+
+```bash
+>admin.addPeer("enode://d2547d500b1e982ac93a6ce1dbf34cff6545987740313373ccecb28e095c6ce4294e5cf4be2f002672d30fb717b8bd05e1a12163b24743b907bb7d2c37415928@[128.230.208.73]:30303")
+```
 
 2. Load and run the script to deploy smart contract
 
 ```
-> laodScript("hello_sol_hello.abi")
+> loadScript("hello_sol_hello.abi")
 > loadScript("hello_sol_hello.bin")
 ```
 You will see the below message in console log file
