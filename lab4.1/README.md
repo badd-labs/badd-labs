@@ -14,7 +14,7 @@ To develop smart-contract program, you can use programming framework `solc` to r
 Programming Option 2: Remix
 ---
 
-Remix is an online development platform that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser or locally. Remix supports the full programming cycle of smart contracts, including testing, debugging and deployment. You can find more information about Remix IDE in [[link](https://remix.readthedocs.io/en/latest/)]
+Remix is an online development platform that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser or locally. Remix supports the full programming cycle of smart contracts, including testing, debugging and deployment. You can find more information about Remix IDE in [[link](https://remix.readthedocs.io/en/latest/)].
 
 
 Solidity
