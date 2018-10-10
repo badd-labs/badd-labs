@@ -30,11 +30,11 @@ solc -o . --bin --abi hello.sol
 
 5. To deploy the two compiled files, we need to first edit them as below.
 
-***hello.abi***
+***hello.abi (modified) ***
 ```
 var helloContract = eth.contract([{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_greeting","type":"string"}],"name":"greeter","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}])
 ```
-***hello.bin***
+***hello.bin (modified) ***
 ```
 personal.unlockAccount(eth.accounts[0])
 var helloVar = helloContract.new({from:eth.accounts[0],
