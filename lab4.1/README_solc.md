@@ -50,8 +50,8 @@ $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad
 
 7. Load and run the script to deploy smart contract
 ```
-> loadScript("hello_sol_hello.abi")
-> loadScript("hello_sol_hello.bin")
+> loadScript("hello.abi")
+> loadScript("hello.bin")
 ```
 
 8. You will see the message below in console log file. For future use, take a note of both contract address and transaction hash value.
