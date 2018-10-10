@@ -22,6 +22,17 @@ sudo apt-get update
 sudo apt-get install solc
 ```
 
+Step 2: Migrate data from the previous lab.
+----
+
+In this lab, we are going to connect the same Ethereum network we used for the last lab, so we reusue all the data from the previous lab for this lab.
+
+```
+cd ~
+cp -r lab3 lab4
+cd lab4
+```
+
 Step 2: Create a smart contract program
 ----
 
@@ -42,7 +53,7 @@ contract hello {
  }
 }
 ```
-2. Save	it	to	same	directory	from	which	you	are	running	your	geth console.	(i.e.	in	the	‘lab3’	directory	as	per the previous lab instructions).
+2. Save	it	to	`lab4` directory
 
 3. Compile the code using solc/soljs depending on the installtion
 
@@ -70,11 +81,8 @@ Step 3: Deploy the smart contract
 1. Connect to the Ethereum network (these steps are the same as per the last lab)
 
 ```
-$ geth --datadir bkc_data init ~/lab3/genesis.json # create a database that uses this genesis block
+$ geth --datadir bkc_data init ~/lab4/genesis.json # create a database that uses this genesis block
 $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
-```
-
-```bash
 >admin.addPeer("enode://d2547d500b1e982ac93a6ce1dbf34cff6545987740313373ccecb28e095c6ce4294e5cf4be2f002672d30fb717b8bd05e1a12163b24743b907bb7d2c37415928@[128.230.208.73]:30303")
 ```
 
