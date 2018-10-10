@@ -13,7 +13,57 @@ Remix is an online development platform that helps you write Solidity contracts 
 Execution Option 2: On-Campus Ethereum
 ---
 
-TBA
+Step 1: Install `Solc` 
+----
+
+```
+sudo add-apt-repository ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install solc
+```
+
+Step 2: Create Smart Contract Program
+----
+
+### 2A. Create Smart Contract file
+1. Create a simple "Hello World" program, where you set the greeting string and output the greeting string and save the file as `hello.sol`
+Sample Code is given below:
+```
+pragma solidity ^0.4.13;
+contract hello {
+ /* define variable greeting of the type string */
+ string greeting;
+ function greeter(string _greeting) public {
+    greeting = _greeting;
+ }
+
+ /* main function */
+ function greet() public constant returns (string) {
+    return greeting;
+ }
+}
+```
+2. Save	it	to	same	directory	from	which	you	are	running	your	geth console.	(i.e.	in	the	‘lab3’	directory	as	per the previous lab instructions).
+
+3. Compile the code using solc/soljs depending on the installtion
+
+```
+solc	-o	.	--bin	--abi	hello.sol
+```
+You	will see	two	files	generated	as	`hello.abi`	and	`hello.bin`	.	The `.abi` file	holds	the contract interface	&	.bin holds the	compiled	code.
+
+4. Edit the generated .abi and .bin files to look as below
+
+***hello.abi***
+```
+var helloContract = eth.contract([{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_greeting","type":"string"}],"name":"greeter","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}])
+```
+***hello.bin***
+```
+personal.unlockAccount(eth.accounts[0])
+var helloVar = helloContract.new({from:eth.accounts[0],
+data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063cfae321714610051578063faf27bca146100e1575b600080fd5b34801561005d57600080fd5b5061006661014a565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100a657808201518184015260208101905061008b565b50505050905090810190601f1680156100d35780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b3480156100ed57600080fd5b50610148600480360381019080803590602001908201803590602001908080601f01602080910402602001604051908101604052809392919081815260200183838082843782019150505050505091929192905050506101ec565b005b606060008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101e25780601f106101b7576101008083540402835291602001916101e2565b820191906000526020600020905b8154815290600101906020018083116101c557829003601f168201915b5050505050905090565b8060009080519060200190610202929190610206565b5050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061024757805160ff1916838001178555610275565b82800160010185558215610275579182015b82811115610274578251825591602001919060010190610259565b5b5090506102829190610286565b5090565b6102a891905b808211156102a457600081600090555060010161028c565b5090565b905600a165627a7a72305820a06cc690f3e38c276b8c4e70ec8a61437d1c71e3779bdfbd2f8d12bc3601f20a0029",gas:500000})
+```
 
 Solidity
 ---
