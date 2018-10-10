@@ -1,5 +1,5 @@
-Exercise 1: Hello-world on Solc and Ethereum
-===
+Lab L2-4.1/Exercise 1b: Hello-world on Solc and Ethereum
+---
 
 Start your Ethereum VM in VirtualBox and open a terminal there.
 
@@ -43,20 +43,19 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 
 6. Deploy the smart contract:
     1. Connect to the Ethereum network (these steps are the same as per the last lab)
-
 ```
 $ geth --datadir bkc_data init ~/lab4/genesis.json # create a database that uses this genesis block
 $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
 >admin.addPeer("enode://d2547d500b1e982ac93a6ce1dbf34cff6545987740313373ccecb28e095c6ce4294e5cf4be2f002672d30fb717b8bd05e1a12163b24743b907bb7d2c37415928@[128.230.208.73]:30303")
 ```
-    2. Load and run the script to deploy smart contract
 
+    2. Load and run the script to deploy smart contract
 ```
 > loadScript("hello_sol_hello.abi")
 > loadScript("hello_sol_hello.bin")
 ```
-You will see the message below in console log file. For future use, take a note of both contract address and transaction hash value.
 
+You will see the message below in console log file. For future use, take a note of both contract address and transaction hash value.
 ```
 INFO [06-26|14:39:04] Submitted contract creation              fullhash=0x3a866d157afb43afaef5e33ef7ec61ab0dfe2edf36783f8a332ee8d622dadea9 contract=0x5dDd255aBa54b65595BB80dDd492Ea260bBA23a1
 ```
