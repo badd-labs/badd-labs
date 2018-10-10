@@ -1,21 +1,9 @@
-Lab 4.1: Smart Contract Programming
+Lab L2/4.1: Smart Contract Programming
 ===
 
 The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. The lab will be developed on Ethereum/Solidity platform using existing programming platform such as Remix. There will be programming exercises for students to implement two-party computation (e.g., `max(x,y)`) and three-party rock-paper-scissors game.
 
 **Lab Description**: This module consists of two lab exercises and a bonus exercise. This helps in getting the grip on the solidity language used to write smart contracts which can be deployed on the blockchain. This lab concentrates on using the Remix IDE which is available to write, test, compile and deploy the smart contract, without need to set up any blockchain. Bonus task requires you to deploy and run the smart contract on on-campus blockchain (Link to refer is given). The module is outlined below:
-
-
-Programming Option 1: Solc and On-Campus Ethereum
----
-
-To develop smart-contract program, you can use programming framework `solc` to run the contract code on a real Blockchain network. In option 1, we will use the `solc` compiler and our on-campus Ethereum instance (used in previous labs). The step-by-step instructions can be found [[here](README_solc.md)].
-
-Programming Option 2: Remix
----
-
-Remix is an online development platform that helps you write Solidity contracts straight from the browser. Written in JavaScript, Remix supports both usage in the browser or locally. Remix supports the full programming cycle of smart contracts, including testing, debugging and deployment. You can find more information about Remix IDE in [[link](https://remix.readthedocs.io/en/latest/)].
-
 
 Solidity
 ---
@@ -24,10 +12,10 @@ Solidity is a object-oriented programming language for writing smart contracts m
 
 To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers in the contract. 
 
-LAB EXERCISE 1: EXECUTING A HELLOWORLD PROGRAM IN SOLIDITY
+Exerise 1a: Helloworld Contract with Remix
 ---
 
-Below is the solidity code for a simple ‘HelloWorld’ program. Function ‘greeter’ takes string as the input and stores in the variable ‘greeting’ and Function ‘greet’ just returns the value of variable ‘greeting’.
+In Exercises 1, we will learn to compile and execute a given Solidity program. It is a helloworld program given as below. Function `greeter` takes a string argument and stores it in Variable `greeting`. Function `greet` take no argument and returns the value of Variable `greeting`.
 
 ```
 pragma solidity ^ 0.4.13;
@@ -43,20 +31,32 @@ pragma solidity ^ 0.4.13;
 } 
 ```
 
+In this exercise, we will use Remix which is a web-based IDE for contract development. It supports the full programming life cycle including contract compilation, debugging, development, and execution. More details about the Remix IDE can be found in [[link](https://remix.readthedocs.io/en/latest/)].
 
 1.1 Compile the code using `Start to Compile` button provided in the Remix IDE. Check for the errors (if any) and resolve them.
 
-1.2 Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for ‘greeter’ function and click on ‘transact’ button. You can see transaction being successful in ‘Remix Transactions’ section. 
+1.2 Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for `greeter` function and click on "transact" button. You can see transaction being successful in the "Remix Transactions" section. 
 
-1.3 Click on ‘greet’ button/function, you can see the string value set for ‘greeting’ using ‘greeter’ function will be displayed. Submit the final screenshot of running this Solidity program.
+1.3 Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-LAB EXERCISE 2: FIND THE MAXIMUM OF X AND Y
+Exerise 1b (with Bonus): Helloworld Contract with Solc and On-Campus Ethereum
 ---
-In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value.The Smart contact should have the following functionalities:	1. A function that takes x and y as input	2. Returns the maximum of x and y as outputDeploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
 
-Once you deploy successfully, provide the values for x and y and see the output value in the `remix transactions` section of the page, in `decoded output` row.  
+In this exercise, we will use a commandline programming framework `solc` to compile and deploy the helloworld contract to Ethereum. We will use our on-campus Ethereum network (as in the previous labs). 
 
-LAB EXERCISE 3: IMPLEMENT ROCK-PAPER-SCISSORS GAME
+Follow the instructions [[here](README_solc.md)] to compile and execute the helloworld contract. Submit the screenshot of contract-execution results.
+
+Exercise 2: Find the Maximum 
+---
+
+In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value.The Smart contact should have the following functionalities:
+
+1. A function that takes x and y as input
+2. Returns the maximum of x and y as outputDeploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
+
+Once you deploy successfully, provide the values for x and y and see the output value in the "remix transactions" section of the page, in "decoded output" row.  
+
+Exercise 3: Rock-paper-scissors game
 ---
 
 Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. You can use variables to keep track of the deposit and player values.The contract should have the following functionalities:
@@ -69,3 +69,4 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
     - a. If player1 wins, send bid amount ie, 10 Ethers to player1.
     - b. If player2 wins, send bid amount ie, 10 Ethers to player2.
     - c. If both the players win, divide the bid amount and send to players equally. Once the game is finished, `Account` values (on the right-top corner of the IDE) of the designated player addresses should be updated. Make sure the player is depositing exactly 5 Ethers else the transaction should be rejected. While depositing the amount (5 Ethers in our case), `Value` on the right-top corner must be equivalent to 5 Ethers, in-order for the Remix to send the transaction successfully.
+
