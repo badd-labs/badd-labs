@@ -55,7 +55,7 @@ In this exercise, you are asked to write a Solidity program to find the maximum 
 1. A function that takes x and y as input
 2. Returns the maximum of x and y as outputDeploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
 
-Once you deploy successfully, provide the values for x and y and see the output value in the "remix transactions" section of the page, in "decoded output" row.  
+In exercise 1, if you took 1a option, you should do exercise 2 with Remix. If you took option 1b, then you can do exercise 2 with Solc. 
 
 Exercise 3: Rock-paper-scissors game
 ---
@@ -71,3 +71,8 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
     - b. If player2 wins, send bid amount ie, 10 Ethers to player2.
     - c. If both the players win, divide the bid amount and send to players equally. Once the game is finished, `Account` values (on the right-top corner of the IDE) of the designated player addresses should be updated. Make sure the player is depositing exactly 5 Ethers else the transaction should be rejected. While depositing the amount (5 Ethers in our case), `Value` on the right-top corner must be equivalent to 5 Ethers, in-order for the Remix to send the transaction successfully.
 
+Deliverable
+---
+
+- For all exercises, you should show the screenshot of you executing the program successfully. For instance, in Exercise 1, your screenshort should show the execution of a sequence such as `greeter("X")` and `greet()` which prints the value of `X`.
+- In Exercise 2,3, you should also submit the solidity program you wrote.
