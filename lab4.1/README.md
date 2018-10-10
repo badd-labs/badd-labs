@@ -1,14 +1,15 @@
-Lab L2/4.1: Smart Contract Programming
+Lab L2-4.1: Smart Contract Programming
 ===
 
 The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. The lab will be developed on Ethereum/Solidity platform using existing programming platform such as Remix. There will be programming exercises for students to implement two-party computation (e.g., `max(x,y)`) and three-party rock-paper-scissors game.
 
-**Lab Description**: This module consists of two lab exercises and a bonus exercise. This helps in getting the grip on the solidity language used to write smart contracts which can be deployed on the blockchain. This lab concentrates on using the Remix IDE which is available to write, test, compile and deploy the smart contract, without need to set up any blockchain. Bonus task requires you to deploy and run the smart contract on on-campus blockchain (Link to refer is given). The module is outlined below:
+**Lab Description**: This module consists of four lab exercises where the first two exercises (1a and/or 1b) are to set up programming environments. Exercise 1b is a bonus one (with 20% extra points). The last two exercises require you to design a contract program based on the given requirement.
+There are two programming environments you can choose from: the web-based Remix IDE and the commandline-based Solc. Use of Solc will give you 20\% bonus.
 
 Solidity
 ---
 
-Solidity is a object-oriented programming language for writing smart contracts mainly on Ethereuem. The language tutorial of solidity, including the languarnge syntax, can be found in the documentation [[link](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)]
+Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereuem. The language tutorial of solidity, including the languarnge syntax, can be found in the documentation [[link](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)]
 
 To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers in the contract. 
 

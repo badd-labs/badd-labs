@@ -1,4 +1,4 @@
-Module 3: Blockchain Storage and Mining on Campus
+Lab L1-3.1: Blockchain Storage and Mining on Campus
 ===
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
