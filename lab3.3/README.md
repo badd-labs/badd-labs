@@ -62,7 +62,7 @@ For more details, refer to the [[link](https://github.com/ethereum/wiki/wiki/Jav
 
 * This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab3.1/README.md)]. 
 
-**Note: You can re-use all the data from your previous lab3. For example: **
+**Note: You can re-use all the data from your previous lab3. For example:**
 
 ```
 mkdir -p sdfs_lab
