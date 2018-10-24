@@ -40,7 +40,7 @@ In the following, there are four exercises of this lab: User login/logout using 
 To interact Ethereum blockchain through Javascript, you will need to use ‘web3’ object in the ‘web3.js’ library. The following sample code sends a transaction to Blockchain by Javascript: 
 
 ```
-wweb3.eth.sendTransaction({from:var1,data:var2,to:var3},function(var4,var5) {
+web3.eth.sendTransaction({from:var1,data:var2,to:var3},function(var4,var5) {
     if (var4)
       //Failed to send the transaction
     else 
