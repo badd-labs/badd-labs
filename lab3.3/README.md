@@ -65,18 +65,24 @@ For more details, refer to the [[link](https://github.com/ethereum/wiki/wiki/Jav
 **Note: You can re-use all the data from your previous lab3. For example:**
 
 ```
-mkdir -p sdfs_lab
-cp -r lab3/bkc_data sdfs_ab
+$ mkdir -p sdfs_lab
+$ cp -r lab3/bkc_data sdfs_ab
+```
+
+* In this lab, you need to enable RPC
+
+```
+> admin.startRPC()
 ```
 
 * Assuming that you have connected to the Ethereum network, you can now open a new terminal and install the `web3` module
 ```
-npm install web3@^0.20.0
+$ npm install web3@^0.20.0
 ```
 * Copy the `SDFC_lab.js` file to your current working directory, and run the prgram
 
 ```
-nodejs SDFC_lab.js
+$ nodejs SDFC_lab.js
 ```
 
 **Note: Make sure you have enough funds in your `eth.accounts[0]` and also make sure to unlock the account before running the program**
