@@ -79,6 +79,8 @@ npm install web3@^0.20.0
 nodejs SDFC_lab.js
 ```
 
+**Note: Make sure you have enough funds in your `eth.accounts[0]` and also make sure to unlock the account before running the program**
+
 
 #### LAB EXERCISE 1: USER LOGIN/LOGOUT [GRADE 20%]
 
