@@ -1,5 +1,16 @@
 ## Lab 3.3: BLOCKCHAIN Applications: LOGGING REMOTE FILE STORAGE
 
+### Lab Setup
+
+Install `node.js`
+
+```
+sudo apt install curl
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+sudo apt install nodejs
+```
+
+
 ### Lab Description:
 
 The Blockchain technology can be used in applications beyond cryptocurrency. In this lab, we explore the Blockchain application for logging the operation trace of a remote file-storage service. This features a common use of the Blockchain, that is, making the data about a third-party transparent to invite trusts.
