@@ -60,9 +60,25 @@ For more details, refer to the [[link](https://github.com/ethereum/wiki/wiki/Jav
 
 #### INSTRUCTIONS FOR RUNNING THE PROVIDED PROGRAM
 
-This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab3.1/README.md)]. 
+* This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab3.1/README.md)]. 
 
-Launch the provided VM (You can download VM image from this [[link](https://drive.google.com/open?id=1NEDRDxHGJITjj8H53aYnGhDdcexzUMZX)], and run the Javascript program by `cd ~/Lab_SDFS; node SDFS_lab.js`. The provided Javascript program simulate a simple file-system client and server. 
+**Note: You can re-use all the data from your previous lab3.**
+
+```
+mkdir -p sdfs_lab
+cp -r lab3/bkc_data sdfs_ab
+```
+
+* Assuming that you have connected to the Ethereum network, you can now open a new terminal and install the `web3` module
+```
+npm install web3@^0.20.0
+```
+* Copy the `SDFC_lab.js` file to your current working directory, and run the prgram
+
+```
+nodejs SDFC_lab.js
+```
+
 
 #### LAB EXERCISE 1: USER LOGIN/LOGOUT [GRADE 20%]
 
