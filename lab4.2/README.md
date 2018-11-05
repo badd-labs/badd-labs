@@ -1,4 +1,4 @@
-# Module 4.1: Deploying Financial Derivatives Contract on Blockchain
+# Module 4.2: Deploying Financial Derivatives Contract on Blockchain
 ---
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
@@ -34,8 +34,8 @@ Let us consider the conversion rate as below for 1st and 30th day of the contrac
 
 
 1. Initially, A deposits 1000 Ethers in to Bank Account on 1st Jan (You can Consider less Ethers for convenience purpose)
-	    B deposits 1000 ethers in to Bank Account on 1st Jan
-        Bank Account will now have 2000 Ethers
+    - B deposits 1000 ethers in to Bank Account on 1st Jan
+    - Bank Account will now have 2000 Ethers
 2. Let 1000 Ethers be Equivalent to $20 on 1st Jan.
 3. Once both the parties have deposited the required amount of the hedging contract, payment of equivalent $x USD (20 in this case) is registered in database for this transaction.
 4. A or B reactivates the contract after 30 days, in order to send $x ($20 in our case) worth of ethers to another account involved in the hedging contract
