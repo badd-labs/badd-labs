@@ -60,6 +60,10 @@ If buyer agree and seller don't, escrow will call the kill function and buyer ge
 
 Make sure your contract works for multiple calls and settlement happens only if both parties have explicitly given their approval/disapproval.
 
+### Bounus Task (20%): 
+
+Deploy and run the code of Task 1,2,3 on a Compus Blockchain. Include screenshots of the results in your report.
+
 
 
  
