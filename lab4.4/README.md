@@ -39,6 +39,9 @@ Variable list and functions mentioned below are just for reference. You can desi
 
 
 ## Lab Tasks
+
+***Note: For task 1,2 and 3, you can deploy and run your smart contract using Remix***
+
 ### Lab Task 1: Create the products
 you should be able to add the products, store all the products and should be able to handle the shipment of each product. 
 
