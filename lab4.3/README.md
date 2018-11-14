@@ -43,6 +43,9 @@ Variable list and functions mentioned below are just for reference. You can desi
 3.	Start variable to keep track when contract starts.
 
 ## Lab Tasks
+
+***Note: For task 1,2 and 3, you can deploy and run your smart contract using Remix***
+
 ### Lab Task 1: Both parties agrees
 
 You should have a Deposit function to increment the balance - Buyer to deposits product price, contract time starts now. This is common for all lab tasks in this lab.
