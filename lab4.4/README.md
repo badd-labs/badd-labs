@@ -5,7 +5,7 @@ In this lab, you are given the initial state that a custom Blockchain network of
 
 Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
 
-In this lab, you will create a contract for part of the Supply chain transaction system given the System Design for the contract and call the functions on on-campus blockchain. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs.internal/tree/master/lab4.1)] to know more about how to deploy simple contract and call its functions.
+In this lab, you will create a contract for part of the Supply chain transaction system given the System Design for the contract and call the functions on on-campus blockchain. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
 
 ## Supply Chain Transaction System and Contract understanding
@@ -54,6 +54,11 @@ Make sure your contract is able to handle multiple shipments.
 
 
 As we are trying to handle one product at a time in the work-flow, try to come up with the conditions which can be violated (like some other buyer tries to buy the product when it is in transit, transaction to settle is invoked when the deposit is not successful etc.) and try to resolve those conflicts in code.
+
+
+### Bonus Task (20%): 
+
+Deploy and run the code of Task 1,2,3 on a Compus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] as a reference of how to deploy smart contracts on a on-campus Blockchain.
 
 ## Reference
 https://en.wikipedia.org/wiki/Supply_chain_management
