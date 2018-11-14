@@ -9,7 +9,7 @@ resolution (i.e., returning payment to the buyer).
 
 Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
 
-In this lab, you will create a contract for Escrow Service given the System Design for the contract and call the functions. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs.internal/tree/master/lab4.1)] to know more about how to deploy simple contract and call its functions.
+In this lab, you will create a contract for Escrow Service given the System Design for the contract and call the functions. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
 
 ## Escrow Service and Contract understanding
@@ -62,7 +62,7 @@ Make sure your contract works for multiple calls and settlement happens only if 
 
 ### Bonus Task (20%): 
 
-Deploy and run the code of Task 1,2,3 on a Compus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial ]https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md] as a reference of how to deploy smart contracts on a on-campus Blockchain.
+Deploy and run the code of Task 1,2,3 on a Compus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] as a reference of how to deploy smart contracts on a on-campus Blockchain.
 
 
 
