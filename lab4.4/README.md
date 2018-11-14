@@ -33,8 +33,8 @@ Variable list and functions mentioned below are just for reference. You can desi
 
 ### Variables
 1. variable of type struct to keep all the information about the product encapsulated.
-2. we should be able to keep track of the products using variables (price, isDeliverd, inTransit, isDelivered etc). These can change during each sale.
-2. product array to store all the products. 
+2. we should be able to keep track of the products using variables (price, isDeliverd, inTransit, isDelivered etc). These can be changed during each sale.
+3. product inventory to store all the products. 
 
 
 
