@@ -61,7 +61,7 @@ As we are trying to handle one product at a time in the work-flow, try to come u
 
 ### Bonus Task (20%): 
 
-Deploy and run the code of Task 1,2,3 on a Compus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] as a reference of how to deploy smart contracts on a on-campus Blockchain.
+Deploy and run the code of Task 1,2,3 on our on-campus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] as a reference of how to deploy smart contracts on a on-campus Blockchain.
 
 ## Reference
 https://en.wikipedia.org/wiki/Supply_chain_management
