@@ -51,7 +51,7 @@ You can make two different functions to handle deposit and shipment.\
 You should make sure that the shipping takes place only if the initial deposit is made by the buyer for the price of the product. Settlement of the transaction should happen only if both the parties approve the transaction.
 
 ### Lab Task 3: Delivery and Transfer
-Assuming that good has reached the destination, a transaction will be initiated (check if priceofproduct decided at deposit time is equal to msg.value before proceeding with transaction). If both the seller and buyer sign values are true, payment will be initiated. 
+Assuming that good has reached the destination, a transaction will be initiated (check if price of product decided at deposit time is equal to msg.value before proceeding with transaction). If both the seller and buyer sign values are true, payment will be initiated. 
 
 Make sure your contract is able to handle multiple shipments.
 
