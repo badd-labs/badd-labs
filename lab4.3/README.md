@@ -27,6 +27,8 @@ Escrow in simple words:
 
 Refer [[link](https://www.investopedia.com/terms/e/escrow.asp)] and [[link](https://www.escrow.com/what-is-escrow)]   for more details about escrow service.
 
+![A test image](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.3/flow.png)
+
 
 ## Contract Design
 
