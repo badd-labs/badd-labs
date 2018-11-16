@@ -14,16 +14,15 @@ In this lab, you will create a contract for Escrow Service given the System Desi
 
 ## Escrow Service and Contract understanding
 
-Escrow is a framework for a buyer to be confident that he will not release funds to the seller unless he is happy with the product. Third party/trusted party will be involved usually to take care of this and they will charge a fee for this.
+An escrow protocol is a three-party protocol among a buyer, a seller and an explicit escrow service. At the beginning of the transaction, the buyer makes a security deposit to the escrow service. This is done by the buyer sending a transaction to an address on which the escrow smartcontract runs. After the transaction, if both seller and buyer agree, the escrow smart contract will make the payment to the seller. If there is a dispute, meaning either seller or buyer disagrees, the smart contract will withhold the payment from sending to the seller.
 
-An escrow protocol is a three-party protocol among a buyer, a seller and an explicit escrow service. At the beginning of the transaction, the buyer makes a security deposit to the escrow service. This is done by the buyer sending a transaction to an address on which the escrow smartcontract runs. After the transaction, if both seller and buyer agree, the escrow smart contract will make the payment to the seller. If there is a
-dispute, meaning either seller or buyer disagrees, the smart contract will withhold the payment from sending to the seller.
+In this lab, we model the Escrow service flow as below:
+1.	The buyer makes a security deposit to Escrow service (a smart contract running on the Blockchain)
+2. (Case 1): Both the buyer and the seller agree with the deal, the Escrow service sends the funds to the seller. 
+3.	(Case 2): The buyer agrees with the deal but the seller doesn't, or the seller agrees with the deal but the buyer doesn't. In this case, an off-chain counterpart of Escrow service will fire a timeout function in the smart contract. The timeout function will then trigger a refund to the buyer. 
+4. (Case 3): Both the buyer and the seller disagree with deal. In this case, the buyer will get the refund. 
 
-Escrow in simple words:
-1.	Seller and Buyer both accept the transaction, the seller gets paid.
-2.	Seller and Buyer cancel the transaction, the buyer gets refunded.
-3.	If the seller accepts the transaction and the buyer does not. Funds will be sent to buyer after 30 days (contract period you can keep it 2 minutes for testing/lab purpose). The seller can try to convince the buyer by then.
-4.	If the buyer accepts but seller does not, funds will remain in the contract until it is killed by escrow creator. Once killed, funds will be sent to the buyer immediately.
+Notice that in all cases, the Escrow service collects 1% of the secure deposit as the service fee.
 
 Refer [[link](https://www.investopedia.com/terms/e/escrow.asp)] and [[link](https://www.escrow.com/what-is-escrow)]   for more details about escrow service.
 
