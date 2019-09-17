@@ -5,7 +5,7 @@ In this lab, you are given the initial state that a custom Blockchain network of
 
 Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
 
-In this lab, you will create a contract for part of the Supply chain transaction system given the System Design for the contract and call the functions on on-campus blockchain. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs.internal/tree/master/lab4.1)] to know more about how to deploy simple contract and call its functions.
+In this lab, you will create a contract for part of the Supply chain transaction system given the System Design for the contract and call the functions on on-campus blockchain. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
 
 ## Supply Chain Transaction System and Contract understanding
@@ -33,12 +33,15 @@ Variable list and functions mentioned below are just for reference. You can desi
 
 ### Variables
 1. variable of type struct to keep all the information about the product encapsulated.
-2. we should be able to keep track of the products using variables (price, isDeliverd, inTransit, isDelivered etc). These can change during each sale.
-2. product array to store all the products. 
+2. we should be able to keep track of the products using variables (price, isDeliverd, inTransit, isDelivered etc). These can be changed during each sale.
+3. product inventory to store all the products. 
 
 
 
 ## Lab Tasks
+
+***Note: For task 1,2 and 3, you can deploy and run your smart contract using Remix***
+
 ### Lab Task 1: Create the products
 you should be able to add the products, store all the products and should be able to handle the shipment of each product. 
 
@@ -48,12 +51,17 @@ You can make two different functions to handle deposit and shipment.\
 You should make sure that the shipping takes place only if the initial deposit is made by the buyer for the price of the product. Settlement of the transaction should happen only if both the parties approve the transaction.
 
 ### Lab Task 3: Delivery and Transfer
-Assuming that good has reached the destination, a transaction will be initiated (check if priceofproduct decided at deposit time is equal to msg.value before proceeding with transaction). If both the seller and buyer sign values are true, payment will be initiated. 
+Assuming that good has reached the destination, a transaction will be initiated (check if price of product decided at deposit time is equal to msg.value before proceeding with transaction). If both the seller and buyer sign values are true, payment will be initiated. 
 
 Make sure your contract is able to handle multiple shipments.
 
 
 As we are trying to handle one product at a time in the work-flow, try to come up with the conditions which can be violated (like some other buyer tries to buy the product when it is in transit, transaction to settle is invoked when the deposit is not successful etc.) and try to resolve those conflicts in code.
+
+
+### Bonus Task (20%): 
+
+Deploy and run the code of Task 1,2,3 on our on-campus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] as a reference of how to deploy smart contracts on a on-campus Blockchain.
 
 ## Reference
 https://en.wikipedia.org/wiki/Supply_chain_management
