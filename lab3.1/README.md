@@ -17,14 +17,14 @@ Lab Environment Setup
 
 ### 1A. Download our VM with Ethereum 
 
-Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads
+Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads . Choose `Ubuntu-64` bit option while installing the VM.
 
 Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/19_U2UmsnZmMGRwe4AxMlfYoEot-xZ7Br/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
 
 **_Script 1a_**: 
 
 ```
-$ mkdir -p ~/lab3/bkc_data
+$ mkdir -p ~/lab1/bkc_data
 $ gedit genesis.json
 ```
 
@@ -34,7 +34,7 @@ Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullsta
 
 If you are good with option 1A, you can skip 1B. This step is for who want to install Ethereum on their OS.
 
-We will use `Geth`, the Ethereum client implemented in Language `Go`. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox which you've already had in previous lab. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+We will use `Geth`, the Ethereum client implemented in Language `Go`. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
 
 ***Ubuntu Users***
 
@@ -72,9 +72,9 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 **_Script 2.1_**: 
 
 ```
-$ mkdir -p ~/lab3/bkc_data
-$ cd ~lab3
-$ geth --datadir bkc_data init ~/lab3/genesis.json # create a database that uses this genesis block
+$ mkdir -p ~/lab1/bkc_data
+$ cd ~lab1
+$ geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
 $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
 ```
 
@@ -141,7 +141,7 @@ Mining takes a while to get start, you can monitor the event log by
 **_Script 3b.3_**: 
 
 ```
-tail -f ~/lab3/console.log
+tail -f ~/lab1/console.log
 ```
 
 To know currently you are mining or not, you can run 
