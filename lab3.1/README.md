@@ -184,11 +184,11 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 **Task 1:** After you started mining, show the coins that you have mined. Then wait 1 minute, check the balance again.
 
-**Task 2:** Show the content (all the blocks and transactions) on the blockchain. Then wait 1 minute, show the blockchain again to see how it is extended over time.
+**Task 2:** Show the content (the latest three blocks and all transactions included in these blocks) on the blockchain. Then wait 1 minute, show the blockchain again to see how it is extended over time.
 
 **Task 3:** 
 
-1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipient (seller) of the transaction. Optionally you can find other students' account on this [[document](https://docs.google.com/document/d/1nI3o1YH-rkAto9iysuExh5PbnFgCAgjFifturm2nQzg/edit?usp=sharing)];
+1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipient (seller) of the transaction. 
 
 2. Show whether transaction `tx5` is included in the Blockchain; if not wait for a while, check again.
 
