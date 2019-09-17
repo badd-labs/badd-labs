@@ -127,7 +127,7 @@ Before mining, the coinbase has to be specified to one personal account, where y
 > miner.setEtherbase(eth.accounts[0]) # that address that will receive your earnings
 ```
 
-You can now start/stop the miner. If mining doesn't seem to work, you may try to unlock your account:
+You can now start/stop the miner. If mining doesn't seem to work, you may try to unlock your account and start mining again:
 
 ```
 > personal.unlockAccount(“accountAddress”, “accountPassword”)
