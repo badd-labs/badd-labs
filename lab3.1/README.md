@@ -80,7 +80,7 @@ $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://f9903a9b394be
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
-**2.2 Add a Peer Miner**: Add a peer node running on the remote machine by specify the node URL.
+**2.2 Add a Peer Miner**: Manually add a peer node to your miner node by a specific node URL. (Updates: It seems that add a peer miner is not required to connect your miner nodes to the on-campus Blockchain network).
 
 **_Script 2.2_**: 
 
@@ -95,6 +95,9 @@ Check the connectivity by running:
 ```
 > admin.peers
 ```
+
+This command should return non-empty text about the peer nodes connected by your miner node.
+
 
 ### 3A. Get Coins by Transactions
 
