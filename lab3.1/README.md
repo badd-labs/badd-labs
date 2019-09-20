@@ -235,3 +235,7 @@ personal.unlockAccount(eth.accounts[0])
             Step 1:  Follow the instructions in the below link (but skipping the last step - "mounting the partition") [[Add Disk Storage](http://www.vitalsofttech.com/add-disk-storage-to-oracle-virtualbox-with-linux/)]. Step 2: Run the below command to cleanup some space
                `sudo rm -rf /var/*`
                Step 3. Run the below command to mount the new disk to the home directory. `sudo mount /dev/sdb1 ~`
+             
+- Q5: Why does ```admin.peers``` return null sometimes?
+
+    - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the shcool network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
