@@ -191,7 +191,7 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 **Task 1:** After you started mining, show the coins that you have mined. Then wait 1 minute, check the balance again.
 
-**Task 2:** Show the content (show the latest three blocks and the latest transaction) on the blockchain. Then wait 1 minute, show the blockchain again to see how it is extended over time.
+**Task 2:** Show the content (show the latest three blocks and the latest transaction) on the blockchain. Then wait 1 minute, show the blockchain again to see how it is extended over time. (Hint: To find the latest transaction on the blockchain, you can iterate through the blocks and check the transaction(s) in them. To iterate through the blocks, you can use JavaScript.)
 
 **Task 3:** 
 
