@@ -4,11 +4,26 @@ Lab L2-4.1/Exercise 1b: Hello-world on Solc and Ethereum
 Start your Ethereum VM in VirtualBox and open a terminal there.
 
 1. Install `Solc` 
+
+Installing all versions of `solc` and use version `0.4.13`:
+
+```
+sudo apt-get install curl
+git clone https://github.com/crytic/solc-select.git
+./solc-select/scripts/install.sh
+export PATH=/home/USERNAME/.solc-select:$PATH
+solc --version
+solc use 0.4.13
+```
+
+Deprecated approach
+
 ```
 sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
 sudo apt-get install solc
 ```
+
 
 2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
