@@ -39,7 +39,7 @@ cd lab4.1
 solc -o . --bin --abi hello.sol
 ```
 
-    - After compilation, there should be two files generated: `hello.abi` and `hello.bin`. 
+- After compilation, there should be two files generated: `hello.abi` and `hello.bin`. 
         - File `hello.bin` stores the compiled "binary" code. This is the code directly executed by miners.
         - File `hello.abi` defines the interface through which the compiled code interacts with the execution platform (or EVM). Like ABI, it defines how the binary code in `.bin` should be interpreted in EVM.
 
