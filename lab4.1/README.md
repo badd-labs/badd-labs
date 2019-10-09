@@ -53,7 +53,7 @@ Exercise 2: Find the Maximum
 In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value.The Smart contact should have the following functionalities:
 
 1. A function that takes x and y as input
-2. Returns the maximum of x and y as outputDeploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
+2. Returns the maximum of x and y as output. Deploy the program and run the program in the Remix IDE [[link](https://remix.ethereum.org/)]
 
 In exercise 1, if you took 1a option, you should do exercise 2 with Remix. If you took option 1b, then you can do exercise 2 with Solc. 
 
