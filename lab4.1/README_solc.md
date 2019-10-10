@@ -28,11 +28,11 @@ sudo apt-get install solc
 2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
 cd ~
-cp -r lab3 lab4.1
-cd lab4.1
+cp -r lab1 lab2
+cd lab2
 ```
 
-3. Create a smart-contract file. Copy the text of the above hello-world program and save it in a file `~/lab4.1/hello.sol`. 
+3. Create a smart-contract file. Copy the text of the above hello-world program and save it in a file `~/lab2/hello.sol`. 
     - You can use a text editor of your preference to do this, such as `vim`, `emacs`, `gedit`.
 4. Compile the contract file using `solc` in the command below. You may also try `soljs` as the compiler.
 ```
@@ -69,7 +69,7 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 
 6. Deploy the smart contract by first connecting to the Ethereum network (these steps are the same as per the last lab)
 ```
-$ geth --datadir bkc_data init ~/lab4/genesis.json # create a database that uses this genesis block
+$ geth --datadir bkc_data init ~/lab2/genesis.json # create a database that uses this genesis block
 $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
 >admin.addPeer("enode://d2547d500b1e982ac93a6ce1dbf34cff6545987740313373ccecb28e095c6ce4294e5cf4be2f002672d30fb717b8bd05e1a12163b24743b907bb7d2c37415928@[128.230.208.73]:30303")
 ```
