@@ -70,8 +70,8 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 6. Deploy the smart contract by first connecting to the Ethereum network (these steps are the same as per the last lab)
 ```
 $ geth --datadir bkc_data init ~/lab2/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://d3cd4e70fe7ad1dd7fb23539c53982e42816b4218cc370e8af13945f7b5e2b4a288f8b949dbdba6a998c9141266a0df61523de74490c91fc1e3d538b299bb8ab@128.230.208.73:30301 console 2>console.log 
->admin.addPeer("enode://d2547d500b1e982ac93a6ce1dbf34cff6545987740313373ccecb28e095c6ce4294e5cf4be2f002672d30fb717b8bd05e1a12163b24743b907bb7d2c37415928@[128.230.208.73]:30303")
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://f9903a9b394bec7c74cd1172171c1cb7aa74f313fa7686bc8206955157a47acc8b4c3e9859a0731224235364e66a37a1bfb24819b0130ca0e6939b3cfc4feabf@128.230.208.73:30301 console 2>console.log  
+>admin.addPeer("enode://ea2c929277e57dc6d89000ea6e35e0ffc8274e0c35e43d518d734277d3221785daf6a53cb01ab54e75b78c887c9a37acb59eaca7a0da8f8a562ca85e354e325a@[128.230.208.73]:30303")
 ```
 
 7. Load and run the script to deploy smart contract
