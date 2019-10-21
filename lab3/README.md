@@ -1,4 +1,4 @@
-## Lab 3.3: BLOCKCHAIN Applications: LOGGING REMOTE FILE STORAGE
+## Lab 3: BLOCKCHAIN Applications: LOGGING REMOTE FILE STORAGE
 
 ### Lab Setup
 
@@ -10,11 +10,20 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 sudo apt install nodejs
 ```
 
+You can also refer here: <https://nodejs.org/en/download/>
+
+You can refer <https://nodejs.org/dist/> for specific versions of `node.js`. This lab is tested with:
+
+`node.js`: v8.11.1
+`npm`: v5.6.0
+`web3`: v0.20.0
+
+You can install the latest versions and work with them if you would prefer.
 
 ### Lab Description:
 
 The Blockchain technology can be used in applications beyond cryptocurrency. In this lab, we explore the Blockchain application for logging the operation trace of a remote file-storage service. This features a common use of the Blockchain, that is, making the data about a third-party transparent to invite trusts.
-The learning objective of this lab is for students to design and implement a simple service for secure distributed file system (SDFS) and use the Blockchain technology to log the service. The target system consists of a client supporting multiple file-system users and a server storing a file. 
+The learning objective of this lab is for students to design and implement a simple service for secure distributed file system (SDFS) and use the Blockchain technology to log the service related information. The target system consists of a client supporting multiple file-system users and a server storing a file. 
  
 #### Lab Environment:
 
@@ -32,10 +41,6 @@ user_logout("userA");
 user_logout("userB");  
 ```
 
-The operations used above are defined as below:
- 
-In the following, there are four exercises of this lab: User login/logout using password (authentication), access control using permission (authorization), Blockchain logging, tracing user login and access requests using Blockchain.
-
 #### TUTORIAL ON USING GETH IN JAVASCRIPT/WEB3
 To interact Ethereum blockchain through Javascript, you will need to use ‘web3’ object in the ‘web3.js’ library. The following sample code sends a transaction to Blockchain by Javascript: 
 
@@ -48,28 +53,28 @@ web3.eth.sendTransaction({from:var1,data:var2,to:var3},function(var4,var5) {
   });
 ```
 
-The arguments in sendTransaction() are explained below:
+The arguments of sendTransaction() are explained below:
 
 - `var1`: This argument is an account address of the sender. 
-- `var2`: a byte string containing the associated data of the message.
+- `var2`: A byte string containing the associated data of the message.
 - `var3`: The argument is an account address of receiver.
 - `var4`: The argument is the error message if the request fails.
 - `var5`: The argument is the result of the request after successful execution.
 
-For more details, refer to the [[link](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction)]
+For more details, refer to the [link](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction)
 
 #### INSTRUCTIONS FOR RUNNING THE PROVIDED PROGRAM
 
-* This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab3.1/README.md)]. 
+* This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab1/README.md)]. 
 
-**Note: You can re-use all the data from your previous lab3. For example:**
+**Note: You can re-use all the data from your previous lab1. For example:**
 
 ```
 $ mkdir -p sdfs_lab
-$ cp -r lab3/bkc_data sdfs_ab
+$ cp -r lab1/bkc_data sdfs_lab
 ```
 
-* In this lab, you need to enable RPC
+* In this lab, you need to enable RPC after you start `geth`
 
 ```
 > admin.startRPC()
@@ -87,30 +92,55 @@ $ nodejs SDFC_lab.js
 
 **Note: Make sure you have enough funds in your `eth.accounts[0]` and also make sure to unlock the account before running the program**
 
+For convenience, we provide some methods that simulate the flow: 
 
-#### LAB EXERCISE 1: USER LOGIN/LOGOUT [GRADE 20%]
+1. `user_Login = function(userId, pwd)`: A new session between client and the server starts by client logging into her account with password.
+2. `user_Logout = function(userId)`: The session associated with userId is terminated by client logging out from her account.
+3. `file_Access = function(user)`: Once logged in, a client can request to read the single file fileX stored in the server.
+4. `file_permission_set = function(user)`: In SDFS, fileX has a read permission bit for each user. For instance, if the permission bit for userA is set, userA is allowed to read the file. Function file_permission_set(user) sets the permission bit for username.
 
-Implement the following two functions on the server, such that a client can call the functions remotely:
+#### LAB EXERCISE 1: TRACING REMOTE REQUESTS [GRADE 10%]
 
-1. `int user_login(char* username, char* password)`: A new session between client username and the server starts by client username logging her account in with password. This establish a secure TLS communication channel.
-2. `int user_logout(char* username)`: The session associated with username is terminated by client username logging her account out.
+Define an empty function, called `bkc_logging(log)`. Insert the logging calls to the server code such that the bkc_logging function is called whenever the execution enters any one of the four functions above (i.e., `user_login(), user_logout(), file_access(), file_permission_set()`).
 
-#### LAB EXERCISE 2: ACCESS CONTROL BY PERMISSION [GRADE 20%]
+There are two ways to store arbitrary data in Ethereum transactions: 
+    1. Use data field of a transaction
+    2. Use recipient (to) address. Ethereum addresses are 20 bytes (40 hex characters). So that, we can store up to 20 bytes of arbitrary data (e.g. UTF-8 string) in the recipient address field after we encode our data correctly.
 
-Implement the following two functions on the server, such that a client can call the functions remotely after the user login:
+#### LAB EXERCISE 2: BLOCKCHAIN LOGGING USING DATA FIELD [GRADE 30%]
 
-1. `char* file_access(char* username)`: Once logged in, a client of username can request to read the single file fileX stored in the server.
-2. `int file_permission_set(char* username)`: In SDFS, fileX has a read permission bit for each user. For instance, if the permission bit for userA is set, userA is allowed to read the file. Function file_permission_set(char* username) sets the permission bit for username.
+Implement the function of `bkc_logging(log)` using the data field in sendTransaction method.
 
-#### LAB EXERCISE 3: TRACING REMOTE REQUESTS [GRADE 10%]
+#### LAB EXERCISE 3: BLOCKCHAIN LOGGING USING RECIPIENT ADDRESS [GRADE 20%]
 
-Define an empty function, called `bkc_logging(event e)`. Insert the blogging calls to the server code such that the bkc_logging function is called whenever the execution enters any one of the four functions above (i.e., `user_login(), user_logout(), file_access(), file_permission_set()`).
+Implement the function of `bkc_logging(log)` using the recipient address in sendTransaction method. If your log is greater than 20 bytes, you can separate it into multiple addresses and send multiple transactions to those addresses.
 
-#### LAB EXERCISE 4: BLOCKCHAIN LOGGING [GRADE 50%]
+#### LAB EXERCISE 4: TRANSACTION FEES [GRADE 20%]
 
-Implement the function of `bkc_logging(event e)`. In the implementation, the key is to translate the event description into some text that can be encoded in Ethereum transaction.
+Call user_Login & user_Logout methods and log your data into the blockchain using both data and recipient address fields. Report the transaction fee for each of them. 
+
+#### LAB EXERCISE 5: REDUCING TRANSACTION FEES 1 [GRADE 10%]
+
+With the increasing number of transactions, we would have to pay more transaction fees. One way to reduce the fees would be to batch our logs. You can do that by concatenating your logs into a single log. Simulate 50 operations (user_Login, user_Logout, etc.) and store your logs (by concatenating them) in a single variable, such as following:
+
+finalLog = logUpdate1 || logUpdat2 || ... || logUpdate50
+
+Then, send that to the blockchain in a single transaction. Report the transaction fee.
+
+#### LAB EXERCISE 6: REDUCING TRANSACTION FEES 2 [GRADE 10%]
+
+The above approach still might result in high transaction fees since our log data keeps getting larger. We can keep its size constant by hashing it. Again, simulate 50 operations but this time hash your concatenated logs, such as following:
+
+H = hash function
+
+log1 = H(logUpdate1)
+log2 = H(log1||logUpdate2)
+...
+log50 = H(log49||logUpdate50)
+
+You can hash your logs using the hash methods in `crypto` module of Node.js. Send your final hash value to the blockchain. Report the transaction fee.
 
 #### WHAT TO SUBMIT 
 
-1. Source code along with README file and Makefile
+1. Source code
 2. A report describing your design in detail, implementation issues you encounter, and how you overcome them. 
