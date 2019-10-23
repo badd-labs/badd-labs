@@ -123,7 +123,7 @@ Call user_Login & user_Logout methods and log your data into the blockchain usin
 
 With the increasing number of transactions, we would have to pay more transaction fees. One way to reduce the fees would be to batch our logs. You can do that by concatenating your logs into a single log. Simulate 50 operations (user_Login, user_Logout, etc.) and store your logs (by concatenating them) in a single variable, such as following:
 
-finalLog = logUpdate1 || logUpdat2 || ... || logUpdate50
+finalLog = logUpdate1 || logUpdate2 || ... || logUpdate50
 
 Then, send that to the blockchain in a single transaction. Report the transaction fee.
 
