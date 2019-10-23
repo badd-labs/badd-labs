@@ -121,24 +121,28 @@ Call user_Login & user_Logout methods and log your data into the blockchain usin
 
 #### LAB EXERCISE 5: REDUCING TRANSACTION FEES 1 [GRADE 10%]
 
-With the increasing number of transactions, we would have to pay more transaction fees. One way to reduce the fees would be to batch our logs. You can do that by concatenating your logs into a single log. Simulate 50 operations (user_Login, user_Logout, etc.) and store your logs (by concatenating them) in a single variable, such as following:
+With the increasing number of transactions, we would have to pay more transaction fees. One way to reduce the fees would be to batch our logs. You can do that by concatenating your logs into a single log. Simulate multiple (5-10) operations (user_Login, user_Logout, etc.) and store your logs (by concatenating them) in a single variable, such as following:
 
-finalLog = logUpdate1 || logUpdate2 || ... || logUpdate50
+finalLog = logUpdate1 || logUpdate2 || ... || logUpdate5
 
 Then, send that to the blockchain in a single transaction. Report the transaction fee.
 
+You can use data field for this task.
+
 #### LAB EXERCISE 6: REDUCING TRANSACTION FEES 2 [GRADE 10%]
 
-The above approach still might result in high transaction fees since our log data keeps getting larger. We can keep its size constant by hashing it. Again, simulate 50 operations but this time hash your concatenated logs, such as following:
+The above approach still might result in high transaction fees since our log data keeps getting larger. We can keep its size constant by hashing it. Again, simulate multiple (5-10) operations but this time hash your concatenated logs, such as following:
 
 H = hash function
 
 log1 = H(logUpdate1)
 log2 = H(log1||logUpdate2)
 ...
-log50 = H(log49||logUpdate50)
+log5 = H(log4||logUpdate5)
 
 You can hash your logs using the hash methods in `crypto` module of Node.js. Send your final hash value to the blockchain. Report the transaction fee.
+
+You can use data field for this task.
 
 #### WHAT TO SUBMIT 
 
