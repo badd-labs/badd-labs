@@ -74,7 +74,7 @@ $ mkdir -p sdfs_lab
 $ cp -r lab1/bkc_data sdfs_lab
 ```
 
-* In this lab, you need to enable RPC after you start `geth`
+* In this lab, you need to enable RPC on your `geth` terminal after you start `geth`
 
 ```
 > admin.startRPC()
