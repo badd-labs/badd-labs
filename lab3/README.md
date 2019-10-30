@@ -136,8 +136,11 @@ The above approach still might result in high transaction fees since our log dat
 H = hash function
 
 log1 = H(logUpdate1)
+
 log2 = H(log1||logUpdate2)
+
 ...
+
 log5 = H(log4||logUpdate5)
 
 You can hash your logs using the hash methods in `crypto` module of Node.js. Send your final hash value to the blockchain. Report the transaction fee.
