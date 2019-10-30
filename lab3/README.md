@@ -135,6 +135,7 @@ The above approach still might result in high transaction fees since our log dat
 
 H = hash function
 
+
 log1 = H(logUpdate1)
 
 log2 = H(log1||logUpdate2)
