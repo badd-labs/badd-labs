@@ -109,11 +109,11 @@ There are two ways to store arbitrary data in Ethereum transactions:
 
 #### LAB EXERCISE 2: BLOCKCHAIN LOGGING USING DATA FIELD [GRADE 30%]
 
-Implement the function of `bkc_logging(log)` using the data field in sendTransaction method.
+Implement the function of `bkc_logging(log)` using the data field in sendTransaction method. You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
 
 #### LAB EXERCISE 3: BLOCKCHAIN LOGGING USING RECIPIENT ADDRESS [GRADE 20%]
 
-Implement the function of `bkc_logging(log)` using the recipient address in sendTransaction method. If your log is greater than 20 bytes, you can separate it into multiple addresses and send multiple transactions to those addresses.
+Implement the function of `bkc_logging(log)` using the recipient address in sendTransaction method. If your log is greater than 20 bytes, you can separate it into multiple addresses and send multiple transactions to those addresses. You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
 
 #### LAB EXERCISE 4: TRANSACTION FEES [GRADE 20%]
 
