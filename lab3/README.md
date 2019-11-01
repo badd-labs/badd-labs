@@ -125,7 +125,9 @@ With the increasing number of transactions, we would have to pay more transactio
 
 finalLog = logUpdate1 || logUpdate2 || ... || logUpdate5
 
-Then, send that to the blockchain in a single transaction. Report the transaction fee.
+Then, send that to the blockchain. This way, you'll be sending a single transaction to the blockchain instead of multiple ones like in exercises 2 and 3.
+
+Report the transaction fee.
 
 You can use data field for this task.
 
