@@ -7,7 +7,7 @@ The lab will feature programming exercises for implementing the
 normal workflow of an escrow service (e.g., deposit and final payment) and the dispute
 resolution (i.e., returning payment to the buyer).
 
-Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
+Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 1 for more details.
 
 In this lab, you will create a contract for Escrow Service given the System Design for the contract and call the functions. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
