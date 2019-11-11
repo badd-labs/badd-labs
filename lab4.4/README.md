@@ -20,7 +20,7 @@ The following describes the protocol of a typical "supply Blockchain":
 1. buyer first deposits her payments (e.g., $100) to the smart contract ( Deposit(100)).
 2. supplier gets notified of buyer's deposit.
 3. supplier starts to ship the product to the buyer.
-4. when the good reaches the destination, a transaction is generated (e.g., signed by both buyer and supplier) and is sent to the Blockchain. This triggers the payment to execute (DeliveredAndTransfer()).
+4. when the good reaches the destination, a transaction is generated (e.g., agreed by both buyer and supplier) and is sent to the Blockchain. This triggers the payment to execute (DeliveredAndTransfer()).
 
 
 ## Contract Design
