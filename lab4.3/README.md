@@ -7,14 +7,14 @@ The lab will feature programming exercises for implementing the
 normal workflow of an escrow service (e.g., deposit and final payment) and the dispute
 resolution (i.e., returning payment to the buyer).
 
-Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 1 for more details.
+Create 3 accounts and mine few Ethers in to all the accounts. Refer Lab 1 for more details.
 
 In this lab, you will create a contract for Escrow Service given the System Design for the contract and call the functions. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
 
 ## Escrow Service and Contract understanding
 
-An escrow protocol is a three-party protocol among a buyer, a seller and an explicit escrow service. At the beginning of the transaction, the buyer makes a security deposit to the escrow service. This is done by the buyer sending a transaction to an address on which the escrow smartcontract runs. After the transaction, if both seller and buyer agree, the escrow smart contract will make the payment to the seller. If there is a dispute, meaning either seller or buyer disagrees, the smart contract will withhold the payment from sending to the seller.
+An escrow protocol is a three-party protocol among a buyer, a seller and an explicit escrow service. At the beginning of the transaction, the buyer makes a security deposit to the escrow service. This is done by the buyer sending a transaction to an address on which the escrow smart contract runs. After the transaction, if both seller and buyer agree, the escrow smart contract will make the payment to the seller. If there is a dispute, meaning either seller or buyer disagrees, the smart contract will withhold the payment from sending to the seller.
 
 In this lab, we model the Escrow service flow as below:
 1.	The buyer makes a security deposit to Escrow service (a smart contract running on the Blockchain)
@@ -31,7 +31,7 @@ Refer [[link](https://www.investopedia.com/terms/e/escrow.asp)] and [[link](http
 
 ## Contract Design
 
-Create at least 3 accounts (one for Bank to collect the deposited amount and other two for seller and buyer) and mine few ethers, before you deploy the contract. Buyer, Seller and Escrow/Bank addresses can be hard-coded and  let's assume settlement call must be made by Escrow for lab purpose.
+Create at least 3 accounts (one for Bank to collect the deposited amount and other two for seller and buyer) and mine few Ethers, before you deploy the contract. Buyer, Seller and Escrow/Bank addresses can be hard-coded and  let's assume settlement call must be made by Escrow for lab purpose.
 
 Variable list and functions mentioned below are just for reference. You can design the solution for this lab provided all the functionalities are covered.
 
@@ -54,7 +54,7 @@ If both the parties agree, transfer 1% of the deposit amount to escrow (transact
 
 ### Lab Task 2: Both parties disagree
 
-If both disagrees, take transaction fee (1% of teh deposit amount) and refund buyer.
+If both disagrees, take transaction fee (1% of the deposit amount) and refund buyer.
 
 ### Lab Task 3: In case of dispute, one of them agree other don't.
 

@@ -3,7 +3,7 @@
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
 
-Create 3 accounts and Mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
+Create 3 accounts and mine few Ethers in to all the accounts. Refer Lab 3.1 for more details.
 
 In this lab, you will create a contract for part of the Supply chain transaction system given the System Design for the contract and call the functions on on-campus blockchain. Refer [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.1/README_solc.md)] to know more about how to deploy simple contract and call its functions.
 
@@ -25,7 +25,7 @@ The following describes the protocol of a typical "supply Blockchain":
 
 ## Contract Design
 
-Create at least 3 accounts (one for Bank to collect the deposited amount by buyer and other two for buyer and seller) and mine few ethers, before you deploy the contract.
+Create at least 3 accounts (one for Bank to collect the deposited amount by buyer and other two for buyer and seller) and mine few Ethers, before you deploy the contract.
 
 You can verify if the variables are updated using functions to get the value of the variable (and can make function as public view - consumes less gas value)
 
