@@ -4,12 +4,12 @@ Lab 4: Escrow Services and Applications
 Introduction
 ---
 
-An escrow is a trusted service that manage counter-party risks and helps establish trust between a seller and a potential buyer. In real life, an escrow service is backed by banks and is useful in many financial and supply-chain scenarios (e.g., buying a house). In this lab, you are required to implement an escrow service on Ethere and custom tokens.
+An escrow is a trusted service that manage counter-party risks and helps establish trust between a seller and a potential buyer. In real life, an escrow service is backed by banks and is useful in many financial and supply-chain scenarios (e.g., buying a house). In this lab, you are required to implement an escrow service on Ether and custom tokens.
 
 System design
 ---
 
-Concretely, at the beginning, the buyer makes a security deposit to the escrow service. Then, it proceeds to execute the transaction between the buyer and seller. In the end, if both the seller and buyer agree on the successful execution of transaction, the escrow service will transfer the payment to the seller. There is also a chance that the buyer and seller have a dispute; in this case, the escrow service hold back from sending the payment to the seller and relies on a trusted party to arbitrate the transaction outcome. Depending on the outcome, it may refund the buyer or pay to the seller. The workflow of escrow service is listed below:
+The protocol works as below: At the beginning, the buyer makes a security deposit to the escrow service. Then, it proceeds to execute the transaction between the buyer and seller. In the end, if both the seller and buyer agree on the successful execution of transaction, the escrow service will transfer the payment to the seller. There is also a chance that the buyer and seller have a dispute; in this case, the escrow service hold back from sending the payment to the seller and relies on a trusted party to arbitrate the transaction outcome. Depending on the outcome, it may refund the buyer or pay to the seller. The workflow of escrow service is listed below:
 
 1. The buyer sends a security deposit to the escrow service. 
 2. (Case 1): The transaction is successful and is agreed upon between the buyer and the seller. Signaled by both parties, the escrow service proceeds to send the deposit to the seller. 
@@ -43,7 +43,7 @@ Dispute occurs when the seller sends `ApproveTxFail()` and the buyer sends `Appr
 Task 3: Support custom tokens
 ---
 
-In this task, you are required to implement a simple ERC20 token and use it to support the smart escrow contract.
+In this task, you are required to implement a simple token and use it to support the smart escrow contract.
 
 - Implement a simple token contract `SimpleToken` that supports function `transfer(address sender, address recipient, uint256 amount)` 
 - Use the token to back the accounts of buyer and seller in the smart escrow contract.
