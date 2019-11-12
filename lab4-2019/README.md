@@ -19,11 +19,7 @@ Concretely, at the beginning, the buyer makes a security deposit to the escrow s
 
 Refer to [[link](https://www.investopedia.com/terms/e/escrow.asp)] and [[link](https://www.escrow.com/what-is-escrow)] for more details about the escrow services.
 
-<!---
-
-![A test image](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab4.3/flow.png)
-
---->
+![Contract design diagram](lab-escrow.jpg)
 
 A natural design is to implement a smart contract to play the role of escrow service. Here, your escrow smart contract should manage, in addition to its own address, three external accounts (**EOA**): a seller, a buyer and an arbitrator. Each account is associated with balance in certain **tokens**. For simplest impl., you can hard-code the buyer/seller addresses, and use Ether as the default token. 
 
