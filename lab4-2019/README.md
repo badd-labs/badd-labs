@@ -4,7 +4,7 @@ Lab 4: Escrow Services and Applications
 Introduction
 ---
 
-An escrow is a trusted service that manage counter-party risks and helps establish trust between a seller and a potential buyer. In real life, an escrow service is backed by banks and is useful in many financial scenarios (e.g., buying a house). In this lab, you are required to implement an escrow service and build a supply-chain application on top of it. 
+An escrow is a trusted service that manage counter-party risks and helps establish trust between a seller and a potential buyer. In real life, an escrow service is backed by banks and is useful in many financial and supply-chain scenarios (e.g., buying a house). In this lab, you are required to implement an escrow service on Ethere and custom tokens.
 
 System design
 ---
