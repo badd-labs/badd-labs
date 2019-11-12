@@ -76,7 +76,7 @@ Q/A
 ---
 
 - How to implement timeout on smart contract?
-- Hint: You can rely on the off-chain arbitrator to trigger the timeout function and use `block.number` to check if the timeout is called appropriately.
+    - Hint: You can rely on the off-chain arbitrator to trigger the timeout function and use `block.number` to check if the timeout is called appropriately.
 
 
 
