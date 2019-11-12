@@ -67,4 +67,7 @@ Bonus Task (20%)
 Deploy and run the code of all previous tasks on our on-campus Blockchain. Include screenshots of the results in your report. You can use [[this tutorial](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab2/README_solc.md)] as a reference of how to deploy smart contracts on the on-campus Blockchain.
 
 
+Delieverable
+---
 
+- For all tasks, you should 1) submit your smart-contract code, and 2) show the screenshot of the program execution. 
