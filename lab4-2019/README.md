@@ -37,8 +37,11 @@ Task 2: Dispute resolution
 
 Dispute occurs when the seller sends `ApproveTxFail()` and the buyer sends `ApproveTxSuccess()` (or vice versa). When this happens, the escrow contract enters the following time-lock logic: It will wait for the input of an off-chain arbitrator via function `Arbitrate()`. If such an input is not received for the 2 minutes, the contract will time-out and refund the deposit to the buyer.
 
-- Implement Function `Timelock()`, such that the smart contract waits for 2 minutes (or 12 Ethereum blocks) for the event of `Arbitrate()` invocation. If the timeout is reached, it refunds. The function `Timelock()` should be called by `ApproveTxSuccess()`/`ApproveTxFail()`.
+- Implement Function `Timelock()`, such that the smart contract waits for 2 minutes (or 12 Ethereum blocks) for the event of `Arbitrate()` invocation. If the timeout is reached, it refunds. The function `Timelock()` can be called by `ApproveTxSuccess()`/`ApproveTxFail()` after a dispute state occurs and should do two things:
+    - Record current time/block height (depends on how you're measuring the time)
+    - Change the transaction state to dispute (Transaction is marked as dispute)
 - Implement Function `Arbitrate()` which is supposed to be called by account arbitrator. The arbitrator decides the transaction state and the function takes action to refund the buyer (upon the transaction failure) and to pay for the seller (upon the transaction success).
+    - `Arbitrate()` method should check the difference between time/block heights in addition to the transaction state
 
 Task 3: Support custom tokens
 ---
