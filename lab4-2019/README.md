@@ -17,11 +17,12 @@ There are four parties involved in an escrow service: a buyer, a seller, the esc
 3. (Case 3): There is a dispute about the state of transaction. For instance, the buyer may think the transaction finishes successfully but the seller may think the opposite. In this case, an off-chain trusted party is used to arbitrate the transaction state and will tell the escrow service of her decision. Depending on the result, the escrow service may refund the buyer or pay the seller.
 - Note that in all cases, the escrow service should collect certain amount of security deposit for the service fee (e.g., 1% of the security deposit).
 
-![Contract design diagram](lab-escrow.jpg)
+![Contract design diagram](lab-escrow2.jpg)
 
 A system design to implement the above workflow is to write a smart contract that plays the role of escrow service. Here, your escrow smart contract relies on, in addition to its own contract address, three externally owned addresses (**EOA**): a seller, a buyer and an offline arbitrator. Each account possesses certain **tokens**. Minimally, the system runs two smart contracts, an escrow contract and a token contract. And the addresses (EOAs) are hard-coded.
 
-In the following, you will design and implement a Ethereum-based escrow service, **iteratively**. First, you will implement the basic two-contract design described as above. Then, you will be asked to base the escrow service on Ether, instead of escrow-specific token. After that, you will extend the design by supporting account managements/registration. 
+In the following, you will design and implement a Ethereum-based escrow service, **iteratively**. First (in Task 1 and 2), you will implement the basic two-contract design described as above. Then (in Task 3), you will be asked to base the escrow service on Ether, instead of escrow-specific token. After that (in Task 4), you will extend the design by supporting account and product managements/registration.
+
 Task 1: Token contract
 ---
 
@@ -72,7 +73,7 @@ Revise your escrow contract so that it supports the escrow between Ether owners.
 Task 5: Account management
 ---
 
-Implement an account-management contract that supports account registration, destroy, etc.
+Implement a management contract that supports account/product registration, destroy, etc. Your smart contracts should eventually support multiple buyers/sellers on multiple products.
 
 Bonus Task (30%) 
 ---
