@@ -1,10 +1,10 @@
-BitCoin/Blockchain Labs
+Blockchain Lab Modules
 ---
 
-- Lab module 1: Blockchain storage and mining on campus [[lab 1](lab1/README.md)]
-- Lab module 2: Smart contract programming [[lab 2](lab2/README.md)]
-- Lab module 3: Blockchain application: logging remote file storage [[lab 3](lab3/README.md)]
-- Lab module 4: Escrow Services [[lab 4](lab4-2019/README.md)]
+1. Blockchain storage and mining on campus [[lab 1](lab1/README.md)]
+2. Smart contract programming [[lab 2](lab2/README.md)]
+3. Blockchain application: logging remote file storage [[lab 3](lab3/README.md)]
+4. Escrow Services [[lab 4](lab4-2019/README.md)]
 
 <!--
 

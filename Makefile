@@ -1,7 +1,7 @@
 all:
 	git add -A
-	git commit -am 't'
-	#git push
+	git commit -am 'new lab design in 2020'
+	git push
 
 
 sync:
