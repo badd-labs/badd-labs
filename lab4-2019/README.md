@@ -4,13 +4,12 @@ Lab 4: Escrow Services and Applications
 Introduction
 ---
 
-Consider a buyer and a seller, who donot necessarily trust each other, get engadged in a transaction. A problem with a circular dependency is who should make the first move? Should the buyer sends her payment to the seller before the seller sends the product? or the reverse? Traditionally, if the seller is large retailers with significant reputation, like Walmart, the buyer may feel comfortable to make the first move and send the payment, with the implicit trust assumption that Walmart will ship the good. For smaller sellers, buyers typically pay to a trusted third-party, such as eBay or Amazon. If the buyer does not receive the item, this third-party can mediate the dispute and refund the buyer. The functionality of this third-party is escrow.
+Consider a buyer and a seller, who do not necessarily trust each other, get engaged in a transaction. A problem with a circular dependency is who should make the first move? Should the buyer sends her payment to the seller before the seller sends the product? or the reverse? Traditionally, if the seller is large retailers with significant reputation, like Walmart, the buyer may feel comfortable to make the first move and send the payment, with the implicit trust assumption that Walmart will ship the good. For smaller sellers, buyers typically pay to a trusted third-party, such as eBay or Amazon. If the buyer does not receive the item, this third-party can mediate the dispute and refund the buyer. The functionality of this third-party is escrow.
 
 System design
 ---
 
-In this lab, we develop a blockchain-based escrow service (with physical goods). 
-There are four parties involved: a buyer, a seller, the escrow contract and a mediator (or arbitrator). 
+In this lab, we develop a blockchain-based escrow service (with physical goods). In real life, the escrow model that will be described next is used in the now-ceased Silk Road. The system model consists of four parties: a buyer, a seller, an escrow contract and a mediator (or arbitrator). 
 In the beginning, Bob the Buyer sends the payment (or security deposit) to a contract address called escrow address from which neither Bob or Alice can withdraw unilaterally. 
 After the transaction occurs in the physical world, if both the seller and buyer agree on the transaction state (success or failure), the escrow contract is notified to transfer the payment according (to the seller or to the buyer).
 In the case of dispute, an off-chain mediator (or arbitrator as in the figure) can investigate what happened and decide which party can withdraw funds from the escrow address.
