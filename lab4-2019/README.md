@@ -4,12 +4,17 @@ Lab 4: Escrow Services and Applications
 Introduction
 ---
 
-An escrow is a trusted service that manages counter-party risks and helps establish trust between untrusted seller and buyer. In real life, an escrow service is backed by banks and is useful in many financial and supply-chain scenarios (e.g., buying a house). In this lab, you are required to implement an escrow service on Ether and custom tokens.
+Consider a buyer and a seller, who donot necessarily trust each other, get engadged in a transaction. A problem with a circular dependency is who should make the first move? Should the buyer sends her payment to the seller before the seller sends the product? or the reverse? Traditionally, if the seller is large retailers with significant reputation, like Walmart, the buyer may feel comfortable to make the first move and send the payment, with the implicit trust assumption that Walmart will ship the good. For smaller sellers, buyers typically pay to a trusted third-party, such as eBay or Amazon. If the buyer does not receive the item, this third-party can mediate the dispute and refund the buyer. The functionality of this third-party is escrow.
 
 System design
 ---
 
-There are four parties involved in an escrow service: a buyer, a seller, the escrow service and an arbitrator. The protocol works as below: At the beginning, the buyer makes a security deposit to the escrow service. Then, it proceeds to execute the transaction between the buyer and seller. In the end, if both the seller and buyer agree on the successful execution of transaction, the escrow service will transfer the payment to the seller. There is also a chance that the buyer and seller have a dispute; in this case, the escrow service hold back from sending the payment to the seller and relies on a trusted party to arbitrate the transaction outcome. Depending on the outcome, it may refund the buyer or pay to the seller. In practice, a real-world arbitrator can be an insurance company. The workflow of escrow service is listed below:
+In this lab, we develop a blockchain-based escrow service (with physical goods). 
+There are four parties involved: a buyer, a seller, the escrow contract and a mediator (or arbitrator). 
+In the beginning, Bob the Buyer sends the payment (or security deposit) to a contract address called escrow address from which neither Bob or Alice can withdraw unilaterally. 
+After the transaction occurs in the physical world, if both the seller and buyer agree on the transaction state (success or failure), the escrow contract is notified to transfer the payment according (to the seller or to the buyer).
+In the case of dispute, an off-chain mediator (or arbitrator as in the figure) can investigate what happened and decide which party can withdraw funds from the escrow address.
+The workflow of escrow service is listed below:
 
 1. The buyer sends a security deposit to the escrow service. 
 2. (Case 1): The transaction is successful and is agreed upon between the buyer and the seller. Signaled by both parties, the escrow service proceeds to send the deposit to the seller. 
@@ -19,7 +24,7 @@ There are four parties involved in an escrow service: a buyer, a seller, the esc
 
 ![Contract design diagram](lab-escrow2.jpg)
 
-A system design to implement the above workflow is to write a smart contract that plays the role of escrow service. Here, your escrow smart contract relies on, in addition to its own contract address, three externally owned addresses (**EOA**): a seller, a buyer and an offline arbitrator. Each account possesses certain **tokens**. Minimally, the system runs two smart contracts, an escrow contract and a token contract. And the addresses (EOAs) are hard-coded.
+A system design to implement the above workflow is to write a smart contract that plays the role of escrow service. Here, your escrow smart contract relies on, in addition to its own contract address, three externally owned addresses (**EOA**): a seller, a buyer and an offline mediator. Each account possesses certain **tokens**. Minimally, the system runs two smart contracts, an escrow contract and a token contract. And the addresses (EOAs) are hard-coded.
 
 In the following, you will design and implement a Ethereum-based escrow service, **iteratively**. First (in Task 1 and 2), you will implement the basic two-contract design described as above. Then (in Task 3), you will be asked to base the escrow service on Ether, instead of escrow-specific token. After that (in Task 4), you will extend the design by supporting account and product managements/registration.
 
@@ -56,12 +61,12 @@ Implement the smart escrow contract that supports the following functions:
 Task 3: Escrow contract supporting dispute resolution
 ---
 
-Dispute occurs when the seller sends `ApproveTxFail()` and the buyer sends `ApproveTxSuccess()` (or vice versa). When this happens, the escrow contract enters the following time-lock logic: It will wait for the input of an off-chain arbitrator via function `Arbitrate()`. If such an input is not received for the 2 minutes, the contract will time-out and refund the deposit to the buyer.
+Dispute occurs when the seller sends `ApproveTxFail()` and the buyer sends `ApproveTxSuccess()` (or vice versa). When this happens, the escrow contract enters the following time-lock logic: It will wait for the input of an off-chain mediator via function `Arbitrate()`. If such an input is not received for the 2 minutes, the contract will time-out and refund the deposit to the buyer.
 
 - Implement Function `Timelock()`, such that the smart contract waits for 2 minutes (or 12 Ethereum blocks) for the event of `Arbitrate()` invocation. If the timeout is reached, it refunds. The function `Timelock()` can be called by `ApproveTxSuccess()`/`ApproveTxFail()` after a dispute state occurs and should do two things:
     - Record current time/block height (depends on how you're measuring the time)
     - Change the transaction state to dispute (Transaction is marked as dispute)
-- Implement Function `Arbitrate()` which is supposed to be called by account arbitrator. The arbitrator decides the transaction state and the function takes action to refund the buyer (upon the transaction failure) and to pay for the seller (upon the transaction success).
+- Implement Function `Arbitrate()` which is supposed to be called by account mediator. The mediator decides the transaction state and the function takes action to refund the buyer (upon the transaction failure) and to pay for the seller (upon the transaction success).
     - `Arbitrate()` method should check the difference between time/block heights in addition to the transaction state
 
 
@@ -89,7 +94,7 @@ Q/A
 ---
 
 - How to implement timeout on smart contract?
-    - Hint: You can rely on the off-chain arbitrator to trigger the timeout function and use `block.number` to check if the timeout is called appropriately.
+    - Hint: You can rely on the off-chain mediator to trigger the timeout function and use `block.number` to check if the timeout is called appropriately.
 - How can the "broker"account send ether to either the seller account, or refund ether back to the buyer account?
     - Hint: You can use functions `address.transfer()` or `address.send()`. Such a function transfers ether from the broker-contract account to the `address`, which can be either seller or buyer account.
     - Hint: To send ether to the broker contract, you can send a regular transaction from off-chain.
