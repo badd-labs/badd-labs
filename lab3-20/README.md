@@ -1,4 +1,4 @@
-Lab 4: Escrow Services and Applications
+Lab 3: Escrow Services and Applications
 ===
 
 Introduction

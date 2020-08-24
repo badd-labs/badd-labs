@@ -1,4 +1,4 @@
-## Lab 3: BLOCKCHAIN Applications: LOGGING REMOTE FILE STORAGE
+## Lab 4: Blockchain logging for remote file storage
 
 ### Lab Setup
 
@@ -150,7 +150,7 @@ You can hash your logs using the hash methods in `crypto` module of Node.js. Sen
 
 You can use data field for this task.
 
-#### WHAT TO SUBMIT 
+#### What to submit 
 
 1. Source code
 2. A report describing your design in detail, implementation issues you encounter, and how you overcome them. 
