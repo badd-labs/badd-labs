@@ -79,6 +79,8 @@ $ geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses
 $ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://f9903a9b394bec7c74cd1172171c1cb7aa74f313fa7686bc8206955157a47acc8b4c3e9859a0731224235364e66a37a1bfb24819b0130ca0e6939b3cfc4feabf@128.230.208.73:30301 console 2>console.log 
 ```
 
+Alternatively, you can try other enodes like `enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30303`.
+
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
 **2.2 Add a Peer Miner**: Manually add a peer node to your miner node by a specific node URL. (Updates: It seems that add a peer miner is not required to connect your miner nodes to the on-campus Blockchain network).
