@@ -243,3 +243,6 @@ personal.unlockAccount(eth.accounts[0])
 - Q5: Why does ```admin.peers``` return null sometimes?
 
     - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the shcool network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
+
+
+if you configured --datadir when starting geth, it should be in that folder, the default is ~/.ethereum/
