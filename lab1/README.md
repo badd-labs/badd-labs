@@ -76,7 +76,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 $ mkdir -p ~/lab1/bkc_data
 $ cd ~/lab1
 $ geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://f9903a9b394bec7c74cd1172171c1cb7aa74f313fa7686bc8206955157a47acc8b4c3e9859a0731224235364e66a37a1bfb24819b0130ca0e6939b3cfc4feabf@128.230.208.73:30301 console 2>console.log 
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30301 console 2>console.log 
 ```
 
 Alternatively, you can try other enodes like `enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30303`.
@@ -88,7 +88,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **_Script 2.2_**: 
 
 ```bash
-$ admin.addPeer("enode://ea2c929277e57dc6d89000ea6e35e0ffc8274e0c35e43d518d734277d3221785daf6a53cb01ab54e75b78c887c9a37acb59eaca7a0da8f8a562ca85e354e325a@[128.230.208.73]:30303")
+$ admin.addPeer("enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30303")
 ```
 
 Check the connectivity by running:
@@ -244,3 +244,6 @@ personal.unlockAccount(eth.accounts[0])
 
     - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the shcool network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
 
+- Q6: Out of space?
+
+   - Clear the folder  ~/.ethereum/ after you finish the lab. Also, clear the folder specified through ``--datadir'' when starting geth.
