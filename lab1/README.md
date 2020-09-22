@@ -25,10 +25,11 @@ Download our prebuilt VirtualBox image from [[here](https://drive.google.com/fil
 
 ```
 $ mkdir -p ~/lab1/bkc_data
+$ cd ~/lab1
 $ gedit genesis.json
 ```
 
-Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullstacksecurity/SUBlockchainLabs/master/lab3.1/genesis.json)] to the gedit and save it (by hitting `control+S` in Ubuntu).
+Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullstacksecurity/SUBlockchainLabs/master/lab1/genesis.json)] to the gedit and save it (by hitting `control+S` in Ubuntu).
 
 ### 1B. (Alternative option) Install Ethereum on your OS
 
