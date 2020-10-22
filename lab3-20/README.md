@@ -93,8 +93,9 @@ Q/A
 ---
 
 - How to implement timeout on smart contract?
-    - Hint: You can rely on the off-chain mediator to trigger the timeout function and use `block.number` to check if the timeout is called appropriately.
-- How can the "broker"account send ether to either the seller account, or refund ether back to the buyer account?
-    - Hint: You can use functions `address.transfer()` or `address.send()`. Such a function transfers ether from the broker-contract account to the `address`, which can be either seller or buyer account.
-    - Hint: To send ether to the broker contract, you can send a regular transaction from off-chain.
+    - Hint: You can implement the timeout differently: one design is to rely on an off-chain party to send probe request periodically, which after timeout, triggers the escrow contract to refund/withdraw the deposit. 
+    - Alternatively, you can make `refund` and `withdraw` as two functions callable by the buyer and seller, respectively. These functions, before refund and withdraw, will need to check if timeout holds. 
+- How can the "escrow"account send ether to either the seller account, or refund ether back to the buyer account?
+    - Hint: You can use functions `address.transfer()` or `address.send()`. Such a function transfers ether from the escrow-contract account to the `address`, which can be either seller or buyer account.
+    - Hint: To send ether to the escrow contract, you can send a regular transaction from off-chain.
 
