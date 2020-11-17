@@ -80,9 +80,11 @@ $ cp -r lab1/bkc_data sdfs_lab
 > admin.startRPC()
 ```
 
-S2) Use Ganache to install a local node
+S2) Use a local node by Ganache 
 
-Install Ganache will be covered in the class.
+- Go to website: https://www.trufflesuite.com/ganache and install Ganache 
+- After Ganache is install, there will be a Ethereum node running on port 7545
+- In the second line of [[SDFC_lab.js](https://raw.githubusercontent.com/BlockchainLabSU/SUBlockchainLabs/master/lab4-20/SDFC_lab.js)], you can replace "http://127.0.0.1:8545" with "http://127.0.0.1:7545" there. 
 
 After an Ethereum node is up and running (either by S1 or S2), you can install web3 and hook it with the Ethereum node.
 
