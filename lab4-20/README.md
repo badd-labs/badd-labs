@@ -1,4 +1,4 @@
-## Lab 4: Blockchain logging for remote file storage
+## Lab 4: Blockchain Logging for Remote Data Storage
 
 ### Lab Setup
 
