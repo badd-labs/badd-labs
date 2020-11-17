@@ -82,10 +82,12 @@ $ cp -r lab1/bkc_data sdfs_lab
 ```
 
 * Assuming that you have connected to the Ethereum network, you can now open a new terminal and install the `web3` module
+
 ```
 $ npm install web3@^0.20.0
 ```
-* Copy the `SDFC_lab.js` file to your current working directory, and run the program
+
+* Copy the [[SDFC_lab.js](https://raw.githubusercontent.com/BlockchainLabSU/SUBlockchainLabs/master/lab4-20/SDFC_lab.js)] file to your current working directory, and run the program
 
 ```
 $ nodejs SDFC_lab.js
