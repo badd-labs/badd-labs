@@ -20,14 +20,14 @@ You can refer <https://nodejs.org/dist/> for specific versions of `node.js`. Thi
 
 You can install the latest versions and work with them if you would prefer.
 
-### Lab Description:
+### Lab Description
 
 The Blockchain technology can be used in applications beyond cryptocurrency. In this lab, we explore the Blockchain application for logging the operation trace of a remote file-storage service. This features a common use of the Blockchain, that is, making the data about a third-party transparent to invite trusts.
 The learning objective of this lab is for students to design and implement a simple service for secure distributed file system (SDFS) and use the Blockchain technology to log the service related information. The target system consists of a client supporting multiple file-system users and a server storing a file. 
  
-#### Lab Environment:
+#### Lab Environment
 
-The SDFS includes classic information-security protocols for permission-based access control and password authentication. For simplicity, in this project you only need to consider the concrete and specific execution sequence as below: Initially, a server stores a single file fileX. Two clients userA and userB can interact with the server in the following sequence: 
+The SDFS includes classic information-security protocols for permission-based access control and password authentication. For simplicity, in this project you only need to consider the concrete and specific execution sequence as below: Initially, a server stores a single file "fileX". Two clients "userA" and "userB" can interact with the server in the following sequence: 
 
 ```
 user_login("userA", "pwd123");  
@@ -42,7 +42,8 @@ user_logout("userB");
 ```
 
 #### TUTORIAL ON USING GETH IN JAVASCRIPT/WEB3
-To interact Ethereum blockchain through Javascript, you will need to use ‘web3’ object in the ‘web3.js’ library. The following sample code sends a transaction to Blockchain by Javascript: 
+
+To interact Ethereum blockchain through Javascript, you will need to use `web3` object in the `web3.js` library. The following sample code sends a transaction to Blockchain by Javascript: 
 
 ```
 web3.eth.sendTransaction({from:var1,data:var2,to:var3},function(var4,var5) {
@@ -61,11 +62,11 @@ The arguments of sendTransaction() are explained below:
 - `var4`: The argument is the error message if the request fails.
 - `var5`: The argument is the result of the request after successful execution.
 
-For more details, refer to the [link](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction)
+For more details, refer to the [[link](https://github.com/ethereum/wiki/wiki/JavaScript-API#web3ethsendtransaction)]
 
 #### INSTRUCTIONS FOR RUNNING THE PROVIDED PROGRAM
 
-* This section requires you to know how to run a `geth` in a terminal which was covered in the Lab `Blockchain Storage and Mining on Campus` [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab1/README.md)]. 
+* This section requires you to know how to run a `geth` in a terminal which was covered in the first Lab  [[link](https://github.com/BlockchainLabSU/SUBlockchainLabs/blob/master/lab1/README.md)]. 
 
 **Note: You can re-use all the data from your previous lab1. For example:**
 
@@ -84,7 +85,7 @@ $ cp -r lab1/bkc_data sdfs_lab
 ```
 $ npm install web3@^0.20.0
 ```
-* Copy the `SDFC_lab.js` file to your current working directory, and run the prgram
+* Copy the `SDFC_lab.js` file to your current working directory, and run the program
 
 ```
 $ nodejs SDFC_lab.js
@@ -101,7 +102,7 @@ For convenience, we provide some methods that simulate the flow:
 
 #### LAB EXERCISE 1: TRACING REMOTE REQUESTS [GRADE 10%]
 
-Define an empty function, called `bkc_logging(log)`. Insert the logging calls to the server code such that the bkc_logging function is called whenever the execution enters any one of the four functions above (i.e., `user_login(), user_logout(), file_access(), file_permission_set()`).
+Define an empty function, called `bkc_logging(log)`. Insert the logging calls to the server code such that the bkc_logging function is called whenever the execution enters any one of the four functions above (i.e., `user_login()`, `user_logout()`, `file_access()`, `file_permission_set()`).
 
 There are two ways to store arbitrary data in Ethereum transactions: 
     1. Use data field of a transaction
@@ -109,11 +110,16 @@ There are two ways to store arbitrary data in Ethereum transactions:
 
 #### LAB EXERCISE 2: BLOCKCHAIN LOGGING USING DATA FIELD [GRADE 30%]
 
-Implement the function of `bkc_logging(log)` using the data field in sendTransaction method. You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
+Implement the function of `bkc_logging(log)` using the `data` field in the `sendTransaction` method. You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
 
 #### LAB EXERCISE 3: BLOCKCHAIN LOGGING USING RECIPIENT ADDRESS [GRADE 20%]
 
-Implement the function of `bkc_logging(log)` using the recipient address in sendTransaction method. If your log is greater than 20 bytes, you can separate it into multiple addresses and send multiple transactions to those addresses. You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
+Implement the function of `bkc_logging(log)` that encode logged data in the recipient address (i.e., `to` address) in the `sendTransaction` method. 
+You may want to show/check the log string you logged into the blockchain using `getTransaction` method.
+
+Hint: 1) You may need to use `keccak256` hash algorithm to generate an Ethereum address out of the logged data.
+2) Alternatively, you can manually generate a blockchain address of a fixed length. When the logged data is fewer than 20 bytes, you may need to pad the data to 20 bytes. Or when the logged data is longer than 20 bytes, you can separate it into multiple addresses and send multiple transactions to those addresses. 
+
 
 #### LAB EXERCISE 4: TRANSACTION FEES [GRADE 20%]
 
