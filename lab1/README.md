@@ -3,13 +3,10 @@ Lab 1: Blockchain Storage and Mining on Campus
 
 In this lab, you are given the initial state that a custom Blockchain network of several miners is hosted on an on-campus machine which has been running for several days before the class. The Blockchain machine also runs a daemon that periodically instructs some miner to conduct transactions with other miners.
 
-- Link of this lab (raw): https://goo.gl/gAU8nq
-- Link to genesis.json: https://goo.gl/onnjb4 
-
 Prerequisite
 ---
 
-1. Linux shell commands
+1. Have experience in Linux shell commands
 2. Understand [Ethereum](http://www.ethdocs.org/en/latest/introduction/index.html)
 
 Lab Environment Setup
@@ -19,7 +16,7 @@ Lab Environment Setup
 
 Install VirtualBox on your computer: https://www.virtualbox.org/wiki/Downloads . Choose `Ubuntu-64` bit option while installing the VM.
 
-Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/19_U2UmsnZmMGRwe4AxMlfYoEot-xZ7Br/view?usp=sharing)]. Make sure this image runs with more than 4 GB memory. There is a user `user1` and the password is `blockchainsu`. 
+Download our prebuilt VirtualBox image from [[here](https://drive.google.com/file/d/1VVL02K90UUY66hN41UdGc_2SteS1yjpY/view?usp=sharing)]. Import the image as `Appliance` inside VirtualBox. The credential for the VM is: username:`user1`, password:`blockchainsu`. 
 
 **_Script 1a_**: 
 
@@ -76,10 +73,10 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 $ mkdir -p ~/lab1/bkc_data
 $ cd ~/lab1
 $ geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30301 console 2>console.log 
+$ geth --datadir bkc_data --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log 
 ```
 
-Alternatively, you can try other enodes like `enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30303`.
+Alternatively, you can try other enodes like `node://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301`.
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
 
@@ -88,7 +85,7 @@ In the last command above, `--networkid` specify the private network ID. Connect
 **_Script 2.2_**: 
 
 ```bash
-$ admin.addPeer("enode://7320559847736145843099b94c6c67d52c3abd4af42200dde25557d58da3f36358b6a029ff37058461ee5e627aed6fb55386c3e334b54fa35480aee4ea73eb61@128.230.208.73:30303")
+$ admin.addPeer("node://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301")
 ```
 
 Check the connectivity by running:
