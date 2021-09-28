@@ -126,6 +126,7 @@ You can now start/stop the miner. If mining doesn't seem to work, you may try to
 
 ```
 > personal.unlockAccount(“accountAddress”, “accountPassword”)
+> personal.unlockAccount(“accountAddress”, “accountPassword”, expiration_time)
 ```
 
 **_Script 3b.2_**: 
