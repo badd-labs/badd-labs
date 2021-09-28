@@ -202,10 +202,10 @@ Note 2: [Ether](http://www.ethdocs.org/en/latest/ether.html) is the name of the 
 Deliverable
 ---
 
-- For each task, the deliverable includes the following:
-    1. The script program of the Geth commands
+- For each task, you should submit the following:
+    1. The script program consisting of the Geth commands
     2. The screenshot that shows your script has run successfully on your computer
-        - Make sure include your name in the screenshot. You can, for example, open a text editor with your name in it. 
+        - Make sure include your name in the screenshot. For instance, you can open a text editor and type your name in it. 
 
 FAQ/Trouble shooting
 ---
