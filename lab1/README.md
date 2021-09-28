@@ -186,13 +186,13 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 
 **Task 1:** After you started mining, show the coins that you have mined. Then wait 1 minute, check the balance again.
 
-**Task 2:** Show the content (show the latest three blocks and the latest transaction) on the blockchain. Then wait 1 minute, show the blockchain again to see how it is extended over time. (Hint: To find the latest transaction on the blockchain, you can iterate through the blocks and check the transaction(s) in them. To iterate through the blocks, you can use JavaScript.)
+**Task 2:** Show the latest three blocks and the latest transaction confirmed in the blockchain. Then wait 1 minute, show the blockchain again and see how if it is extended by new blocks over time. (Hint: To find the latest transaction on the blockchain, you can iterate through the blocks and check the transaction(s) in them. To iterate through the blocks, you can use JavaScript.)
 
 **Task 3:** 
 
-1. Submit a transaction, say `tx5`, to the blockchain. You create another account as the recipient (seller) of the transaction. 
+1. Submit a transaction, say `tx1`, to the blockchain. You create another account as the recipient (seller) of the transaction. 
 
-2. Show whether transaction `tx5` is included in the Blockchain; if not wait for a while, check again.
+2. Show whether transaction `tx1` is included in the Blockchain; if not wait for a while, check again.
 
 Note 1: The above command will return a hash tag which served as the ID of the transaction, you could use that ID to query the transaction in the future.
 
