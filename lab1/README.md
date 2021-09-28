@@ -181,7 +181,7 @@ The tasks in this lab require to inspect and modify the content of Blockchain. I
 > eth.sendTransaction({from:eth.accounts[0], to:"0xda1b60c80502fea9977bab42dcebad05c289dcd2", value:web3.toWei(1,"ether")})
 #eth.sendTransaction({from:senderAccount, to:receiverAccount, value: amount})
 > eth.getTransaction("0x57dfe8f7f4760f09cd76a8b09000fd43275d798503ed88ed6d8b39c1d5ce3157")
-> loadScript("/path/to/script.js")
+> loadScript("/path/to/script.js") #run script.js (all the commands there) inside the geth console.
 ```
 
 **Task 1:** After you started mining, show the coins that you have mined. Then wait 1 minute, check the balance again.
