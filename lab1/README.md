@@ -221,7 +221,7 @@ personal.unlockAccount(eth.accounts[0])
 - Q3: When my terminal crashes in VM (e.g., during mining),  I cannot restart the `geth` properly.
     - Answer: You can restart the VM to get around this issue. (Terminal crash may mess up network stack in your VM which `geth` depends on).
 - Q4: How to check if my node is mining?
-    - Answer: You can check by running "eth.mining", it returns "true" or "false" to indicate if the mining is on-going or not. Note: "miner.getHashrate()" may return "0" even if the mining process is active. 
+    - Answer: You can check by running "eth.mining", it returns "true" or "false" to indicate if the mining is on-going or not. Note: Command `eth.hashrate` may return "0" even if the mining process is active. 
     
 - Q5: I choose options 1.A to setup the environment, and it is running out of disk memory, what would I do?
     - Answer: You have two options.
