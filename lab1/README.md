@@ -21,9 +21,9 @@ Download our prebuilt VirtualBox image from [[here](https://drive.google.com/fil
 **_Script 1a_**: 
 
 ```
-$ mkdir -p ~/lab1/bkc_data
-$ cd ~/lab1
-$ gedit genesis.json
+mkdir -p ~/lab1/bkc_data
+cd ~/lab1
+gedit genesis.json
 ```
 
 Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullstacksecurity/SUBlockchainLabs/master/lab1/genesis.json)] to the gedit and save it (by hitting `control+S` in Ubuntu).
@@ -44,10 +44,10 @@ Even when you are not using Ubuntu as native OS, you can set up VirtualBox and d
 **_Script 1b_**: 
 
 ```
-$ sudo apt-get install software-properties-common
-$ sudo add-apt-repository -y ppa:ethereum/ethereum
-$ sudo apt-get update
-$ sudo apt-get install ethereum
+sudo apt-get install software-properties-common
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
 ```
 
 ***Mac Users***
@@ -70,23 +70,15 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 **_Script 2.1_**: 
 
 ```
-$ mkdir -p ~/lab1/bkc_data
-$ cd ~/lab1
-$ geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log 
+mkdir -p ~/lab1/bkc_data
+cd ~/lab1
+geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
+geth --datadir bkc_data --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log 
 ```
 
 Alternatively, you can try other enodes like `node://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301`.
 
 In the last command above, `--networkid` specify the private network ID. Connections between nodes are valid only if peers have identical protocol version and network ID, you can effectively isolate your network by setting either of these to a non default value. `--bootnode` option specify the bootnode address, following the format `[nodeID]:IP:port`. Every subsequent Geth node pointed to the bootnode for peer discovery. [This page](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options) describes the options for ```geth``` commands.
-
-**2.2 Add a Peer Miner**: Manually add a peer node to your miner node by a specific node URL. (Updates: It seems that add a peer miner is not required to connect your miner nodes to the on-campus Blockchain network).
-
-**_Script 2.2_**: 
-
-```bash
-$ admin.addPeer("node://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301")
-```
 
 Check the connectivity by running:
 
@@ -237,10 +229,10 @@ personal.unlockAccount(eth.accounts[0])
                `sudo rm -rf /var/*`
                Step 3. Run the below command to mount the new disk to the home directory. `sudo mount /dev/sdb1 ~`
              
-- Q5: Why does ```admin.peers``` return null sometimes?
+- Q6: Why does ```admin.peers``` return null sometimes?
 
     - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the shcool network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
 
-- Q6: Out of space?
+- Q7: Out of space?
 
    - Clear the folder  ~/.ethereum/ after you finish the lab. Also, clear the folder specified through ``--datadir'' when starting geth.
