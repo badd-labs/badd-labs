@@ -1,4 +1,4 @@
-To efficiently interact with the Ethereum node on your own computer, for example, retrieve blocks and transactions, you can use Web3 to do that. 
+To efficiently retrieve the information stored in your Ethereum node, such as blocks and transactions, you can use Web3 to do that. 
 
 1. Install python3 
 ```bash
