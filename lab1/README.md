@@ -73,7 +73,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 mkdir -p ~/lab1/bkc_data
 cd ~/lab1
 geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
-geth --datadir bkc_data --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log 
+geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log 
 ```
 
 Alternatively, you can try other enodes like `node://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301`.
