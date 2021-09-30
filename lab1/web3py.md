@@ -1,4 +1,4 @@
-To efficiently retrieve the information stored in your Ethereum node, such as blocks and transactions, you can use Web3 to do that. 
+To efficiently retrieve the information stored in your Ethereum node, such as blocks and transactions, you can install the Web3py library with Python. 
 
 1. Install python3 
 ```bash
