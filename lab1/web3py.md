@@ -28,6 +28,9 @@ python3.6 get_bkc.py
 __Note: if executing the above code throws the connection error, that means your geth did not enable the RPC. You can enable RPC by add '--rpc' (or --http) when you start geth in  the last command of step 2.1. See the following example.__
 ```
 'geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log'.
+``` or
+```
+'geth --datadir bkc_data --http --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log'.
 ```
 
 More web3py functions for working with Ethereum can be found at https://web3py.readthedocs.io/en/stable/web3.eth.html.
