@@ -1,10 +1,9 @@
 Lab 2: Smart Contract Programming
 ===
 
-The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. The lab will be developed on Ethereum/Solidity platform using existing programming platform such as Remix. There will be programming exercises for students to implement two-party computation (e.g., `max(x,y)`) and three-party rock-paper-scissors game.
+The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. 
 
-**Lab Description**: This module consists of four lab exercises where the first two exercises (1a and/or 1b) are to set up programming environments. Exercise 1b is a bonus one (with 20% extra points). The last two exercises require you to design a contract program based on the given requirement.
-There are two programming environments you can choose from: the web-based Remix IDE and the command-line-based Solc. Use of Solc will give you 20\% bonus.
+**Lab Description**: This module consists of four lab exercises where the first two exercises (1a and 1b) are to set up programming environments. The last two exercises require you to design a contract program based on the given requirement. Exercise 1b is optional and gives bonus (with 20% extra points). All other exercises are mandatory. Exercise 1a, 2, and 3 are based on the web-based Remix IDE, and 1b is on the command-line-based `Solc`. 
 
 Solidity
 ---
