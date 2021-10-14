@@ -22,7 +22,7 @@ sudo apt-get update
 sudo apt-get install solc
 ```
 
-For MacOs, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages
+For **MacOs**, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages
 
 2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
