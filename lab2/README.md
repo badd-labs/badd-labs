@@ -8,7 +8,7 @@ The learning objective of this lab is for students to acquire programming skills
 Solidity
 ---
 
-Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereum. We provide a crash course on Solidity Syntax at [[link](https://www.dropbox.com/s/p1vo38sx4mu60zq/12.SolidityProgramming.pptx?dl=0)]. You can find other tutorials [[here](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)].
+Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereum. In addition to our lecture on Solidity programming, there are other online tutorials [[here](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)].
 
 To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers in the contract. 
 
