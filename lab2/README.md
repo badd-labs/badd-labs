@@ -19,15 +19,14 @@ In Exercises 1, we will learn to compile and execute a given Solidity program. I
 
 ```
 pragma solidity ^ 0.4.25;
-   contract hello { /* define variable greeting of the type string */  
-    string greeting;
-       function greeter(string _greeting) public {
-              greeting = _greeting;
-       } 
-       /* main function */
-       function greet() public constant returns(string) {
-              return greeting;
-       }
+contract hello { /* define variable greeting of the type string */  
+  string greeting;
+  function greeter(string _greeting) public {
+    greeting = _greeting;
+  } 
+  function greet() public constant returns(string) {
+    return greeting;
+  }
 } 
 ```
 
