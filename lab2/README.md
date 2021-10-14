@@ -19,7 +19,7 @@ Exercise 1a: Hello-world Contract with Remix
 In Exercises 1, we will learn to compile and execute a given Solidity program. It is a hello-world program given as below. Function `greeter` takes a string argument and stores it in Variable `greeting`. Function `greet` take no argument and returns the value of Variable `greeting`.
 
 ```
-pragma solidity ^ 0.4.13;
+pragma solidity ^ 0.4.25;
    contract hello { /* define variable greeting of the type string */  
     string greeting;
        function greeter(string _greeting) public {
