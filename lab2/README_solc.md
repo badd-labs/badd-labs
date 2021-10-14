@@ -5,25 +5,22 @@ Start your Ethereum VM in VirtualBox and open a terminal there.
 
 1. Install `Solc` 
 
-Installing all versions of `solc` and use version `0.4.13`:
+Installing all versions of `solc` and use version `0.4.25`:
 
 ```
-sudo apt-get install curl
-git clone https://github.com/crytic/solc-select.git
-./solc-select/scripts/install.sh
-export PATH=/home/USERNAME/.solc-select:$PATH
+sudo python3 -m pip install py-solc
+sudo python3 -m solc.install v0.4.25
+sudo chmod 777 ~/.py-solc/solc-v0.4.25/bin/solc
+sudo mv ~/.py-solc/solc-v0.4.25/bin/solc /usr/bin/solc
 solc --version
-solc use 0.4.13
 ```
 
 Deprecated approach
-
 ```
 sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
 sudo apt-get install solc
 ```
-
 
 2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
@@ -70,8 +67,7 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 6. Deploy the smart contract by first connecting to the Ethereum network (these steps are the same as per the last lab)
 ```
 $ geth --datadir bkc_data init ~/lab2/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --networkid 89992018 --bootnodes enode://f9903a9b394bec7c74cd1172171c1cb7aa74f313fa7686bc8206955157a47acc8b4c3e9859a0731224235364e66a37a1bfb24819b0130ca0e6939b3cfc4feabf@128.230.208.73:30301 console 2>console.log  
->admin.addPeer("enode://ea2c929277e57dc6d89000ea6e35e0ffc8274e0c35e43d518d734277d3221785daf6a53cb01ab54e75b78c887c9a37acb59eaca7a0da8f8a562ca85e354e325a@[128.230.208.73]:30303")
+$ geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log  
 ```
 
 7. Load and run the script to deploy smart contract
