@@ -55,7 +55,26 @@ In this exercise, you are asked to write a Solidity program to find the maximum 
 
 In exercise 1, if you took 1a option, you should do exercise 2 with Remix. If you took option 1b, then you can do exercise 2 with Solc. 
 
-Exercise 3: Rock-paper-scissors game
+Excercise 3F (for Finance students): Payment relay in smart contract
+---
+
+This exercise consists two steps.
+
+Step 3F1. You will need to compile and deploy the following smart contract in Remix. When running it, you need to call function `pay` with argument `0x12345678`. In the transaction that issues the function call, specify the value to be `10` Ether. After running the function, take and submit your screenshot.
+
+```
+pragma solidity ^ 0.4.25;
+contract payrelay { /* define variable greeting of the type string */  
+  string greeting;
+  function pay(string receiver) public {
+    send(msg.value, receiver);
+  }
+} 
+```
+
+Step 3F2. In the above step, you send `100` Ether to account `0x12345678` through the smart contract `payrelay`. In this exercise, you are required to add a few lines of code in the above program to implement the following rule: The updated `payrelay` smart contract should only relay payment when the value is above `12` Ether.
+
+Exercise 3 (for CS students): Rock-paper-scissors game
 ---
 
 Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. You can use variables to keep track of the deposit and player values.The contract should have the following functionalities:
