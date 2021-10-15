@@ -5,7 +5,7 @@ Start your Ethereum VM in VirtualBox and open a terminal there.
 
 1. Install `Solc` 
 
-Installing all versions of `solc` and use version `0.4.25`:
+Method 1a. Installing all versions of `solc` and use version `0.4.25`:
 
 ```
 sudo python3 -m pip install py-solc
@@ -15,12 +15,15 @@ sudo mv ~/.py-solc/solc-v0.4.25/bin/solc /usr/bin/solc
 solc --version
 ```
 
-Deprecated approach
+Method 1b. 
+
 ```
 sudo add-apt-repository ppa:ethereum/ethereum
 sudo apt-get update
 sudo apt-get install solc
 ```
+
+You will find `solc` under the path `/usr/bin`.
 
 For **MacOs**, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages
 
