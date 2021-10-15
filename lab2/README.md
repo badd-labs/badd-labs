@@ -60,7 +60,7 @@ Excercise 3F (for Finance students): Payment relay in smart contract
 
 This exercise consists two steps.
 
-Step 3F1. You will need to compile and deploy the following smart contract in Remix. When running it, you need to call function `pay` with argument `0x0000000000000000000000000000000000000000`. Before you click the 'pay' button, click 'showBalance' to display the balance and take a screenshot. Then you should send a transaction, to execute the 'pay' function, you need to specify the value to be `10` Ether (on the left panel of Remix IDE, under the 'value' field, type 10 and select the unit to be 'ether', by default it is 'wei'), then type 'pay' button and the transaction should be executed. After that, click 'showBalance' button again and take and submit your screenshot.
+Step 3F1. You will need to compile and deploy the following smart contract in Remix. When running it, you need to call function `pay` with argument `0x0000000000000000000000000000000000000000`. Before you call the 'pay' function, click the 'showBalance' button to display the balance and take a screenshot. Then you should send a transaction, to execute the 'pay' function, you need to specify the value to be `10` Ether (on the left panel of Remix IDE, under the 'value' field, type 10 and select the unit to be 'ether', by default it is 'wei'), then type 'pay' button and the transaction should be executed. After that, click 'showBalance' button again and take and submit your screenshot.
 
 ```
 pragma solidity ^ 0.4.25;
