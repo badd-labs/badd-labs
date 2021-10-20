@@ -40,11 +40,6 @@ cd lab2
 ```
 solc -o . --bin --abi hello.sol
 ```
-
-- After compilation, there should be two files generated: `hello.abi` and `hello.bin`. 
-        - File `hello.bin` stores the compiled "binary" code. This is the code directly executed by miners.
-        - File `hello.abi` defines the interface through which the compiled code interacts with the execution platform (or EVM). Like ABI, it defines how the binary code in `.bin` should be interpreted in EVM.
-
 **Note**: If your `solc` compiler version is after 0.5.0, you may need to use the following **hello.sol** source code.
 ```bash
 pragma solidity ^ 0.5.0;
@@ -56,7 +51,12 @@ contract hello { /* define variable greeting of the type string */
   function greet() public view returns(string memory) {
     return greeting;
   }
-} 
+}
+```
+
+- After compilation, there should be two files generated: `hello.abi` and `hello.bin`. 
+        - File `hello.bin` stores the compiled "binary" code. This is the code directly executed by miners.
+        - File `hello.abi` defines the interface through which the compiled code interacts with the execution platform (or EVM). Like ABI, it defines how the binary code in `.bin` should be interpreted in EVM.
 
 ***hello.abi (original)***
 ```
