@@ -25,7 +25,20 @@ sudo apt-get install solc
 
 You will find `solc` under the path `/usr/bin`.
 
-For **MacOs**, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages
+For **MacOs**, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages.
+If your `solc` compiler version is after 0.5.0, you can need to use following as the hello.sol source code.
+```bash
+pragma solidity ^ 0.5.0;
+contract hello { /* define variable greeting of the type string */  
+  string greeting;
+  function greeter(string memory _greeting) public {
+    greeting = _greeting;
+  } 
+  function greet() public view returns(string memory) {
+    return greeting;
+  }
+} 
+```
 
 2. Set up the Ethereum client for this lab. We will reuse your client data (e.g., accounts and balances) created in the previous lab, and connect to the same Ethereum network.
 ```
