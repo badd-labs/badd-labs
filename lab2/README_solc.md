@@ -26,7 +26,7 @@ sudo apt-get install solc
 You will find `solc` under the path `/usr/bin`.
 
 For **MacOs**, please find the install instruction at: https://docs.soliditylang.org/en/v0.8.9/installing-solidity.html#macos-packages.
-If your `solc` compiler version is after 0.5.0, you can need to use following as the hello.sol source code.
+If your `solc` compiler version is after 0.5.0, you can need to use following **hello.sol** source code.
 ```bash
 pragma solidity ^ 0.5.0;
 contract hello { /* define variable greeting of the type string */  
