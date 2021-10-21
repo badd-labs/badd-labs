@@ -85,7 +85,7 @@ data:"0x608060405234801561001057600080fd5b506102d7806100206000396000f30060806040
 6. Deploy the smart contract by first connecting to the Ethereum network (these steps are the same as per the last lab)
 ```
 $ geth --datadir bkc_data init ~/lab2/genesis.json # create a database that uses this genesis block
-$ geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log  
+$ geth --datadir bkc_data --rpc --networkid 89992018 --allow-insecure-unlock --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301" console 2>console.log  
 ```
 
 7. Load and run the script to deploy smart contract
