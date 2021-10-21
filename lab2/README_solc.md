@@ -106,7 +106,7 @@ geth attach bkc_data/geth.ipc
 miner.start(1)
 ```
 
-9. Execute the smart-contract program by running the following commands. They sequentially call two functions in the deployed contracts, `greeter` and `greet`. **Note:** in the below command, a `gas` amount of 700,000 is specified.
+10. Execute the smart-contract program by running the following commands. They sequentially call two functions in the deployed contracts, `greeter` and `greet`. **Note:** in the below command, a `gas` amount of 700,000 is specified.
 
 ```
 > helloVar.greeter.sendTransaction("Hello",{from:eth.accounts[0],gas:700000}) 
