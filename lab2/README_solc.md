@@ -115,5 +115,5 @@ miner.start(1)
 "Hello"
 ```
 
-**Deliverable**: Finish the above commands to execute the hello-world contract. Submit the screenshot of contract-execution results and your code.
+**Deliverable**: Finish the above commands to execute the hello-world contract. Submit the screenshot of contract-execution results.
 
