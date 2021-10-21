@@ -99,7 +99,7 @@ $ geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871
 INFO [06-26|14:39:04] Submitted contract creation              fullhash=0x3a866d157afb43afaef5e33ef7ec61ab0dfe2edf36783f8a332ee8d622dadea9 contract=0x5dDd255aBa54b65595BB80dDd492Ea260bBA23a1
 ```
 
-9. If no one is mining in the network, then you have to enable mining on your Geth node to include the contract creation transaction. Open a new terminal and run the following command.
+9. Check if the transaction is included by `eth.getTransaction`. If not, then you have to enable mining on your Geth node to include the contract creation transaction. Open a new terminal and run the following command.
 ```bash
 cd lab2
 geth attach bkc_data/geth.ipc
