@@ -98,3 +98,10 @@ Deliverable
 
 - For all exercises, you should show the screenshot of you executing the program successfully. For instance, in Exercise 1, your screenshort should show the execution of a sequence such as `greeter("X")` and `greet()` which prints the value of `X`.
 - In Exercise 2,3, you should also submit the solidity program you wrote.
+
+Grading Criterion:
+---
+- Exercise 1a: 30 points
+- Exercise 1: 20 points (bonus)
+- Exercise 2: 30 points
+- Exercise 3: 40 points
