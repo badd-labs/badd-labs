@@ -102,6 +102,6 @@ Deliverable
 Grading Criterion:
 ---
 - Exercise 1a: 30 points
-- Exercise 1: 20 points (bonus)
+- Exercise 1b: 20 points (bonus)
 - Exercise 2: 30 points
 - Exercise 3: 40 points
