@@ -105,3 +105,7 @@ Grading Criterion:
 - Exercise 1b: 20 points (bonus)
 - Exercise 2: 30 points
 - Exercise 3: 40 points
+
+For exercise 1a, 1b, 2, if you did not submit the screenshot of successful executions of your program, you will get 5 points deducted, and 10 points deducted for exercise 3.
+In addition, in exercise 3, you have to demostrate your program executed successfully for cases of one winner and two winners. Missing one case will result in 5 points deduction. 
+For exercise 3F,  you have to demostrate your program executed successfully for cases of paying more than 12 ether, and paying less than 12 ethers. Missing one case will result in 5 points deduction.
