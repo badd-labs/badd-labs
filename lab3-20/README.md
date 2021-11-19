@@ -42,7 +42,9 @@ Your job is to:
 Task 3: Supporting the swap between token and Ether
 ---
 
-Revise your escrow smart contract to support the swap between Ether and mToken. Consider both success swap and failed swap cases.
+Revise your escrow smart contract to support the swap between Ether and mToken. That is, now Alice trades her mToken for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. 
+
+Consider both success swap and failed swap cases.
 
 Task 4. Settling swaps atomically in two transactions (using HTLC)
 ---
