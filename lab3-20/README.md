@@ -25,7 +25,7 @@ contract SimpleToken {
 
 -->
 
-Task 2. Settling swaps atomically in one transaction (by escrow smart contract)
+Task 2. Settle swaps atomically in one transaction (by escrow smart contract)
 ---
 
 An atomic swap occurs between two accounts in two tokens. Suppose Alice of token mToken wants to trade her mTokens for Bob’s tTokens. For simplicity, we assume the exchange rate between mToken and tToken is always 1:1 (i.e., one mToken for one tToken). A swap incurs a transfer from Alice to Bob in mToken and another transfer from Bob to Alice in tToken.
@@ -39,17 +39,23 @@ Your job is to:
 1. Implement the above escrow in a smart contract, and run an atomic swap by deploying the token smart contracts (twice respectively as mToken and tToken instances) and the escrow smart contract.
 2. Extend the above escrow to handle the failure case; for instance, Alice did transfer her mTokens to the escrow but Bob did not. In this case, Alice can withdraw her mToken after a predifined timeout, say *t* blocks. Use `block.number` to access the current block height in solidity.
 
-Task 3: Supporting the swap between token and Ether
+Task 3: Support the swap between token and Ether
 ---
 
-Revise your escrow smart contract to support the swap between Ether and mToken. That is, now Alice trades her mToken for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. 
+Revise your escrow smart contract to support the swap between Ether and mToken. For instance, Alice trades her mToken for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. 
 
 Consider both success swap and failed swap cases.
 
-Task 4. Settling swaps atomically in two transactions (using HTLC)
+Task 4. Settle swaps atomically in two transactions (using HTLC)
 ---
 
-TBA
+`HTLC` or hash time lock contract is parameterized by hash `h`, timeout `t`, sender account `A` and receiver account `B`. `HTLC(h,t,A,B,2mToken)` stores a deposit of 2 mTokens and there are two outcomes: 1) before the timeout `t`, if the `HTLC` smart contract receives receiver `B`'s transaction revealing secret `s` such that `h=H(s)`, the 2 mTokens will be transferred to `B`'s account. 2) after the timeout `t`, if case 1) did not happen, the `HTLC` smart contract returns the deposit to sender `A`.
+
+Use two `HTLC` snmart contracts to enable atomic swap involving multiple transactions. 
+
+Implement `HTLC`smart contract. 
+
+Run the atomic swap based on two `HTLC` instance.
 
 Deliverable
 ---
