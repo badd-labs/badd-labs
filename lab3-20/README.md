@@ -4,8 +4,8 @@ Lab 3: Tokens and DEX
 Introduction
 ---
 
-DEX or decentralized exchange supports the swap of token ownership between different accounts. A swap is essentially two transfers, one from Alice to Bob and the other from Bob to Alice. A swap is supposed to be atomic, in the sense that either both transfers occur or no transfer occurs. In this lab, you are going to implement a basic DEX settling swaps atomically.
-
+DEX or decentralized exchange supports the swap of token ownership between different accounts. A swap is essentially two transfers, one from Alice to Bob and the other from Bob to Alice. A swap is supposed to be atomic, in the sense that either both transfers occur or no transfer occurs. In this lab, you are going to implement a DEX supporting atomic swap settlement.
+ 
 
 | Tasks | CS student | Finance student
 | --- | --- | --- |
@@ -43,7 +43,7 @@ A simple swap protocol is to do the two transfers in one transaction. This requi
 
 There are different instanstiation of the escrow protocol. One is to materialize an escrow as an EOA. In this case, the escrow EOA is trusted to send the two transfer calls, atomically. The following figure illustrates the escrow-EOA protocol.
 
-![Contract design diagram](lab-escrow-EOA.jpg)
+![Contract design diagram](lab-escrow3-EOA.jpg)
 
 Your job in this task is to deploy your token smart contracts, from Task 1, twice (first as mToken and then as tToken). Run the above escrow-EOA protocol to complete the swap of Alice's mToken and Bob's tToken. 
 
@@ -79,6 +79,8 @@ Run the atomic swap based on two `HTLC` instance.
 
 Task 6. Design and implement order matchmaking 
 ---
+
+So far, we consider a fixed exchange rate between mToken and tToken. Now you are to implement order matchmaking component in which the exchange rate can be dynamically set (either by traders or by smart contacts). 
 
 Choose a matchmaking protocol of your choice, either orderbook or AMM, as described in the class. Choose one of the above swap-settlement protocols and extend it to support the matchmaking.
 
