@@ -92,6 +92,8 @@ Task 6. Implement the atomic swap settlement in two transactions (using HTLC)
 
 Use two `HTLC` smart contracts to enable atomic swap involving multiple transactions. 
 
+![Contract design diagram](lab-swap-htlc.jpg)
+
 Implement `HTLC`smart contract. 
 
 Run the atomic swap based on two `HTLC` instance.
