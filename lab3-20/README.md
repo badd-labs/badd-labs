@@ -14,25 +14,32 @@ DEX or decentralized exchange supports the swap of token ownership between diffe
 |  3  | Required | Bonus |
 |  4  | Required | Bonus |
 |  5  | Required | Bonus |
-|  6  | Bonus | Bonus |
+|  6  | Required | Bonus |
 
-Task 1. Implement an ERC20 token
+Task 1. Execute token transfer 
 ---
 
-Implement a simple token smart contract supporting ERC20-compatible functions:   `transfer(address sender, address recipient, uint256 amount)` 
+The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
 
-<!--
+```
+pragma solidity >=0.7.0 <0.9.0; 
+contract MyToken {  
+  uint _totalSupply = 0; string _symbol;  
+  mapping(address => uint) balances;  
+  constructor(string memory symbol, uint256 initialSupply) {
+    _symbol = symbol;
+    _totalSupply = initialSupply;
+    balances[msg.sender] = _totalSupply;  }  
+  function transfer(address receiver, uint numTokens) public returns (bool) {    
+    require(numTokens <= balances[msg.sender]);        
+    balances[msg.sender] = balances[msg.sender] - numTokens;    
+    balances[receiver] = balances[receiver] + numTokens;    
+    return true;  
+}}
 
-contract SimpleToken {
-    mapping (address => uint256) private _balances;
-    function transfer(address sender, address recipient, uint256 amount) internal {
-        if ( _balances[sender] - amount < 0) throw;
-        _balances[sender] -= amount;
-        _balances[recipient] += amount;
-    }
-}
+```
 
--->
+Your job in this task is to deploy the above smart contract in Remix, creating an mToken instance. Demonstrate the process that the mToken issuer transfers 10 mToken to another account, say Alice.
 
 Task 2. Execute atomic swap settlement in one transaction (by escrow EOA)
 ---
@@ -62,9 +69,9 @@ Your job is to:
 Task 4: Design and implement the swap between token and Ether
 ---
 
-Revise your escrow smart contract to support the swap between Ether and mToken. For instance, Alice trades her mToken for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. 
+Revise your escrow smart contract to support the swap between Ether and mToken. For instance, Alice trades her mToken for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. Here, you can assume one mToken is exchangeable with one Ether.
 
-Consider both success swap and failed swap cases.
+Consider both cases of success and failed swaps.
 
 Task 5. Implement the atomic swap settlement in two transactions (using HTLC)
 ---
@@ -80,9 +87,14 @@ Run the atomic swap based on two `HTLC` instance.
 Task 6. Design and implement order matchmaking 
 ---
 
-So far, we consider a fixed exchange rate between mToken and tToken. Now you are to implement order matchmaking component in which the exchange rate can be dynamically set (either by traders or by smart contacts). 
+So far, you build a DEX's swap settlement layer. This is an incomplete DEX, as it only supports the fixed exchange rate between mToken and tToken. 
 
-Choose a matchmaking protocol of your choice, either orderbook or AMM, as described in the class. Choose one of the above swap-settlement protocols and extend it to support the matchmaking.
+Now you are to build a full fledged DEX by supporting an order matchmaking layer. Order matchmaking supports the exchange rate that are dynamically set.
+
+You have two choices: Either implement an AMM mechanism or an order-book. 
+
+- Hint 1: If you choose to implement an on-chain AMM (just like Uniswap), you should consider revising/extending your solution of Task 3: Bob should be a smart contract account. 
+- Hint 2: If you choose to implement an off-chain orderbook (just like IDEX), you should consider revising/extending your solution of Task 3: In Step 3/4, Alice and Bob should send their acceptable exchange rates to another EOA controlled by the off-chain orderbook.
 
 Deliverable
 ---
