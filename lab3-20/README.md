@@ -34,11 +34,14 @@ contract MyToken {
     balances[msg.sender] = balances[msg.sender] - numTokens;    
     balances[receiver] = balances[receiver] + numTokens;    
     return true;  
+}
+function balanceOf(address account) public view returns(uint256){
+     return balances[account];
 }}
 
 ```
 
-Your job in this task is to deploy the above smart contract in Remix, creating an mToken instance. Demonstrate the process that the mToken issuer transfers 10 mToken to another account, say Alice.
+Your job in this task is to deploy the above smart contract in Remix, creating an mToken instance. Demonstrate the process that the mToken issuer transfers 10 mToken to another account, say Alice, and display each account's balance before/after the transfer.
 
 Task 2. Execute atomic swap settlement in one transaction (by escrow EOA)
 ---
