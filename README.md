@@ -1,9 +1,10 @@
 Blockchain Lab Modules
 ---
 
-1. Transaction programming and mining [[lab 1](lab1/README.md)]
+1. Transactions and blockchain mining [[lab 1](lab1/README.md)]
 2. Smart contract programming [[lab 2](lab2/README.md)]
-3. Escrow Services [[lab 3](lab3-20/README.md)]
+3. Decentralized exechange (DEX) [[lab 3](lab3-20/README.md)]
+4. Multi-tx exchange on HTLC  [[lab 4](lab3-20/README-lab4.md)] 
 
 <!--
 
