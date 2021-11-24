@@ -22,3 +22,8 @@ An atomic multi-transaction swap can run based on two HTLC smart contracts. The 
 ![Contract design diagram](lab-swap-htlc.jpg)
 
 Run the above atomic swap protocol based on your `HTLC` smart contracts implemented in Task 1.
+
+Deliverable
+---
+
+- For all tasks, you should 1) submit your smart-contract code, and 2) show the screenshot of the program execution. 
