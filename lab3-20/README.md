@@ -11,9 +11,9 @@ DEX or decentralized exchange supports the swap of token ownership between diffe
 | --- | --- | --- |
 |  1  | Required | Required |
 |  2  | Required | Required |
-|  3  | Required | Bonus |
-|  4  | Required | Bonus |
-|  5  | Bonus | Bonus |
+|  3  | Required | Bonus (50%) |
+|  4  | Required | Bonus (50%) |
+|  5  | Bonus (50%) | Bonus (100%) |
 
 Task 1. Execute token transfer 
 ---
