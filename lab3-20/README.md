@@ -68,6 +68,8 @@ Your job is to:
 1. Implement the escrow smart contract described as above. Then run an atomic swap by deploying the token smart contracts (twice respectively as mToken and tToken instances) and the escrow smart contract.
 2. Design the failure handling protocol by extending the above escrow smart contract. One failure case is that Alice (or Bob) did not transfer her mTokens (his tTokens) to the escrow. In this case, Alice (Bob) should be able to withdraw her mTokens (his tTokens) after a predifined timeout, say *t* blocks. Use `block.number` to access the current block height in solidity.
 
+- Hint: To make smart contract `X` call smart contract `Y`'s function `foo`, you can pass to `X` `Y`'s contract address say `CA_Y` so that in `X` the following statement calls `CA_Y`'s function `foo`: `(Y)CA_Y.foo();` 
+
 Task 4: Design and implement the swap between token and Ether
 ---
 
