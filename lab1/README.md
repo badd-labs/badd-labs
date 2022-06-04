@@ -73,7 +73,7 @@ https://github.com/ethereum/go-ethereum/wiki/Installation-instructions-for-Windo
 mkdir -p ~/lab1/bkc_data
 cd ~/lab1
 geth --datadir bkc_data init ~/lab1/genesis.json # create a database that uses this genesis block
-geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://a3b871242d7e40dc517514f6a995c2514cbe4907827275e3164ff43fb95d1d977d77e66da2e992c94a0843337fdfb86c9a02254e414db8ff0d6dbba15f32eb22@128.230.210.231:30301"  console  2>console.log 
+geth --datadir bkc_data --rpc --networkid 89992018 --bootnodes "enode://764242277ec5ad520944549199ecc590e99f4cb379e82441ec4027a25624ca88a7b177db15e4b943fc295288a18885b7a29f0a91b624ddad0629e70752ed6acd@128.230.210.231:30301"  console  2>console.log 
 ```
 __Note: If the geth failed to start due to errors such as 'undefined flags rpc', try to replace 'rpc' with 'http'.__
 
