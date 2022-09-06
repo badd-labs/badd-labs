@@ -4,17 +4,17 @@ Blockchain Lab
 Module A: Blockchain Basics
 ----
 
-- A1. Transaction exploration [[lab A1](labs/A1/README.md)]
-- A2. Smart-contract programming [[lab A2](labs/A2/README.md)]
-- A3. Blockchain mining [[lab A3](labs/A3/README.md)]
+- Lab A1. Transaction exploration [[link](labs/A1/README.md)]
+- Lab A2. Smart-contract programming [[link](labs/A2/README.md)]
+- Lab A3. Blockchain mining [[link](labs/A3/README.md)]
  
 Module B: DeFi
 ----
  
-- B1. DEX 1: Swap settlement [[lab B1](labs/B1/README.md)]
-- B2. DEX 2: AMM and pricing [[lab B2](labs/B2/README.md)]
-- B3. DEX security: Arbitrage [[lab B3](labs/B3/README.md)]
-- B4. DEX security: Sandwich [[lab B4](labs/B4/README.md)]
+- Lab B1. DEX 1: Swap settlement [[link](labs/B1/README.md)]
+- Lab B2. DEX 2: AMM and pricing [[link](labs/B2/README.md)]
+- Lab B3. DEX security: Arbitrage [[link](labs/B3/README.md)]
+- Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
 
 <!--
 
