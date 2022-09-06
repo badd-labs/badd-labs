@@ -30,3 +30,6 @@ Task 2. Manually explore transactions across 2 blocks
 
 Find the last transaction in block 15479087 and the first transaction in block 15479088. Report the average fees of these two transactions.
 
+Task 3: TBD
+---
+
