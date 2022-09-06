@@ -1,4 +1,4 @@
-Lab 2: Smart Contract Programming
+Lab A2: Smart-Contract Programming
 ===
 
 The learning objective of this lab is for students to acquire programming skills in smart contracts and to develop basic programs. The lab will consider an educational scenario of smart contract, that is, the rock-paper-scissors game. 
