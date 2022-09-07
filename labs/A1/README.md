@@ -23,15 +23,15 @@ https://etherscan.io/tx/0x936ccf3baa1721689b960326a36abccdf5088b219df65474ad910a
 
 You are asked to report the average fees of transaction 0x936c and the next transaction. 
 
-Hint: You can find ordered transaction history related to block 15479087 on the following web page: https://etherscan.io/txs?block=15479087
+Hint: You can find ordered transaction history related to block `15479087` on the following web page: https://etherscan.io/txs?block=15479087
 
 Exercise 2. Manually explore transactions across two blocks
 ---
 
-Find the last transaction in block 15479087 and the first transaction in block 15479088. Report the average fees of these two transactions.
+Find the last transaction in block `15479087` and the first transaction in block `15479088`. Report the average fees of these two transactions.
 
 
-Exercise 3. Automatically explore 50 transactions
+Exercise 3. Automatically explore 50 transactions in one block
 ---
 
 ```python
@@ -61,7 +61,7 @@ if __name__ == "__main__":  # entrance to the main function
     scrape_block(15479087, 1)
 ```
 
-In this exercise, you will run a python code to crawl data from the etherscan website automatically. The example code above crawls the etherscan web page  (i.e., https://etherscan.io/txs?block=15479087) to read the first 50 transactions in block 15479087.
+In this exercise, you will run a python code to crawl data from the etherscan website automatically. The example code above crawls the etherscan web page  (i.e., https://etherscan.io/txs?block=15479087) to read the first 50 transactions in block `15479087`.
 
 To run the python code, you will need a Python runtime and some libraries. If your computer does not support Python (yet), you can find installation instructions on
 https://www.python.org/downloads/ for both Windows and Mac machines. In addition, the Python libraries can be installed in a Python console: 
@@ -76,22 +76,20 @@ After installation, copy the above python code to a file and run the file in a p
 Exercise 4. Automatically explore all transactions in one block
 ---
 
-In this exercise, you are required to report the average fee of all transactions in block 15479087. You can modify the given code.
+In this exercise, you are required to report the average fee of all transactions in block `15479087`. You can modify the given code.
 
-Hint: transactions in block 15479087 are shown on three pages.
+Hint: transactions in block `15479087` are shown on three pages.
 
 Exercise 5. Automatically explore transactions across two blocks
 ---
 
-In this exercise, you are required to report the average fees of the first 50 transactions in block 15479087 and the first 50 transactions in block 15479088. You can modify the given code.
+In this exercise, you are required to report the average fees of the first 50 transactions in block `15479087` and the first 50 transactions in block `15479088`. You can modify the given code.
 
 Deliverable
 ---
 
 1. Report the transaction fee required for each exercise.
- 
 2. For exercise 3, submit the screenshot that runs the crawler code on your computer.
-
 3. For exercise 4/5, submit your modified Python file and the screenshot that runs the code on your computer.
 
 FAQ
