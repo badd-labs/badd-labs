@@ -1,33 +1,38 @@
-Lab B2: DEX pricing: AMM and Constant Function 
+Lab B2: DEX 2: AMM and Pricing
 ===
 
 Introduction
 ---
 
-DEX or decentralized exchange supports the swap of token ownership between different accounts. A swap is essentially two transfers, one from Alice to Bob and the other from Bob to Alice. A swap is supposed to be atomic, in the sense that either both transfers occur or no transfer occurs. In this lab, you are going to implement a DEX supporting atomic swap settlement.
+An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In an AMM, a trader does not directly trade with other traders. Instead, they trade with a smart-contract intermediary. In practice, AMM gets more widely adopted than other DEX forms (e.g., order book). For instance, the most popular DEX services, including Uniswap, Sushiswap, Pancakeswap, etc., all follow AMM protocols. In this lab, you will implement an AMM smart contract.
 
-| Tasks | CS student | Finance student
-| --- | --- | --- |
-|  1  | Required | Required |
-|  2  | Required | Required |
-|  3  | Required | Bonus (50%) |
-|  4  | Required | Bonus (50%) |
-|  5  | Bonus (50%) | Bonus (100%) |
 
-Task 1. Design order matchmaking 
+| Tasks | Points | CS student | Finance student |
+| --- | --- | --- | --- |
+|  1  | 50 |  Required | Bonus |
+|  2  | 50 | Required | Bonus |
+
+Exercise 1. Impl. an fixed-rate AMM (1:2)
 ---
 
-So far, you build a DEX's swap settlement layer. This is an incomplete DEX, as it only supports the fixed exchange rate between mToken and tToken. 
+![AMM design diagram](lab-amm.jpg)
 
-Now you are to build a full fledged DEX by supporting an order matchmaking layer. Order matchmaking supports the exchange rate that are dynamically set.
+In the figure above, trader Alice first transfers `dx` units of TokenX from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `trySwap(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls TokenY's `transfer` function to transfer `dy` units of TokenY to Alice's account.
 
-You have two choices: Either implement an AMM mechanism or an order-book. 
+In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contract.
 
-- Hint 1: If you choose to implement an on-chain AMM (just like Uniswap), you should consider revising/extending your solution of Task 3: Bob should be a smart contract account. 
-- Hint 2: If you choose to implement an off-chain orderbook (just like IDEX), you should consider revising/extending your solution of Task 3: In Step 3/4, Alice and Bob should send their acceptable exchange rates to another EOA controlled by the off-chain orderbook.
+Exercise 2. Impl. constant-product AMM
+---
+
+Suppose the AMM account owns `x` units of TokenX and `y` units of TokenY. The AMM pool can use a function `f(x,y)` to calculate the exchange rate between TokenX and TokenY on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
+
+`f(x,y)=f(x+dx,y-dy)`
+
+In this exercise, you are asked to implement constant-product AMM (adopted in the real-life Uniswap), where `f(x,y)=x*y`. Modify your AMM smart contract to support  `x*y=(x+dx)(y-dy)`.
 
 
 Deliverable
 ---
 
 - For all tasks, you should 1) submit your smart-contract code, and 2) show the screenshot of the program execution. 
+
