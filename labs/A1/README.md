@@ -96,5 +96,5 @@ FAQ
 ---
 
 - Question: How to install a Python IDE?
-- Answer: You may want to install Pycharm (the community version) by following the instruction here: https://www.jetbrains.com/help/pycharm/installation-guide.html#toolbox. You will need to configure Python interpreter in Pycharm: https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html.
+- Answer: It is not required to install an IDE. But if you want, you can install Pycharm (the community version) by following the instruction here: https://www.jetbrains.com/help/pycharm/installation-guide.html#toolbox. You will need to configure Python interpreter in Pycharm: https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html.
 
