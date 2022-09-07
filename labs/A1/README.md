@@ -10,28 +10,35 @@ Etherscan (https://etherscan.io/) provides a web service to explore Ethereum tra
 | --- | --- | --- | --- |
 |  1  | 10 |  Required | Required |
 |  2  | 10 | Required | Required |
-|  3  | 20 | Required | Bonus |
-|  4  | 30 | Required | Bonus |
+|  3  | 10 | Required | Required |
+|  4  | 20 | Required | Bonus |
 |  5  | 30 | Required | Bonus |
+|  6  | 20 | Required | Bonus |
 
-Exercise 1. Manually explore two transactions
+Exercise 1. Manually explore three transactions
 ---
 
-Suppose the following Etherscan page shows details of a particular transaction (hash 0x936c):
+Suppose the following Etherscan page shows details of a particular transaction (hash 0x84ae):
 
-https://etherscan.io/tx/0x936ccf3baa1721689b960326a36abccdf5088b219df65474ad910a6fa8ca2d6d 
+https://etherscan.io/tx/0x84aee3793659afeebfb89b86e6a8ffd3b9f143b3719c9b358905a83dbd71cb79
 
-You are asked to report the average fees of transaction 0x936c and the next transaction. 
+You are asked to report the average fees of transaction 0x84ae, its precedecessor transaction and successor transaction. 
 
 Hint: You can find ordered transaction history related to block `15479087` on the following web page: https://etherscan.io/txs?block=15479087
 
-Exercise 2. Manually explore transactions across two blocks
+Exercise 2. Manually explore one block
+---
+
+Find the transaction that transfers the highest Ether "value" in block `15479087`. Report the transaction hash. 
+
+Exercise 3. Manually explore two blocks
 ---
 
 Find the last transaction in block `15479087` and the first transaction in block `15479088`. Report the average fees of these two transactions.
 
+- Hint: Assume the first transaction in a block is listed as the first row on the first page under that block on etherscan.io. Likewise, the last transaction in a block is listed as the last row on the last page under that block on etherscan.io.
 
-Exercise 3. Automatically explore 50 transactions in one block
+Exercise 4. Automatically explore 50 transactions in one block
 ---
 
 ```python
@@ -73,14 +80,14 @@ https://www.python.org/downloads/ for both Windows and Mac machines. In addition
 
 After installation, copy the above python code to a file and run the file in a python runtime (e.g., your favorite python IDE). After running the code, you can observe transaction attributes printed on the terminal or Python console.
 
-Exercise 4. Automatically explore all transactions in one block
+Exercise 5. Automatically explore all transactions in one block
 ---
 
 In this exercise, you are required to report the average fee of all transactions in block `15479087`. You can modify the given code.
 
-Hint: transactions in block `15479087` are shown on three pages.
+- Hint: transactions in block `15479087` are listed on three pages.
 
-Exercise 5. Automatically explore transactions across two blocks
+Exercise 6. Automatically explore transactions across two blocks
 ---
 
 In this exercise, you are required to report the average fees of the first 50 transactions in block `15479087` and the first 50 transactions in block `15479088`. You can modify the given code.
@@ -89,12 +96,12 @@ Deliverable
 ---
 
 1. Report the transaction fee required for each exercise.
-2. For exercise 3, submit the screenshot that runs the crawler code on your computer.
-3. For exercise 4/5, submit your modified Python file and the screenshot that runs the code on your computer.
+2. For exercise 4, submit the screenshot that runs the crawler code on your computer.
+3. For exercise 5/6, submit your modified Python file and the screenshot that runs the code on your computer.
 
 FAQ
 ---
 
 - Question: How to install a Python IDE?
-- Answer: It is not required to install an IDE. But if you want, you can install Pycharm (the community version) by following the instruction here: https://www.jetbrains.com/help/pycharm/installation-guide.html#toolbox. You will need to configure Python interpreter in Pycharm: https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html.
+- Answer: It is not required to install an Python IDE (Python runtime is enough). But if you want, you can install the Pycharm for Python IDE (the community version) by following the instruction here: https://www.jetbrains.com/help/pycharm/installation-guide.html#toolbox. You will need to configure Python interpreter in Pycharm: https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html.
 
