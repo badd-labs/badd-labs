@@ -76,6 +76,7 @@ contract AMM {
     - Execute the smart contracts in two steps: 
         - 1) call `_tokenX`'s `transfer` function
         - 2) call `AMM`'s `swapXY` function
+- Hint: You need to make sure your account has enough tokens for both `_tokenX` and `_tokenY`.
 
 Exercise 3. Impl. constant-product AMM
 ---
