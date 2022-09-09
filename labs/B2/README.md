@@ -70,8 +70,7 @@ contract AMM {
 
 - Workflow to execuse your code:
     - Write and compile a AMM smart contract
-    - Deploy the Token SC (in Exercise 1) twice, respectively to addresses `_tokenX` and `_tokenY`.
-    - Deploy AMM smart contract with two token instances: `_tokenX` and `_tokenY`
+    - Deploy AMM smart contract.
 
 Exercise 3. Impl. constant-product AMM
 ---
