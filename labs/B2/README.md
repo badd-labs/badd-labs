@@ -14,17 +14,36 @@ An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In a
 |  3  | 40 | Required | Bonus |
 
 
-Exercise 1. Impl. an ERC20 token SC
+Exercise 1. Execute token transfer (same with B1)
 ---
 
-Write and compile a Token smart contract that materializes the following interface.
+The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
 
 ```
-pragma solidity ^ 0.4.25;
-interface IERC20 {
-  function transfer(address recipient, int256 amount) external returns (bool);
-}
+pragma solidity >=0.7.0 <0.9.0; 
+contract MyToken {  
+  uint _totalSupply = 0; string _symbol;  
+  mapping(address => uint) balances;  
+  constructor(string memory symbol, uint256 initialSupply) {
+    _symbol = symbol;
+    _totalSupply = initialSupply;
+    balances[msg.sender] = _totalSupply;  
+  }
+  
+  function transfer(address receiver, uint nuTokenXs) public returns (bool) {    
+    require(nuTokenXs <= balances[msg.sender]);        
+    balances[msg.sender] = balances[msg.sender] - nuTokenXs;    
+    balances[receiver] = balances[receiver] + nuTokenXs;    
+    return true;  
+  }
+
+  function balanceOf(address account) public view returns(uint256){
+    return balances[account];
+  }}
 ```
+
+Your job in this exercise is to deploy the above smart contract in Remix, creating an TokenX instance. Demonstrate the process that the TokenX issuer transfers 10 TokenX to another account, say Alice, and display each account's balance before/after the transfer.
+
 
 Exercise 2. Impl. an fixed-rate AMM (1:2)
 ---
@@ -37,10 +56,10 @@ In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contr
 
 ```
 contract AMM {
-  IERC20 tokenX, tokenY;
+  MyToken tokenX, tokenY;
   // _tokenX is a CA running TokenX’s smart contract
-  constructor(address _tokenX, address _tokenY){
-    tokenX = IERC20(_tokenX); tokenY = IERC20(_tokenY);
+  constructor(){
+    tokenX = new MyToken("Token X", 100); tokenY = new MyToken("Token Y", 100);
   }
 
   function swapXY(uint amountX) public payable {
