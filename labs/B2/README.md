@@ -9,10 +9,24 @@ An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In a
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-|  1  | 50 |  Required | Bonus |
-|  2  | 50 | Required | Bonus |
+|  1  | 20 |  Required | Bonus |
+|  2  | 40 | Required | Bonus |
+|  3  | 40 | Required | Bonus |
 
-Exercise 1. Impl. an fixed-rate AMM (1:2)
+
+Exercise 1. Impl. an ERC20 token SC
+---
+
+Write and compile a Token smart contract that materializes the following interface.
+
+```
+pragma solidity ^ 0.4.25;
+interface IERC20 {
+  function transfer(address recipient, int256 amount) external returns (bool);
+}
+```
+
+Exercise 2. Impl. an fixed-rate AMM (1:2)
 ---
 
 ![AMM design diagram](lab-amm.jpg)
@@ -21,7 +35,26 @@ In the figure above, trader Alice first transfers `dx` units of TokenX from her 
 
 In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contract.
 
-Exercise 2. Impl. constant-product AMM
+```
+contract AMM {
+  IERC20 tokenX, tokenY;
+  // _tokenX is a CA running TokenX’s smart contract
+  constructor(address _tokenX, address _tokenY){
+    tokenX = IERC20(_tokenX); tokenY = IERC20(_tokenY);
+  }
+
+  function swapXY(uint amountX) public payable {
+    // fill out the following with your code
+  } 
+}
+```
+
+- Workflow to execuse your code:
+    - Write and compile a AMM smart contract
+    - Deploy the Token SC (in Exercise 1) twice, respectively to addresses `_tokenX` and `_tokenY`.
+    - Deploy AMM smart contract with two token instances: `_tokenX` and `_tokenY`
+
+Exercise 3. Impl. constant-product AMM
 ---
 
 Suppose the AMM account owns `x` units of TokenX and `y` units of TokenY. The AMM pool can use a function `f(x,y)` to calculate the exchange rate between TokenX and TokenY on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
