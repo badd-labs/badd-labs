@@ -31,10 +31,10 @@ contract MyToken {
     balances[msg.sender] = _totalSupply;  
   }
   
-  function transfer(address receiver, uint nuTokenXs) public returns (bool) {    
-    require(nuTokenXs <= balances[msg.sender]);        
-    balances[msg.sender] = balances[msg.sender] - nuTokenXs;    
-    balances[receiver] = balances[receiver] + nuTokenXs;    
+  function transfer(address receiver, uint amount) public returns (bool) {    
+    require(amount <= balances[msg.sender]);        
+    balances[msg.sender] = balances[msg.sender] - amount;    
+    balances[receiver] = balances[receiver] + amount;    
     return true;  
   }
 
@@ -48,7 +48,7 @@ Your job in this exercise is to deploy the above smart contract in Remix, creati
 Exercise 2. Execute atomic swap settlement in one transaction (by escrow EOA)
 ---
 
-An atomic swap occurs between two accounts in two tokens. Suppose Alice of token TokenX wants to trade her TokenXs for Bob’s TokenYs. For simplicity, we assume the exchange rate between TokenX and TokenY is always 1:1 (i.e., one TokenX for one TokenY). A swap incurs a transfer from Alice to Bob in TokenX and another transfer from Bob to Alice in TokenY.
+An atomic swap occurs between two accounts in two tokens. Suppose Alice of token TokenX wants to trade her TokenXs for Bob's TokenYs. For simplicity, we assume the exchange rate between TokenX and TokenY is always 1:1 (i.e., one TokenX for one TokenY). A swap incurs a transfer from Alice to Bob in TokenX and another transfer from Bob to Alice in TokenY.
 
 A simple swap protocol is to do the two transfers in one transaction. This requires Alice and Bob (two EOAs) first transfer tokens to a trusted third-party account, that is, the escrow. After the escrow receives both Alice's TokenX and Bob's TokenY, the escrow then sends TokenX to Bob and TokenY to Alice, to settle the swap. 
 

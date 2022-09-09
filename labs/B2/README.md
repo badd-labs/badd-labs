@@ -30,10 +30,10 @@ contract MyToken {
     balances[msg.sender] = _totalSupply;  
   }
   
-  function transfer(address receiver, uint nuTokenXs) public returns (bool) {    
-    require(nuTokenXs <= balances[msg.sender]);        
-    balances[msg.sender] = balances[msg.sender] - nuTokenXs;    
-    balances[receiver] = balances[receiver] + nuTokenXs;    
+  function transfer(address receiver, uint amount) public returns (bool) {    
+    require(amount <= balances[msg.sender]);        
+    balances[msg.sender] = balances[msg.sender] - amount;    
+    balances[receiver] = balances[receiver] + amount;    
     return true;  
   }
 
@@ -55,11 +55,12 @@ In the figure above, trader Alice first transfers `dx` units of TokenX from her 
 In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contract.
 
 ```
+pragma solidity >=0.7.0 <0.9.0; 
 contract AMM {
   MyToken tokenX, tokenY;
-  // _tokenX is a CA running TokenX’s smart contract
-  constructor(){
-    tokenX = new MyToken("Token X", 100); tokenY = new MyToken("Token Y", 100);
+  // _tokenX and _tokenY are contract-addresses running MyToken SC
+  constructor(address _tokenX, address _tokenY){
+    tokenX = MyToken(_tokenX); tokenY = MyToken(_tokenY);
   }
 
   function swapXY(uint amountX) public payable {
@@ -69,8 +70,12 @@ contract AMM {
 ```
 
 - Workflow to execuse your code:
-    - Write and compile a AMM smart contract
-    - Deploy AMM smart contract.
+    - Write and compile an `AMM` smart contract.
+    - Deploy `MyToken` smart contract twice, respectively to two contract addresses, say `_tokenX` and `_tokenY`.
+    - Deploy `AMM` smart contract with `_tokenX` and `_tokenY`.
+    - Execute the smart contracts in two steps: 
+        - 1) call `_tokenX`'s `transfer` function
+        - 2) call `AMM`'s `swapXY` function
 
 Exercise 3. Impl. constant-product AMM
 ---
