@@ -28,17 +28,19 @@ contract MyToken {
   constructor(string memory symbol, uint256 initialSupply) {
     _symbol = symbol;
     _totalSupply = initialSupply;
-    balances[msg.sender] = _totalSupply;  }  
+    balances[msg.sender] = _totalSupply;  
+  }
+  
   function transfer(address receiver, uint nuTokenXs) public returns (bool) {    
     require(nuTokenXs <= balances[msg.sender]);        
     balances[msg.sender] = balances[msg.sender] - nuTokenXs;    
     balances[receiver] = balances[receiver] + nuTokenXs;    
     return true;  
-}
-function balanceOf(address account) public view returns(uint256){
-     return balances[account];
-}}
+  }
 
+  function balanceOf(address account) public view returns(uint256){
+    return balances[account];
+  }}
 ```
 
 Your job in this exercise is to deploy the above smart contract in Remix, creating an TokenX instance. Demonstrate the process that the TokenX issuer transfers 10 TokenX to another account, say Alice, and display each account's balance before/after the transfer.
