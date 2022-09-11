@@ -22,7 +22,7 @@ Suppose the following Etherscan page shows details of a particular transaction (
 
 https://etherscan.io/tx/0x84aee3793659afeebfb89b86e6a8ffd3b9f143b3719c9b358905a83dbd71cb79
 
-You are asked to report the average fees of transaction 0x84ae, its precedecessor transaction and successor transaction. 
+You are asked to report the average fees of transaction 0x84ae, its predecessor transaction and successor transaction. 
 
 Hint: You can find ordered transaction history related to block `15479087` on the following web page: https://etherscan.io/txs?block=15479087
 
