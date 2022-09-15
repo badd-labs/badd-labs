@@ -1,6 +1,6 @@
 all:
 	git add -A
-	git commit -am 'new lab design in 2020'
+	git commit -am 'new labs and lab updates for Fall 2022'
 	git push
 
 

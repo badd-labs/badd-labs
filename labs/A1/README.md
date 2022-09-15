@@ -22,7 +22,7 @@ Suppose the following Etherscan page shows details of a particular transaction (
 
 https://etherscan.io/tx/0x84aee3793659afeebfb89b86e6a8ffd3b9f143b3719c9b358905a83dbd71cb79
 
-You are asked to report the average fees of transaction 0x84ae, its predecessor transaction and successor transaction. 
+You are asked to report the average fees of three transactions, that is, transaction 0x84ae, its predecessor transaction and successor transaction. Transaction tx1 is the predecessor of tx2, if tx1 is ordered right before tx2 in the same block.
 
 Hint: You can find ordered transaction history related to block `15479087` on the following web page: https://etherscan.io/txs?block=15479087
 
@@ -90,17 +90,25 @@ In this exercise, you are required to report the average fee of all transactions
 Exercise 6. Automatically explore transactions across two blocks
 ---
 
-In this exercise, you are required to report the average fees of the first 50 transactions in block `15479087` and the first 50 transactions in block `15479088`. You can modify the given code.
+In this exercise, you are required to report the average fees of 100 transactions, which are the first 50 transactions in block `15479087` and the first 50 transactions in block `15479088`. You can modify the given code.
 
 Deliverable
 ---
 
 1. Report the transaction fee required for each exercise.
 2. For exercise 4, submit the screenshot that runs the crawler code on your computer.
-3. For exercise 5/6, submit your modified Python file and the screenshot that runs the code on your computer.
+    - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
+3. For exercise 5/6, submit your modified Python file and the screenshot that runs the code on your computer. The Python programs need to be stored in plaintext format and in separate files from your report. 
 
 FAQ
 ---
+
+- Question: How to verify your code is correct?
+- Answer: Let's say your modified Python code needs to scan 100 transactions and calculate the average transaction fee. To verify your code is correct, you can change the number 100 in your program to a smaller one, say 3, and manually calculate the average fee of the 3 transactions. If the manual calculation result equals your program result, it shows that your program is likely to be correct.
+
+- Question: Can I do lab exercises 4/5/6 without installing anything on my computer?
+- Answer: Yes, it is possible. You could use Google's colab platform that supports running python code in a web browser:  https://colab.research.google.com/?utm_source=scs-index .
+
 
 - Question: How to install a Python IDE?
 - Answer: It is not required to install an Python IDE (Python runtime is enough). But if you want, you can install the Pycharm for Python IDE (the community version) by following the instruction here: https://www.jetbrains.com/help/pycharm/installation-guide.html#toolbox. You will need to configure Python interpreter in Pycharm: https://www.jetbrains.com/help/pycharm/configuring-local-python-interpreters.html.
