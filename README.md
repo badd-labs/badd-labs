@@ -1,5 +1,11 @@
-Blockchain Lab 
+Blockchain Hands-on Labs
 ===
+
+The hands-on labs serve two learning objectives: 
+
+- Deep understanding of blockchains 
+- The skill to develop blockchain applications
+
 
 Module A: Blockchain Basics
 ----
