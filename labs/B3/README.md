@@ -29,12 +29,12 @@ Task 2. Arbitrage Mitigation by Synchronized Swaps
 
 In this task you will take the second approach, trading across DEXes to ensure an arbitrage opportunity isn't created. Create a smart contract that routes transactions between Ottoswap and Cuseswap to ensure an exchange imbalance is never created.
 
-- Include pictures showing the tToken and mToken balances of Ottoswap and Cuseswap after your contract executes.
-- Deploy MyToken twice to create instances of mToken and tToken
+- Include pictures showing the `TokenX` and `TokenY` balances of Ottoswap and Cuseswap after your contract executes.
+- Deploy `MyToken` smart contract twice to create instances of `TokenY` and `TokenX`
 - Deploy Ottoswap and Cuseswap 
-- Both Ottoswap and Cuseswap have reserves of 10 mToken and 5 tToken 
-- Fund Alice with 2 mToken
-- Swap Alice's mToken on both Ottoswap and Cuseswap simultaneously
+- Both Ottoswap and Cuseswap have reserves of 10 `TokenY` and 5 `TokenX` 
+- Fund Alice with 2 `TokenY`
+- Swap Alice's `TokenY` on both Ottoswap and Cuseswap simultaneously
  
 Deliverable
 ---
