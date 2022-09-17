@@ -1,7 +1,5 @@
-DLab: Hands-on labs for DApp and Blockchain Development
-===
 
-Intro.
+DLab: Hands-on labs for DApp and Blockchain Development
 ---
 
 The hands-on labs serve two learning objectives: 
@@ -9,6 +7,7 @@ The hands-on labs serve two learning objectives:
 - Deep understanding of blockchains 
 - The skill to develop blockchain applications
 
+#![](../../img/bitcoin-miners-e1477665223385.jpg)
 
 Module A: Blockchain Basics
 ---
@@ -38,7 +37,6 @@ B2. Auctions [[lab 6](old_labs/lab3-20/lab6.md)]
 4. Blockchain application: logging remote file storage [[lab 4](old_labls/lab4-20/README.md)]
 - Lab module 4.2: Cryptocurrency Hedging [[lab 4.2](old_labls/lab4.2/README.md)]
 
-#![](../../img/bitcoin-miners-e1477665223385.jpg)
 
 -->
 
