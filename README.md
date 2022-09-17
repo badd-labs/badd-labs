@@ -7,7 +7,7 @@ The hands-on labs serve two learning objectives:
 - Deep understanding of blockchains 
 - The skill to develop blockchain applications
 
-#![](../../img/bitcoin-miners-e1477665223385.jpg)
+![](../../img/bitcoin-miners-e1477665223385.jpg)
 
 Module A: Blockchain Basics
 ---
