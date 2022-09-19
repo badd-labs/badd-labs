@@ -40,7 +40,7 @@ Exercise 2. Arbitrage mitigation by routing swaps
 
 A defense against arbitrage is the “routing” approach that re-router a user's swap request to multiple AMM pools and balances out the spending so that exchange rates across AMM pools remain the same.
 
-Suppose an original user request is to swap $dx$ units of `TokenX` for `TokenY`, and there are two AMM pools: the first pool of `x1`/`y1` units of `TokenX`/`TokenY` and the second pool of `x2`/`y2` units of `TokenX`/`TokenY`. To make sure the exchange rates remain the same, we can have:
+Suppose an original user request is to swap $dx$ units of `TokenX` for `TokenY`, and there are two AMM pools: the first pool of $x1$/$y1$ units of `TokenX`/`TokenY` and the second pool of $x2$/$y2$ units of `TokenX`/`TokenY`. To make sure the exchange rates remain the same, we can have:
 
 
 $$
@@ -64,7 +64,7 @@ Z&=&\sqrt{\frac{x1*y1}{x2*y2}} \\
 \end{eqnarray}
 $$
 
-In this exercise, you will implement such a smart contract that routes an original swap request between Ottoswap and Cuseswap in the proportion of XXX. This ensures that an exchange-rate imbalance is never created. The figure shows the system architecture. 
+In this exercise, you will implement such a smart contract that split an original swap request of $x$ between Ottoswap and Cuseswap as dectated by $dx1$ and $dx2$ above. This ensures that an exchange-rate imbalance is never created. The figure shows the system architecture. 
 
 
 - Deploy `MyToken` SC twice to create instances of `TokenY` and `TokenX`.
