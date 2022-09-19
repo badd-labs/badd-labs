@@ -85,7 +85,7 @@ Suppose the AMM account owns $x$ units of TokenX and $y$ units of `TokenY`. The 
 
 $$f(x,y)=f(x+dx,y-dy)$$
 
-In this exercise, you are asked to implement constant-product AMM (adopted in the real-life Uniswap), where $$f(x,y)=x*y$$. Modify your AMM smart contract to support the constant-product invariant $$x*y=(x+dx)(y-dy)$$.
+In this exercise, you are asked to implement constant-product AMM (adopted in the real-life Uniswap), where $f(x,y)=x\*y$. Modify your AMM smart contract to support the constant-product invariant $x\*y=(x+dx)(y-dy)$.
 
 - Hint: You may want to keep track of token balance $x$ and $y$ in the AMM smart contact by issuing `balanceOf` in each `swapXY` call.
 
