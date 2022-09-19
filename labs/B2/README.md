@@ -81,7 +81,7 @@ contract AMM {
 Exercise 3. Impl. constant-product AMM
 ---
 
-Suppose the AMM account owns $x$ units of TokenX and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between TokenX and TokenY on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
+Suppose the AMM account owns $x$ units of `TokenX` and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between `TokenX` and `TokenY` on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
 
 $$f(x,y)=f(x+dx,y-dy)$$
 
