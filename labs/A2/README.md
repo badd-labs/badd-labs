@@ -110,8 +110,11 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
 Deliverable
 ---
 
-- For all exercises, you should show the screenshot of you executing the program successfully. For instance, in Exercise 1, your screenshort should show the execution of a sequence such as `greeter("X")` and `greet()` which prints the value of `X`.
-- In Exercise 2,3, you should also submit the solidity program you wrote.
+1. Report the transaction fee required for each exercise.
+2. For exercise 4, submit the screenshot that runs the crawler code on your computer.
+    - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
+3. For exercise 5/6/7, submit your modified Python file and the screenshot that runs the code on your computer. The Python programs need to be stored in plaintext format and in separate files from your report. 
+
 
 For exercise 1a, 1b, 2, if you did not submit the screenshot of successful executions of your program, you will get 5 points deducted, and 10 points deducted for exercise 3.
 In addition, in exercise 3, you have to demostrate your program executed successfully for cases of one winner and two winners. Missing one case will result in 5 points deduction. 
