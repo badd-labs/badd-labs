@@ -1,5 +1,5 @@
 
-DLab: Hands-on labs for DApp and Blockchain Development
+BDD-Labs: Blockchain and DApp Development Labs
 ---
 
 The hands-on labs serve two learning objectives: 
@@ -18,7 +18,8 @@ Module A: Blockchain Basics
  
 Module B: DeFi
 ---
- 
+
+- Lab B0. Bank and tokens [[link](labs/B0/README.md)]
 - Lab B1. DEX 1: Swap settlement [[link](labs/B1/README.md)]
 - Lab B2. DEX 2: AMM and pricing [[link](labs/B2/README.md)]
 - Lab B3. DEX security: Arbitrage [[link](labs/B3/README.md)]
