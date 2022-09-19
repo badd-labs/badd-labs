@@ -12,10 +12,10 @@ To write a Solidity program, you have to have an account payable, which is used 
 
 | Exercises | Points | CS student | Finance student
 | --- | --- | --- | --- |
-|  1  | 10 |  Required | Required |
-|  2  | 15 | Required | Required |
+|  1  | 15 |  Required | Required |
+|  2  | 25 | Required | Required |
 |  3  | 25 | Required | Required |
-|  4  | 50 | Required | Bonus |
+|  4  | 35 | Required | Bonus |
 
 Exercise 1: Execute the hello-world SC
 ---
@@ -88,7 +88,7 @@ Modify the given SC program to implement the following rule: The updated `payrel
 Exercise 4: Write SC for multi-account Ether bank
 ---
 
-XXX
+Write a SC to build a bank storing multiple accounts, so that Alice can deposit to her account in the bank and Bob cannot withdraw from Alice’s account. You can modify the SC code in the previous exercise.
 
 <!--
 
