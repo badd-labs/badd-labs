@@ -42,15 +42,27 @@ A defense against arbitrage is the “routing” approach that re-router a user'
 
 Suppose an original user request is to swap $dx$ units of `TokenX` for `TokenY`, and there are two AMM pools: the first pool of `x1`/`y1` units of `TokenX`/`TokenY` and the second pool of `x2`/`y2` units of `TokenX`/`TokenY`. To make sure the exchange rates remain the same, we can have:
 
-```
-dx1+dx2=dx
-x1/y1=x2/y2
-x1*y1=(x1+dx1)(y1-dy1)
-x2*y2=(x2+dx2)(y2-dy2)
-(x1+dx1)/(y1-dy1)=(x2+dx2)/(y2-dy2)
-```
 
-It derives: `dx1=XXX*dx2`.
+$$
+\begin{eqnarray}
+dx1+dx2&=&dx \\
+x1/y1&=&x2/y2\\
+x1*y1&=&(x1+dx1)(y1-dy1)\\
+x2*y2&=&(x2+dx2)(y2-dy2)\\
+(x1+dx1)/(y1-dy1)&=&(x2+dx2)/(y2-dy2)\\
+\end{eqnarray}
+$$
+
+
+It derives: 
+
+$$
+\begin{eqnarray}
+dx1&=&\frac{Z(x2+dx)-x1}{Z+1} \\
+dx2&=&\frac{x1+dx-Z*x2}{Z+1} \\
+Z&=&\sqrt{\frac{x1*y1}{x2*y2}} \\
+\end{eqnarray}
+$$
 
 In this exercise, you will implement such a smart contract that routes an original swap request between Ottoswap and Cuseswap in the proportion of XXX. This ensures that an exchange-rate imbalance is never created. The figure shows the system architecture. 
 
