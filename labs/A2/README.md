@@ -1,4 +1,4 @@
-Lab A2: Smart-Contract Programming
+Lab A2: Smart-Contract Programming: Ether Bank
 ===
 
 The learning objective is to be able to execute given solidity program and to develop solidity program under given requirements.
@@ -13,13 +13,11 @@ To write a Solidity program, you have to have an account payable, which is used 
 | Exercises | Points | CS student | Finance student
 | --- | --- | --- | --- |
 |  1  | 10 |  Required | Required |
-|  2  | 10 | Required | Required |
-|  3  | 10 | Required | Required |
-|  4  | 20 | Required | Bonus |
-|  5  | 30 | Required | Bonus |
-|  6  | 20 | Required | Bonus |
+|  2  | 15 | Required | Required |
+|  3  | 25 | Required | Required |
+|  4  | 50 | Required | Bonus |
 
-Exercise 1: Hello-world contract with Remix
+Exercise 1: Execute the hello-world SC
 ---
 
 In Exercises 1, you will compile and execute a given Solidity program, listed below. Function `greeter` takes a string argument and stores it in Variable `greeting`. Function `greet` take no argument and returns the value of Variable `greeting`.
@@ -43,13 +41,54 @@ You can use Remix to compile, deploy and execute the above solidity code.
 - Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for `greeter` function and click on "transact" button. You can see transaction being successful in the "Remix Transactions" section. 
 - Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-Exercise 2: Find the Maximum 
+Exercise 2: Write SC to output max
 ---
 
 In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value. The Smart contact should have the following functionalities:
 
 1. A function that takes integers `x` and `y` as input
 2. Returns the bigger integer between  `x` and `y` as output. Deploy and run the program in Remix [[link](https://remix.ethereum.org/)]
+
+Exercise 3: Execute SC for single-account Ether bank 
+---
+
+```
+pragma solidity ^ 0.4.13;
+contract bank {
+  uint256 EtherBalance_Alice = 0;
+  function deposit() public payable {
+    EtherBalance_Alice = EtherBalance_Alice + msg.value;
+  }
+  function withdraw(uint256 ethers) public payable {
+    msg.sender.transfer(ethers * 1000000000000000000);
+    EtherBalance_Alice = EtherBalance_Alice - ethers;
+  }
+  function relay(address Bob) public payable {
+     Bob.transfer(msg.value);
+  }
+  function getBalanceCA() public constant returns(uint256){
+    return EtherBalance_Alice;
+  }
+  function getBalanceEOA() public view returns(uint256) {
+    return 0x0000000000000000000000000000000000000000.balance;
+  }}
+```
+
+1. Compile and deploy the above smart contract in Remix. 
+2. After deployment, click the 'getBalanceCA' button to show the balance and take a screenshot. 
+3. Select an account, say `Alice`. Make `Alice` send a transaction to call the 'deposit' function with Ether value `10` (on the left panel in Remix, type `10` in the 'value' field and select the unit 'ether'; by default it is 'wei'; then , click 'pay' button to execute the transaction). 
+4. Click 'getBalanceCA' button again to show the balance and take another screenshot.
+5. Select Alice to send a transaction to call the 'pay' function with argument `0x0000000000000000000000000000000000000000` and Ether value `20`. 
+6. Click 'getBalanceEOA' button  to show the balance and take another screenshot.
+
+<!--
+Modify the given SC program to implement the following rule: The updated `payrelay` smart contract should only relay payment when the value is above `12` Ether.
+-->
+
+Exercise 4: Write SC for multi-account Ether bank
+---
+
+XXX
 
 <!--
 
