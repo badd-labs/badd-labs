@@ -3,11 +3,12 @@ BADD Labs: BlockchAin and DApp Development Labs
 ===
 
 Learning objectives
+---
 
 - Application development skills on Ethereum blockchains.
 - Deep understanding of blockchain internals (and development of blockchain extensions).
 
-In particular,  through our labs, you will gain in-depth understanding and hands-on experience on the following concepts/keywords:
+In particular,  through our labs, you will gain hands-on experience on the following concepts/keywords:
 
 - Blockchains: Transactions, fees, ledger, payments, smart contracts, Gas
 - DeFi: DEX, lending, 
