@@ -1,15 +1,17 @@
 
 BDD-Labs: Blockchain and DApp Development Labs
----
+===
 
 Learning objectives
----
 
-- Application development skills on Ethereum blockchains
-- Deep understanding of blockchain internals (and development of blockchain extensions)
+- Application development skills on Ethereum blockchains.
+- Deep understanding of blockchain internals (and development of blockchain extensions).
 
+In particular,  through our labs, you will gain in-depth understanding and hands-on experience on the following concepts/keywords:
 
-![](../../img/bitcoin-miners-e1477665223385.jpg)
+- Blockchains: Transactions, fees, ledger, payments, smart contracts, Gas
+- DeFi: DEX, lending, 
+- Financial attacks: arbitrage, MEV, frontrunning
 
 Module A: Blockchain Basics
 ---
@@ -21,7 +23,6 @@ Module A: Blockchain Basics
 Module B: DeFi
 ---
 
-- Lab B0. Bank and tokens [[link](labs/B0/README.md)]
 - Lab B1. DEX 1: Swap settlement [[link](labs/B1/README.md)]
 - Lab B2. DEX 2: AMM and pricing [[link](labs/B2/README.md)]
 - Lab B3. DEX security: Arbitrage [[link](labs/B3/README.md)]
