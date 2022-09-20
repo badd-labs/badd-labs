@@ -1,5 +1,5 @@
 
-BDD-Labs: Blockchain and DApp Development Labs
+BADD Labs: BlockchAin and DApp Development Labs
 ===
 
 Learning objectives
