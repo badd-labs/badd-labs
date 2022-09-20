@@ -2,10 +2,12 @@
 BDD-Labs: Blockchain and DApp Development Labs
 ---
 
-The hands-on labs serve two learning objectives: 
+Learning objectives
+---
 
-- Deep understanding of blockchains 
-- The skill to develop blockchain applications
+- Application development skills on Ethereum blockchains
+- Deep understanding of blockchain internals (and development of blockchain extensions)
+
 
 ![](../../img/bitcoin-miners-e1477665223385.jpg)
 
