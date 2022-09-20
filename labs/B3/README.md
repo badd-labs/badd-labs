@@ -47,8 +47,8 @@ $$
 \begin{eqnarray}
 dx1+dx2&=&dx \\
 x1/y1&=&x2/y2\\
-x1*y1&=&(x1+dx1)(y1-dy1)\\
-x2*y2&=&(x2+dx2)(y2-dy2)\\
+x1\*y1&=&(x1+dx1)(y1-dy1)\\
+x2\*y2&=&(x2+dx2)(y2-dy2)\\
 (x1+dx1)/(y1-dy1)&=&(x2+dx2)/(y2-dy2)\\
 \end{eqnarray}
 $$
