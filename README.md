@@ -14,14 +14,14 @@ In particular,  through our labs, you will gain hands-on experience on the follo
 - DeFi: DEX, lending, 
 - Financial attacks: arbitrage, MEV, frontrunning
 
-Module A: Blockchain Basics
+Category A: Blockchain Basics
 ---
 
 - Lab A1. Transaction exploration [[link](labs/A1/README.md)]
 - Lab A2. Smart-contract programming [[link](labs/A2/README.md)]
 - Lab A3. Blockchain mining [[link](labs/A3/README.md)]
  
-Module B: DeFi
+Category B: DeFi
 ---
 
 - Lab B1. DEX 1: Swap settlement [[link](labs/B1/README.md)]
