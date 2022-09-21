@@ -29,6 +29,13 @@ Module B: DeFi
 - Lab B3. DEX security: Arbitrage [[link](labs/B3/README.md)]
 - Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
 
+BADD Labs in the news
+---
+
+- The labs were used in "CIS/FIN629: Blockchain Foundations and Applications", a cross-listed course for graduate computer science students and finance students at Syracuse University (2018-2022).
+- Our labs are featured in blockchain education in ASEE 2022.
+- Our labs are featured in the NSF blockchain-education workshop 2022.
+
 <!--
 
 B2. Multi-tx DEX via HTLC [[lab B2](old_labs/lab3-20/README-lab4.md)] 
