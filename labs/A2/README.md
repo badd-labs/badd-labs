@@ -85,10 +85,20 @@ contract bank {
 Modify the given SC program to implement the following rule: The updated `payrelay` smart contract should only relay payment when the value is above `12` Ether.
 -->
 
-Exercise 4: Write SC for multi-account Ether bank
+Exercise 4: Write SC for 2-account Ether bank
 ---
 
-Write a SC to build a bank storing multiple accounts, so that Alice can deposit to her account in the bank and Bob cannot withdraw from Alice’s account. You can modify the SC code in the previous exercise.
+```
+contract bank_multiaccount {
+    function bank(address Alice, address Bob) public {}
+    function deposit() public payable {}
+    function withdraw(uint amount){}
+}
+```
+
+Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria (or test cases):
+
+Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Suppose `Alice` attempts to withdraw $a'$ Ether and `Bob` attempts to withdraw $b'$ Ether. It is required that *`Alice`'s withdrawal always succeeds if and only if $a'\leq{}a$*. The same applies to `Bob`'s withdrawal, that is,  *`Bob`'s withdrawal always succeeds if and only if $b'\leq{}b$*. 
 
 <!--
 
@@ -110,10 +120,9 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
 Deliverable
 ---
 
-1. Report the transaction fee required for each exercise.
-2. For exercise 4, submit the screenshot that runs the crawler code on your computer.
+1. For exercise 1/2/3/4, submit the screenshot that runs the crawler code on your computer.
     - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
-3. For exercise 5/6/7, submit your modified Python file and the screenshot that runs the code on your computer. The Python programs need to be stored in plaintext format and in separate files from your report. 
+2. For exercise 2/4, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
 
 
 For exercise 1a, 1b, 2, if you did not submit the screenshot of successful executions of your program, you will get 5 points deducted, and 10 points deducted for exercise 3.
