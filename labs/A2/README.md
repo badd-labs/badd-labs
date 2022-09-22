@@ -63,7 +63,7 @@ contract bank {
     msg.sender.transfer(ethers * 1000000000000000000);
     EtherBalance_Alice = EtherBalance_Alice - ethers;
   }
-  function relay(address Bob) public payable {
+  function pay(address Bob) public payable {
      Bob.transfer(msg.value);
   }
   function getBalanceCA() public constant returns(uint256){
