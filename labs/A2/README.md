@@ -63,7 +63,7 @@ contract bank {
     msg.sender.transfer(ethers * 1000000000000000000);
     EtherBalance_Alice = EtherBalance_Alice - ethers;
   }
-  function pay(address Bob) public payable {
+  function relay(address Bob) public payable {
      Bob.transfer(msg.value);
   }
   function getBalanceCA() public constant returns(uint256){
@@ -78,7 +78,7 @@ contract bank {
 2. After deployment, click the 'getBalanceCA' button to show the balance and take a screenshot. 
 3. Select an account, say `Alice`. Make `Alice` send a transaction to call the 'deposit' function with Ether value `10` (on the left panel in Remix, type `10` in the 'value' field and select the unit 'ether'; by default it is 'wei'; then , click 'pay' button to execute the transaction). 
 4. Click 'getBalanceCA' button again to show the balance and take another screenshot.
-5. Select Alice to send a transaction to call the 'pay' function with argument `0x0000000000000000000000000000000000000000` and Ether value `20`. 
+5. Select Alice to send a transaction to call the 'relay' function with argument `0x0000000000000000000000000000000000000000` and Ether value `20`. 
 6. Click 'getBalanceEOA' button  to show the balance and take another screenshot.
 
 <!--
