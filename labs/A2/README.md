@@ -96,9 +96,16 @@ contract bank_multiaccount {
 }
 ```
 
-Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria (or test cases):
+Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria:
 
-Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Suppose `Alice` attempts to withdraw $a'$ Ether and `Bob` attempts to withdraw $b'$ Ether. It is required that *`Alice`'s withdrawal always succeeds if and only if $a'\leq{}a$*. The same applies to `Bob`'s withdrawal, that is,  *`Bob`'s withdrawal always succeeds if and only if $b'\leq{}b$*. 
+Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Suppose `Alice` attempts to withdraw $a'$ Ether and `Bob` attempts to withdraw $b'$ Ether. It is required that *`Alice`'s withdrawal always succeeds if and only if $a'<=a$*. The same applies to `Bob`'s withdrawal, that is,  *`Bob`'s withdrawal always succeeds if and only if $b'<=b$*. We will test the following cases:
+
+| `a` | `a'` | `b` | `b'` | result |
+| --- | --- | --- | --- | --- |
+| 5 | 3 | 4 | 2 | Success |
+| 5 | 6 | 4 | 2 | Fail |
+| 5 | 3 | 4 | 6 | Fail |
+| 5 | 6 | 4 | 6 | Fail |
 
 <!--
 
