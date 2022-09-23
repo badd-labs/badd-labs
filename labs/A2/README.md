@@ -90,8 +90,9 @@ Exercise 4: Write SC for 2-account Ether bank
 ---
 
 ```
-contract bank_multiaccount {
-    function bank(address Alice, address Bob) public {}
+pragma solidity ^ 0.4.13;
+contract bank_m {
+    constructor(address _Alice, address _Bob) public {}
     function deposit() public payable {}
     function withdraw(uint amount){}
 }
@@ -99,7 +100,7 @@ contract bank_multiaccount {
 
 Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria:
 
-Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether. The withdraw only succeeds if and only if `Alice`$==X\land{}y\leq{}a$ or `Bob`$==X\land{}y\leq{}b$. For instance, we may run the following test cases:
+Suppose your `bank_m` SC is deployed to the blockchain with constructor parameters `(Alice, Bob)`, then account `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether from the deployed `bank_m` SC. The withdraw only succeeds if and only if `Alice`$==X\land{}y\leq{}a$ or `Bob`$==X\land{}y\leq{}b$. For instance, we may run the following test cases:
 
 | `a` | `b` | $X$ | $y$ | Expected withdrawal result |
 | --- | --- | --- | --- | --- |
