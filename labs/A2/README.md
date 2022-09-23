@@ -130,8 +130,3 @@ Deliverable
 1. For exercise 1/2/3/4, submit the screenshot that runs the crawler code on your computer.
     - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
 2. For exercise 2/4, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
-
-
-For exercise 1a, 1b, 2, if you did not submit the screenshot of successful executions of your program, you will get 5 points deducted, and 10 points deducted for exercise 3.
-In addition, in exercise 3, you have to demostrate your program executed successfully for cases of one winner and two winners. Missing one case will result in 5 points deduction. 
-For exercise 3F,  you have to demostrate your program executed successfully for cases of paying more than 12 Ether, and paying less than 12 Ether. Missing one case will result in 5 points deduction.
