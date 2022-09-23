@@ -13,9 +13,10 @@ To write a Solidity program, you have to have an account payable, which is used 
 | Exercises | Points | CS student | Finance student
 | --- | --- | --- | --- |
 |  1  | 15 |  Required | Required |
-|  2  | 25 | Required | Required |
+|  2  | 25 | Required | Bonus |
 |  3  | 25 | Required | Required |
 |  4  | 35 | Required | Bonus |
+|  5  | 20 | Bonus | Bonus |
 
 Exercise 1: Execute the hello-world SC
 ---
@@ -41,13 +42,13 @@ You can use Remix to compile, deploy and execute the above solidity code.
 - Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for `greeter` function and click on "transact" button. You can see transaction being successful in the "Remix Transactions" section. 
 - Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-Exercise 2: Write SC to output max
+Exercise 2: Write SC to output bigger number
 ---
 
-In this exercise, you are asked to write a Solidity program to find the maximum of two values, x and y, and return that value. The Smart contact should have the following functionalities:
+In this exercise, you are asked to write a Solidity program to find the maximum of two values, $x$ and $y$, and return that value. The Smart contact should have the following functionalities:
 
-1. A function that takes integers `x` and `y` as input
-2. Returns the bigger integer between  `x` and `y` as output. Deploy and run the program in Remix [[link](https://remix.ethereum.org/)]
+1. A function that takes integers $x$ and $y$ as input
+2. Returns the bigger integer between  $x$ and $y$ as output. Deploy and run the program in Remix [[link](https://remix.ethereum.org/)]
 
 Exercise 3: Execute SC for single-account Ether bank 
 ---
@@ -98,14 +99,30 @@ contract bank_multiaccount {
 
 Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria:
 
-Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Suppose `Alice` attempts to withdraw $a'$ Ether and `Bob` attempts to withdraw $b'$ Ether. It is required that **`Alice`'s withdrawal always succeeds if and only if $a'\leq{}a$.** The same applies to `Bob`'s withdrawal, that is,  **`Bob`'s withdrawal always succeeds if and only if $b'\leq{}b$.** For instance, we may grade student solutions by testing the following cases:
+Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether. The withdraw only succeeds if and only if `Alice`$==X\land{}y\leq{}a$ or `Bob`$==X\land{}y\leq{}b$. For instance, we may run the following test cases:
 
-| `a` | `a'` | `b` | `b'` | Correct result |
+| `a` | `b` | $X$ | $y$ | Expected withdrawal result |
 | --- | --- | --- | --- | --- |
-| 5 | 3 | 4 | 2 | Success |
-| 5 | 6 | 4 | 2 | Fail |
-| 5 | 3 | 4 | 6 | Fail |
-| 5 | 6 | 4 | 6 | Fail |
+| 5 | 3 | `Alice` | 2 | Success |
+| 5 | 3 | `Alice` | 4 | Success |
+| 5 | 3 | `Alice` | 6 | Fail |
+| 5 | 3 | `Bob` | 2 | Success |
+| 5 | 3 | `Bob` | 4 | Fail |
+| 5 | 3 | `Bob` | 6 | Fail |
+| 5 | 3 | `Charlie` | 2 | Fail |
+| 5 | 3 | `Charlie` | 4 | Fail |
+| 5 | 3 | `Charlie` | 6 | Fail |
+
+Exercise 5: Ether bank under unknown deposit
+---
+
+Extend your solution in Exercise 4 to realize the following functionality: 
+
+- When account `Charlie` transfers $z$ Ether to the bank, the bank does not accept the Ether transfer.
+
+After the transation, the $z$ Ether should still be in `Charlie`'s balance.
+
+Note that `Charlie` can transfer Ether via a basic Ethereum transaction or a transaction externally calling the `deposit()` function. 
 
 <!--
 
@@ -127,6 +144,6 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
 Deliverable
 ---
 
-1. For exercise 1/2/3/4, submit the screenshot that runs the crawler code on your computer.
+1. For exercise 1/2/3/4/5, submit the screenshot that runs the crawler code on your computer.
     - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
-2. For exercise 2/4, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
+2. For exercise 2/4/5, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
