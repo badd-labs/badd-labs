@@ -92,7 +92,7 @@ Exercise 4: Write SC for 2-account Ether bank
 ```
 pragma solidity ^ 0.4.13;
 contract bank_m {
-    constructor(address _Alice, address _Bob) public {}
+    constructor(address Alice, address Bob) public {}
     function deposit() public payable {}
     function withdraw(uint amount){}
 }
@@ -102,7 +102,7 @@ Extend the above SC using the same function signature to implement a two-account
 
 Suppose your `bank_m` SC is deployed to the blockchain with constructor parameters `(Alice, Bob)`, then account `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether from the deployed `bank_m` SC. The withdraw only succeeds if and only if `Alice`$==X\land{}y\leq{}a$ or `Bob`$==X\land{}y\leq{}b$. For instance, we may run the following test cases:
 
-| `a` | `b` | $X$ | $y$ | Expected withdrawal result |
+| $a$ | $b$ | $X$ | $y$ | Expected withdrawal result |
 | --- | --- | --- | --- | --- |
 | 5 | 3 | `Alice` | 2 | Success |
 | 5 | 3 | `Alice` | 4 | Success |
