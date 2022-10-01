@@ -153,7 +153,7 @@ Deliverable
 FAQ
 ---
 
-- Question: In Exercise 3, how to "select an account, say `Alice `?"
+- Question: In Exercise 3, how to "select an account, say `Alice`?"
     - Answer: Remix provides a list of accounts with ether balance. You can choose a *fixed* account, say the second account in the account list, to be `Alice`. You should do this before you send a transaction to externall call a function in a deployed smart contract.
 - Question: In Exercise 4, how does "Fail" look like?
     - Answer: "Fail"/"Success" mean that Account $X$'s attempt to withdraw $y$ Ether fails/succeeds. A failed withdrawal by EOA $X$ should not increase his account balance at all.
