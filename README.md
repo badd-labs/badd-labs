@@ -1,5 +1,5 @@
 
-BADD Labs: BlockchAin and DApp Development Labs
+*BADD* Labs: *B*lockchain *A*nd *D*app *D*evelopment Labs
 ===
 
 Learning objectives
