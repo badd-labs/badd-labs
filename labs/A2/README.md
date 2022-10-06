@@ -90,8 +90,9 @@ Exercise 4: Write SC for 2-account Ether bank
 ---
 
 ```
-contract bank_multiaccount {
-    function bank(address Alice, address Bob) public {}
+pragma solidity ^ 0.4.13;
+contract bank_m {
+    constructor(address Alice, address Bob) public {}
     function deposit() public payable {}
     function withdraw(uint amount){}
 }
@@ -99,9 +100,9 @@ contract bank_multiaccount {
 
 Extend the above SC using the same function signature to implement a two-account Ether bank. The correctness of your bank SC will be graded based on the following criteria:
 
-Suppose your SC is deployed to the blockchain running constructor `bank(Alice, Bob)`, `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether. The withdraw only succeeds if and only if `Alice`$==X\land{}y\leq{}a$ or `Bob`$==X\land{}y\leq{}b$. For instance, we may run the following test cases:
+Suppose your `bank_m` SC is deployed to the blockchain with constructor parameters `(Alice, Bob)`, then account `Alice` deposits $a$ Ether, and `Bob` deposits $b$ Ether. Now consider Account $X$ attempts to withdraw $y$ Ether from the deployed `bank_m` SC. The withdraw only succeeds if and only if (`Alice`$==X\land{}y\leq{}a$) or (`Bob`$==X\land{}y\leq{}b$) . For instance, we may run the following test cases:
 
-| `a` | `b` | $X$ | $y$ | Expected withdrawal result |
+| $a$ | $b$ | $X$ | $y$ | Expected withdrawal result |
 | --- | --- | --- | --- | --- |
 | 5 | 3 | `Alice` | 2 | Success |
 | 5 | 3 | `Alice` | 4 | Success |
@@ -120,7 +121,8 @@ Extend your solution in Exercise 4 to realize the following functionality:
 
 - When account `Charlie` transfers $z$ Ether to the bank, the bank keeps half (i.e., $\frac{z}{2}$ Ether) to itself and returns the other half to `Charlie`.
 
-In this exercise, you will need to consider two cases: 1) `Charlie` transfers Ether via a basic Ethereum transaction calling no SC functions, and 2) `Charlie` sends a transaction externally calling the `deposit()` function. 
+
+Hint: You should consider two cases: 1) `Charlie` sends a basic Ethereum transaction that calls no function in `bank_m`. 2) `Charlie` sends a transaction to externally call the `deposit()` function in `bank_m` explicitly. 
 
 <!--
 
@@ -145,3 +147,13 @@ Deliverable
 1. For exercise 1/2/3/4/5, submit the screenshot that runs the crawler code on your computer.
     - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
 2. For exercise 2/4/5, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
+
+FAQ
+---
+
+- Question: In Exercise 3, how to "select an account, say `Alice`?"
+    - Answer: Remix provides a list of accounts with ether balance. You can choose a *fixed* account, say the second account in the account list, to be `Alice`. You should do this before you send a transaction to externall call a function in a deployed smart contract.
+- Question: In Exercise 4, how does "Fail" look like?
+    - Answer: "Fail"/"Success" mean that Account $X$'s attempt to withdraw $y$ Ether fails/succeeds. A failed withdrawal by EOA $X$ should not increase his account balance at all.
+- Question: How does "constructor" work in Exercise 4?
+    - Answer: A SC's contructor is invoked when the SC is to be deployed. If your constructor has parameters, you can configure the constructor parameter next to the "Deploy" button in Remix.
