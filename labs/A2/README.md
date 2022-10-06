@@ -118,11 +118,9 @@ Exercise 5: Ether bank under unknown deposit
 
 Extend your solution in Exercise 4 to realize the following functionality: 
 
-- When account `Charlie` transfers $z$ Ether to the bank, the bank does not accept the Ether transfer.
+- When account `Charlie` transfers $z$ Ether to the bank, the bank keeps half (i.e., $\frac{z}{2}$ Ether) to itself and returns the other half to `Charlie`.
 
-After the transation, the $z$ Ether should still be in `Charlie`'s balance.
-
-Note that `Charlie` can transfer Ether via a basic Ethereum transaction or a transaction externally calling the `deposit()` function. 
+In this exercise, you will need to consider two cases: 1) `Charlie` transfers Ether via a basic Ethereum transaction calling no SC functions, and 2) `Charlie` sends a transaction externally calling the `deposit()` function. 
 
 <!--
 
