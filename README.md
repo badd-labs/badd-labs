@@ -17,16 +17,16 @@ In particular,  through our labs, you will gain hands-on experience on the follo
 Category A: Blockchain Basics
 ---
 
-- Lab A1. Transaction exploration [[link](labs/A1/README.md)]
-- Lab A2. Smart-contract programming [[link](labs/A2/README.md)]
+- **Lab A1. Transaction exploration** [[link](labs/A1/README.md)]
+- **Lab A2. Smart-contract programming** [[link](labs/A2/README.md)]
 - Lab A3. Blockchain mining [[link](labs/A3/README.md)]
  
 Category B: DeFi
 ---
 
-- Lab B1. DEX 1: Swap settlement [[link](labs/B1/README.md)]
-- Lab B2. DEX 2: AMM and pricing [[link](labs/B2/README.md)]
-- Lab B3. DEX security: Arbitrage [[link](labs/B3/README.md)]
+- **Lab B1. AMM DEX** [[link](labs/B1/README.md)]
+- Lab B2. DEX security: Arbitrage [[link](labs/B2/README.md)]
+- Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 - Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
 
 BADD Labs in the news

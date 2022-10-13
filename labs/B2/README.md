@@ -1,96 +1,84 @@
-Lab B2: AMM DEX and Pricing
+Lab B2: DEX security: Arbitrage 
 ===
 
 Introduction
 ---
 
-An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In an AMM, a trader does not directly trade with other traders. Instead, they trade with a smart-contract intermediary. In practice, AMM gets more widely adopted than other DEX forms (e.g., order book). For instance, the most popular DEX services, including Uniswap, Sushiswap, Pancakeswap, etc., all follow AMM protocols. In this lab, you will implement an AMM smart contract.
+In traditional finance, arbitrage is defined as the purchase and sale of the same asset in different markets in order to profit from differences in exchange rate. The same attack applies to decentralized exchanges (DEXes), where an attacker trades with two DEX pools and exercise buy-low-sell-high strategy. 
 
+In this lab you will pretend to be both the attacker and defender taking steps to exploit an arbitrage opportunity and to prevent it from happening.
 
-| Tasks | Points | CS student | Finance student |
-| --- | --- | --- | --- |
-|  1  | 20 |  Required | Bonus |
-|  2  | 30 | Required | Bonus |
-|  3  | 50 | Required | Bonus |
-
-
-Exercise 1. Execute token transfer (same with B1)
+Exercise 1. Arbitrage attacks on AMM pools
 ---
 
-The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
+Let's assume there are two DEXes, Ottoswap and Cuseswap. Ottoswap was willing to trade 10 `TokenX` per `TokenY` and Cuseswap was willing to trade 5 `TokenX` per `TokenY`. Attacker Alice could buy 10 `TokenX` for 1 `TokenY` from Ottoswap and then trade 10 `TokenX` for 2 `TokenY` on Cuseswap yielding a 1 `TokenY` profit. 
 
-```
-pragma solidity >=0.7.0 <0.9.0; 
-contract MyToken {  
-  uint _totalSupply = 0; string _symbol;  
-  mapping(address => uint) balances;  
-  constructor(string memory symbol, uint256 initialSupply) {
-    _symbol = symbol;
-    _totalSupply = initialSupply;
-    balances[msg.sender] = _totalSupply;  
-  }
-  
-  function transfer(address receiver, uint amount) public returns (bool) {    
-    require(amount <= balances[msg.sender]);        
-    balances[msg.sender] = balances[msg.sender] - amount;    
-    balances[receiver] = balances[receiver] + amount;    
-    return true;  
-  }
+While Alice can do the two trades in two separate transactions, Alice may  face the risk of failing one transaction and losing value. In practice, attackers commonly deploy a smart contract to send the two trade transactions atomically in order to guarantee the attack success and profitability. 
 
-  function balanceOf(address account) public view returns(uint256){
-    return balances[account];
-  }}
-```
+![AMM design diagram](lab-amm-abitrage.jpg)
 
-Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
+Your job is to create an arbitrage smart contract that collects the arbitrage profit. The setting is shown in the above diagram, including the two token contracts, `TokenX` and `TokenY`, and their exchange rates on the two DEXes (Ottoswap and Cuseswap). 
 
+Your arbitrage smart contract should invoke Ottoswap's swap function to trade `TokenY` for `TokenX` and then invoke Cuseswap's swap function to trade `TokenX` for `TokenX`. Your arbitrage smart contract should print its initial balance and the balance in the end.
 
-Exercise 2. Impl. an fixed-rate AMM
+In this exercise, you will be given the code of a CP-AMM (constant product) smart contract and run your arbitrage smart contract against the AMM. You will need to show the profit extracted by the arbitrage.
+
+Instructions:
+
+- Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
+- Deploy the given `CP-AMM` SC twice to create instances of `Ottoswap` and `Cuseswap`; each instance is against both `TokenY` and `TokenX`.
+   - Make sure `Ottoswap` initially has 10 `TokenY` and 5 `TokenX`.
+   - Make sure `Cuseswap` initially has 15 `TokenY` and 15 `TokenX`.
+- Deploy your arbitrage SC.
+- Call the arbitrage SC against the `CP-AMM`.
+- In your lab report, include the profit extracted from the above call.
+
+Exercise 2. Arbitrage mitigation by routing swaps
 ---
 
-![AMM design diagram](lab-amm.jpg)
+![AMM design diagram](lab-amm-abitrage-defense.jpg)
 
-In the figure above, trader Alice first transfers $x$ units of `TokenX` from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `trySwap(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls `TokenY`'s `transfer` function to transfer $dy$ units of `TokenY` to Alice's account.
+A defense against arbitrage is the “routing” approach that re-router a user's swap request to multiple AMM pools and balances out the spending so that exchange rates across AMM pools remain the same.
 
-In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contract.
+Suppose an original user request is to swap $dx$ units of `TokenX` for `TokenY`, and there are two AMM pools: the first pool of $x1$/$y1$ units of `TokenX`/`TokenY` and the second pool of $x2$/$y2$ units of `TokenX`/`TokenY`. To make sure the exchange rates remain the same, we can have:
 
-```
-pragma solidity >=0.7.0 <0.9.0; 
-contract AMM {
-  MyToken tokenX, tokenY;
-  // _tokenX and _tokenY are contract-addresses running MyToken SC
-  constructor(address _tokenX, address _tokenY){
-    tokenX = MyToken(_tokenX); tokenY = MyToken(_tokenY);
-  }
 
-  function swapXY(uint amountX) public payable {
-    // fill out the following with your code
-  } 
-}
-```
+$$
+\begin{eqnarray}
+dx1+dx2&=&dx \\
+x1/y1&=&x2/y2\\
+x1\*y1&=&(x1+dx1)(y1-dy1)\\
+x2\*y2&=&(x2+dx2)(y2-dy2)\\
+(x1+dx1)/(y1-dy1)&=&(x2+dx2)/(y2-dy2)\\
+\end{eqnarray}
+$$
 
-- Workflow to execute your code:
-    - Write and compile an `AMM` smart contract.
-    - Deploy `MyToken` smart contract twice, respectively to two contract addresses, say `_tokenX` and `_tokenY`.
-    - Deploy `AMM` smart contract with `_tokenX` and `_tokenY`.
-    - Execute the smart contracts in two steps: 
-        - 1) call `_tokenX`'s `transfer` function
-        - 2) call `AMM`'s `swapXY` function
-- Hint: You need to make sure your account has enough tokens for both `_tokenX` and `_tokenY`.
 
-Exercise 3. Impl. constant-product AMM
----
+It derives: 
 
-Suppose the AMM account owns $x$ units of `TokenX` and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between `TokenX` and `TokenY` on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
+$$
+\begin{eqnarray}
+dx1&=&\frac{Z(x2+dx)-x1}{Z+1} \\
+dx2&=&\frac{x1+dx-Z*x2}{Z+1} \\
+Z&=&\sqrt{\frac{x1*y1}{x2*y2}} \\
+\end{eqnarray}
+$$
 
-$$f(x,y)=f(x+dx,y-dy)$$
+In this exercise, you will implement such a smart contract that split the original swap of $dx$ units between Ottoswap and Cuseswap as shown by $dx1$ and $dx2$ above. This ensures that an exchange-rate imbalance is never created. The figure shows the system architecture. 
 
-In this exercise, you are asked to implement constant-product AMM (adopted in the real-life Uniswap), where $f(x,y)=x\*y$. Modify your AMM smart contract to support the constant-product invariant $x\*y=(x+dx)(y-dy)$.
 
-- Hint: You may want to keep track of token balance $x$ and $y$ in the AMM smart contact by issuing `balanceOf` in each `swapXY` call.
+- Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
+- Deploy the given `CP-AMM` SC twice to create instances of `Ottoswap` and `Cuseswap`; each instance is against both `TokenY` and `TokenX`.
+   - Make sure `Ottoswap` initially has 10 `TokenY` and 5 `TokenX`. 
+   - Make sure `Cuseswap` initially has 30 `TokenY` and 15 `TokenX`.
+- Deploy your router SC.
+- Call the router SC to swap 4 `TokenX` for `TokenY`. 
+- In your lab report, include the execution screenshot that shows how much `TokenX`is involved in `Ottoswap` and how much in `Cuseswap`.
+
 
 Deliverable
 ---
 
-- For all tasks, you should 1) submit your smart-contract code, and 2) show the screenshot of the program execution. 
-
+1. For all exercises, you should submit screenshots showing your contract executing the described workflow successfully.
+ 
+2. Submit your solidity smart contracts for each task. 

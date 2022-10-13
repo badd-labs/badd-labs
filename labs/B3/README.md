@@ -1,84 +1,85 @@
-Lab B3: DEX security: Arbitrage 
+Lab B1: Order-book DEX and Swap Settlement 
 ===
 
 Introduction
 ---
 
-In traditional finance, arbitrage is defined as the purchase and sale of the same asset in different markets in order to profit from differences in exchange rate. The same attack applies to decentralized exchanges (DEXes), where an attacker trades with two DEX pools and exercise buy-low-sell-high strategy. 
+DEX or decentralized exchange supports the swap of token ownership between different accounts. A swap is essentially two transfers, one from Alice to Bob and the other from Bob to Alice. A swap is supposed to be atomic, in the sense that either both transfers occur or no transfer occurs. In this lab, you are going to implement a DEX supporting atomic swap settlement.
+ 
 
-In this lab you will pretend to be both the attacker and defender taking steps to exploit an arbitrage opportunity and to prevent it from happening.
+| Exercises | CS student | Finance student
+| --- | --- | --- |
+|  1  | Required | Required |
+|  2  | Required | Required |
+|  3  | Required | Bonus (50%) |
+|  4  | Required | Bonus (50%) |
+|  5  | Bonus (50%) | Bonus (100%) |
 
-Exercise 1. Arbitrage attacks on AMM pools
+Exercise 1. Execute token transfer 
 ---
 
-Let's assume there are two DEXes, Ottoswap and Cuseswap. Ottoswap was willing to trade 10 `TokenX` per `TokenY` and Cuseswap was willing to trade 5 `TokenX` per `TokenY`. Attacker Alice could buy 10 `TokenX` for 1 `TokenY` from Ottoswap and then trade 10 `TokenX` for 2 `TokenY` on Cuseswap yielding a 1 `TokenY` profit. 
+The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
 
-While Alice can do the two trades in two separate transactions, Alice may  face the risk of failing one transaction and losing value. In practice, attackers commonly deploy a smart contract to send the two trade transactions atomically in order to guarantee the attack success and profitability. 
+```
+pragma solidity >=0.7.0 <0.9.0; 
+contract BaddToken {  
+  uint _totalSupply = 0; string _symbol;  
+  mapping(address => uint) balances;  
+  constructor(string memory symbol, uint256 initialSupply) {
+    _symbol = symbol;
+    _totalSupply = initialSupply;
+    balances[msg.sender] = _totalSupply;  
+  }
+  
+  function transfer(address receiver, uint amount) public returns (bool) {    
+    require(amount <= balances[msg.sender]);        
+    balances[msg.sender] = balances[msg.sender] - amount;    
+    balances[receiver] = balances[receiver] + amount;    
+    return true;  
+  }
 
-![AMM design diagram](lab-amm-abitrage.jpg)
+  function balanceOf(address account) public view returns(uint256){
+    return balances[account];
+  }}
+```
 
-Your job is to create an arbitrage smart contract that collects the arbitrage profit. The setting is shown in the above diagram, including the two token contracts, `TokenX` and `TokenY`, and their exchange rates on the two DEXes (Ottoswap and Cuseswap). 
+Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
 
-Your arbitrage smart contract should invoke Ottoswap's swap function to trade `TokenY` for `TokenX` and then invoke Cuseswap's swap function to trade `TokenX` for `TokenX`. Your arbitrage smart contract should print its initial balance and the balance in the end.
-
-In this exercise, you will be given the code of a CP-AMM (constant product) smart contract and run your arbitrage smart contract against the AMM. You will need to show the profit extracted by the arbitrage.
-
-Instructions:
-
-- Deploy `MyToken` SC twice to create instances of `TokenY` and `TokenX`.
-- Deploy the given `CP-AMM` SC twice to create instances of `Ottoswap` and `Cuseswap`; each instance is against both `TokenY` and `TokenX`.
-   - Make sure `Ottoswap` initially has 10 `TokenY` and 5 `TokenX`.
-   - Make sure `Cuseswap` initially has 15 `TokenY` and 15 `TokenX`.
-- Deploy your arbitrage SC.
-- Call the arbitrage SC against the `CP-AMM`.
-- In your lab report, include the profit extracted from the above call.
-
-Exercise 2. Arbitrage mitigation by routing swaps
+Exercise 2. Execute atomic swap settlement in one transaction (by escrow EOA)
 ---
 
-![AMM design diagram](lab-amm-abitrage-defense.jpg)
+An atomic swap occurs between two accounts in two tokens. Suppose Alice of token `TokenX` wants to trade her `TokenX`s for Bob's `TokenY`s. For simplicity, we assume the exchange rate between `TokenX` and `TokenY` is always 1:1 (i.e., one `TokenX` for one `TokenY`). A swap incurs a transfer from Alice to Bob in `TokenX` and another transfer from Bob to Alice in `TokenY`.
 
-A defense against arbitrage is the “routing” approach that re-router a user's swap request to multiple AMM pools and balances out the spending so that exchange rates across AMM pools remain the same.
+A simple swap protocol is to do the two transfers in one transaction. This requires Alice and Bob (two EOAs) first transfer tokens to a trusted third-party account, that is, the escrow. After the escrow receives both Alice's `TokenX` and Bob's `TokenY`, the escrow then sends `TokenX` to Bob and `TokenY` to Alice, to settle the swap. 
 
-Suppose an original user request is to swap $dx$ units of `TokenX` for `TokenY`, and there are two AMM pools: the first pool of $x1$/$y1$ units of `TokenX`/`TokenY` and the second pool of $x2$/$y2$ units of `TokenX`/`TokenY`. To make sure the exchange rates remain the same, we can have:
+The above escrow protocol can be instanciated differently. One design is to materialize the escrow as an EOA. In this case, the escrow EOA is trusted to send the two transfer calls, atomically. The following figure illustrates the escrow-EOA protocol.
 
+![Contract design diagram](lab-escrow3-EOA.jpg)
 
-$$
-\begin{eqnarray}
-dx1+dx2&=&dx \\
-x1/y1&=&x2/y2\\
-x1\*y1&=&(x1+dx1)(y1-dy1)\\
-x2\*y2&=&(x2+dx2)(y2-dy2)\\
-(x1+dx1)/(y1-dy1)&=&(x2+dx2)/(y2-dy2)\\
-\end{eqnarray}
-$$
+Your job in this exercise is to deploy your token smart contracts, from Exercise 1, twice (first as `TokenX` and then as `TokenY`). Run the above escrow-EOA protocol to complete the swap of Alice's `TokenX` and Bob's `TokenY`. 
 
+Exercise 3. Design atomic swap settlement in one transaction (by escrow smart contract)
+---
 
-It derives: 
+Another approach is to implement the escrow in a smart contract. In this case, after Alice and Bob transfer their tokens to the escrow smart contract (in Step 1 & 2), they then notify the escrow smart contract. After receiving both Alice and Bob's notification, the escrow smart contract sends two transfers, atomically, that is, first to transfer `TokenX` to Bob and then to transfer `TokenY` to Alice. The following figure illustrates the escrow-smart-contract protocol.
 
-$$
-\begin{eqnarray}
-dx1&=&\frac{Z(x2+dx)-x1}{Z+1} \\
-dx2&=&\frac{x1+dx-Z*x2}{Z+1} \\
-Z&=&\sqrt{\frac{x1*y1}{x2*y2}} \\
-\end{eqnarray}
-$$
+![Contract design diagram](lab-escrow3.jpg)
 
-In this exercise, you will implement such a smart contract that split an original swap request of $x$ between Ottoswap and Cuseswap as dectated by $dx1$ and $dx2$ above. This ensures that an exchange-rate imbalance is never created. The figure shows the system architecture. 
+Your job is to:
 
+1. Implement the escrow smart contract described as above. Then run an atomic swap by deploying the token smart contracts (twice respectively as `TokenX` and `TokenY` instances) and the escrow smart contract.
+2. Design the failure handling protocol by extending the above escrow smart contract. One failure case is that Alice (or Bob) did not transfer her `TokenX`s (his `TokenY`s) to the escrow. In this case, Alice (Bob) should be able to withdraw her `TokenX`s (his `TokenY`s) after a predefined timeout, say *t* blocks. Use `block.number` to access the current block height in solidity.
 
-- Deploy `MyToken` SC twice to create instances of `TokenY` and `TokenX`.
-- Deploy the given `CP-AMM` SC twice to create instances of `Ottoswap` and `Cuseswap`; each instance is against both `TokenY` and `TokenX`.
-   - Make sure `Ottoswap` initially has 10 `TokenY` and 5 `TokenX`. 
-   - Make sure `Cuseswap` initially has 30 `TokenY` and 15 `TokenX`.
-- Deploy your router SC.
-- Call the router SC to swap 4 `TokenX` for `TokenY`. 
-- In your lab report, include the execution screenshot that shows how much `TokenX`is involved in `Ottoswap` and how much in `Cuseswap`.
+- Hint: To make smart contract `X` call smart contract `Y`'s function `foo`, you can pass to `X` `Y`'s contract address say `CA_Y` so that in `X` the following statement calls `CA_Y`'s function `foo`: `(Y)CA_Y.foo();` 
 
+Exercise 4: Design the swap between token and Ether
+---
+
+Revise your escrow smart contract to support the swap between Ether and `TokenX`. For instance, Alice trades her `TokenX` for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. Here, you can assume one `TokenX` is exchangeable with one Ether.
+
+Consider both cases of success and failed swaps.
 
 Deliverable
 ---
 
-1. For all exercises, you should submit screenshots showing your contract executing the described workflow successfully.
- 
-2. Submit your solidity smart contracts for each task. 
+- For all exercises, you should 1) submit your smart-contract code, and 2) show the screenshot of the program execution. 
