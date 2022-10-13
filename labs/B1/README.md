@@ -45,10 +45,10 @@ contract BaddToken {
 Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
 
 
-Exercise 2. Impl. an fixed-rate AMM
+Exercise 2. Basic AMM Design with Fixed Rate
 ---
 
-![AMM design diagram](lab-amm.jpg)
+![AMM design diagram](lab-amm.png)
 
 In the figure above, trader Alice first transfers $x$ units of `TokenX` from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `swapXY(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls `TokenY`'s `transfer` function to transfer $dy$ units of `TokenY` to Alice's account.
 
@@ -78,7 +78,7 @@ contract AMM {
         - 2) call `AMM`'s `swapXY` function
 - Hint: You need to make sure your account has enough tokens for both `_tokenX` and `_tokenY`.
 
-Exercise 3. Impl. constant-product AMM
+Exercise 3. Constant-product AMM
 ---
 
 Suppose the AMM account owns $x$ units of `TokenX` and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between `TokenX` and `TokenY` on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
@@ -88,6 +88,28 @@ $$f(x,y)=f(x+dx,y-dy)$$
 In this exercise, you are asked to implement constant-product AMM (adopted in the real-life Uniswap), where $f(x,y)=x\*y$. Modify your AMM smart contract to support the constant-product invariant $x\*y=(x+dx)(y-dy)$.
 
 - Hint: You may want to keep track of token balance $x$ and $y$ in the AMM smart contact by issuing `balanceOf` in each `swapXY` call.
+
+| Case | tx1 | tx2 | Solution |
+| --- | --- | --- | --- |
+|  Normal case | Alice | Alice | Exercise 1-4 |
+|  Dangling swap  | Alice | NULL | Exercise 5 (approve/transferFrom) |
+|  Steal from pool  | NULL | Alice | Exercise 5 (Track deposits) |
+|  Steal from Bob   | Bob  | Alice | Exercise 6 |
+
+Exercise 4. Supporting Token Approve/transferFrom
+---
+
+![AMM design diagram](lab-amm-tff.png)
+
+
+Exercise 5. Security against Pool Theft
+---
+
+
+
+Exercise 6. Security against Trader Theft
+---
+
 
 Deliverable
 ---
