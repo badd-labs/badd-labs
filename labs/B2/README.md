@@ -1,4 +1,4 @@
-Lab B2: DEX 2: AMM and Pricing
+Lab B2: AMM DEX and Pricing
 ===
 
 Introduction
@@ -42,7 +42,7 @@ contract MyToken {
   }}
 ```
 
-Your job in this exercise is to deploy the above smart contract in Remix, creating an TokenX instance. Demonstrate the process that the TokenX issuer transfers 10 TokenX to another account, say Alice, and display each account's balance before/after the transfer.
+Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
 
 
 Exercise 2. Impl. an fixed-rate AMM
@@ -50,7 +50,7 @@ Exercise 2. Impl. an fixed-rate AMM
 
 ![AMM design diagram](lab-amm.jpg)
 
-In the figure above, trader Alice first transfers $x$ units of TokenX from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `trySwap(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls TokenY's `transfer` function to transfer $dy$ units of TokenY to Alice's account.
+In the figure above, trader Alice first transfers $x$ units of `TokenX` from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `trySwap(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls `TokenY`'s `transfer` function to transfer $dy$ units of `TokenY` to Alice's account.
 
 In this exercise, you can consider that dy/dx = 2. Implement the AMM smart contract.
 
@@ -69,7 +69,7 @@ contract AMM {
 }
 ```
 
-- Workflow to execuse your code:
+- Workflow to execute your code:
     - Write and compile an `AMM` smart contract.
     - Deploy `MyToken` smart contract twice, respectively to two contract addresses, say `_tokenX` and `_tokenY`.
     - Deploy `AMM` smart contract with `_tokenX` and `_tokenY`.
