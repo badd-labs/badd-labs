@@ -91,10 +91,10 @@ In this exercise, you are asked to implement constant-product AMM (adopted in th
 
 | Case | tx1 | tx2 | Solution |
 | --- | --- | --- | --- |
-|  Normal case | Alice | Alice | Exercise 1-4 |
-|  Dangling swap  | Alice | NULL | Exercise 5 (approve/transferFrom) |
-|  Steal from pool  | NULL | Alice | Exercise 5 (Track deposits) |
-|  Steal from Bob   | Bob  | Alice | Exercise 6 |
+|  Normal case | Alice | Alice | Exercise 1-3 |
+|  Dangling swap  | Alice | NULL | Exercise 4 (`approve`/`transferFrom`) |
+|  Theft from pool  | NULL | Alice | Exercise 5 (Track deposits) |
+|  Theft from Bob   | Bob  | Alice | Exercise 6 |
 
 Exercise 4. Supporting Token Approve/transferFrom
 ---
@@ -104,7 +104,6 @@ Exercise 4. Supporting Token Approve/transferFrom
 
 Exercise 5. Security against Pool Theft
 ---
-
 
 
 Exercise 6. Security against Trader Theft
