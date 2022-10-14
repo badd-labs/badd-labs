@@ -5,7 +5,7 @@
 Learning objectives
 ---
 
-- Application development skills on Ethereum blockchains.
+- Application development skills on Ethereum.
 - Deep understanding of blockchain internals (and development of blockchain extensions).
 
 In particular,  through our labs, you will gain hands-on experience on the following concepts/keywords:
