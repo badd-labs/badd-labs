@@ -59,7 +59,8 @@ function allowance(address owner, address spender) external view returns (uint25
 
 Your job is to extend the `BaddToken` with the approve and transferFrom functions defined as above. Suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie allowance of 1 `BaddToken`. Then, Charlie calls function `transferFrom(Alice, Bob, 1)`, through which Charlie's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
 
-We use the following table to test/grade if your solution is correct. For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `Alice.approve(Charlie, 1)`, `balanceOf(Alice)`, `allowance(Alice, Charlie)`, `balanceOf(Bob)`, `Charlie.transferFrom(Alice, Bob, 1)`, `balanceOf(Bob)`. And we expect a correct result being `1,1,0,1`.
+Deploy the extended `BaddToken` SC in Remix. We use the following table to test/grade if your deployed token SC is correct. 
+For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `A.approve(C, 1)`, `balanceOf(A)`, `allowance(A, C)`, `balanceOf(B)`, `C.transferFrom(A, B, 1)`, `balanceOf(B)`. And we expect a correct result being `1,1,0,1`.
 
 | Calls | `balanceOf(A)` | `balanceOf(B)` | `allowance(A,C)` | 
 | --- | --- | --- | --- |
@@ -70,11 +71,15 @@ We use the following table to test/grade if your solution is correct. For instan
 Exercise 3. AMM Design with Fixed Rate
 ---
 
-![AMM design diagram](lab-amm.png)
+![AMM design diagram](lab-amm-tff.png)
 
-In the figure above, trader Alice first transfers $x$ units of `TokenX` from her account to an AMM pool's account. Then, she calls the AMM smart contract's function `swapXY(dx)`. Upon receiving Alice's transaction, the AMM smart contract internally calls `TokenY`'s `transfer` function to transfer $dy$ units of `TokenY` to Alice's account.
+<!-- ![AMM design diagram](lab-amm.png) -->
 
-In this exercise, you can consider that $dy/dx = 2$. Implement the AMM smart contract.
+The figure above shows the workflow of the fixed-rate AMM you are going to build. Initially, two token contract accounts i.e., `TokenX` and `TokenY` are created by deploying the extended `BaddToken` you built in Exercise 2.
+
+In Step 1, trader Alice approves $x$ units of `TokenX` from her account (EOA) to the AMM `Pool`'s contract account (CA). In Step 2, Alice calls the `Pool`'s function `swapXY(dx)`. Upon receiving Alice's transaction, the `Pool` internally calls `TokenY`'s `transfer` function to transfer $dy$ units of `TokenY` to Alice (Step 3). The `Pool` also internally calls `TokenX`'s `transferFrom` function to transfer Alice's $dx$ units of `TokenX` to Bob, fully spending the allowance (Step 4).
+
+In this exercise, you can consider that $dy/dx = 2$. Implement the AMM smart contract using the following interface.
 
 ```
 pragma solidity >=0.7.0 <0.9.0; 
@@ -92,13 +97,13 @@ contract AMM {
 ```
 
 - Workflow to execute your code:
-    - Write and compile an `AMM` smart contract.
-    - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `_tokenX` and `_tokenY`.
-    - Deploy `AMM` smart contract with `_tokenX` and `_tokenY`.
+    - Write and compile an `Pool` smart contract.
+    - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
+    - Deploy `Pool` smart contract with `TokenX` and `TokenY`.
     - Execute the smart contracts in two steps: 
-        - 1) call `_tokenX`'s `transfer` function
-        - 2) call `AMM`'s `swapXY` function
-- Hint: You need to make sure your account has enough tokens for both `_tokenX` and `_tokenY`.
+        - 1) call `TokenX`'s `transfer` function
+        - 2) call `Pool`'s `swapXY` function
+- Hint: You need to make sure your account has enough tokens for both `TokenX` and `TokenY`.
 
 Exercise 3. Constant-product AMM
 ---
@@ -120,8 +125,6 @@ In this exercise, you are asked to implement constant-product AMM (adopted in th
 
 Exercise 4. Supporting Token Approve/transferFrom
 ---
-
-![AMM design diagram](lab-amm-tff.png)
 
 
 Exercise 5. Security against Pool Theft
