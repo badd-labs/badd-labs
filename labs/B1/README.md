@@ -7,7 +7,7 @@ Introduction
 An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In an AMM, a trader trades with a smart-contract intermediary called pool (which is unlike other DEX designs like order book).
 In practice, AMM is the most widely adopted DEX design and is the protocol followed by popular services including Uniswap, Sushiswap, Pancakeswap, etc.
 
-In this lab, you will being implement an AMM.
+In this lab, you will being implement an AMM simulating/revisiting the design choices made in Uniswap V2 (hence the name "Build-your-own-Uniswap" Lab).
 
 
 | Tasks | Points | CS student | Finance student |
