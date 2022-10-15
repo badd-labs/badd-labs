@@ -4,7 +4,10 @@ Lab B1: AMM DEX
 Introduction
 ---
 
-An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In an AMM, a trader does not directly trade with other traders. Instead, they trade with a smart-contract intermediary. In practice, AMM gets more widely adopted than other DEX forms (e.g., order book). For instance, the most popular DEX services, including Uniswap, Sushiswap, Pancakeswap, etc., all follow AMM protocols. In this lab, you will implement an AMM smart contract.
+An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In an AMM, a trader trades with a smart-contract intermediary called pool (which is unlike other DEX designs like order book).
+In practice, AMM is the most widely adopted DEX design and is the protocol followed by popular services including Uniswap, Sushiswap, Pancakeswap, etc.
+
+In this lab, you will being implement an AMM.
 
 
 | Tasks | Points | CS student | Finance student |
@@ -14,7 +17,7 @@ An automated market maker (AMM) is a decentralized-exchange (DEX) protocol. In a
 |  3  | 50 | Required | Bonus |
 
 
-Exercise 1. Execute token transfer
+Exercise 1. Execute ERC20 token transfer
 ---
 
 The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
@@ -45,7 +48,26 @@ contract BaddToken {
 Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
 
 
-Exercise 2. Basic AMM Design with Fixed Rate
+Exercise 2. Extend `BaddToken` with approve/transferFrom
+---
+
+```
+function approve(address spender, uint256 amount) external returns (bool);
+function transferFrom(address from, address to, uint256 amount) external returns (bool);
+function allowance(address owner, address spender) external view returns (uint256);
+```
+
+Your job is to extend the `BaddToken` with the approve and transferFrom functions defined as above. Suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie allowance of 1 `BaddToken`. Then, Charlie calls function `transferFrom(Alice, Bob, 1)`, through which Charlie's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
+
+We use the following table to test/grade if your solution is correct. For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `Alice.approve(Charlie, 1)`, `balanceOf(Alice)`, `allowance(Alice, Charlie)`, `balanceOf(Bob)`, `Charlie.transferFrom(Alice, Bob, 1)`, `balanceOf(Bob)`. And we expect a correct result being `1,1,0,1`.
+
+| Calls | `balanceOf(Alice)` | `balanceOf(Bob)` | `allowance(Alice, Charlie)` | 
+| --- | --- | --- | --- |
+| Init state  | 1 | 0 | 0 |
+| `Alice.approve(Charlie, 1)` | 1 | 0 | 1 |
+| `Charlie.transferFrom(Alice, Bob, 1)` | 0 | 0 | 1 |
+
+Exercise 3. AMM Design with Fixed Rate
 ---
 
 ![AMM design diagram](lab-amm.png)
