@@ -1,4 +1,4 @@
-Lab B1: AMM DEX
+Lab B1: AMM DEX ("Build-your-own-Uniswap" Lab)
 ===
 
 Introduction
@@ -12,10 +12,13 @@ In this lab, you will being implement an AMM.
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-|  1  | 20 |  Required | Bonus |
-|  2  | 30 | Required | Bonus |
-|  3  | 50 | Required | Bonus |
-
+|  1  | 10 |  Required | Bonus |
+|  2  | 20 | Required | Bonus |
+|  3  | 30 | Required | Bonus |
+|  4  | 40 | Required | Bonus |
+|  5  | 20 | Required | Bonus |
+|  6  | 20 | Required | Bonus |
+|  7  | 50 | Bonus | Bonus |
 
 Exercise 1. Execute ERC20 token transfer
 ---
