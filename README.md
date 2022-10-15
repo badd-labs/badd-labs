@@ -24,7 +24,7 @@ Category A: Blockchain Basics
 Category B: DeFi
 ---
 
-- **Lab B1. AMM DEX** [[link](labs/B1/README.md)]
+- **Lab B1. AMM DEX ("Build-your-own-Uniswap" lab)** [[link](labs/B1/README.md)]
 - Lab B2. DEX security: Arbitrage [[link](labs/B2/README.md)]
 - Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 - Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
