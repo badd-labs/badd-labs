@@ -103,7 +103,7 @@ contract AMM {
         - 2) call `Pool`'s `swapXY` function
 - Hint: You need to make sure your account has enough tokens for both `TokenX` and `TokenY`.
 
-Exercise 3. Constant-product AMM
+Exercise 4. Constant-product AMM
 ---
 
 Suppose the AMM account owns $x$ units of `TokenX` and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between `TokenX` and `TokenY` on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
@@ -114,22 +114,24 @@ In this exercise, you are asked to implement constant-product AMM (adopted in th
 
 - Hint: You may want to keep track of token balance $x$ and $y$ in the AMM smart contact by issuing `balanceOf` in each `swapXY` call.
 
+
+Exercise 5. Security Hardening against Standalone Withdrawal 
+---
+
 | Case | tx1 | tx2 | Solution |
 | --- | --- | --- | --- |
-|  Normal case | Alice | Alice | Exercise 1-3 |
-|  Dangling swap  | Alice | NULL | Exercise 4 (`approve`/`transferFrom`) |
-|  Theft from pool  | NULL | Alice | Exercise 5 (Track deposits) |
-|  Theft from Bob   | Bob  | Alice | Exercise 6 |
+|  Normal case | Alice | Alice | Exercise 1-4 |
+|  Standalone deposit  | Alice | NULL | Exercise 5 |
+|  Standalone withdrawal (Pool theft) | NULL | Alice | Exercise 6 |
+|  Unmatched swap (Trader theft) | Bob  | Alice | Exercise 7 |
 
-Exercise 4. Supporting Token Approve/transferFrom
+
+
+
+Exercise 6. Security Hardening against Pool Theft
 ---
 
-
-Exercise 5. Security against Pool Theft
----
-
-
-Exercise 6. Security against Trader Theft
+Exercise 7. Security Hardening against Trader Theft
 ---
 
 
