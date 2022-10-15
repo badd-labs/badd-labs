@@ -61,7 +61,7 @@ Your job is to extend the `BaddToken` with the approve and transferFrom function
 
 We use the following table to test/grade if your solution is correct. For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `Alice.approve(Charlie, 1)`, `balanceOf(Alice)`, `allowance(Alice, Charlie)`, `balanceOf(Bob)`, `Charlie.transferFrom(Alice, Bob, 1)`, `balanceOf(Bob)`. And we expect a correct result being `1,1,0,1`.
 
-| Calls | `balanceOf(Alice)` | `balanceOf(Bob)` | `allowance(Alice, Charlie)` | 
+| Call sequence | `balanceOf(Alice)` | `balanceOf(Bob)` | `allowance(Alice, Charlie)` | 
 | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 0 |
 | `Alice.approve(Charlie, 1)` | 1 | 0 | 1 |
