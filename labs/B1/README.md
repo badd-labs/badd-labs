@@ -181,9 +181,14 @@ To do so, you may want to make the pool SC track all swaps in progress (i.e., th
 Hint: Your pool SC can make a copy of the token balance so that an ongoing swap will appears as a difference between the balance in token SC and the copy of balance in the pool SC.
 
 
-Exercise 7. Security Hardening against Trader Theft
+Exercise 7 (Bonus). Security Hardening against Trader Theft
 ---
 
+A sophisticated attacker can try to insert a withdraw call (`swapXY`) in between a benign user’s deposit and withdraw, to steal his tokens. Consider that an attacker Alice who observes that benign user Bob’s deposit (`approve`) issues the call of `swapXY` to withdraw Bob’s token. 
+
+Design a defense against the above the theft attack and implement it in your pool SC.
+
+Hint: Consider delegate EOA traders' actions to a separate smart contract (i.e., the router SC design in Uniswap V2).
 
 Deliverable
 ---
