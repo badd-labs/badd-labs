@@ -112,11 +112,11 @@ You can follow the workflow to execute your code.
 
 We will test your pool SC using the following test cases. `P` is the Pool CA, `X` is `TokenX` and `Y` is `TokenY`.
 
-| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` |  `Y.balanceOf(A)` | `Y.balanceOf(P)` |
-| --- | --- | --- | --- |
-| Init state  | 1 | 0 | 0 | 0 | 2
-| `A.approve(C,1)` | 1 | 0 | 1 | 0 | 2
-| `A.swapXY(1)` | 0 | 1 | 0 | 2 | 0
+| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- | ---- | --- |
+| Init state  | 1 | 0 | 0 | 0 | 2 |
+| `A.approve(C,1)` | 1 | 0 | 1 | 0 | 2 |
+| `A.swapXY(1)` | 0 | 1 | 0 | 2 | 0 |
 
 
 Exercise 4. Constant-product AMM
@@ -130,6 +130,14 @@ In this exercise, you are asked to implement constant-product AMM (adopted in th
 
 - Hint: You may want to keep track of token balance $x$ and $y$ in the AMM smart contact by issuing `balanceOf` in each `swapXY` call.
 
+We will test your solution using the following test case:
+
+
+| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- | ---- | --- |
+| Init state  | 1 | 1 | 0 | 0 | 4 |
+| `A.approve(C,1)` | 1 | 1 | 1 | 0 | 4 |
+| `A.swapXY(1)` | 0 | 2 | 0 | 2 | 2 |
 
 Exercise 5. Security Hardening against Standalone Withdrawal 
 ---
@@ -162,10 +170,11 @@ Consider an Alice who called `swapXY` (the Withdrawal step) but did not call `ap
 
 Extend your pool SC from the previous exercises to defend the pool against the theft. Specifically, a standalone call to the `swapXY` without `approve` does not transfer any tokens. That is (`P` is the Pool CA):
 
-| Calls | `balanceOf(A)` | `balanceOf(P)` | `allowance(A,P)` | 
-| --- | --- | --- | --- |
-| Init state  | 1 | 0 | 0 |
-| `A.swapXY(1)` | 1 | 0 | 0 |
+
+| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- | ---- | --- |
+| Init state  | 1 | 0 | 0 | 0 | 2 |
+| `A.swapXY(1)` | 1 | 0 | 0 | 0 | 2 |
 
 To do so, you may want to make the pool SC track all swaps in progress (i.e., the swap that did deposit but did not finish widthdrawal), so that an attempt to withdraw when there are no other ongoing swaps will be declined. 
 
