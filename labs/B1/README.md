@@ -110,6 +110,13 @@ You can follow the workflow to execute your code.
 
 - Hint: You need to make sure your account has enough tokens for both `TokenX` and `TokenY`.
 
+We will test your pool SC using the following test cases. `P` is the Pool CA, `X` is `TokenX` and `Y` is `TokenY`.
+
+| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` |  `Y.balanceOf(A)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- |
+| Init state  | 1 | 0 | 0 | 0 | 2
+| `A.approve(C,1)` | 1 | 0 | 1 | 0 | 2
+| `A.swapXY(1)` | 0 | 1 | 0 | 2 | 0
 
 
 Exercise 4. Constant-product AMM
@@ -127,6 +134,8 @@ In this exercise, you are asked to implement constant-product AMM (adopted in th
 Exercise 5. Security Hardening against Standalone Withdrawal 
 ---
 
+The exercises so far (from 1 to 4) consider the normal scenarios. Starting from this exercise, we will consider a series of abnormal or security-oriented cases where Alice deviate from the normal cases, as shown in the following table.
+
 | Case | tx1 | tx2 | Solution |
 | --- | --- | --- | --- |
 |  Normal case | Alice | Alice | Exercise 1-4 |
@@ -134,11 +143,34 @@ Exercise 5. Security Hardening against Standalone Withdrawal
 |  Standalone withdrawal (Pool theft) | NULL | Alice | Exercise 6 |
 |  Unmatched swap (Trader theft) | Bob  | Alice | Exercise 7 |
 
+In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). In practice, the reason can be that Alice regrets to do the trade when the deposit is done.
 
+Extend your pool SC from the previous exercises to allow Alice to revert a swap already in progress. You may want to implement a function in the AMM
+pool, say `rollback()`. After Step 1 and calling `rollback()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
+
+| Calls | `balanceOf(A)` | `balanceOf(P)` | `allowance(A,P)` | 
+| --- | --- | --- | --- |
+| Init state  | 1 | 0 | 0 |
+| `A.approve(C,1)` | 1 | 0 | 1 |
+| `A.rollback()` | 1 | 0 | 0 |
 
 
 Exercise 6. Security Hardening against Pool Theft
 ---
+
+Consider an Alice who called `swapXY` (the Withdrawal step) but did not call `approve` (the Deposit step). In practice, this behavior can be due to that Alice is an adversarial user who wants to steal tokens from the pool.
+
+Extend your pool SC from the previous exercises to defend the pool against the theft. Specifically, a standalone call to the `swapXY` without `approve` does not transfer any tokens. That is (`P` is the Pool CA):
+
+| Calls | `balanceOf(A)` | `balanceOf(P)` | `allowance(A,P)` | 
+| --- | --- | --- | --- |
+| Init state  | 1 | 0 | 0 |
+| `A.swapXY(1)` | 1 | 0 | 0 |
+
+To do so, you may want to make the pool SC track all swaps in progress (i.e., the swap that did deposit but did not finish widthdrawal), so that an attempt to withdraw when there are no other ongoing swaps will be declined. 
+
+Hint: Your pool SC can make a copy of the token balance so that an ongoing swap will appears as a difference between the balance in token SC and the copy of balance in the pool SC.
+
 
 Exercise 7. Security Hardening against Trader Theft
 ---
