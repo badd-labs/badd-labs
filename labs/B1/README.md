@@ -62,7 +62,7 @@ function transferFrom(address from, address to, uint256 amount) external returns
 function allowance(address owner, address spender) external view returns (uint256);
 ```
 
-Your job is to extend the `BaddToken` with the approve and transferFrom functions defined as above. Suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie allowance of 1 `BaddToken`. Then, Charlie calls function `transferFrom(Alice, Bob, 1)`, through which Charlie's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
+Your job is to extend the `BaddToken` with the `approve` and `transferFrom` functions defined as above. Suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie allowance of 1 `BaddToken`. Then, Charlie calls function `transferFrom(Alice, Bob, 1)`, through which Charlie's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
 
 Deploy the extended `BaddToken` SC in Remix. We use the following table to test/grade if your deployed token SC is correct. 
 For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `A.approve(C, 1)`, `balanceOf(A)`, `allowance(A, C)`, `balanceOf(B)`, `C.transferFrom(A, B, 1)`, `balanceOf(B)`. And we expect a correct result being `1,1,0,1`.
@@ -99,14 +99,18 @@ contract AMM {
 }
 ```
 
-- Workflow to execute your code:
-    - Write and compile an `Pool` smart contract.
-    - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
-    - Deploy `Pool` smart contract with `TokenX` and `TokenY`.
-    - Execute the smart contracts in two steps: 
-        - 1) call `TokenX`'s `transfer` function
-        - 2) call `Pool`'s `swapXY` function
+You can follow the workflow to execute your code.
+
+- Write and compile an `Pool` smart contract.
+- Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
+- Deploy `Pool` smart contract with `TokenX` and `TokenY`.
+- Execute the smart contracts in two steps: 
+    - 1) call `TokenX`'s `transfer` function
+    - 2) call `Pool`'s `swapXY` function
+
 - Hint: You need to make sure your account has enough tokens for both `TokenX` and `TokenY`.
+
+
 
 Exercise 4. Constant-product AMM
 ---
