@@ -17,7 +17,7 @@ We provide companion slides to introduce more background on AMM: https://www.dro
 |  1  | 10 |  Required | Required |
 |  2  | 20 | Required | Bonus |
 |  3  | 30 | Required | Bonus |
-|  4  | 40 | Required | Bonus |
+|  4  | 40 | Bonus | Bonus |
 |  5  | 20 | Required | Bonus |
 |  6  | 20 | Required | Bonus |
 
@@ -61,7 +61,7 @@ function transferFrom(address from, address to, uint256 amount) external returns
 function allowance(address owner, address spender) external view returns (uint256);
 ```
 
-Your job is to extend the `BaddToken` with the `approve` and `transferFrom` functions defined as above. For example, suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob, through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie an allowance of 1 `BaddToken`. Then, Charlie calls the function `transferFrom(Alice, Bob, 1)`, through which Charlie's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
+Your job is to extend the `BaddToken` with the `approve` and `transferFrom` functions defined as above. For example, suppose owner Alice wants to transfer 1 `BaddToken` to another account Bob, through an intermediary Charlie. Alice first calls `approve(Charlie, 1)` which gives Charlie an allowance of 1 `BaddToken`. Then, Charlie calls the function `transferFrom(Alice, Bob, 1)`, through which Bob's balance is credited by 1 `BaddToken` and Alice's balance is debited by 1 `BaddToken`.
 
 Deploy the extended `BaddToken` SC in Remix. We use the following table to test/grade if your deployed token SC is correct. For instance, we may send a sequence of transaction against the instances of your `BaddToken`: `A.approve(C, 1)`, `balanceOf(A)`, `allowance(A, C)`, `balanceOf(B)`, `C.transferFrom(A, B, 1)`, `balanceOf(B)`. If your SC is correct, we expect the transaction returns the following: ...,`balanceOf(A)=1`, `allowance(A, C)=1`, `balanceOf(B)=0`,...,`balanceOf(B)=1`.
 
