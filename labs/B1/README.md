@@ -103,8 +103,8 @@ You can follow the workflow to execute your code.
 - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
 - Deploy `Pool` smart contract with `TokenX` and `TokenY`.
 - Execute the smart contracts in two steps: 
-    - 1) call `TokenX`'s `transfer` function
-    - 2) call `Pool`'s `swapXY` function
+    1. call `TokenX`'s `approve` function
+    2. call `Pool`'s `swapXY` function
 
 - Hint: You need to ensure your account has enough tokens for both `TokenX` and `TokenY`. 
 
