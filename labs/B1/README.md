@@ -14,13 +14,12 @@ We provide companion slides to introduce more background on AMM: https://www.dro
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-|  1  | 10 |  Required | Bonus |
+|  1  | 10 |  Required | Required |
 |  2  | 20 | Required | Bonus |
 |  3  | 30 | Required | Bonus |
 |  4  | 40 | Required | Bonus |
 |  5  | 20 | Required | Bonus |
 |  6  | 20 | Required | Bonus |
-|  7  | 50 | Bonus | Bonus |
 
 Exercise 1. Execute ERC20 token transfer
 ---
@@ -107,18 +106,36 @@ You can follow the workflow to execute your code.
     - 1) call `TokenX`'s `transfer` function
     - 2) call `Pool`'s `swapXY` function
 
-- Hint: You need to ensure your account has enough tokens for both `TokenX` and `TokenY`.
+- Hint: You need to ensure your account has enough tokens for both `TokenX` and `TokenY`. 
 
 We will test your pool SC using the following test cases. `P` is the Pool CA, `X` is `TokenX` and `Y` is `TokenY`.
 
 | Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
 | --- | --- | --- | --- | ---- | --- |
 | Init state  | 1 | 0 | 0 | 0 | 2 |
-| `A.approve(C,1)` | 1 | 0 | 1 | 0 | 2 |
+| `A.approve(P,1)` | 1 | 0 | 1 | 0 | 2 |
 | `A.swapXY(1)` | 0 | 1 | 0 | 2 | 0 |
 
+Exercise 4. Security Analysis 
+---
 
-Exercise 4. Constant-product AMM
+Now consider a thief `Bob` who inserts withdrawal (i.e., `swapXY` call) without making deposit. Here, we consider two versions: First, the thief `Bob` simply calls `swapXY` function without calling `approve`. Demonstrate your solution in Exercise 3 will produce the following test result.
+
+| Calls | `X.balanceOf(B)` | `X.balanceOf(P)` | `X.allowance(B,P)` | `Y.balanceOf(B)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- | ---- | --- |
+| Init state  | 1 | 0 | 0 | 0 | 2 |
+| `B.swapXY(1)` | 1 | 0 | 0 | 0 | 2 |
+
+Second, a "frontrunning" thief `Alice` would observe another account say `Bob`'s deposit and sends her withdrawal to frontrun his withdrawal. Demonstrate your solution in Exercise 3 will produce the following test result.
+
+| Calls | `X.balanceOf(A)` | `X.balanceOf(B)` | `X.balanceOf(P)` | `X.allowance(B,P)` | `Y.balanceOf(A)` | `Y.balanceOf(B)` | `Y.balanceOf(P)` |
+| --- | --- | --- | --- | ---- | --- | --- | --- |
+| Init state        | 1 | 0 | 0 | 0 | 0 | 0 | 2 | 
+| `B.approve(P, 1)` | 1 | 0 | 0 | 1 | 0 | 0 | 2 |
+| `A.swapXY(1)`     | 1 | 0 | 0 | 1 | 0 | 0 | 2 | 
+| `B.swapXY(1)`     | 0 | 0 | 1 | 0 | 2 | 0 | 0 | 
+
+Exercise 5. Constant-product AMM
 ---
 
 Suppose the AMM account owns $x$ units of `TokenX` and $y$ units of `TokenY`. The AMM pool can use a function $f(x,y)$ to calculate the exchange rate between `TokenX` and `TokenY` on the fly. Specifically, it enforces that function value is constant before and after each token swap, that is,
@@ -138,17 +155,8 @@ We will test your solution using the following test case:
 | `A.approve(C,1)` | 1 | 1 | 1 | 0 | 4 |
 | `A.swapXY(1)` | 0 | 2 | 0 | 2 | 2 |
 
-Exercise 5. Security Hardening against Standalone Withdrawal 
+Exercise 6. Refund Lost Tokens upon Standalone Withdrawal 
 ---
-
-The exercises so far (from 1 to 4) consider the normal scenarios. Starting from this exercise, we will consider a series of abnormal or security-oriented cases where Alice deviates from the normal cases, as shown in the following table.
-
-| Case | tx1 | tx2 | Solution |
-| --- | --- | --- | --- |
-|  Normal case | Alice | Alice | Exercise 1-4 |
-|  Standalone deposit  | Alice | NULL | Exercise 5 |
-|  Standalone withdrawal (Pool theft) | NULL | Alice | Exercise 6 |
-|  Unmatched swap (Trader theft) | Bob  | Alice | Exercise 7 |
 
 In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). In practice, a possible reason is that Alice regrets the trade when the deposit is made and wants to undo it.
 
@@ -159,6 +167,18 @@ Extend your pool SC from the previous exercises to allow Alice to revert a swap 
 | Init state  | 1 | 0 | 0 |
 | `A.approve(C,1)` | 1 | 0 | 1 |
 | `A.rollback()` | 1 | 0 | 0 |
+
+
+<!--
+
+The exercises so far (from 1 to 4) consider the normal scenarios. Starting from this exercise, we will consider a series of abnormal or security-oriented cases where Alice deviates from the normal cases, as shown in the following table.
+
+| Case | tx1 | tx2 | Solution |
+| --- | --- | --- | --- |
+|  Normal case | Alice | Alice | Exercise 1-4 |
+|  Standalone deposit  | Alice | NULL | Exercise 5 |
+|  Standalone withdrawal (Pool theft) | NULL | Alice | Exercise 6 |
+|  Unmatched swap (Trader theft) | Bob  | Alice | Exercise 7 |
 
 
 Exercise 6. Security Hardening against Pool Theft
@@ -187,6 +207,8 @@ A sophisticated attacker can try to insert a withdrawal call (`swapXY`) in betwe
 Design a defense against the above theft attack and implement it in your pool SC.
 
 Hint: Consider delegating EOA traders' actions to a separate smart contract (i.e., the router SC design in Uniswap V2).
+
+-->
 
 Deliverable
 ---
