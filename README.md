@@ -2,7 +2,7 @@
 *BADD* Labs: *B*lockchain *A*nd *D*app *D*evelopment Labs
 ===
 
-Learning objectives
+Learning Objectives
 ---
 
 - Application development skills on Ethereum.
@@ -17,7 +17,7 @@ In particular,  through our labs, you will gain hands-on experience on the follo
 Category A: Blockchain Basics
 ---
 
-- **Lab A1. Transaction exploration** [[link](labs/A1/README.md)] [[Chinese version](labs/A1/README-Zh.md)]
+- **Lab A1. Transaction exploration** [[link](labs/A1/README.md)] 
 - **Lab A2. Smart-contract programming** [[link](labs/A2/README.md)]
 - Lab A3. Blockchain mining [[link](labs/A3/README.md)]
  
@@ -29,12 +29,22 @@ Category B: DeFi
 - Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 - Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
 
-BADD Labs in the news
+BADD Labs in the News
 ---
 
 - The labs were used in "CIS/FIN629: Blockchain Foundations and Applications", a cross-listed course for graduate computer science students and finance students at Syracuse University (2018-2022).
 - Our labs are featured in blockchain education in ASEE 2022.
 - Our labs are featured in the NSF blockchain-education workshop 2022.
+
+BADD Labs in other Languages
+---
+
+We aim to bring BADD Labs to the International community and will translate it into different languages.
+
+- Lab A1. Transaction exploration [[Chinese version](labs/A1/README-Zh.md)]
+
+If you are willing to help translate BADD Labs to your language, contact us (tristartom@gmail.com).
+
 
 <!--
 
