@@ -17,7 +17,7 @@ In particular,  through our labs, you will gain hands-on experience on the follo
 Category A: Blockchain Basics
 ---
 
-- **Lab A1. Transaction exploration** [[link](labs/A1/README.md)]
+- **Lab A1. Transaction exploration** [[link](labs/A1/README.md)] [[Chinese version](labs/A1/README-Zh.md)]
 - **Lab A2. Smart-contract programming** [[link](labs/A2/README.md)]
 - Lab A3. Blockchain mining [[link](labs/A3/README.md)]
  
