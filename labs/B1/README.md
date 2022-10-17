@@ -4,11 +4,11 @@ Lab B1: AMM DEX ("Build-your-own-Uniswap" Lab)
 Introduction
 ---
 
-In today's DEX market, Uniswap V2 is the most popular service at all-time. The DEX market distribution on Ethereum can be seen in the following screenshot from https://etherscan.io/stat/dextracker.
+In today's DEX market, Uniswap is the most popular service at all-time. The DEX market distribution on Ethereum can be seen in the following screenshot from https://etherscan.io/stat/dextracker.
 
 ![DEX market](dex-market-uniswapv2.png)
 
-In this lab, you will write smart contracts to implement your own version of Uniswap V2. Uniswap adopts the automated market maker (AMM) protocol in which a trader trades directly with a smart-contract intermediary called pool. This is unlike other DEX designs like order books. Besides Uniswap V2, AMM is also adopted in other popular services, including Uniswap V3, Sushiswap, Pancakeswap, etc.
+In this lab, you will write smart contracts to implement your own version of Uniswap V3. Uniswap adopts the automated market maker (AMM) protocol in which a trader trades directly with a smart-contract intermediary called pool. This is unlike other DEX designs like order books. Besides Uniswap V3, AMM is also adopted in other popular services, including Uniswap V2, Sushiswap, Pancakeswap, etc.
 
 We provide companion slides to introduce more background on AMM: https://www.dropbox.com/s/8749eybqaw67afd/3.DeFi-LabB1.pdf?dl=0
 
@@ -160,13 +160,13 @@ Exercise 6. Refund Lost Tokens upon Standalone Withdrawal
 
 In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). In practice, a possible reason is that Alice regrets the trade when the deposit is made and wants to undo it.
 
-Extend your pool SC from the previous exercises to allow Alice to revert a swap already in progress. You may want to implement a function in the AMM pool, say `rollback()`. After Step 1 and calling `rollback()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
+Extend your pool SC from the previous exercises to allow Alice to revert a swap already in progress. You may want to implement a function in the AMM pool, say `refund()`. After Step 1 and calling `refund()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
 
 | Calls | `balanceOf(A)` | `balanceOf(P)` | `allowance(A,P)` | 
 | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 0 |
 | `A.approve(C,1)` | 1 | 0 | 1 |
-| `A.rollback()` | 1 | 0 | 0 |
+| `A.refund()` | 1 | 0 | 0 |
 
 
 <!--
