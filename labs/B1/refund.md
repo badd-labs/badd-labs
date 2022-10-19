@@ -8,7 +8,7 @@ Design the argument list of function `undo_transfer()` and implement the functio
 We will grade your solution with the following test case:
 
 | Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | 
-| --- | --- | --- | --- |
+| --- | --- | --- | 
 | Init state  | 1 | 0 | 
 | `A.transfer(P,1)` | 0 | 1 |
 | `A.undo_transfer(...)` | 1 | 0 |
