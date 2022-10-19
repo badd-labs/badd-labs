@@ -21,7 +21,7 @@ We provide companion slides to introduce more background on AMM: https://www.dro
 |  5  | 40 | Required | Bonus |
 |  6  | 20 | Required | Bonus |
 
-Exercise 7 is not graded.
+For your interest, we also provide a challenge exercise 7 on this [[page](refund.md)]. Exercise 7 will not be graded and we will not provide solutions as it can be open-ended. 
 
 Exercise 1. Execute ERC20 token transfer
 ---
@@ -172,10 +172,6 @@ Extend your pool SC from the previous exercises to support undo `approve` and to
 | `A.approve(P,1)` | 1 | 0 | 1 |
 | `A.undo_approve()` | 1 | 0 | 0 |
 
-Exercise 7 (Challenge exercise) Undo `transfer` upon Misissued Deposit
----
-
-Read the challenge exercise from this [[page](refund.md)].
 
 <!--
 

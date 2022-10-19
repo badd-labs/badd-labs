@@ -1,7 +1,7 @@
-Exercise 7 (Challenge question). Undo `transfer` upon Misissued Deposit
+Exercise 7 (Challenge). Undo `transfer` upon Mis-issued Deposit
 ---
 
-Suppose Alice calls `transfer` function in `TokenX` SC and then realizes `transfer` is unsupported in our AMM protocol. Alice may want to undo this misissued deposit (i.e., `transfer`). Extend your pool SC with function `undo_transfer`, so that Alice can call `undo_transfer` to request the refund of the mis-deposited tokens. 
+Suppose Alice calls `transfer` function in `TokenX` SC and then realizes `transfer` is unsupported in our AMM protocol. Alice may want to undo this mis-issued deposit (i.e., `transfer`). Extend your pool SC with function `undo_transfer`, so that Alice can call `undo_transfer` to request the token refund from the mis-issued deposit. 
 
 Design the argument list of function `undo_transfer()` and implement the function in the Pool SC. 
 
