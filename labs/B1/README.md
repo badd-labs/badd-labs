@@ -175,7 +175,7 @@ Extend your pool SC from the previous exercises to support undo `approve` and to
 Exercise 7 (Challenge exercise) Undo `transfer` upon Misissued Deposit
 ---
 
-Read the challenge exercise from this [[page](labs/B1/refund.md)].
+Read the challenge exercise from this [[page](refund.md)].
 
 <!--
 
