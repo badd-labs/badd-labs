@@ -128,7 +128,7 @@ Now consider a thief `Bob` who inserts withdrawal (i.e., `swapXY` call) without 
 | Init state    | 1 | 0 | 0 | 0 | 2 |
 | `B.swapXY(1)` | 1 | 0 | 0 | 0 | 2 |
 
-Second, a thief `Bob` observes another account say `Alice`'s deposit and sends his withdrawal transaction to be ordered before her withdrawal transaction (an adverserial behavior called frontrunning attacks). Demonstrate your solution in Exercise 3 will produce the following test result (with security against frontrunning). You may or may not need update your solution in Exercise 3.
+Second, a thief `Bob` observes another account say `Alice`'s deposit and sends his withdrawal transaction to be ordered before her withdrawal transaction (an adversarial behavior called frontrunning attacks). Demonstrate your solution in Exercise 3 will produce the following test result (with security against frontrunning). You may or may not need update your solution in Exercise 3.
 
 | Calls | `X.balanceOf(A)` | `X.balanceOf(B)` | `X.balanceOf(P)` | `X.allowance(B,P)` | `Y.balanceOf(A)` | `Y.balanceOf(B)` | `Y.balanceOf(P)` |
 | --- | --- | --- | --- | ---- | --- | --- | --- |
@@ -154,22 +154,26 @@ We will test your solution using the following test case:
 | Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
 | --- | --- | --- | --- | ---- | --- |
 | Init state  | 1 | 1 | 0 | 0 | 4 |
-| `A.approve(C,1)` | 1 | 1 | 1 | 0 | 4 |
+| `A.approve(P,1)` | 1 | 1 | 1 | 0 | 4 |
 | `A.swapXY(1)` | 0 | 2 | 0 | 2 | 2 |
 
-Exercise 6. Refund Lost Tokens upon Standalone Withdrawal 
+Exercise 6. Undo `approve` upon Standalone Deposit 
 ---
 
-In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). In practice, a possible reason is that Alice regrets the trade when the deposit is made and wants to undo it.
+In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). This is possibly due to that Alice changes her mind after the deposit and wants to undo it.
 
-Extend your pool SC from the previous exercises to allow Alice to revert a swap already in progress. You may want to implement a function in the AMM pool, say `refund()`. After Step 1 and calling `refund()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
+Extend your pool SC from the previous exercises to support undo `approve` and to revert a trade-in-progress. You may want to implement a function in the AMM pool, say `undo_approve()`. After Step 1 and calling `refund()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
 
-| Calls | `balanceOf(A)` | `balanceOf(P)` | `allowance(A,P)` | 
+| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | 
 | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 0 |
-| `A.approve(C,1)` | 1 | 0 | 1 |
-| `A.refund()` | 1 | 0 | 0 |
+| `A.approve(P,1)` | 1 | 0 | 1 |
+| `A.undo_approve()` | 1 | 0 | 0 |
 
+Exercise 7 (Challenge question). Undo `transfer` upon Misissued Deposit
+---
+
+[./refund.md [Question]]
 
 <!--
 
@@ -186,7 +190,7 @@ The exercises so far (from 1 to 4) consider the normal scenarios. Starting from 
 Exercise 6. Security Hardening against Pool Theft
 ---
 
-Consider an Alice who called `swapXY` (the Withdrawal step) but did not call `approve` (the Deposit step). In practice, this behavior can be due to Alice being an adversarial user who wants to steal tokens from the pool.
+Consider Alice who called `swapXY` (the Withdrawal step) but did not call `approve` (the Deposit step). In practice, this behavior can be due to Alice being an adversarial user who wants to steal tokens from the pool.
 
 Extend your pool SC from the previous exercises to defend the pool against theft. Specifically, a standalone call to the `swapXY` without `approve` does not transfer any tokens. That is (`P` is the Pool CA):
 
