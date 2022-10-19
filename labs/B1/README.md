@@ -14,12 +14,14 @@ We provide companion slides to introduce more background on AMM: https://www.dro
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-|  1  | 10 |  Required | Required |
-|  2  | 20 | Required | Bonus |
-|  3  | 30 | Required | Bonus |
-|  4  | 40 | Bonus | Bonus |
-|  5  | 20 | Required | Bonus |
+|  1  | 10 | Required | Required |
+|  2  | 20 | Required | Required |
+|  3  | 40 | Required | Required |
+|  4  | 40 | Bonus    | Bonus |
+|  5  | 40 | Required | Bonus |
 |  6  | 20 | Required | Bonus |
+
+Exercise 7 is not graded.
 
 Exercise 1. Execute ERC20 token transfer
 ---
@@ -170,10 +172,10 @@ Extend your pool SC from the previous exercises to support undo `approve` and to
 | `A.approve(P,1)` | 1 | 0 | 1 |
 | `A.undo_approve()` | 1 | 0 | 0 |
 
-Exercise 7 (Challenge question). Undo `transfer` upon Misissued Deposit
+Exercise 7 (Challenge exercise) Undo `transfer` upon Misissued Deposit
 ---
 
-[./refund.md [Question]]
+Read the challenge exercise from this [[page](labs/B1/refund.md)].
 
 <!--
 
