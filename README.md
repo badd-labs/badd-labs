@@ -49,6 +49,10 @@ We aim to bring BADD Labs to the International community and will translate it i
 
 If you are willing to help translate BADD Labs to your language, contact us (tristartom@gmail.com).
 
+Acknowledgement
+---
+
+Developement of BADD labs is supported by NSF grant award (SaTC:EDU, award number 2104532) [[link](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2104532&HistoricalAwards=false)] . We are grateful for NSF's support.
 
 <!--
 
