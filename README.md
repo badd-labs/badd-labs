@@ -36,7 +36,7 @@ Category B: DeFi
 BADD Labs in the News
 ---
 
-- The labs were used in "CIS/FIN629: Blockchain Foundations and Applications", a cross-listed course for graduate computer science students and finance students at Syracuse University (2018-2022).
+- The labs were used in "CIS/FIN629: Blockchain Foundations and Applications", a cross-listed course for graduate computer science students and finance students at Syracuse University (2018-2022) [[Course website](https://tristartom.github.io/teaching/22f-fin600/index.html)].
 - Our labs are featured in blockchain education in ASEE 2022.
 - Our labs are featured in the NSF blockchain-education workshop 2022.
 
