@@ -87,7 +87,8 @@ In this exercise, you can consider that $dy/dx = 2$. Implement the AMM smart con
 ```
 pragma solidity >=0.7.0 <0.9.0; 
 contract AMM {
-  BaddToken tokenX, tokenY;
+  BaddToken tokenX;
+  BaddToken tokenY;
   // _tokenX and _tokenY are contract-addresses running BaddToken SC
   constructor(address _tokenX, address _tokenY){
     tokenX = BaddToken(_tokenX); tokenY = BaddToken(_tokenY);
