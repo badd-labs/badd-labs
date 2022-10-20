@@ -132,7 +132,7 @@ Now consider a thief `Bob` who inserts withdrawal (i.e., `swapXY` call) without 
 
 Second, a thief `Bob` observes another account say `Alice`'s deposit and sends his withdrawal transaction to be ordered before her withdrawal transaction (an adversarial behavior called frontrunning attacks). Demonstrate your solution in Exercise 3 will produce the following test result (with security against frontrunning). You may or may not need update your solution in Exercise 3.
 
-| Calls | `X.balanceOf(A)` | `X.balanceOf(B)` | `X.balanceOf(P)` | `X.allowance(B,P)` | `Y.balanceOf(A)` | `Y.balanceOf(B)` | `Y.balanceOf(P)` |
+| Calls | `X.balanceOf(A)` | `X.balanceOf(B)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(B)` | `Y.balanceOf(P)` |
 | --- | --- | --- | --- | ---- | --- | --- | --- |
 | Init state        | 1 | 0 | 0 | 0 | 0 | 0 | 2 | 
 | `A.approve(P,1)`  | 1 | 0 | 0 | 1 | 0 | 0 | 2 |
