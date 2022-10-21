@@ -73,6 +73,8 @@ Deploy the extended `BaddToken` SC in Remix. We use the following table to test/
 | `A.approve(C,1)` | 1 | 0 | 1 |
 | `C.transferFrom(A,B,1)` | 0 | 1 | 0 |
 
+Hint: You can use nested mapping to store the allowance information.
+
 Exercise 3. AMM Design with Fixed Rate
 ---
 
@@ -165,7 +167,7 @@ Exercise 6. Undo `approve` upon Standalone Deposit
 
 In Exercise 5, consider an Alice who called `approve` function (the Deposit step) but did not call `swapXY` (the Withdrawal step). This is possibly due to that Alice changes her mind after the deposit and wants to undo it.
 
-Extend your pool SC from the previous exercises to support undo `approve` and to revert a trade-in-progress. You may want to implement a function in the AMM pool, say `undo_approve()`. After Step 1 and calling `refund()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
+Extend your pool SC from the previous exercises to support undo `approve` and to revert a trade-in-progress. You may want to implement a function in the AMM pool, say `undo_approve()`. After Step 1 and calling `undo_approve()`, Alice will have her original balance in `TokenX` and zero allowance to the pool. That is (`P` is the Pool CA):
 
 | Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | 
 | --- | --- | --- | --- |
@@ -173,47 +175,6 @@ Extend your pool SC from the previous exercises to support undo `approve` and to
 | `A.approve(P,1)` | 1 | 0 | 1 |
 | `A.undo_approve()` | 1 | 0 | 0 |
 
-
-<!--
-
-The exercises so far (from 1 to 4) consider the normal scenarios. Starting from this exercise, we will consider a series of abnormal or security-oriented cases where Alice deviates from the normal cases, as shown in the following table.
-
-| Case | tx1 | tx2 | Solution |
-| --- | --- | --- | --- |
-|  Normal case | Alice | Alice | Exercise 1-4 |
-|  Standalone deposit  | Alice | NULL | Exercise 5 |
-|  Standalone withdrawal (Pool theft) | NULL | Alice | Exercise 6 |
-|  Unmatched swap (Trader theft) | Bob  | Alice | Exercise 7 |
-
-
-Exercise 6. Security Hardening against Pool Theft
----
-
-Consider Alice who called `swapXY` (the Withdrawal step) but did not call `approve` (the Deposit step). In practice, this behavior can be due to Alice being an adversarial user who wants to steal tokens from the pool.
-
-Extend your pool SC from the previous exercises to defend the pool against theft. Specifically, a standalone call to the `swapXY` without `approve` does not transfer any tokens. That is (`P` is the Pool CA):
-
-
-| Calls | `X.balanceOf(A)` | `X.balanceOf(P)` | `X.allowance(A,P)` | `Y.balanceOf(A)` | `Y.balanceOf(P)` |
-| --- | --- | --- | --- | ---- | --- |
-| Init state  | 1 | 0 | 0 | 0 | 2 |
-| `A.swapXY(1)` | 1 | 0 | 0 | 0 | 2 |
-
-To do so, you may want to make the pool SC track all swaps in progress (i.e., the swap that did deposit but did not finish withdrawal), so that an attempt to withdraw when there are no other ongoing swaps will be declined. 
-
-Hint: Your pool SC can make a copy of the token balance so that an ongoing swap will appear as a difference between the balance in the token SC and the copy of the balance in the pool SC.
-
-
-Exercise 7 (Bonus). Security Hardening against Trader Theft
----
-
-A sophisticated attacker can try to insert a withdrawal call (`swapXY`) in between a benign user’s deposit and withdrawal to steal his tokens. For example, consider that an attacker Alice who observes that benign user Bob’s deposit (`approve`) issues the call of `swapXY` to withdraw Bob’s token. 
-
-Design a defense against the above theft attack and implement it in your pool SC.
-
-Hint: Consider delegating EOA traders' actions to a separate smart contract (i.e., the router SC design in Uniswap V2).
-
--->
 
 Deliverable
 ---
