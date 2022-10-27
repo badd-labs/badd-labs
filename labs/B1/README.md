@@ -88,7 +88,7 @@ In this exercise, you can consider that $dy/dx = 2$. Implement the AMM smart con
 
 ```
 pragma solidity >=0.7.0 <0.9.0; 
-contract AMM {
+contract AMMPool {
   BaddToken tokenX;
   BaddToken tokenY;
   // _tokenX and _tokenY are contract-addresses running BaddToken SC
@@ -104,7 +104,7 @@ contract AMM {
 
 You can follow the workflow to execute your code.
 
-- Write and compile a `Pool` smart contract.
+- Implement the above `AMMPool` smart contract by filling the function bodies.
 - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
 - Deploy `Pool` smart contract with `TokenX` and `TokenY`.
 - Execute the smart contracts in two steps: 
@@ -112,6 +112,8 @@ You can follow the workflow to execute your code.
     2. call `Pool`'s `swapXY` function
 
 - Hint: You need to ensure your account has enough tokens for both `TokenX` and `TokenY`. 
+- Hint 2: If a SC needs to reference itself, you can use `address(this)`.
+
 
 We will test your pool SC using the following test cases. `P` is the Pool CA, `X` is `TokenX` and `Y` is `TokenY`.
 
