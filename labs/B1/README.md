@@ -106,7 +106,7 @@ You can follow the workflow to execute your code.
 
 - Implement the above `AMMPool` smart contract by filling the function bodies.
 - Deploy `BaddToken` smart contract twice, respectively to two contract addresses, say `TokenX` and `TokenY`.
-- Deploy `Pool` smart contract with `TokenX` and `TokenY`.
+- Deploy `AMMPool` smart contract to create the `Pool` account.
 - Execute the smart contracts in two steps: 
     1. call `TokenX`'s `approve` function
     2. call `Pool`'s `swapXY` function
