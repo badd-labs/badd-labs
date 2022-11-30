@@ -4,12 +4,18 @@ Lab B2: DEX security: Arbitrage
 Introduction
 ---
 
-In traditional finance, arbitrage is defined as the purchase and sale of the same asset in different markets in order to profit from differences in exchange rate. The same attack applies to decentralized exchanges (DEXes), where an attacker trades with two DEX pools and exercise buy-low-sell-high strategy. 
+In traditional finance, arbitrage is a behavior to buy and sell the same asset in different markets in order to profit from different exchange rates. The same behavior applies to decentralized exchanges (DEXes), where a trader trades with two DEX pools and exercises buy-low-sell-high strategy. 
 
-In this lab you will pretend to be both the attacker and defender taking steps to exploit an arbitrage opportunity and to prevent it from happening.
+In this lab you will pretend to be both the trader hunting for the illicit profit and the DEX designer taking steps to defend DEX pools against arbitrage opportunities.
+
+| Tasks | Points | CS student | Finance student |
+| --- | --- | --- | --- |
+|  1  | 30 | Required | Required |
+|  2  | 30 | Required | Bonus |
 
 Exercise 1. Arbitrage attacks on AMM pools
 ---
+
 
 Let's assume there are two DEXes, Ottoswap and Cuseswap. Ottoswap was willing to trade 10 `TokenX` per `TokenY` and Cuseswap was willing to trade 5 `TokenX` per `TokenY`. Attacker Alice could buy 10 `TokenX` for 1 `TokenY` from Ottoswap and then trade 10 `TokenX` for 2 `TokenY` on Cuseswap yielding a 1 `TokenY` profit. 
 
@@ -32,6 +38,15 @@ Instructions:
 - Deploy your arbitrage SC.
 - Call the arbitrage SC against the `CP-AMM`.
 - In your lab report, include the profit extracted from the above call.
+
+| Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PO)` | `Y.bal(PO)` | `X.bal(PC)` | `Y.bal(PC)` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
+| arbitrage  | 2 | 0 | 1 | 3 | 2 | 2 |
+
+swap1: `[M,X].approve(PO,1)`, `[M,Y].approve(PC,1)`, `[M,R].arbitrage()`
+
+
 
 Exercise 2. Arbitrage mitigation by routing swaps
 ---
