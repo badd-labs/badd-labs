@@ -80,5 +80,6 @@ Deliverable
 ---
 
 1. For all exercises, you should submit screenshots showing your contract executing the described workflow successfully.
- 
+    - If you fail to submit smart-contract code (in `.sol` file), your submission will be subject to up to 70% grade deduction. 
 2. Submit your solidity smart contracts for each task. 
+   - If you fail to submit the screenshots of the program execution, your submission will be subject to up to 50% grade deduction.
