@@ -40,11 +40,11 @@ Instructions:
 - In your lab report, include the profit extracted from the above call.
 
 | Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PO)` | `Y.bal(PO)` | `X.bal(PC)` | `Y.bal(PC)` |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
-| arbitrage  | 2 | 0 | 1 | 3 | 2 | 2 |
+| `[M,X].approve(PO,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[M,R].arbitrage()` | 2 | 0 | 1 | 3 | 2 | 2 |
 
-swap1: `[M,X].approve(PO,1)`, `[M,Y].approve(PC,1)`, `[M,R].arbitrage()`
 
 
 
