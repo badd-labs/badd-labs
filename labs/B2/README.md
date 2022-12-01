@@ -80,17 +80,6 @@ xV\*yV&=&(xV+dxV)(yV-dyV)\\
 \end{eqnarray}
 $$
 
-
-It derives: 
-
-$$
-\begin{eqnarray}
-dxU&=&\frac{Z(xV+dx)-xU}{Z+1} \\
-dxV&=&\frac{xU+dx-Z*xV}{Z+1} \\
-Z&=&\sqrt{\frac{xU*yU}{xV*yV}} \\
-\end{eqnarray}
-$$
-
 ![AMM design diagram](lab-amm-abitrage-defense.jpg)
 
 In this exercise, you will implement a `ReRouter` SC with the following function signature. The system architecture is depicted in the figure above.
