@@ -11,7 +11,7 @@ In this lab you will pretend to be both the trader hunting for the illicit profi
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
 |  1  | 40 | Required | Required |
-|  2  | 20 | Required | Bonus |
+|  2  | 30 | Required | Bonus |
 
 Exercise 1. Attacking AMM by arbitrage
 ---
