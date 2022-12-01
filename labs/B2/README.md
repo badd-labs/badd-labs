@@ -16,37 +16,48 @@ In this lab you will pretend to be both the trader hunting for the illicit profi
 Exercise 1. Arbitrage attacks on AMM pools
 ---
 
+Suppose there are two DEX pools, OttoSwap and CuseSwap, each of which maintains the same tokens, `TokenX` and TokenY. For instance, OttoSwap stores $3$ units of `TokenX` and $1$ units of `TokenY`. CuseSwap stores $1$ units of `TokenX` and $4$ units of `TokenY`.
 
-Let's assume there are two DEXes, Ottoswap and Cuseswap. Ottoswap was willing to trade 10 `TokenX` per `TokenY` and Cuseswap was willing to trade 5 `TokenX` per `TokenY`. Attacker Alice could buy 10 `TokenX` for 1 `TokenY` from Ottoswap and then trade 10 `TokenX` for 2 `TokenY` on Cuseswap yielding a 1 `TokenY` profit. 
+An adversary, Malloy, can conduct an arbitrage across the two pools to extract positive profit. For instance, Malloy can swap $1$ `TokenX` for $dy$ units of `TokenY` on CuseSwap. Through the constant product function, we can have $dy=2$. Malloy can then swap $2$ `TokenY` for $dx$ units of `TokenX` on OttoSwap. Again, through the constant product function, we can obtain $dx=2$. Thus, after these two swaps, Malloy can extract a profit of $dx-1=1$ unit of `TokenX`.
 
-While Alice can do the two trades in two separate transactions, Alice may  face the risk of failing one transaction and losing value. In practice, attackers commonly deploy a smart contract to send the two trade transactions atomically in order to guarantee the attack success and profitability. 
+In practice, while Malloy can carry out the two swap calls in two separate transactions, there is a risk of one transaction succeeding and the other failing. In that case, Malloy may miss the timing/opportunity of extracting positive profit. Thus, Malloy wants to run the two swaps in a delegated smart contract. The system architecture is depicted in the figure below.
 
 ![AMM design diagram](lab-amm-abitrage.jpg)
 
-Your job is to create an arbitrage smart contract that collects the arbitrage profit. The setting is shown in the above diagram, including the two token contracts, `TokenX` and `TokenY`, and their exchange rates on the two DEXes (Ottoswap and Cuseswap). 
+In this exercise, you are required to implement the delegated smart contract `ArbiAtomic` to support atomic arbitrage and  extract positive profit. Contract `ArbiAtomic` supports a series of functions as follows. Malloy calling function `arbitrageUVXY(uint amount)` will invoke Pool `PU`’s `swapXY(amount)` to do the first swap before invoking swap on the other Pool `PV`. 
 
-Your arbitrage smart contract should invoke Ottoswap's swap function to trade `TokenY` for `TokenX` and then invoke Cuseswap's swap function to trade `TokenX` for `TokenY`. Your arbitrage smart contract should print its initial balance and the balance in the end.
+```
+pragma solidity >=0.7.0 <0.9.0; 
+contract ArbiAtomic {
+  AMMPool poolU; AMMPool poolV;
+  constructor(address _ poolU, address _ poolV){
+   poolU = AMMPool(_ poolU); tokenY = AMMPool(_ poolV);
+  }
 
-In this exercise, you will be given the code of a CP-AMM (constant product) smart contract and run your arbitrage smart contract against the AMM. You will need to show the profit extracted by the arbitrage.
+  function arbitrageUVXY(uint amount) public payable {
+   // fill out the following with your code
+  } 
+}
+```
 
-Instructions:
+You will be given the smart-contract code implementing a constant product AMM (`CPAMM`) and a `BaddToken` supporting `approve/transferFrom`. 
+Note that in the above code snippet, we reuse the same interface of AMMPool as defined in Lab B1 [[link](labs/B1/README.md)].
+
+Your code will be tested using the test case and running the instructions below:
 
 - Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
-- Deploy the given `CP-AMM` SC twice to create instances of `Ottoswap` and `Cuseswap`; each instance is against both `TokenY` and `TokenX`.
-   - Make sure `Ottoswap` initially has 10 `TokenY` and 5 `TokenX`.
-   - Make sure `Cuseswap` initially has 15 `TokenY` and 15 `TokenX`.
-- Deploy your arbitrage SC.
-- Call the arbitrage SC against the `CP-AMM`.
-- In your lab report, include the profit extracted from the above call.
+- Deploy the given `CPAMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
+   - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 3 `TokenX` and 1 `TokenY`.
+- Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `R`.
+- Let an EOA `M` call `TokenX`’s function `approve(PV,1)`.
+- Let the EOA `M` call `R`’s function `arbitrage(1)`.
+- The expected outcome regarding different accounts’ balances is in the following test-case table.
 
-| Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PO)` | `Y.bal(PO)` | `X.bal(PC)` | `Y.bal(PC)` |
+| Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[M,X].approve(PO,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[M,R].arbitrage()` | 2 | 0 | 1 | 3 | 2 | 2 |
-
-
-
+| `[M,X].approve(PV,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[M,R].arbitrage(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
 
 Exercise 2. Arbitrage mitigation by routing swaps
 ---
