@@ -140,3 +140,4 @@ Deliverable
     - If you fail to submit smart-contract code (in `.sol` file), your submission will be subject to up to 70% grade deduction. 
 2. Submit your solidity smart contracts for each task. 
    - If you fail to submit the screenshots of the program execution, your submission will be subject to up to 50% grade deduction.
+3. For Exercise 2, submit the test-case values (the ones marked with `?` in the table).
