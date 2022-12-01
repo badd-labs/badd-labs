@@ -16,7 +16,7 @@ In this lab you will pretend to be both the trader hunting for the illicit profi
 Exercise 1. Attacking AMM by arbitrage
 ---
 
-Suppose there are two DEX pools, OttoSwap and CuseSwap, each of which maintains the same tokens, `TokenX` and TokenY. For instance, OttoSwap stores $3$ units of `TokenX` and $1$ units of `TokenY`. CuseSwap stores $1$ units of `TokenX` and $4$ units of `TokenY`.
+Suppose there are two DEX pools, OttoSwap and CuseSwap, each of which maintains the same tokens, `TokenX` and `TokenY`. For instance, OttoSwap stores $3$ units of `TokenX` and $1$ units of `TokenY`. CuseSwap stores $1$ units of `TokenX` and $4$ units of `TokenY`.
 
 An adversary, Malloy, can conduct an arbitrage across the two pools to extract positive profit. For instance, Malloy can swap $1$ `TokenX` for $dy$ units of `TokenY` on CuseSwap. Through the constant product function, we can have $dy=2$. Malloy can then swap $2$ `TokenY` for $dx$ units of `TokenX` on OttoSwap. Again, through the constant product function, we can obtain $dx=2$. Thus, after these two swaps, Malloy can extract a profit of $dx-1=1$ unit of `TokenX`.
 
@@ -64,7 +64,7 @@ In the above table, `[M,X].approve(PV,1)` means EOA `M` externally calls `TokenX
 Exercise 2. Defending AMM against arbitrage
 ---
 
-The cause of arbitrage is the price differences across multiple AMM pools. To mitigate arbitrage, one can “reroute” swap requests to reduce or remove the price differences.
+The cause of arbitrage is the price differences across multiple AMM pools. To mitigate arbitrage, one can “reroute” swap requests to reduce or eliminate the price differences.
 
 Consider the example with two pools where OttoSwap's pool `PU` has $xU$ / $yU$ units of `TokenX` / `TokenY`. CuseSwap's pool `PV` has $xV$ / $yV$ units of `TokenX` / `TokenY`. Initially, the exchange rates at the two pools are different.
 
