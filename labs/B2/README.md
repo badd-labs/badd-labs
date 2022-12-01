@@ -56,7 +56,6 @@ Your code will be tested using the test case and running the instructions below:
 | Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[M,X].approve(PV,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
 | `[M,AA].arbitrage(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
 
 In the above table, `[M,X].approve(PV,1)` means EOA `M` externally calls `TokenX`'s function `approve()` with arguments `PV` and `1`.
@@ -75,7 +74,6 @@ In general, how to split a swap can be modeled as a constraint-solving problem:
 $$
 \begin{eqnarray}
 dxU+dxV&=&dx \\
-xU/yU&=&xV/yV\\
 xU\*yU&=&(xU+dxU)(yU-dyU)\\
 xV\*yV&=&(xV+dxV)(yV-dyV)\\
 (xU+dxU)/(yU-dyU)&=&(xV+dxV)/(yV-dyV)\\
@@ -124,8 +122,6 @@ Your code will be tested using the test case and running the instructions below:
 | Calls | `X.bal(A)` | `Y.bal(A)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 3 | 0 | 1 | 4 | 1 | 9 |
-| `[A,X].approve(PU,?dxU)` | 3 | 0 | 1 | 4 | 1 | 9 |
-| `[A,X].approve(PV,?dxV)` | 3 | 0 | 1 | 4 | 1 | 9 |
 | `[A,R].rerouteUVXY(?dxU,?dxV)` | 0 | ? | 1+?dxU | ? | 1+?dxV | ? |
 
 You will need to figure out what values variables `?dxU` and `?dxV` should take, so that the end state after call `[A,R].rerouteUVXY(?dxU,?dxV)` meets the following two conditions: 
