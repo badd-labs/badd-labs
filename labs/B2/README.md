@@ -115,7 +115,7 @@ Your code will be tested using the test case and running the instructions below:
 | Calls | `X.bal(A)` | `Y.bal(A)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 3 | 0 | 1 | 4 | 1 | 9 |
-| `[A,X].transfer(R,dx)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[A,X].transfer(R,dx)` | 3 | 0 | 1 | 4 | 1 | 9 |
 | `[A,R].rerouteUVXY(?dxU,?dxV)` | 0 | ? | 1+?dxU | ? | 1+?dxV | ? |
 
 You will need to figure out what values variables `?dxU` and `?dxV` should take, so that the end state after call `[A,R].rerouteUVXY(?dxU,?dxV)` meets the following two conditions: 
