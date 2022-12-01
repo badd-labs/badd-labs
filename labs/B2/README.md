@@ -40,13 +40,13 @@ contract ArbiAtomic {
 }
 ```
 
-You will be given the smart-contract code implementing a constant product AMM (`CPAMM`) and a `BaddToken` supporting `approve/transferFrom`. 
+You will be given the smart-contract code implementing a constant product AMM (`CPMM`) and a `BaddToken` supporting `approve/transferFrom`. 
 Note that in the above code snippet, we reuse the same interface of AMMPool as defined in Lab B1 [[link](labs/B1/README.md)].
 
 Your code will be tested using the test case and running the instructions below:
 
 - Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
-- Deploy the given `CPAMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
+- Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `AA`.
 - Let an EOA `M` call `TokenX`'s function `approve(PV,1)`.
@@ -114,7 +114,7 @@ contract ReRouter {
 Your code will be tested using the test case and running the instructions below:
 
 - Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
-- Deploy the given `CPAMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
+- Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ReRouter` SC against Pools `PU` and `PV`. The deployed SC is denoted by `R`.
 - Let an EOA `A` call `TokenX`'s function `approve(PV,1)`.
@@ -141,3 +141,5 @@ Deliverable
 2. Submit your solidity smart contracts for each task. 
    - If you fail to submit the screenshots of the program execution, your submission will be subject to up to 50% grade deduction.
 3. For Exercise 2, submit the test-case values (the ones marked with `?` in the table).
+
+
