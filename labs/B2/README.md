@@ -31,7 +31,7 @@ pragma solidity >=0.7.0 <0.9.0;
 contract ArbiAtomic {
   AMMPool poolU; AMMPool poolV;
   constructor(address _ poolU, address _ poolV){
-   poolU = AMMPool(_ poolU); tokenY = AMMPool(_ poolV);
+   poolU = AMMPool(_ poolU); poolV = AMMPool(_ poolV);
   }
 
   function arbitrageUVXY(uint dx) public payable {
@@ -100,7 +100,7 @@ pragma solidity >=0.7.0 <0.9.0;
 contract ReRouter {
   AMMPool poolU; AMMPool poolV;
   constructor(address _ poolU, address _ poolV){
-   poolU = AMMPool(_ poolU); tokenY = AMMPool(_ poolV);
+   poolU = AMMPool(_ poolU); poolV = AMMPool(_ poolV);
   }
 
   function rerouteUVXY(uint dxU, uint dxV) public payable {
