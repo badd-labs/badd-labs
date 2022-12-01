@@ -30,8 +30,8 @@ In this exercise, you are required to implement the delegated smart contract `Ar
 pragma solidity >=0.7.0 <0.9.0; 
 contract ArbiAtomic {
   AMMPool poolU; AMMPool poolV;
-  constructor(address _ poolU, address _ poolV){
-   poolU = AMMPool(_ poolU); poolV = AMMPool(_ poolV);
+  constructor(address _poolU, address _poolV){
+   poolU = AMMPool(_poolU); poolV = AMMPool(_poolV);
   }
 
   function arbitrageUVXY(uint dx) public payable {
@@ -89,8 +89,8 @@ In this exercise, you will implement a `ReRouter` SC with the following function
 pragma solidity >=0.7.0 <0.9.0; 
 contract ReRouter {
   AMMPool poolU; AMMPool poolV;
-  constructor(address _ poolU, address _ poolV){
-   poolU = AMMPool(_ poolU); poolV = AMMPool(_ poolV);
+  constructor(address _poolU, address _poolV){
+   poolU = AMMPool(_poolU); poolV = AMMPool(_poolV);
   }
 
   function rerouteUVXY(uint dxU, uint dxV) public payable {
