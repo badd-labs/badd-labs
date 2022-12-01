@@ -122,8 +122,9 @@ Your code will be tested using the test case and running the instructions below:
 | Calls | `X.bal(A)` | `Y.bal(A)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[A,X].approve(PV,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[A,R].rerouteUVXY(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
+| `[A,X].approve(PU,dxU)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[A,X].approve(PV,dxV)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[A,R].rerouteUVXY(dxU,dxV)` | 2 | 0 | 1 | 3 | 2 | 2 |
 
 
 Deliverable
