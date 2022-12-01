@@ -59,6 +59,8 @@ Your code will be tested using the test case and running the instructions below:
 | `[M,X].approve(PV,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
 | `[M,AA].arbitrage(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
 
+In the above table, `[M,X].approve(PV,1)` means EOA `M` externally calls `TokenX`'s function `approve()` with arguments `PV` and `1`.
+
 Exercise 2. Defending AMM against arbitrage
 ---
 
@@ -93,7 +95,7 @@ $$
 
 ![AMM design diagram](lab-amm-abitrage-defense.jpg)
 
-In this exercise, you will implement a `ReRouter` SC with the following function signature, The system architecture is depicted in the figure above.
+In this exercise, you will implement a `ReRouter` SC with the following function signature. The system architecture is depicted in the figure above.
 
 ```
 pragma solidity >=0.7.0 <0.9.0; 
@@ -122,10 +124,14 @@ Your code will be tested using the test case and running the instructions below:
 | Calls | `X.bal(A)` | `Y.bal(A)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[A,X].approve(PU,dxU)` | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[A,X].approve(PV,dxV)` | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[A,R].rerouteUVXY(dxU,dxV)` | 2 | 0 | 1 | 3 | 2 | 2 |
+| `[A,X].approve(PU,?dxU)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[A,X].approve(PV,?dxV)` | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[A,R].rerouteUVXY(?dxU,?dxV)` | 0 | ? | ? | ? | ? | ? |
 
+You will need to figure out what values the variables marked with `?` (question mark) in the above table should take, so that the end state after call `[A,R].rerouteUVXY(?dxU,?dxV)` meets the following two conditions: 
+- The exchange rates of pools `PU` and `PV` are the same.
+- EOA `A` has swapped out all `TokenX` she has, leaving balance to be `X.bal(A)=0`.
+ 
 
 Deliverable
 ---
