@@ -41,7 +41,7 @@ contract ArbiAtomic {
 ```
 
 You will be given the smart-contract code implementing a constant product AMM (`CPMM`) and a `BaddToken` supporting `approve/transferFrom`. 
-Note that in the above code snippet, we reuse the same interface of AMMPool as defined in Lab B1 [[link](labs/B1/README.md)].
+Note that in the above code snippet, we reuse the same interface of AMMPool as defined in Lab B1 [[link](../B1/README.md)].
 
 Your code will be tested using the test case and running the instructions below:
 
@@ -49,16 +49,17 @@ Your code will be tested using the test case and running the instructions below:
 - Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `AA`.
-- Let an EOA `M` call `TokenX`'s function `approve(PV,1)`.
+- Let an EOA `M` call `TokenX`'s function `transfer(PV,1)`.
 - Let the EOA `M` call `AA`'s function `arbitrage(1)`.
 - The expected outcome regarding different accounts' balances is in the following test-case table.
 
 | Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
+| `[M,X].transfer(AA,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
 | `[M,AA].arbitrage(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
 
-In the above table, `[M,X].approve(PV,1)` means EOA `M` externally calls `TokenX`'s function `approve()` with arguments `PV` and `1`.
+In the above table, `[M,X].transfer(PV,1)` means EOA `M` externally calls `TokenX`'s function `transfer()` with arguments `PV` and `1`.
 
 Exercise 2. Defending AMM against arbitrage
 ---
@@ -104,13 +105,14 @@ Your code will be tested using the test case and running the instructions below:
 - Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 1 `TokenX` and 9 `TokenY`.
 - Deploy your implemented `ReRouter` SC against Pools `PU` and `PV`. The deployed SC is denoted by `R`.
-- Let an EOA `A` call `TokenX`'s function `approve(PV,?dxU)`.
+- Let an EOA `A` call `TokenX`'s function `transfer(PV,?dxU)`.
 - Let the EOA `A` call `R`'s function `rerouteUVXY(?dxU,?dxV)`.
 - The expected outcome regarding different accounts' balances is in the following test-case table.
 
 | Calls | `X.bal(A)` | `Y.bal(A)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 3 | 0 | 1 | 4 | 1 | 9 |
+| `[A,X].transfer(R,dx)` | 1 | 0 | 3 | 1 | 1 | 4 |
 | `[A,R].rerouteUVXY(?dxU,?dxV)` | 0 | ? | 1+?dxU | ? | 1+?dxV | ? |
 
 You will need to figure out what values variables `?dxU` and `?dxV` should take, so that the end state after call `[A,R].rerouteUVXY(?dxU,?dxV)` meets the following two conditions: 
