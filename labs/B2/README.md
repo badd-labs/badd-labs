@@ -43,21 +43,24 @@ contract ArbiAtomic {
 You will be given the smart-contract code implementing a constant product AMM (`CPMM`) and a `BaddToken` supporting `approve/transferFrom`. 
 Note that in the above code snippet, we reuse the same interface of AMMPool as defined in Lab B1 [[link](../B1/README.md)].
 
-Your code will be tested using the test case and running the instructions below:
+Your code will be tested using the test case and running the instructions below. Your code implemented inside `arbitrageUVXY()` function neds to return the profit, that is, the number of extract `TokenX` Malloy earn by arbitrage.
 
 - Deploy `BaddToken` SC twice to create instances of `TokenY` and `TokenX`.
 - Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
-   - Make sure Pool `PU` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PV` initially has 3 `TokenX` and 1 `TokenY`.
+   - Make sure Pool `PV` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PU` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `AA`.
 - Let an EOA `M` call `TokenX`'s function `transfer(PV,1)`.
 - Let the EOA `M` call `AA`'s function `arbitrage(1)`.
+    - Your code of function `arbitrageUVXY()` should return the value of $1$.
 - The expected outcome regarding different accounts' balances is in the following test-case table.
 
 | Calls | `X.bal(M)` | `Y.bal(M)` | `X.bal(PU)` | `Y.bal(PU)` | `X.bal(PV)` | `Y.bal(PV)` |
 | --- | --- | --- | --- | --- | --- | --- |
 | Init state  | 1 | 0 | 3 | 1 | 1 | 4 |
 | `[M,X].transfer(AA,1)` | 1 | 0 | 3 | 1 | 1 | 4 |
-| `[M,AA].arbitrage(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
+| `[M,AA].arbitrageUVXY(1)` | 2 | 0 | 1 | 3 | 2 | 2 |
+
+
 
 In the above table, `[M,X].transfer(PV,1)` means EOA `M` externally calls `TokenX`'s function `transfer()` with arguments `PV` and `1`.
 
