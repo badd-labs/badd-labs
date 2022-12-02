@@ -49,7 +49,7 @@ Your code will be tested using the test case and running the instructions below.
 - Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PV` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PU` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `AA`.
-- Let an EOA `M` call `TokenX`'s function `transfer(PV,1)`.
+- Let an EOA `M` call `TokenX`'s function `transfer(AA,1)`.
 - Let the EOA `M` call `AA`'s function `arbitrage(1)`.
     - Your code of function `arbitrageUVXY()` should return the value of $1$.
 - The expected outcome regarding different accounts' balances is in the following test-case table.
@@ -62,7 +62,7 @@ Your code will be tested using the test case and running the instructions below.
 
 
 
-In the above table, `[M,X].transfer(PV,1)` means EOA `M` externally calls `TokenX`'s function `transfer()` with arguments `PV` and `1`.
+In the above table, `[M,X].transfer(AA,1)` means EOA `M` externally calls `TokenX`'s function `transfer()` with arguments `AA` and `1`.
 
 Exercise 2. Defending AMM against arbitrage
 ---
