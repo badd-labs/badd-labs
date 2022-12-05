@@ -34,7 +34,7 @@ contract ArbiAtomic {
    poolU = AMMPool(_poolU); poolV = AMMPool(_poolV);
   }
 
-  function arbitrageUVXY(uint dx) public payable {
+  function arbitrageUVXY(uint dx) returns (uint) public payable {
    // fill out the following with your code
   } 
 }
@@ -49,8 +49,8 @@ Your code will be tested using the test case and running the instructions below.
 - Deploy the given `CPMM` SC twice to create instances of `PU` and `PV`; each instance is linked to both `TokenY` and `TokenX`.
    - Make sure Pool `PV` initially has 1 `TokenX` and 4 `TokenY`, and Pool `PU` initially has 3 `TokenX` and 1 `TokenY`.
 - Deploy your implemented `ArbiAtomic` SC against Pools `PU` and `PV`. The deployed SC is denoted by `AA`.
-- Let an EOA `M` call `TokenX`'s function `transfer(PV,1)`.
-- Let the EOA `M` call `AA`'s function `arbitrage(1)`.
+- Let an EOA `M` call `TokenX`'s function `transfer(AA,1)`.
+- Let the EOA `M` call `AA`'s function `arbitrageUVXY(1)`.
     - Your code of function `arbitrageUVXY()` should return the value of $1$.
 - The expected outcome regarding different accounts' balances is in the following test-case table.
 
