@@ -8,6 +8,10 @@ Reentrancy attack is the primary attack vector exploited in the 2016 DAO attack,
 \
 In this lab, we provided a bank SC with a vulneralbility of reentrancy, you need to implement a reentrancy attacker SC to exhaust the bank's fund using this vulnerability.
 
+| Tasks | Points | CS student | Finance student |
+| --- | --- | --- | --- |
+|  1  | 100 | Required | Required |
+
 ## Exercise 1: Write an reentrancy attack SC
 
 ### Flawed bank SC source code
