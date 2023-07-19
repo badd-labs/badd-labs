@@ -44,6 +44,8 @@ contract SendToFallback {
 }
 ```
 
+- Run the above two smart contracts in Remix and report the execution screenshot.
+
 Exercise 2. Implement a Reentrancy Attack contract
 ---
 
@@ -66,6 +68,8 @@ contract FlawedBank {
   }
 }
 ```
+
+- Implement a smart contract A and deploy it with "FlawedBank" contract to mount a reentrancy attack to deplete the money in the FlowedBank contract.
 
 Exercise 3. Implement a reentrancy-secured Bank contract
 ---
