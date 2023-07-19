@@ -1,85 +1,76 @@
 # Lab B5: Reentrancy Attack
 
-## Introduction
-
-A reentrancy attack involves a victim smart contract A and an attacker smart contract B.\
-In the attack, A calls B to execute, which further calls A (or re-enters A); hence reentrancy attack.\
-Reentrancy attack is the primary attack vector exploited in the 2016 DAO attack, causing $150 million loss and leading to the ETC/Ethereum classic hard fork.\
-\
-In this lab, we provided a bank SC with a vulneralbility of reentrancy, you need to implement a reentrancy attacker SC to exhaust the bank's fund using this vulnerability.
+In a reentrancy attack, a malicious contract A interacts with a victim bank contact B to deplete the money B stores on behalf of A and other users. In this task, you will be given a vulnerable bank contract B and be required to implement a reentrancy attack contract A (Exercise 2). You will also rewrite the bank contract to B’ such that B’ is secured against reentrancy attack A (Exercise 3). Fallback is a unique function in Solidity and is a key primitive to enable reentrancy attack. You will run a given fallback contract to understand this primitive (Exercise 1).
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-|  1  | 100 | Required | Required |
+| 1 | 20 | Required | Bonus |
+| 2 | 40 | Required | Bonus |
+| 3 | 40 | Required | Bonus |
 
-## Exercise 1: Write an reentrancy attack SC
+Exercise 1. Execute contract with fallback
+---
 
-### Flawed bank SC source code
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.15;
+
+pragma solidity ^0.8.17;
+
+contract Fallback {
+  event Log(string func, uint gas);
+  fallback() external payable {
+    emit Log("fallback", gasleft());
+  }
+
+  receive() external payable {
+    emit Log("receive", gasleft());
+  }
+
+  function getBalance() public view returns (uint) {
+    return address(this).balance;
+  }
+}
+
+contract SendToFallback {
+  function transferToFallback(address payable _to) public payable {
+    _to.transfer(msg.value);
+  }
+
+  function callFallback(address payable _to) public payable {
+    (bool sent, ) = _to.call{value: msg.value}("");
+    require(sent, "Failed to send Ether");
+  }
+}
+```
+
+Exercise 2. Implement a Reentrancy Attack contract
+---
+
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
 contract FlawedBank {
 
-    mapping(address => uint256) public balances;
+  mapping(address => uint256) public balances;
 
-    function deposit() public payable {
-        balances[msg.sender] += msg.value;
-    }
+  function deposit() public payable {
+    balances[msg.sender] += msg.value;
+  }
 
-    function withdrawBalance() public {
-        (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
-        require(result);
-        balances[msg.sender] = 0;
-    }
+  function withdrawBalance() public {
+    (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
+    require(result);
+    balances[msg.sender] = 0;
+  }
 }
 ```
-### Reentrancy attack SC framework
-```
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.15;
 
-contract Reentrancy {
-    address private _bankAddr;
+Exercise 3. Implement a reentrancy-secured Bank contract
+---
 
-    constructor (address bankAddr) {
-    
-    }
-
-    function depositToBank() external payable {
-    
-    }
-
-    function withdrawFromBank() public {
-    
-    }
-
-    receive() external payable {
-
-    }
-}
-```
-### Requirement
-
-Implement the reentrancy attack with the provided framework.
-
-### Expected Result
-
-Assume `FlawedBank` SC is depolyed to the blockchain and `Reentrancy` SC is depolyed to blockchain with constructor parameters `(FlawedBankAddress)`.\
-Suppose `Alice` deposits 2 ether to the bank, and `Bob` is the attacker tries to exploit the vulnerability of the bank to conduct an reentrancy attack and exhausts the bank's deposit.\
-The following tx sequence is one of the scenarios of the attack.
-
-| Sequence | From | To | Function | Args | Expected result
-| --- | --- | --- | --- | --- | ---
-|  1  | Alice | FlawedBank | deposit() | msg.value=2 ether | void
-|  2  | Bob | Reentrancy | depositToBank() | msg.value=1 ether | void
-|  3  | Any | FlawedBank | balances() | Reentrancy | 1 ether
-|  4  | Any | FlawedBank | balances() | Alice | 2 ether
-|  5  | Bob | Reentrancy | withdrawFromBank() | void | void
-|  6  | Any | FlawedBank | balances() | Alice | 0
-|  7  | Any | FlawedBank | balances() | Reentrancy | 0
-
-After making all txs above, the ether balance of Reentrancy SC should be 3.
+- Rewrite or revise the "FlawedBank" contract to secure it against the reentrancy attack you implemented through Exercise 2.
 
 ## Deliverable
 
