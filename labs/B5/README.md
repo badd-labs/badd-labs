@@ -12,19 +12,12 @@ Exercise 1. Execute contract with fallback
 ---
 
 ```
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-pragma solidity ^0.8.17;
-
-contract Fallback {
+contract FallbackReceiver {
   event Log(string func, uint gas);
   fallback() external payable {
     emit Log("fallback", gasleft());
-  }
-
-  receive() external payable {
-    emit Log("receive", gasleft());
   }
 
   function getBalance() public view returns (uint) {
@@ -32,28 +25,23 @@ contract Fallback {
   }
 }
 
-contract SendToFallback {
-  function transferToFallback(address payable _to) public payable {
-    _to.transfer(msg.value);
-  }
-
-  function callFallback(address payable _to) public payable {
+contract FallbackSender {
+  function call(address payable _to) public payable {
     (bool sent, ) = _to.call{value: msg.value}("");
     require(sent, "Failed to send Ether");
   }
 }
 ```
 
-- Run the above two smart contracts in Remix and report the execution screenshot.
+- Deploy and run the above two smart contracts in Remix and report the execution screenshot.
 
 Exercise 2. Implement a Reentrancy Attack contract
 ---
 
 ```
-// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.15;
 
-contract FlawedBank {
+contract BankRE {
 
   mapping(address => uint256) public balances;
 
@@ -61,21 +49,23 @@ contract FlawedBank {
     balances[msg.sender] += msg.value;
   }
 
-  function withdrawBalance() public {
+  function withdraw() public {
     (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
-    require(result);
     balances[msg.sender] = 0;
   }
 }
 ```
 
-- Implement a smart contract A and deploy it with "FlawedBank" contract to mount a reentrancy attack to deplete the money in the FlowedBank contract.
+- Implement an attack smart contract, `AttackerRE` and deploy it with the `BankRE` contract to mount a successful reentrancy attack to deplete the money in the `BankRE` contract. The attack is successful if attacker `AttackerRE` can deplete any `BankRE`'s Ether, as in the following test case:
+    - Use an EOA account `C` to deposit Ether to `BankRE`, that is, `[C, BankRE].deposit()`
+    - Deploy Contract `AttackerRE` to address `A` and initialize it with `BankRE`'s address.
+    - Mount the reentrancy attack by calling the `attack()` function in `AttackerRE`, that is, `[A, AttackerRE].attack()`
 
 Exercise 3. Implement a reentrancy-secured Bank contract
 ---
 
-- Rewrite or revise the "FlawedBank" contract to secure it against the reentrancy attack you implemented through Exercise 2.
-
+- Revise the `BankRE` contract to a new one, say `BankSafe`, so that running the reentrancy attack (as implemented by Exercise 2 in Contract `AttackerRE`) against `BankSafe` would fail.
+  
 ## Deliverable
 
-1. For exercise 1, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a .sol file in plaintext format.
+- Submit your Solidity code and the screenshot that runs the code on your computer for all exercises. The Solidity code needs to be stored in a `.sol` file in the plaintext format.
