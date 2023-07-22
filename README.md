@@ -34,8 +34,6 @@ Category B: DeFi & Security
 - Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
 -->
 
-Categort
-
 BADD Labs in the News
 ---
 
