@@ -1,6 +1,6 @@
 # Lab B5: Reentrancy Attack
 
-In a reentrancy attack, a malicious contract A interacts with a victim bank contact B to deplete the money B stores on behalf of A and other users. In this task, you will be given a vulnerable bank contract B and be required to implement a reentrancy attack contract A (Exercise 2). You will also rewrite the bank contract to B’ such that B’ is secured against reentrancy attack A (Exercise 3). Fallback is a unique function in Solidity and is a key primitive to enable reentrancy attack. You will run a given fallback contract to understand this primitive (Exercise 1).
+In a reentrancy (RE) attack, a malicious contract A interacts with a victim bank contact B to deplete the money B stores on behalf of A and other users. In this task, you will be given a vulnerable bank contract B and be required to implement a reentrancy attack contract A (Exercise 2). You will also rewrite the bank contract to B’ such that B’ is secured against reentrancy attack A (Exercise 3). Fallback is a unique function in Solidity and is a key primitive to enable reentrancy attack. You will run a given fallback contract to understand this primitive (Exercise 1).
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
@@ -17,23 +17,18 @@ pragma solidity ^0.8.15;
 contract FallbackReceiver {
   event Log(string func, uint gas);
   fallback() external payable {
-    emit Log("fallback", gasleft());
-  }
+    emit Log("fallback", gasleft());}
 
   function getBalance() public view returns (uint) {
-    return address(this).balance;
-  }
-}
+    return address(this).balance;}}
 
 contract FallbackSender {
   function call(address payable _to) public payable {
     (bool sent, ) = _to.call{value: msg.value}("");
-    require(sent, "Failed to send Ether");
-  }
-}
+    require(sent, "Failed to send Ether");}}
 ```
 
-- Deploy and run the above two smart contracts in Remix and report the execution screenshot.
+- Deploy and run the above two smart contracts in Remix. Suppose `FallbackReceiver` is deployed at address `R`. Then run `FallbackSender.call(R)` and report the execution screenshot.
 
 Exercise 2. Implement a Reentrancy Attack contract
 ---
