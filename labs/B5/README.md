@@ -42,18 +42,15 @@ Exercise 2. Implement a Reentrancy Attack contract
 pragma solidity ^0.8.15;
 
 contract BankRE {
-
   mapping(address => uint256) public balances;
 
   function deposit() public payable {
-    balances[msg.sender] += msg.value;
-  }
+    balances[msg.sender] += msg.value;}
 
   function withdraw() public {
+    require(balances[msg.sender] != 0);
     (bool result, ) = msg.sender.call{value: balances[msg.sender]}("");
-    balances[msg.sender] = 0;
-  }
-}
+    balances[msg.sender] = 0; }}
 ```
 
 - Implement an attack smart contract, `AttackerRE` and deploy it with the `BankRE` contract to mount a successful reentrancy attack to deplete the money in the `BankRE` contract. The attack is successful if attacker `AttackerRE` can deplete any `BankRE`'s Ether, as in the following test case:
