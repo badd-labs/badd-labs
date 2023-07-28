@@ -1,12 +1,13 @@
-# Lab B5: Reentrancy Attack
+ # Lab B5: Reentrancy Attacks and Defenses
 
 In a reentrancy (RE) attack, a malicious contract A interacts with a victim bank contact B to deplete the money B stores on behalf of A and other users. In this task, you will be given a vulnerable bank contract B and be required to implement a reentrancy attack contract A (Exercise 2). You will also rewrite the bank contract to B’ such that B’ is secured against reentrancy attack A (Exercise 3). Fallback is a unique function in Solidity and is a key primitive to enable reentrancy attack. You will run a given fallback contract to understand this primitive (Exercise 1).
 
 | Tasks | Points | CS student | Finance student |
 | --- | --- | --- | --- |
-| 1 | 20 | Required | Bonus |
+| 1 | 10 | Required | Required |
 | 2 | 40 | Required | Bonus |
-| 3 | 40 | Required | Bonus |
+| 3 | 30 | Required | Bonus |
+| 4 | 20 | Bonus. | Bonus |
 
 Exercise 1. Execute contract with fallback
 ---
@@ -53,10 +54,16 @@ contract BankRE {
     - Deploy Contract `AttackerRE` to address `A` and initialize it with `BankRE`'s address.
     - Mount the reentrancy attack by calling the `attack()` function in `AttackerRE`, that is, `[A, AttackerRE].attack()`
 
-Exercise 3. Implement a reentrancy-secured Bank contract
+Exercise 3.  Design a Reentrancy Defense with Implementation In Secure Bank
 ---
 
 - Revise the `BankRE` contract to a new one, say `BankSafe`, so that running the reentrancy attack (as implemented by Exercise 2 in Contract `AttackerRE`) against `BankSafe` would fail.
+
+
+Exercise 4.  Design More Reentrancy Defenses 
+---
+
+- Design one or more defenses against reentrancy attacks other than the one you implemented in Exercise 3. Implement the new defenses in more bank contracts.  
   
 ## Deliverable
 
