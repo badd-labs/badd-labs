@@ -62,10 +62,10 @@ Exercise 3.  Design Reentrancy Defense with Implementation In Secure Bank
 - Design one or multiple defenses against reentrancy attacks in `BankRE` contract in Exercise 2.
 - Implement your new defenses in a new bank contract, say `BankSafe`, so that running the reentrancy attack (as implemented by Exercise 2 in Contract `AttackerRE`) against `BankSafe` would fail.
 
-Exercise 4. Reentrancy Attack with Lock Evasion
+Exercise 4. Evasive Reentrancy Attack to Bypass Locks
 ---
 
-Locking access to Ether-transfer instructions that may cause reentrance is a possible defense against reentrance attack. The following smart contract implementing an Ether bank on a Pegged Token does use a lock to prevent the reentrance of `burn()` function. However, the seemingly fixed contract is still vulnerable to the reentrancy attack in a general sense. Design attack contracts to attack the `EtherBankPeggedToken` smart contract, so that 1) an attacker EOA can withdraw more than his account balance, and 2) an attacker EOA can deplete the Ether balance of the `EtherBankPeggedToken` contract, that is, the balance of all accounts in the contract.
+Locking the access to Ether-transfer instructions that may cause reentrance is a widely adopted defense strategy against reentrance attacks. The following smart contract implementing an Ether bank on a Pegged Token does use a lock to prevent the reentrance of the `burn()` function. However, the seemingly fixed contract is still vulnerable to the reentrancy attack in a general sense. Design attack contracts to attack the `EtherBankPeggedToken` smart contract so that 1) an attacker EOA can withdraw more than his account balance, and 2) an attacker EOA can deplete the Ether balance of the `EtherBankPeggedToken` contract, that is, the balance of all accounts in the contract.
 
 - The re-entered function does not have to be the same as the function it first entered.
 
