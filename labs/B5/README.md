@@ -7,7 +7,8 @@ In a reentrancy (RE) attack, a malicious contract A interacts with a victim bank
 | 1 | 10 | Required | Required |
 | 2 | 40 | Required | Bonus |
 | 3 | 30 | Required | Bonus |
-| 4 | 20 | Bonus. | Bonus |
+| 4 | 20 | Bonus | Bonus |
+| 5 | 10 | Bonus | Bonus |
 
 Exercise 1. Execute contract with fallback
 ---
@@ -54,16 +55,54 @@ contract BankRE {
     - Deploy Contract `AttackerRE` to address `A` and initialize it with `BankRE`'s address.
     - Mount the reentrancy attack by calling the `attack()` function in `AttackerRE`, that is, `[A, AttackerRE].attack()`
 
-Exercise 3.  Design a Reentrancy Defense with Implementation In Secure Bank
+Exercise 3.  Design Reentrancy Defense with Implementation In Secure Bank
 ---
 
-- Revise the `BankRE` contract to a new one, say `BankSafe`, so that running the reentrancy attack (as implemented by Exercise 2 in Contract `AttackerRE`) against `BankSafe` would fail.
 
+- Design one or multiple defenses against reentrancy attacks in `BankRE` contract in Exercise 2.
+- Implement your new defenses in a new bank contract, say `BankSafe`, so that running the reentrancy attack (as implemented by Exercise 2 in Contract `AttackerRE`) against `BankSafe` would fail.
 
-Exercise 4.  Design More Reentrancy Defenses 
+Exercise 4. Reentrancy Attack with Lock Evasion
 ---
 
-- Design one or more defenses against reentrancy attacks other than the one you implemented in Exercise 3. Implement the new defenses in more bank contracts.  
+Locking access to Ether-transfer instructions that may cause reentrance is a possible defense against reentrance attack. The following smart contract implementing an Ether bank on a Pegged Token does use a lock to prevent the reentrance of `burn()` function. However, the seemingly fixed contract is still vulnerable to the reentrancy attack in a general sense. Design attack contracts to attack the `EtherBankPeggedToken` smart contract, so that 1) an attacker EOA can withdraw more than his account balance, and 2) an attacker EOA can deplete the Ether balance of the `EtherBankPeggedToken` contract, that is, the balance of all accounts in the contract.
+
+- The re-entered function does not have to be the same as the function it first entered.
+
+```
+contract EtherBankPeggedToken {
+  mapping(address => uint256) balance;
+  mapping(address => bool) lock;
+  mapping(address => mapping(address => uint256)) allowance;
+
+modifier checkLock { // reentrancy locking
+  require(lock[msg.sender] == false); _; }
+
+function approve(address other, uint256 amnt){ 
+  allowance[msg.sender][other] += amnt; }
+
+function transferFrom(address from, uint256 amnt) checkLock {
+  require(balance[from] >= amnt);
+  require(allowance[from][msg.sender] >= amnt);
+  balance[from] -= amnt;
+  allowance[from][msg.sender] -= amnt;
+  balance[msg.sender] += amnt; }
+
+function burn() checkLock {
+  // set lock
+  lock[msg.sender] = true;
+  msg.sender.call{value: balance[msg.sender]}("");
+  // release lock
+  lock[msg.sender] = false;
+  balance[msg.sender] = 0; }
+}
+```
+
+Exercise 5. Fixing Reentrancy Attack with Lock Evasion
+---
+
+- Design one or multiple defenses against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
+
   
 ## Deliverable
 
