@@ -78,8 +78,8 @@ contract EtherBankPeggedToken {
 modifier checkLock { // reentrancy locking
   require(lock[msg.sender] == false); _; }
 
-function deposit(uint256 amnt) external payable {
-  balance[msg.sender] += amnt;
+function deposit() external payable {
+  balance[msg.sender] += msg.value;
 }
 
 function approve(address other, uint256 amnt) external { 
