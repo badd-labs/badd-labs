@@ -7,8 +7,8 @@ In blockchain, zkproof can run between an offchain prover holding a certain secr
 
 In this lab, we will program a series of privacy-sensitive statements and run zkproof provided by zokrates .
 
-Exercise 1: Run given helloworld zk program
- - - -
+Exercise 1: Run helloworld zk program
+---
 
 Install [[ZoKrates](https://zokrates.github.io/gettingstarted.html)] from source:
 
@@ -52,7 +52,7 @@ zokrates export-verifier
 
 After executing `zokrates export-verifier`, you will find a `verifier.sol` generated, deploy it to Remix IDE.
 
-Write a transaction to verify your proof in Remix.
+Inspect the `verifier.sol` file and send a transaction to verify the zokrates-generated proof in Remix.
 
 - Hints 1: add ZoKrates to PATH as suggested 
     ```bash
@@ -63,7 +63,7 @@ Write a transaction to verify your proof in Remix.
     proof: [[a[0],a[1]], [[b[0][0],b[0][1]],[b[1][0],b[1][1]]], [c[0],c[1]]]
     ```
 
-Exercise 2. Prove Your Age to Others
+Exercise 2. Prove Your Age 
 ---
 
 In this exercise, we simulate a scenario where you are a prover who tries to prove that your age is bigger than a given number(21, in this case). You will submit your proof to a smart contract deployed by a verifier, while your age is not included in the proof. 
@@ -92,7 +92,7 @@ Hint:
     >>> wget -O proving.key https://github.com/ZhouYuxuan97/zk-demo/blob/main/proving.key?raw=true
     ```
 
-Exercise 3. Prove Your Knowledge of a Hash Preimage 
+Exercise 3. Prove Your Knowledge of Hash Preimage 
 ---
 
 In this exercise, we simulate a scenario where Alice tries to prove she knows a hash preimage for a digest chosen by Bob. Similarly, the preimage wouldn’t be revealed when Bob verifies the proof.
