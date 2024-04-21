@@ -27,12 +27,12 @@ Category B: DeFi & Security
 ---
 
 - *Lab B1. AMM DEX ("Build-your-own-Uniswap" lab)* [[link](labs/B1/README.md)]
-- *Lab B2. DEX security under arbitrage attacks* [[link](labs/B2/README.md)]
+- *Lab B2. DEX economic security under arbitrage* [[link](labs/B2/README.md)]
 - *Lab B5. Reentrancy attacks and mitigation* [[link](labs/B5/README.md)]
-- *Lab B6. ZK proofs and applications [[link](labs/B6/README.md)]
+- *Lab B6. ZK proofs and applications* [[link](labs/B6/README.md)]
 <!--
 - Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
-- Lab B4. DEX security: Sandwich [[link](labs/B4/README.md)]
+- Lab B4. DEX economic security under sandwich attacks [[link](labs/B4/README.md)]
 -->
 
 BADD Labs in the News
