@@ -35,19 +35,26 @@ def main(private field a, field b) {
 }
 ```
 
-Run the following commands in a single terminal:
+Run the following commands in a terminal. Here, we consider three parties, Alice the prover, Bob the verifier on blockchain, Charlie the trusted party to set up.
 
 ```bash
-# compile
+# Charlie performs the following:
+# 1. compile
 zokrates compile -i root.zok
-# perform the setup phase
+# 2. perform the setup phase
 zokrates setup
-# execute the program where 337 is a and 113569 is b
-zokrates compute-witness -a 337 113569
-# generate a proof of computation
-zokrates generate-proof
-# export a solidity verifier
+# 3. export a solidity verifier 
 zokrates export-verifier
+# 4. deploy verifier.sol to blockchain
+
+# Alice
+# 5. execute the program where 337 is a and 113569 is b
+zokrates compute-witness -a 337 113569
+# 6. generate a proof of computation
+zokrates generate-proof
+
+# Bob
+# 7. get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
 ```
 
 After executing `zokrates export-verifier`, you will find a `verifier.sol` generated, deploy it to Remix IDE.
