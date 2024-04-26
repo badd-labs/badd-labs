@@ -7,7 +7,7 @@ In blockchain, zkproof can run between an offchain prover holding a certain secr
 
 In this lab, we will program a series of privacy-sensitive statements and run zkproof provided by zokrates .
 
-Exercise 1: Run helloworld zk program
+Exercise 1: Helloworld ZK program and Setup
 ---
 
 Install [[ZoKrates](https://zokrates.github.io/gettingstarted.html)] from source:
@@ -29,8 +29,8 @@ curl -LSfs get.zokrat.es | sh
 Create a file `root.zok` by copying the following content:
 
 ```
-def main(private field a, field b) {
-    assert(a * a == b);
+def main(private field X, field Y) {
+    assert(X * X == Y);
     return;
 }
 ```
@@ -48,7 +48,7 @@ zokrates export-verifier
 # 4. deploy verifier.sol to blockchain (Bob), also sends proving.key to Alice
 
 # Alice
-# 5. execute the program where 337 is a and 113569 is b
+# 5. execute the program where 337 is X and 113569 is Y
 zokrates compute-witness -a 337 113569
 # 6. generate a proof of computation (using proving.key)
 zokrates generate-proof
@@ -76,8 +76,14 @@ Exercise 2. Prove Your Age
 
 Imagine an online liquor store selling wine and requiring proof of age from customers. Consider David, the liquor store, Alice, a customer, and Bob the blockchain. Alice generates zero-knowledge proof of her age verifiable on-chain. David observes the verification result from Bob on-chain and can proceed to sell the wine in Alice's cart.
 
-Implement the proof of age program and run the above procedure.
+Complete the following program to implement the ZK proof-of-age. Then, test and run your ZK program in the setup from Exercise 1.
 
+```
+def main(private field age, field min_age) {
+    // implement your proof below
+    return;
+}
+```
 
 <!--
 
