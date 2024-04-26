@@ -29,7 +29,8 @@ Category B: DeFi & Security
 - Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 - *Lab B5. Reentrancy attacks and mitigation* [[link](labs/B5/README.md)]
 - *Lab B6. ZK proofs and applications* [[link](labs/B6/README.md)]
-<--
+
+<!--
 - Lab B4. DEX economic security under sandwich attacks [[link](labs/B4/README.md)]
 -->
 
