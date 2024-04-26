@@ -35,7 +35,7 @@ def main(private field a, field b) {
 }
 ```
 
-Run the following commands in a terminal. Here, we consider three parties, Alice the prover, Bob the verifier on blockchain, Charlie the trusted party to set up.
+Run the following commands in a terminal. Here, we consider three parties, Alice the prover, Bob the verifier on blockchain, Charlie the trusted party to set up the platform.
 
 ```bash
 # Charlie performs the following:
@@ -65,7 +65,7 @@ Inspect the `verifier.sol` file and send a transaction to verify the zokrates-ge
     ```bash
     >>> export PATH=$PATH:/YOUR DIR/.zokrates/bin
     ```
-- Hint 2: You can find the a, b, c, and input values required for verifier.verifyTx() in generated `proof.json` file, the format should be like these(for example):
+- Hint 2: You can find `a`, `b`, `c`, and input values required for `verifier.verifyTx()` in generated `proof.json` file, which follows the format below:
     ```python
     proof: [[a[0],a[1]], [[b[0][0],b[0][1]],[b[1][0],b[1][1]]], [c[0],c[1]]]
     ```
@@ -73,9 +73,17 @@ Inspect the `verifier.sol` file and send a transaction to verify the zokrates-ge
 Exercise 2. Prove Your Age 
 ---
 
+Imagine an online liquor store selling wine and requiring proof of age from customers. Consider David, the liquor store, Alice, a customer, and Bob the blockchain. Alice generates zero-knowledge proof of her age verifiable on-chain. David observes the verification result from Bob on-chain and can proceed to sell the wine in Alice's cart.
+
+Implement the proof of age program and run the above procedure.
+
+
+<!--
+
+
 In this exercise, we simulate a scenario where you are a prover who tries to prove that your age is bigger than a given number(21, in this case). You will submit your proof to a smart contract deployed by a verifier, while your age is not included in the proof. 
 
-You should use a common .zok [file](https://github.com/ZhouYuxuan97/zk-demo/blob/main/comp.zok) to compile, and use a given setup([proving.key](https://github.com/ZhouYuxuan97/zk-demo/blob/main/proving.key)) to replace the command of `zokrates setup`. 
+You should use a common .zok [file](https://github.com/ZhouYuxuan97/zk-demo/blob/main/comp.zok) to compile, and use a given setup ([proving.key](https://github.com/ZhouYuxuan97/zk-demo/blob/main/proving.key)) to replace the command of `zokrates setup`. 
 
 Using the given [verifier.sol](https://github.com/ZhouYuxuan97/zk-demo/blob/main/verifier.sol) smart contract to Remix IDE and put your proof arguments to `verifyTx` function. 
 
@@ -98,6 +106,29 @@ Hint:
     ```bash
     >>> wget -O proving.key https://github.com/ZhouYuxuan97/zk-demo/blob/main/proving.key?raw=true
     ```
+-->
+
+Exercise 3. Prove Your Knowledge of Hash Preimage 
+---
+
+A more common way of using zk-proof is to prove the knowledge of a hash preimage. That is, given hash $y=H(x)$, Alice tries to prove to Bob that she knows the preimage $x$ under the hash digest $y$, without revealing $x$ to Bob.
+
+Complete the following template program to implement the zk-proof of knowledge of hash preimage.
+
+```
+import "hashes/sha256/512bitPacked" as sha256packed;
+
+def main(private field a, private field b, private field c, private field d) -> field[2] {
+    field[2] h = sha256packed([a, b, c, d]);
+//implement your code below
+
+    return h;
+}
+```
+
+The first line imports the `sha256packed` function from the `ZoKrates` standard library.
+
+<!--
 
 Exercise 3. Prove Your Knowledge of Hash Preimage 
 ---
@@ -138,4 +169,7 @@ Deliverable
 3. For all exercises, you should submit the screenshots of what files remain in your folder; the screenshots of the terminal showing what commands are executed and their outputs; the screenshots of your contract executing inputs and results in Remix IDE.
 4. For all exercises, copy your code in `.zok` files and proofs in `proof.json` to the pdf submission.
 5. For Exercise 3, create two folders called `Alice` and `Bob` individually, follow the instructions and understand the scenario(difference in roles' duties), and submit the screenshots of what files remain in `Alice` and `Bob` folders.
+
+-->
+
 
