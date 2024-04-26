@@ -41,20 +41,21 @@ Run the following commands in a terminal. Here, we consider three parties, Alice
 # Charlie performs the following:
 # 1. compile
 zokrates compile -i root.zok
-# 2. perform the setup phase
+# 2. perform the setup phase; it generates a pair of keys: proving.key and verify.key in the current folder.
 zokrates setup
-# 3. export a solidity verifier 
+# 3. export a solidity verifier including verify.key
 zokrates export-verifier
-# 4. deploy verifier.sol to blockchain
+# 4. deploy verifier.sol to blockchain (Bob), also sends proving.key to Alice
 
 # Alice
 # 5. execute the program where 337 is a and 113569 is b
 zokrates compute-witness -a 337 113569
-# 6. generate a proof of computation
+# 6. generate a proof of computation (using proving.key)
 zokrates generate-proof
+# 7. get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
 
 # Bob
-# 7. get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
+# 8. Contract verifier.sol is invoked by Alice's transaction; the execution result indicates if the proof is verified.
 ```
 
 After executing `zokrates export-verifier`, you will find a `verifier.sol` generated, deploy it to Remix IDE.
