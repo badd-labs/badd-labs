@@ -7,6 +7,8 @@ In blockchain, zkproof can run between an offchain prover holding a certain secr
 
 In this lab, we will program a series of privacy-sensitive statements and run zkproof provided by zokrates .
 
+![Contract design diagram](lab-zkproof.png)
+
 Exercise 1: Helloworld ZK program and Setup
 ---
 
