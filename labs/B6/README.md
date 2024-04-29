@@ -4,7 +4,7 @@ Lab B6: Zero-Knowledge Proofs and their Blockchain Applications
 Zero-knowledge proofs (ZK-proofs) is a useful cryptographic tool that can enable privacy-preserving and secure applications on blockchains. 
 In a ZK-proof protocol, one party (the prover) proves to another party (the verifier) that a certain statement is true without revealing any information about the statement itself except for its validity. For instance, such a statement can be “Prover Alice knows a secret key SK that maps to a public key PK“. ZK-proof would convince the verifier that the prover Alice knows SK yet without disclosing SK itself to the verifier.
 
-![Contract design diagram](lab-ZK-proof.png)
+![Contract design diagram](lab-zkproof.png)
 
 ZK-proof can be naturally integrated with a blockchain in domain applications. The figure above illustrates the common system model of a ZK-proof based blockchain application. A trusted third party (TTP) first generates a pair of keys: proving.key and verification.key. 
 In Step 1, he sends proving.key to the Prover. 
