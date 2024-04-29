@@ -1,15 +1,22 @@
 Lab B6: Zero-Knowledge Proofs and their Blockchain Applications 
 ===
 
-Zero-knowledge proofs (zk-proofs) play a crucial role in enabling novel and practical application of blockchains. In zk-proof, one party (the prover) proves to another party (the verifier) that a certain statement is true without revealing any information about the statement itself except for its validity. For instance, such a statement can be “Prover Alice knows a secret key SK that maps to a public key PK“. zkproof would convince the verifier that the prover Alice knows SK yet without disclosing SK itself to the verifier.
+Zero-knowledge proofs (ZK-proofs) is a useful cryptographic tool that can enable privacy-preserving and secure applications on blockchains. 
+In a ZK-proof protocol, one party (the prover) proves to another party (the verifier) that a certain statement is true without revealing any information about the statement itself except for its validity. For instance, such a statement can be “Prover Alice knows a secret key SK that maps to a public key PK“. ZK-proof would convince the verifier that the prover Alice knows SK yet without disclosing SK itself to the verifier.
 
-In blockchain, zkproof can run between an offchain prover holding a certain secret and an on-chain verifier (e.g., running inside a smart contract). The verified statement can be used to safeguard a variety of blockchain applications, such as user authentication, preserving user privacy, etc.
+![Contract design diagram](lab-ZK-proof.png)
 
-In this lab, we will program a series of privacy-sensitive statements and run zkproof provided by zokrates .
+ZK-proof can be naturally integrated with a blockchain in domain applications. The figure above illustrates the common system model of a ZK-proof based blockchain application. A trusted third party (TTP) first generates a pair of keys: proving.key and verification.key. 
+In Step 1, he sends proving.key to the Prover. 
+In Step 2, he sends to the blockchain a smart contract `verifier.sol` that encodes the verification key.
+In Step 3, the Prover generates the proof using proving.key. She sends the proof to the verifier by invoking `verifier.sol` with the proof.
+In Step 4, the verification result, such as valid statement, is publicly observed by the domain application. If it is verified, the domain application can proceed and conduct the next step.
 
-![Contract design diagram](lab-zkproof.png)
+The ZK-proof based protocol can be used to safeguard a variety of blockchain applications, such as user authentication, preserving user privacy, etc.
+In this lab, we will program a series of privacy-sensitive statements and run ZK-proof provided by zokrates .
 
-Exercise 1: Helloworld ZK program and Setup
+
+Exercise 1: Hello-world ZK program and Setup
 ---
 
 Install [[ZoKrates](https://zokrates.github.io/gettingstarted.html)] from source:
@@ -41,23 +48,24 @@ Run the following commands in a terminal. Here, we consider three parties, Alice
 
 ```bash
 # Charlie performs the following:
-# 1. compile
+# Step 1 & 2.
+# compile
 zokrates compile -i root.zok
-# 2. perform the setup phase; it generates a pair of keys: proving.key and verify.key in the current folder.
+# it generates a pair of keys: proving.key and verify.key in the current folder.
 zokrates setup
-# 3. export a solidity verifier including verify.key
+# export a solidity verifier including verify.key
 zokrates export-verifier
-# 4. deploy verifier.sol to blockchain (Bob), also sends proving.key to Alice
+# deploy verifier.sol to blockchain (Bob), also sends proving.key to Alice
 
-# Alice
-# 5. execute the program where 337 is X and 113569 is Y
+
+# Step 3.
+# execute the program where 337 is X and 113569 is Y
 zokrates compute-witness -a 337 113569
-# 6. generate a proof of computation (using proving.key)
+# generate a proof of computation (using proving.key)
 zokrates generate-proof
 # 7. get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
 
-# Bob
-# 8. Contract verifier.sol is invoked by Alice's transaction; the execution result indicates if the proof is verified.
+# Step 4. Contract verifier.sol is invoked by Alice's transaction; the execution result indicates if the proof is verified.
 ```
 
 After executing `zokrates export-verifier`, you will find a `verifier.sol` generated, deploy it to Remix IDE.
@@ -120,9 +128,9 @@ Hint:
 Exercise 3. Prove Your Knowledge of Hash Preimage 
 ---
 
-A more common way of using zk-proof is to prove the knowledge of a hash preimage. That is, given hash $y=H(x)$, Alice tries to prove to Bob that she knows the preimage $x$ under the hash digest $y$, without revealing $x$ to Bob.
+A more common way of using ZK-proof is to prove the knowledge of a hash preimage. That is, given hash $y=H(x)$, Alice tries to prove to Bob that she knows the preimage $x$ under the hash digest $y$, without revealing $x$ to Bob.
 
-Complete the following template program to implement the zk-proof of knowledge of hash preimage.
+Complete the following template program to implement the ZK-proof of knowledge of hash preimage.
 
 ```
 import "hashes/sha256/512bitPacked" as sha256packed;
