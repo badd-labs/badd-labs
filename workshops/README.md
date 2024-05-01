@@ -6,8 +6,9 @@ Educational Labs on Blockchain and Dapp Development and Security
 
 - Time: May 3 - 4, 2024 
 - Location: Zoom
-- Instructors: Dr Yuzhe Tang [[webpage](tristartom.github.io)] 
-    - Yuxuan Zhou, Wanning Ding [[webpage](dwn1998.github.io)], Zhihua Yang 
+- Instructors: Dr Yuzhe Tang [[webpage](https://tristartom.github.io)] 
+    - Yuxuan Zhou, Wanning Ding [[webpage](https://dwn1998.github.io)], Zhihua Yang 
+- Organizers: Dr Hongmei Chi [[webpage](https://people.sc.fsu.edu/~hcc8471/)] 
 - Registration: [[link](https://forms.gle/GunqkzSyivXgVH4g9)] 
     - **Registration is required**: Zoom link will be revealed after registration.
 
