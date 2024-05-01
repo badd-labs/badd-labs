@@ -63,7 +63,7 @@ zokrates export-verifier
 zokrates compute-witness -a 337 113569
 # generate a proof of computation (using proving.key)
 zokrates generate-proof
-# 7. get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
+# get proof.json from Alice, and embed proof.json in tx to be sent to blockchain.
 
 # Step 4. Contract verifier.sol is invoked by Alice's transaction; the execution result indicates if the proof is verified.
 ```
