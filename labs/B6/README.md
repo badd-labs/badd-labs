@@ -145,6 +145,10 @@ def main(private field a, private field b, private field c, private field d) -> 
 
 The first line imports the `sha256packed` function from the `ZoKrates` standard library.
 
+Hint:
+
+- You can run the given program with the secret to find out the hash digest, and then use the digest to check.
+
 <!--
 
 Exercise 3. Prove Your Knowledge of Hash Preimage 
@@ -187,9 +191,7 @@ Deliverable
 4. For all exercises, copy your code in `.zok` files and proofs in `proof.json` to the pdf submission.
 5. For Exercise 3, create two folders called `Alice` and `Bob` individually, follow the instructions and understand the scenario(difference in roles' duties), and submit the screenshots of what files remain in `Alice` and `Bob` folders.
 
-Hint:
 
-- You can run the given program with the secret to find out the hash digest, and then use the digest to check.
 
 -->
 
