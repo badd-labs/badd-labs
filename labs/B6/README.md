@@ -74,7 +74,7 @@ Inspect the `verifier.sol` file and send a transaction to verify the zokrates-ge
 
 - Hints 1: add ZoKrates to PATH as suggested 
     ```bash
-    >>> export PATH=$PATH:/YOUR DIR/.zokrates/bin
+    export PATH=$PATH:/YOUR DIR/.zokrates/bin
     ```
 - Hint 2: You can find `a`, `b`, `c`, and input values required for `verifier.verifyTx()` in generated `proof.json` file, which follows the format below:
     ```python
@@ -127,6 +127,7 @@ Deliverable
 3. For all exercises, you should submit the screenshots of what files remain in your folder; the screenshots of the terminal showing what commands are executed and their outputs; the screenshots of your contract executing inputs and results in Remix IDE.
 4. For all exercises, copy your code in `.zok` files and proofs in `proof.json` to the pdf submission.
 5. For Exercise 3, create two folders called `Alice` and `Bob` individually, follow the instructions and understand the scenario(difference in roles' duties), and submit the screenshots of what files remain in `Alice` and `Bob` folders.
+
 
 -->
 

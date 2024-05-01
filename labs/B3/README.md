@@ -1,4 +1,4 @@
-Lab B1: Order-book DEX and Swap Settlement 
+Lab B3: Order-book DEX and Swap Settlement 
 ===
 
 Introduction
@@ -11,41 +11,11 @@ DEX or decentralized exchange supports the swap of token ownership between diffe
 | --- | --- | --- |
 |  1  | Required | Required |
 |  2  | Required | Required |
-|  3  | Required | Bonus (50%) |
-|  4  | Required | Bonus (50%) |
-|  5  | Bonus (50%) | Bonus (100%) |
+|  3  | Required | Required |
 
-Exercise 1. Execute token transfer 
----
 
-The following smart contract implements a very simple token supporting the essential transfer function: `transfer(address sender, address recipient, uint256 amount)` 
 
-```
-pragma solidity >=0.7.0 <0.9.0; 
-contract BaddToken {  
-  uint _totalSupply = 0; string _symbol;  
-  mapping(address => uint) balances;  
-  constructor(string memory symbol, uint256 initialSupply) {
-    _symbol = symbol;
-    _totalSupply = initialSupply;
-    balances[msg.sender] = _totalSupply;  
-  }
-  
-  function transfer(address receiver, uint amount) public returns (bool) {    
-    require(amount <= balances[msg.sender]);        
-    balances[msg.sender] = balances[msg.sender] - amount;    
-    balances[receiver] = balances[receiver] + amount;    
-    return true;  
-  }
-
-  function balanceOf(address account) public view returns(uint256){
-    return balances[account];
-  }}
-```
-
-Your job in this exercise is to deploy the above smart contract in Remix, creating an `TokenX` instance. Demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
-
-Exercise 2. Execute atomic swap settlement in one transaction (by escrow EOA)
+Exercise 1. Execute atomic swap settlement in one transaction (by escrow EOA)
 ---
 
 An atomic swap occurs between two accounts in two tokens. Suppose Alice of token `TokenX` wants to trade her `TokenX`s for Bob's `TokenY`s. For simplicity, we assume the exchange rate between `TokenX` and `TokenY` is always 1:1 (i.e., one `TokenX` for one `TokenY`). A swap incurs a transfer from Alice to Bob in `TokenX` and another transfer from Bob to Alice in `TokenY`.
@@ -58,7 +28,7 @@ The above escrow protocol can be instanciated differently. One design is to mate
 
 Your job in this exercise is to deploy your token smart contracts, from Exercise 1, twice (first as `TokenX` and then as `TokenY`). Run the above escrow-EOA protocol to complete the swap of Alice's `TokenX` and Bob's `TokenY`. 
 
-Exercise 3. Design atomic swap settlement in one transaction (by escrow smart contract)
+Exercise 2. Design atomic swap settlement in one transaction (by escrow smart contract)
 ---
 
 Another approach is to implement the escrow in a smart contract. In this case, after Alice and Bob transfer their tokens to the escrow smart contract (in Step 1 & 2), they then notify the escrow smart contract. After receiving both Alice and Bob's notification, the escrow smart contract sends two transfers, atomically, that is, first to transfer `TokenX` to Bob and then to transfer `TokenY` to Alice. The following figure illustrates the escrow-smart-contract protocol.
@@ -72,7 +42,7 @@ Your job is to:
 
 - Hint: To make smart contract `X` call smart contract `Y`'s function `foo`, you can pass to `X` `Y`'s contract address say `CA_Y` so that in `X` the following statement calls `CA_Y`'s function `foo`: `(Y)CA_Y.foo();` 
 
-Exercise 4: Design the swap between token and Ether
+Exercise 3: Design the swap between token and Ether
 ---
 
 Revise your escrow smart contract to support the swap between Ether and `TokenX`. For instance, Alice trades her `TokenX` for Bob's Ether. Design the protocol as above and implement it in the escrow smart contract. Here, you can assume one `TokenX` is exchangeable with one Ether.
