@@ -10,6 +10,9 @@ Educational Labs on Blockchain and Dapp Development and Security
 | Instructors | Dr Yuzhe Tang [[webpage](tristartom.github.io)] |
 | | Yuxuan Zhou, Wanning Ding [[webpage](dwn1998.github.io)], Zhihua Yang |
 | Agenda | [[webpage](https://docs.google.com/document/d/1xls05FwT0dSAkcqPN0dLUl_ZedAVPMZzxci2Am8CBZE/edit?usp=sharing)] |
+| **Registration** | [[link](https://forms.gle/GunqkzSyivXgVH4g9)] |
+
+- Registration is **required**.
 
 Call for Participation
 ---
