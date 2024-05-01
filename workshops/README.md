@@ -6,9 +6,10 @@ Educational Labs on Blockchain and Dapp Development and Security
 
 | Time | May 3 - 4, 2024 |
 | ---  | --- |
-| Location | [zoom link](https://syracuseuniversity.zoom.us/j/7254599273#success)  |
+| Location | [[zoom link](https://syracuseuniversity.zoom.us/j/7254599273#success)]  |
 | Instructors | Dr Yuzhe Tang [[webpage](tristartom.github.io)] |
 | | Yuxuan Zhou, Wanning Ding [[webpage](dwn1998.github.io)], Zhihua Yang |
+| Agenda | [[webpage](https://docs.google.com/document/d/1xls05FwT0dSAkcqPN0dLUl_ZedAVPMZzxci2Am8CBZE/edit?usp=sharing)] |
 
 Call for Participation
 ---
