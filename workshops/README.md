@@ -15,6 +15,8 @@ Educational Labs on Blockchain and Dapp Development and Security
 Agenda
 ---
 
+![diagram](workshop-agenda.jpg)
+
 - May 3, 2024
     - *Lab A1. Transaction exploration* [[link](labs/A1/README.md)] 
     - *Lab A2. Smart-contract programming* [[link](labs/A2/README.md)]
