@@ -11,9 +11,20 @@ Educational Labs on Blockchain and Dapp Development and Security
 - Registration: [[link](https://forms.gle/GunqkzSyivXgVH4g9)] 
     - **Registration is required**: Zoom link will be revealed after registration.
 
-<!-- 
-- Agenda: [[webpage](https://docs.google.com/document/d/1xls05FwT0dSAkcqPN0dLUl_ZedAVPMZzxci2Am8CBZE/edit?usp=sharing)] 
--->
+
+Agenda
+---
+
+- May 3, 2024
+    - *Lab A1. Transaction exploration* [[link](labs/A1/README.md)] 
+    - *Lab A2. Smart-contract programming* [[link](labs/A2/README.md)]
+    - *Lab B1. AMM DEX* [[link](labs/B1/README.md)]
+    - *Lab B2. DEX security under arbitrage* [[link](labs/B2/README.md)]
+    - *Lab B3. Orderbook DEX* [[link](labs/B3/README.md)]
+    - *Lab B5. Reentrancy attacks and mitigation* [[link](labs/B5/README.md)]
+- May 4, 2024
+    - *Lab B6. ZK proofs and applications* [[link](labs/B6/README.md)]
+- Agenda: [[webpage](https://docs.google.com/document/d/15IQi-0arMUdfOjISc2Vy0jTgBIalHYywAj4nCMvqOQA/edit?usp=sharing)] 
 
 Call for Participation
 ---
