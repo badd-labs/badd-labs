@@ -59,9 +59,9 @@ def scrape_block(blocknumber, page):
     # get the transaction table from the response data we get
     for row in BeautifulSoup(response.content, 'html.parser').select('table.table-hover tbody tr'):
         # each row in the table is a transaction
-        attributes = map(lambda x: x.text, row.findAll('td'))
+        attributes = map(lambda x: x.text.replace('\n', ''), row.findAll('td'))
         # extract transaction attributes
-        _begin, hash, method, block, timestamp1, age, from1, _arr, to1, value1, txnfee, burnfee = attributes
+        _begin, hash, method, block, timestamp1, age, from_id,from1, _arr, to1, value1, txnfee, burnfee = attributes
         ######################## modify code below for each exercise #######################
         print("transaction of ID:", hash, "block:", block, "from address", from1, "toaddress", to1, "transaction fee",txnfee)
 
