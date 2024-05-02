@@ -61,7 +61,7 @@ def scrape_block(blocknumber, page):
         # each row in the table is a transaction
         attributes = map(lambda x: x.text.replace('\n', ''), row.findAll('td'))
         # extract transaction attributes
-        _begin, hash, method, block, timestamp1, age, from_id,from1, _arr, to1, value1, txnfee, burnfee = attributes
+        _begin, hash, method, block, timestamp1, age, from_id, from1, _arr, to1, value1, txnfee, burnfee = attributes
         ######################## modify code below for each exercise #######################
         print("transaction of ID:", hash, "block:", block, "from address", from1, "toaddress", to1, "transaction fee",txnfee)
 
@@ -96,7 +96,7 @@ In this exercise, you are required to report the average fees of 100 transaction
 Exercise 7 (Additional). Automatically explore contract-calling transactions in one block
 ---
 
-In this exercise, you are required to report the number of transactions in block `15479087` that call the method `transfer`. You can modify the given code.
+In this exercise, you are required to report the number of transactions in block `15479087` that call the method `Approve`. You can modify the given code.
 
 Deliverable
 ---
