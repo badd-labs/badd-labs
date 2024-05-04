@@ -1,6 +1,12 @@
 BADD Labs Workshop
 ===
 
+
+Our worshop concluded!
+---
+
+![diagram](badd-group-photo.jpg)
+
 Educational Labs on Blockchain and Dapp Development and Security
 ---
 
@@ -11,7 +17,6 @@ Educational Labs on Blockchain and Dapp Development and Security
 - Organizers: Dr Hongmei Chi [[webpage](https://people.sc.fsu.edu/~hcc8471/)] 
 - Registration: [[link](https://forms.gle/GunqkzSyivXgVH4g9)] 
     - **Registration is required**: Zoom link will be revealed after registration.
-
 
 Agenda
 ---
