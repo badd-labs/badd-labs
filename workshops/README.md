@@ -5,7 +5,7 @@ BADD Labs Workshop
 Our worshop concluded!
 ---
 
-![diagram](badd-group-photo.jpg)
+![diagram](badd-group-photo.png)
 
 Educational Labs on Blockchain and Dapp Development and Security
 ---
