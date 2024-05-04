@@ -34,6 +34,20 @@ Category B: DeFi & Security
 - Lab B4. DEX economic security under sandwich attacks [[link](labs/B4/README.md)]
 -->
 
+Course mapping
+---
+
+| Labs | Cyber-security | Programming | Distributed systems | FinTech | Programming language | Platform |
+| --- | --- |  --- | --- | --- |  --- |  --- |
+| A1 | X | X | | X | Python | Bash |
+| A2 | X | X | | X | Solidity | Remix |
+| A3 | X | X | | X | Python | Bash |
+| B1 | X | X | | X | Solidity | Remix |
+| B2 | X | X | | X | Solidity | Remix |
+| B3 | X | X | | X | Solidity | Remix |
+| B5 | X | X | | X | Solidity | Remix |
+| B6 | X | X | | X | Python, Solidity | Bash |
+
 BADD Labs in the News
 ---
 
