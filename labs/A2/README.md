@@ -42,10 +42,10 @@ You can use Remix to compile, deploy and execute the above solidity code.
 - Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for `greeter` function and click on "transact" button. You can see transaction being successful in the "Remix Transactions" section. 
 - Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-Exercise 2: Write SC to output bigger number
+Exercise 2: Write SC to commpare numbers
 ---
 
-In this exercise, you are asked to write a Solidity program to find the maximum of two values, $x$ and $y$, and return that value. The Smart contact should have the following functionalities:
+In this exercise, you are asked to write a Solidity program to find and return the bigger number between two given numbers, say $x$ and $y$. The smart contact should work as follows:
 
 1. A function that takes integers $x$ and $y$ as input
 2. Returns the bigger integer between  $x$ and $y$ as output. Deploy and run the program in Remix [[link](https://remix.ethereum.org/)]
