@@ -37,16 +37,16 @@ Category B: DeFi & Security
 Course mapping
 ---
 
-| Labs | Cyber-security | Programming | Distributed systems | FinTech | Programming language | Platform |
+| Labs | Security | Programming | DSystems | FinTech | Language | Platform |
 | --- | --- |  --- | --- | --- |  --- |  --- |
-| A1 | X | X | | X | Python | Bash |
-| A2 | X | X | | X | Solidity | Remix |
-| A3 | X | X | | X | Python | Bash |
-| B1 | X | X | | X | Solidity | Remix |
-| B2 | X | X | | X | Solidity | Remix |
-| B3 | X | X | | X | Solidity | Remix |
-| B5 | X | X | | X | Solidity | Remix |
-| B6 | X | X | | X | Python, Solidity | Bash |
+| A1 |  |  | X | | Python | Bash |
+| A2 |  | X | |  | Solidity | Remix |
+| A3 |  |  | X |  | Python | Bash |
+| B1 | X |  | | X | Solidity | Remix |
+| B2 | X |  | | X | Solidity | Remix |
+| B3 | X |  | | X | Solidity | Remix |
+| B5 | X | X | |  | Solidity | Remix |
+| B6 | X | | X |  | Python, Solidity | Bash |
 
 BADD Labs in the News
 ---
