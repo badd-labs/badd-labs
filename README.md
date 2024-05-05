@@ -59,7 +59,7 @@ BADD Labs in the News
 ---
 
 - BADD-labs workshop for teachers in UBCU and other universities: [[Workshop website](workshops/README.md)].
-    - We had a wonderful workshop with attendees from 12 HBCU institutions with disciplines in CS/CE, ischool, management: [[Group photo](workshops/badd-group-photo2.png)]
+    - We wrapped up our workshop with a wonderful group of attendees from 12 HBCU institutions with disciplines in CS/CE, i-school, and management: [[Group photo](workshops/badd-group-photo2.png)]
 - The labs were used in "CIS/FIN629: Blockchain Foundations and Applications", a cross-listed course for graduate computer science students and finance students at Syracuse University (2018-2022) [[Course website](https://tristartom.github.io/teaching/22f-fin600/index.html)].
 - Our labs are featured in blockchain education in ASEE 2022.
 - Our labs are featured in the NSF blockchain-education workshop 2022.
