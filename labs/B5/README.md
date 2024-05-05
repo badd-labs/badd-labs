@@ -110,4 +110,4 @@ Exercise 5. Fixing Reentrancy Attack with Lock Evasion
   
 ## Deliverable
 
-- Submit your Solidity code and the screenshot that runs the code on your computer for all exercises. The Solidity code needs to be stored in a `.sol` file in the plaintext format.
+- Submit your Solidity code and the screenshot that runs the code on your computer for all exercises. The Solidity code needs to be stored in a `.sol` file in the plain-text format.
