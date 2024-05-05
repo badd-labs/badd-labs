@@ -32,7 +32,7 @@ Copy this online file [[link](https://raw.githubusercontent.com/syracuse-fullsta
 
 If you are good with option 1A, you can skip 1B. This step is for who want to install Ethereum on their OS.
 
-We will use `Geth`, the Ethereum client implemented in Language `Go`. You can choose to either install the `Geth` on you own machine or the Linux machine running on VirtualBox. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
+We will use `Geth`, the Ethereum client implemented in Language `Go`. You can choose to either install the `Geth` on your own machine or the Linux machine running on VirtualBox. See [here](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum) for more information.
 
 ***Ubuntu Users***
 
@@ -232,7 +232,7 @@ personal.unlockAccount(eth.accounts[0])
              
 - Q6: Why does ```admin.peers``` return null sometimes?
 
-    - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the shcool network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
+    - ```admin.peers``` returns you the information about connected remote nodes and it seems like the method uses public IP addresses for this. Few students mentioned that ```admin.peers``` runs successfully when they run it outside of the school network while it failed in the school network. Even though it's returning null, you should still be able to mine your own coins if you connected to the private blockchain network successfully.
 
 - Q7: Out of space?
 

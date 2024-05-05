@@ -76,7 +76,7 @@ If you are willing to help translate BADD Labs to your language, contact us (tri
 Acknowledgement
 ---
 
-Developement of BADD labs is supported by NSF grant award (SaTC:EDU, award number 2104532) [[link](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2104532&HistoricalAwards=false)] . We are grateful for NSF's support.
+Development of BADD labs is supported by NSF grant award (SaTC:EDU, award number 2104532) [[link](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2104532&HistoricalAwards=false)] . We are grateful for NSF's support.
 
 <!--
 

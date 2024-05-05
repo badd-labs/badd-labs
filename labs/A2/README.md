@@ -42,7 +42,7 @@ You can use Remix to compile, deploy and execute the above solidity code.
 - Deploy the contract using `Deploy` button provided under `Run` tab. You can see the deployed contracts and functions deployed on the right-bottom corner. Provide the input for `greeter` function and click on "transact" button. You can see transaction being successful in the "Remix Transactions" section. 
 - Click on "greet" button/function, you can see the string value set for "greeting" using "greeter" function will be displayed. Submit the final screenshot of running this Solidity program.
 
-Exercise 2: Write SC to commpare numbers
+Exercise 2: Write SC to compare numbers
 ---
 
 In this exercise, you are asked to write a Solidity program to find and return the bigger number between two given numbers, say $x$ and $y$. The smart contact should work as follows:
@@ -77,7 +77,7 @@ contract bank {
 
 1. Compile and deploy the above smart contract in Remix. 
 2. After deployment, click the 'getBalanceCA' button to show the balance and take a screenshot. 
-3. Select an account, say `Alice`. Make `Alice` send a transaction to call the 'deposit' function with Ether value `10` (on the left panel in Remix, type `10` in the 'value' field and select the unit 'ether'; by default it is 'wei'; then , click 'pay' button to execute the transaction). 
+3. Select an account, say `Alice`. Make `Alice` send a transaction to call the 'deposit' function with Ether value `10` (on the left panel in Remix, type `10` in the 'value' field and select the unit 'ether'; by default it is 'wei'; then, click 'pay' button to execute the transaction). 
 4. Click 'getBalanceCA' button again to show the balance and take another screenshot.
 5. Select Alice to send a transaction to call the 'relay' function with argument `0x0000000000000000000000000000000000000000` and Ether value `20`. 
 6. Click 'getBalanceEOA' button  to show the balance and take another screenshot.
@@ -139,7 +139,7 @@ Hint: You should consider two cases: 1) `Charlie` sends a basic Ethereum transac
 Exercise 3: Rock-paper-scissors game
 ---
 
-Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. You can use variables to keep track of the deposit and player values.The contract should have the following functionalities:
+Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. You can use variables to keep track of the deposit and player values. The contract should have the following functionalities:
 
 1. There should be two players. Consider one specific address as the owner address (where both players will deposit their money).
 2. Each player deposits an initial amount of 5 Ethers into the owner account.
@@ -148,7 +148,7 @@ Write a Smart contract to implement the Rock-Paper-Scissors game in solidity. Yo
 5. Once both the players have input their choices, find the winner and transfer the money as below:
     - a. If player1 wins, send bid amount ie, 10 Ethers to player1.
     - b. If player2 wins, send bid amount ie, 10 Ethers to player2.
-    - c. If both the players win, divide the bid amount and send to players equally. Once the game is finished, `Account` values (on the right-top corner of the IDE) of the designated player addresses should be updated. Make sure the player is depositing exactly 5 Ethers else the transaction should be rejected. While depositing the amount (5 Ethers in our case), `Value` on the right-top corner must be equivalent to 5 Ethers, in-order for the Remix to send the transaction successfully.
+    - c. If both players win, divide the bid amount and send to players equally. Once the game is finished, `Account` values (on the right-top corner of the IDE) of the designated player addresses should be updated. Make sure the player is depositing exactly 5 Ethers else the transaction should be rejected. While depositing the amount (5 Ethers in our case), `Value` on the right-top corner must be equivalent to 5 Ethers, in-order for the Remix to send the transaction successfully.
 -->
 
 Deliverable
@@ -156,7 +156,7 @@ Deliverable
 
 1. For exercise 1/2/3/4/5, submit the screenshot that runs the crawler code on your computer.
     - If there are too many results that cannot fit into a single screen, you can randomly choose two screens and do two screenshots. 
-2. For exercise 2/4/5, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program need to be stored in a `.sol` file in plaintext format.
+2. For exercise 2/4/5, submit your modified Solidity file and the screenshot that runs the code on your computer. The Solidity program needs to be stored in a `.sol` file in plaintext format.
 
 FAQ
 ---
