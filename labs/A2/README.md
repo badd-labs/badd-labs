@@ -5,7 +5,7 @@ The learning objective is to be able to execute given solidity program and to de
 
 Solidity is an object-oriented programming language for writing smart contracts mainly on Ethereum. In addition to our lecture on Solidity programming, there are other online tutorials [[here](https://solidity.readthedocs.io/en/v0.4.24/introduction-to-smart-contracts.html)].
 
-You will use `remix`, a web-based IDE for solidity development, including writing, deploying and executing solidity programs. Detail about the Remix IDE can be found in [[link](https://remix.readthedocs.io/en/latest/)].
+You will use `remix`, a web-based IDE for solidity development, including writing, deploying, and executing solidity programs. Details about the Remix IDE can be found in [[link](https://remix.ethereum.org/)].
 
 To write a Solidity program, you have to have an account payable, which is used as the constructor. Otherwise, you will not be able to make deposits/transfers. 
 
