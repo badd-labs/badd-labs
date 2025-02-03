@@ -46,6 +46,10 @@ Exercise 4. Automatically explore 50 transactions in one block
 import requests
 from time import sleep
 from bs4 import BeautifulSoup
+import re
+
+pattern = r'0x[a-fA-F0-9]{40}'
+
 
 def scrape_block(blocknumber, page):
     # the URL of the web page that we want to get transaction data
@@ -60,7 +64,7 @@ def scrape_block(blocknumber, page):
     txs = BeautifulSoup(response.content, 'html.parser').select('table.table-hover tbody tr')
     for row in txs:
         tx = extract_transaction_info(row)
-        print(tx)
+        print("transaction of ID:", tx['hash'], "block:", tx['block'], "from address", tx['from'], "toaddress", tx['to'], "transaction fee", tx['fee'])
 
 
 def extract_transaction_info(tr_element):
@@ -86,6 +90,7 @@ def extract_transaction_info(tr_element):
             # Try to get from span if <a> doesn't have it
             from_span = from_element.select_one('span[data-bs-title]')
             from_full = from_span['data-bs-title'] if from_span else from_addr
+        from_address = re.search(pattern, from_full).group()
 
         # Extract to address
         to_element = tr_element.select_one('td:nth-child(10) a')
@@ -97,9 +102,10 @@ def extract_transaction_info(tr_element):
             # Try to get from span if <a> doesn't have it
             to_span = to_element.select_one('span[data-bs-title]')
             to_full = to_span['data-bs-title'] if to_span else to_addr
+        to_address = re.search(pattern, to_full).group()
 
         # Extract value
-        value = tr_element.select_one('.td_showAmount')['data-bs-title']
+        value = tr_element.select_one('.td_showAmount').text
 
         # Extract transaction fee
         tx_fee = tr_element.select_one('.showTxnFee').text.strip()
@@ -113,14 +119,8 @@ def extract_transaction_info(tr_element):
             'type': tx_type,
             'block': block,
             'timestamp': timestamp,
-            'from': {
-                'short': from_addr,
-                'full': from_full
-            },
-            'to': {
-                'short': to_addr,
-                'full': to_full
-            },
+            'from': from_address,
+            'to': to_address,
             'value': value,
             'fee': tx_fee,
             'gas_price': gas_price
@@ -129,6 +129,7 @@ def extract_transaction_info(tr_element):
     except Exception as e:
         print(f"Error extracting transaction info: {e}")
         return None
+
 
 if __name__ == "__main__":  # entrance to the main function
     scrape_block(15479087, 1)
