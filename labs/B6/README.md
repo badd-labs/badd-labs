@@ -117,6 +117,11 @@ The first line imports the `sha256packed` function from the `ZoKrates` standard 
 
 - Hint: You can run the given program with the secret to find out the hash digest, and then use the digest to check.
 
+Deliverable
+---
+
+This is mainly an experience lab. Your submission should include a PDF containing screenshots of your terminal executing the instructions provided in the lab. Also, include the screenshots to show the transaction results in the Remix IDE.
+
 <!--
 
 Deliverable
