@@ -120,7 +120,10 @@ The first line imports the `sha256packed` function from the `ZoKrates` standard 
 Deliverable
 ---
 
-This is mainly an experience lab. Your submission should include a PDF containing screenshots of your terminal executing the instructions provided in the lab. Also, include the screenshots to show the transaction results in the Remix IDE.
+This is mainly an experience lab. Your submission should include 
+- a PDF containing screenshots of your terminal executing the instructions provided in the lab.
+- The screenshots to show the transaction results in the Remix IDE.
+- The plaintext code solution for Exercises 2 and 3.
 
 <!--
 
