@@ -15,6 +15,11 @@ In Step 4, the verification result, such as valid statement, is publicly observe
 The ZK-proof based protocol can be used to safeguard a variety of blockchain applications, such as user authentication, preserving user privacy, etc.
 In this lab, we will program a series of privacy-sensitive statements and run ZK-proof provided by zokrates .
 
+| Tasks | Points | CS student | Finance student |
+| --- | --- | --- | --- |
+|  1  | 20 | Required | Required |
+|  2  | 20 | Required | Required |
+|  3  | 10 | Required | Bonus |
 
 Exercise 1: Hello-world ZK program and Setup
 ---
