@@ -51,7 +51,7 @@ contract BaddToken {
   }}
 ```
 
-Your job in this exercise is to deploy the above `BaddToken` SC and create a Token instance, say `TokenX`. Then, demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
+Your job in this exercise is to deploy the above `BaddToken` smart contract (SC) in remix (https://remix.ethereum.org/) and create a Token instance, say `TokenX`. Then, demonstrate the process that the `TokenX` issuer transfers 10 `TokenX` to another account, say Alice, and display each account's balance before/after the transfer.
 
 
 Exercise 2. Extend `BaddToken` with approve/transferFrom
