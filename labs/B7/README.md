@@ -3,7 +3,7 @@ Lab B7: Lending Pool and Liquidation
 
 Introduction
 ---
-![Diagram](./liquidation.png)
+![Diagram](./Liquidation.png)
 In a lending pool, an account (e.g., Alice) can deposit a token WETH as collateral to borrow another token USDT. The USD value of the borrowed USDT must remain below the value of the WETH multiplied by the collateral ratio (or Loan-to-Value, LTV). If the value of WETH drops significantly, a liquidation mechanism is triggered. The process is as follows: 1) Alice borrows USDT from the lending pool. 2) A price oracle reports a dropped value of WETH. 3. Another account, Bob, 3a) repays Alice’s USDT debt and 3b) receives her WETH collateral along with a liquidation bonus. As a result, Alice loses her WETH and is no longer able to withdraw it by repaying the loan. 
 In this lab, you will build a simple lending pool that implements these two core functions: borrowing with collateral and liquidation.
 
