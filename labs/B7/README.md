@@ -1,4 +1,4 @@
-Lab B1: Order-book DEX and Swap Settlement 
+Lab B7: Lending Pool and Liquidation 
 ===
 
 Introduction
