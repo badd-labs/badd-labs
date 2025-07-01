@@ -3,15 +3,17 @@ Lab B7: Lending Pool and Liquidation
 
 Introduction
 ---
+
 ![Diagram](./Liquidation.png)
-In a lending pool, an account (e.g., Alice) can deposit a token WETH as collateral to borrow another token USDT. The USD value of the borrowed USDT must remain below the value of the WETH multiplied by the collateral ratio (or Loan-to-Value, LTV). If the value of WETH drops significantly, a liquidation mechanism is triggered. The process is as follows: 1) Alice borrows USDT from the lending pool. 2) A price oracle reports a dropped value of WETH. 3. Another account, Bob, 3a) repays Alice’s USDT debt and 3b) receives her WETH collateral along with a liquidation bonus. As a result, Alice loses her WETH and is no longer able to withdraw it by repaying the loan. 
-In this lab, you will build a simple lending pool that implements these two core functions: borrowing with collateral and liquidation.
 
-Exercise 1. Borrow and repay 
+In a lending pool, an account (e.g., Alice) can deposit one token, say WETH, as collateral, to borrow another token, such as USDT. The USD value of the borrowed USDT is determined by the WETH-to-USD price and the amount of WETH deposited. If the price drops significantly, a liquidation mechanism is triggered, which allows anyone to purchase the collateral WETH at a price below the market price. 
+
+A lending pool functions in three essential operations: 1) An external account borrows tokens by depositing collateral, 2) A trusted off-chain party, called the price oracle, reports price ticks periodically to the pool, and 3) the pool triggers liquidation when the price reported is too low. In this lab, you will build a simple lending pool that implements these three core functions.
+
+Exercise 1. Implement borrow and repay 
 ---
-One example of the borrow and repay process is shown below:
 
-Suppose the collateral ratio is 75%, and the price is 1 WETH = 1000 USDT. Alice deposits 1 WETH to borrow USDT.
+One example of the borrow and repay process is shown as follows. Suppose the collateral ratio is 75%, and the price is 1 WETH = 1000 USDT. Alice deposits 1 WETH to borrow USDT.
 
 Borrow:
 - At the beginning, Alice has 1 WETH, 0 USDT
@@ -36,7 +38,7 @@ struct Position {
 ```
 
 
-Exercise 2. Set the price of the token
+Exercise 2. Implement price reporting from oracle
 ---
 
 To simulate real-world conditions, we add a price-setting mechanism to the contract in this step. For simplicity, we assume USDT is pegged to 1 USD, and the price of WETH (in USD) is represented by a variable called price in the contract.
@@ -45,7 +47,7 @@ Please implement a `setPrice(unit _price)` function to allow setting the price o
 
 `Hint`: Only the contract owner should be allowed to call this function.
 
-Exercise 3. Implement the liquidation
+Exercise 3. Implement liquidation
 ---
 
 Now, let’s simulate the liquidation process.
