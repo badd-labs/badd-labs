@@ -4,8 +4,8 @@ Lab B7: Lending Pool and Liquidation
 Introduction
 ---
 
-![Diagram](./Liquidation.png)
-
+![Diagram](./lab-pricefeeds.jpg)
+![Diagram](./tokentrade.jpg)
 In a lending pool, an account (e.g., Alice) can deposit one token, say WETH, as collateral, to borrow another token, such as USDT. The USD value of the borrowed USDT is determined by the WETH-to-USD price and the amount of WETH deposited. If the price drops significantly, a liquidation mechanism is triggered, which allows anyone to purchase the collateral WETH at a price below the market price. 
 
 A lending pool functions in three essential operations: 1) An external account borrows tokens by depositing collateral, 2) A trusted off-chain party, called the price oracle, reports price ticks periodically to the pool, and 3) the pool triggers liquidation when the price reported is too low. In this lab, you will build a simple lending pool that implements these three core functions.
