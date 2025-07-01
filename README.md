@@ -30,8 +30,13 @@ Category B: Smart Contracts & DeFi
 - *Lab B2. DEX and MEV (Arbitrage)* [[link](labs/B2/README.md)]
 - Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 
+New labs (Alpha phase)
+---
+
+- Lab B7. Lending pools and liquidation [[link](labs/B3/README.md)]
+- Lab B4 (TBA). Sandwich attacks [[link](labs/B4/README.md)]
+
 <!--
-- Lab B4. DEX economic security under sandwich attacks [[link](labs/B4/README.md)]
 
 Category C: Blockchain Consensus
 ---
