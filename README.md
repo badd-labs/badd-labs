@@ -33,7 +33,7 @@ Category B: Smart Contracts & DeFi
 New labs (Alpha phase)
 ---
 
-- Lab B7. Lending pools and liquidation [[link](labs/B3/README.md)]
+- Lab B7. Lending pools and liquidation [[link](labs/B7/README.md)]
 - Lab B4 (TBA). Sandwich attacks [[link](labs/B4/README.md)]
 
 <!--
