@@ -12,7 +12,7 @@ In a lending pool, an account (e.g., Alice) can deposit one token, say WETH, as 
 
 A lending pool functions in three essential operations: 1) An external account borrows tokens by depositing collateral, 2) A trusted off-chain party, called the price oracle, reports price ticks periodically to the pool, and 3) the pool triggers liquidation when the price reported is too low. In this lab, you will build a simple lending pool that implements these three core functions.
 
-Exercise 1. Implement borrow and repay 
+Exercise 1. Implement borrow and repay  
 ---
 
 One example of the borrow and repay process is shown as follows. Suppose the collateral ratio is 75%, and the price is 1 WETH = 1000 USDT. Alice deposits 1 WETH to borrow USDT.
