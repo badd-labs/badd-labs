@@ -32,11 +32,11 @@ This secure version of AMM supports a revised function for token swaps where tra
 ```
 swapXY(uint dX, uint expected_dY)
 ```
-We add an assertion to revert the transaction if the actual ‘dY’ received is less than the expected value, as shown below:
+We add an assertion to revert the transaction if the actual `dY` received is less than the expected value, as shown below:
 ```
 require(dY >= expected_dY, "Price may change");
 ```
-The secure AMM also supports a new function to let traders inquire about the current spot price of the pool, specifically, how much dY they can expect to receive for a given `dX`:
+The secure AMM also supports a new function to let traders inquire about the current price of the pool, specifically, how much `dY` they can expect to receive for a given `dX`:
 ```
 get_expected_dY(uint dX) return (uint dY)
 {
