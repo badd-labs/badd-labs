@@ -4,6 +4,7 @@ Lab B4: Implement and Mitigate Sandwich Attack
 Introduction
 ---
 ![Sandwich Attack Diagram](./lab-amm-sandwich.jpg)
+
 A **Sandwich Attack** is a type of front-running exploit in blockchain networks. In this attack, a malicious account observes a pending transaction (i.e, Tx2) in the mempool and places two transactions, one before (front-run, Tx1) and one after (back-run, Tx3), to profit.
 
 Exercise 1: Swap Activities (Non-Attack) on Normal AMM Pool
