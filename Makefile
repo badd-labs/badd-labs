@@ -1,6 +1,6 @@
 push:
 	git add -A
-	git commit -am 'for workshop 2024'
+	git commit -am 'no comments'
 	git push
 
 sync:push
