@@ -76,14 +76,14 @@ def extract_transaction_info(tr_element):
         tx_type = tr_element.select_one('span[data-title]').text.strip()
 
         # Extract block number
-        block = tr_element.select_one('td:nth-child(4) a').text.strip()
+        block = tr_element.select_one('td:nth-child(5) a').text.strip()
 
         # Extract timestamp
         timestamp = tr_element.select_one('td.showAge span')['data-bs-title']
 
         # Extract from address
-        from_element = tr_element.select_one('td:nth-child(8) a')
-        from_addr = tr_element.select_one('td:nth-child(8) a').text.strip()
+        from_element = tr_element.select_one('td:nth-child(9) a')
+        from_addr = tr_element.select_one('td:nth-child(9) a').text.strip()
         if 'data-bs-title' in from_element.attrs:
             from_full = from_element['data-bs-title']
         else:
@@ -93,7 +93,7 @@ def extract_transaction_info(tr_element):
         from_address = re.search(pattern, from_full).group()
 
         # Extract to address
-        to_element = tr_element.select_one('td:nth-child(10) a')
+        to_element = tr_element.select_one('td:nth-child(11) a')
         to_addr = to_element.text.strip()
         # to_full = to_element['data-bs-title'] if 'data-bs-title' in to_element.attrs else to_addr
         if 'data-bs-title' in to_element.attrs:
