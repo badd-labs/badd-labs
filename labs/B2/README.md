@@ -66,7 +66,7 @@ In the above table, `[M,X].transfer(PV,1)` means EOA `M` externally calls `Token
 Exercise 2. Defending AMM against arbitrage
 ---
 
-The cause of arbitrage is the price differences across multiple AMM pools. To mitigate arbitrage, one can “reroute” swap requests to reduce or eliminate the price differences.
+The cause of arbitrage is the price differences across multiple AMM pools. To mitigate arbitrage, one defensive design [A] is to "reroute" swap requests to reduce or eliminate the price differences.
 
 Consider the example with two pools where OttoSwap's pool `PU` has $xU$ / $yU$ units of `TokenX` / `TokenY`. CuseSwap's pool `PV` has $xV$ / $yV$ units of `TokenX` / `TokenY`. Initially, the exchange rates at the two pools are different.
 
@@ -127,7 +127,12 @@ Deliverable
 
 1. For all exercises, you should submit screenshots showing your contract executing the described workflow successfully.
     - If you fail to submit smart-contract code (in `.sol` file), your submission will be subject to up to 70% grade deduction. 
-2. Submit your solidity smart contracts for each task. 
+2. Submit your Solidity smart contracts for each task. 
    - If you fail to submit the screenshots of the program execution, your submission will be subject to up to 50% grade deduction.
 3. For Exercise 2, report the values you calculate `?dxU` and `?dxV`.
+
+References
+---
+
+- [A]: A2mm: Mitigating frontrunning, transaction reordering and consensus instability in decentralized exchanges, Zhou, Liyi and Qin, Kaihua and Gervais, Arthur, https://arxiv.org/pdf/2106.07371 .
 
