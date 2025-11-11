@@ -29,9 +29,10 @@ In this exercise, you are required to implement the delegated smart contract `Ar
 ```
 pragma solidity >=0.7.0 <0.9.0; 
 contract ArbiAtomic {
-  AMMPool poolU; AMMPool poolV;
-  constructor(address _poolU, address _poolV){
+  AMMPool poolU; AMMPool poolV; BaddToken tokenX;BaddToken tokenY;
+  constructor(address _poolU, address _poolV, address _tokenX, address _tokenY){
    poolU = AMMPool(_poolU); poolV = AMMPool(_poolV);
+   tokenX = BaddToken(_tokenX); tokenY = BaddToken(_tokenY);
   }
 
   function arbitrageUVXY(uint dx) returns (uint) public payable {
