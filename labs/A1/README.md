@@ -113,6 +113,7 @@ Exercise 7 (Additional). Automatically explore contract-calling transactions in 
 ---
 
 In this exercise, you are required to report the number of transactions in block `15479087` that call the method `Approve`. You can modify the given code.
+- Hint: You can consider using tx["input"] to see the transaction details. We identify approve transactions by checking whether the transaction input starts with the ERC-20 approve function selector 0x095ea7b3.
 
 Deliverable
 ---
