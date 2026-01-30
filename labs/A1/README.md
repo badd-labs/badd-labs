@@ -45,23 +45,12 @@ Exercise 4. Automatically explore 50 transactions in one block
 ```python
 import requests
 import time
-
 API_KEY = "YOUR_KEY"
-
 URL = "https://api.etherscan.io/v2/api"
-
 SLEEP = 0.25
 
 def get_block_txs(block_number):
-    params = {
-        "chainid": "1",
-        "module": "proxy",
-        "action": "eth_getBlockByNumber",
-        "tag": hex(block_number),
-        "boolean": "true",
-        "apikey": API_KEY
-    }
-
+    params = {"chainid": "1", "module": "proxy", "action": "eth_getBlockByNumber", "tag": hex(block_number), "boolean": "true", "apikey": API_KEY}
     r = requests.get(URL, params=params)
     r.raise_for_status()
     data = r.json()
@@ -69,35 +58,21 @@ def get_block_txs(block_number):
     if "result" not in data or isinstance(data["result"], str):
         print(data)
         raise RuntimeError("Etherscan API error")
-
     return data["result"]["transactions"]
-
 
 def get_receipt(tx_hash):
     time.sleep(SLEEP)
-
-    params = {
-        "chainid": "1",
-        "module": "proxy",
-        "action": "eth_getTransactionReceipt",
-        "txhash": tx_hash,
-        "apikey": API_KEY
-    }
-
+    params = { "chainid": "1", "module": "proxy", "action": "eth_getTransactionReceipt", "txhash": tx_hash, "apikey": API_KEY } 
     r = requests.get(URL, params=params)
     r.raise_for_status()
     data = r.json()
-
     if "result" not in data or isinstance(data["result"], str):
         print(data)
         raise RuntimeError("Receipt error")
-
     return data["result"]
-
 
 if __name__ == "__main__":
     block_number = 15479087
-
     txs = get_block_txs(block_number)
     print("tx count:", len(txs))
     for tx in txs[:50]:
@@ -106,23 +81,13 @@ if __name__ == "__main__":
         value_eth = int(tx["value"], 16) / 10**18
         gas_used = int(receipt["gasUsed"], 16)
         eff_gas_price = int(receipt["effectiveGasPrice"], 16)
-        
-        print(
-            "hash:", tx["hash"],
-            "from:", tx["from"],
-            "to:", tx.get("to"),
-            "value_eth:", value_eth,
-            "gasUsed:", gas_used,
-            "effectiveGasPrice:", eff_gas_price,
-            "status:", receipt["status"]
-        )
-
+        print("hash:", tx["hash"], "from:", tx["from"], "to:", tx.get("to"), "value_eth:", value_eth, "gasUsed:", gas_used, "effectiveGasPrice:", eff_gas_price, "status:", receipt["status"]
+)
 ```
 
-In this exercise, you will run a python code to crawl data from the etherscan website automatically. The example code above crawls the etherscan web page  (i.e., https://etherscan.io/txs?block=15479087) to read the first 50 transactions in block `15479087`.
+In this exercise, you will run the above python code to obtain transaction data via RPC API (provided by RPC service at https://api.etherscan.io/v2/api). The code retrieves the information of the first 50 transactions in block `15479087`.
 
-To run the python code, you will need a Python runtime and some libraries. If your computer does not support Python (yet), you can find installation instructions on
-https://www.python.org/downloads/ for both Windows and Mac machines. In addition, the Python libraries can be installed in a Python console: 
+To run the python code, you will need a Python runtime and some libraries. If your computer does not support Python (yet), you can find installation instructions on https://www.python.org/downloads/ for both Windows and Mac machines. In addition, the Python libraries can be installed in a Python console: 
 
 ```bash
 >>> pip3 install requests
@@ -137,6 +102,7 @@ Exercise 5. Automatically explore all transactions in one block
 In this exercise, you are required to report the average fee of all transactions in block `15479087`. You can modify the given code.
 
 - Hint: transactions in block `15479087` are listed on three pages.
+- Hint: In Ethereum, a transaction's `fee' equals the transaction's `effectiveGasPrice' multiplied by its `gasUsed'.
 
 Exercise 6. Automatically explore transactions across two blocks
 ---
