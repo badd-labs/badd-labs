@@ -1,10 +1,10 @@
-Lab A1: Transaction History Exploration
+Lab A1: Exploring Transactions by RPC
 ===
 
 Introduction
 ---
 
-Etherscan (https://etherscan.io/) provides a web service to explore Ethereum transactions and blocks. In this lab, you will retrieve and analyze Ethereum transaction history on etherscan by interacting with this website. Particularly, you will extract insights on transaction fees.
+Etherscan (https://etherscan.io/) provides a RPC service to explore Ethereum transactions and blocks. In this lab, you will retrieve and analyze Ethereum transaction history on etherscan by interacting with its RPC service. Particularly, you will extract insights on transaction fees.
 
 | Exercises | Points | CS student | Finance student
 | --- | --- | --- | --- |
