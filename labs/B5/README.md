@@ -9,6 +9,7 @@ In a reentrancy (RE) attack, a malicious contract A interacts with a victim bank
 | 3 | 30 | Required | Bonus |
 | 4 | 20 | Bonus | Bonus |
 | 5 | 10 | Bonus | Bonus |
+| 6 | 10 | Bonus | Bonus |
 
 Exercise 1. Execute contract with fallback
 ---
@@ -102,11 +103,19 @@ function burn() external checkLock {
 }
 ```
 
-Exercise 5. Fixing Reentrancy Attack with Lock Evasion
+Exercise 5. Mitigation 1 of Reentrancy Attack in Exercise 4
 ---
 
-- Design one or multiple defenses against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
+- Design and implement a defense against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
+    - In this exercise, you should change **only** the code in the `burn()` function in Contract `EtherBankPeggedToken`.
+    - You can add new functions or modifiers but cannot change code in the existing functions other than `burn()`.
 
+Exercise 6. Mitigation 1 of Reentrancy Attack in Exercise 4
+---
+
+- Design and implement a defense against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
+    - In this exercise, you should change **only** the code in the `transferFrom()` function in Contract `EtherBankPeggedToken`.
+    - You can add new functions or modifiers but cannot change code in the existing functions other than `transferFrom()`.
   
 ## Deliverable
 
