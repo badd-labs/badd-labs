@@ -17,7 +17,7 @@ In particular,  through our labs, you will gain hands-on experience on the follo
 Category A: Introductory Labs
 ---
 
-- *Lab A1. Exploring transactions* [[link](labs/A1/README.md)] 
+- *Lab A1. RPC and transaction exploration* [[link](labs/A1/README.md)] 
 - *Lab A2. Smart-contract programming* [[link](labs/A2/README.md)]
 - Lab A3. Blockchain consensus on campus [[link](labs/A3/README.md)]
 
@@ -25,16 +25,16 @@ Category B: Smart Contracts & DeFi
 ---
 
 - *Lab B5. Reentrancy attacks and defense* [[link](labs/B5/README.md)]
-- *Lab B6. ZK proofs and applications* [[link](labs/B6/README.md)]
 - *Lab B1. AMM DEX ("Build-your-own-Uniswap" lab)* [[link](labs/B1/README.md)]
 - *Lab B2. DEX and MEV (Arbitrage)* [[link](labs/B2/README.md)]
-- Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
+- Lab B7 (Alpha release). Lending pools and liquidation [[link](labs/B7/README.md)]
+- Lab B4 (TBA). Sandwich attacks [[link](labs/B4/README.md)]
 
-New labs (Alpha phase)
+Category C: RPC
 ---
 
-- Lab B7. Lending pools and liquidation [[link](labs/B7/README.md)]
-- Lab B4 (TBA). Sandwich attacks [[link](labs/B4/README.md)]
+- *Lab B6. ZK proofs and applications* [[link](labs/B6/README.md)]
+- Lab B3. Orderbook DEX [[link](labs/B3/README.md)]
 
 <!--
 
