@@ -66,12 +66,12 @@ Exercise 3.  Design Reentrancy Defense with Implementation In Secure Bank
 Exercise 4. Evasive Reentrancy Attack to Bypass Locks
 ---
 
-Locking the access to Ether-transfer instructions that may cause reentrance is a widely adopted defense strategy against reentrance attacks. The following smart contract implementing an Ether bank on a Pegged Token does use a lock to prevent the reentrance of the `burn()` function. However, the seemingly fixed contract is still vulnerable to the reentrancy attack in a general sense. Design attack contracts to attack the `EtherBankPeggedToken` smart contract so that 1) an attacker EOA can withdraw more than his account balance, and 2) an attacker EOA can deplete the Ether balance of the `EtherBankPeggedToken` contract, that is, the balance of all accounts in the contract.
+Locking the access to Ether-transfer instructions that may cause reentrance is a widely adopted defense strategy against reentrance attacks. The following smart contract implementing an Ether bank on a Pegged Token does use a lock to prevent the reentrance of the `burn2Ether()` function. However, the seemingly fixed contract is still vulnerable to the reentrancy attack in a general sense. Design attack contracts to attack the `TokenMint2Ether` smart contract so that 1) an attacker EOA can withdraw more than his account balance, and 2) an attacker EOA can deplete the Ether balance of the `TokenMint2Ether` contract, that is, the balance of all accounts in the contract.
 
 - The re-entered function does not have to be the same as the function it first entered.
 
 ```
-contract EtherBankPeggedToken {
+contract TokenMint2Ether {
   mapping(address => uint256) balance;
   mapping(address => bool) lock;
   mapping(address => mapping(address => uint256)) allowance;
@@ -93,7 +93,7 @@ function transferFrom(address from, uint256 amnt) external checkLock {
   allowance[from][msg.sender] -= amnt;
   balance[msg.sender] += amnt; }
 
-function burn() external checkLock {
+function burn2Ether() external checkLock {
   // set lock
   lock[msg.sender] = true;
   msg.sender.call{value: balance[msg.sender]}("");
@@ -103,18 +103,18 @@ function burn() external checkLock {
 }
 ```
 
-Exercise 5. Mitigation 1 of Reentrancy Attack in Exercise 4
+Exercise 5. Mitigating Reentrancy Attack in Exercise 4: Design 1
 ---
 
-- Design and implement a defense against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
-    - In this exercise, you should change **only** the code in the `burn()` function in Contract `EtherBankPeggedToken`.
-    - You can add new functions or modifiers but cannot change code in the existing functions other than `burn()`.
+- Design and implement a defense against reentrancy attacks to fix the bugs in the `TokenMint2Ether` contract in Exercise 4.
+    - In this exercise, you should change **only** the code in the `burn2Ether()` function in Contract `TokenMint2Ether`.
+    - You can add new functions or modifiers but cannot change code in the existing functions other than `burn2Ether()`.
 
-Exercise 6. Mitigation 1 of Reentrancy Attack in Exercise 4
+Exercise 6. Mitigating Reentrancy Attack in Exercise 4: Design 2
 ---
 
-- Design and implement a defense against reentrancy attacks to fix the bugs in the `EtherBankPeggedToken` contract in Exercise 4.
-    - In this exercise, you should change **only** the code in the `transferFrom()` function in Contract `EtherBankPeggedToken`.
+- Design and implement a defense against reentrancy attacks to fix the bugs in the `TokenMint2Ether` contract in Exercise 4.
+    - In this exercise, you can change any code in Contract `TokenMint2Ether` **except for the `burn2Ether()` function**.
     - You can add new functions or modifiers but cannot change code in the existing functions other than `transferFrom()`.
   
 ## Deliverable
